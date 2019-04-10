@@ -1,7 +1,3 @@
-# # # # # # # # # # # # #
-#   K i k o - p l u s   #
-# # # # # # # # # # # # #
-
 # Basic
 name:               "Chi Shen"
 
@@ -27,7 +23,7 @@ copyright:
 
 # Google-analytics
 google-analytics:
-  id:               "shenchi1006@gmail¡£com"
+  id:               "shenchi1006@gmail.com"
 
 # Disqus
 disqus:
