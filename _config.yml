@@ -41,11 +41,11 @@ kramdown:
 
 # Navigation
 nav:
-  - name:           "About"
+  - name:           "ABOUT"
     url:            "/about"
-  - name:           "Archive"
+  - name:           "ARCHIVE"
     url:            "/archive"
-  - name:           "Tags"
+  - name:           "TAGS"
     url:            "/tags"
   - name:           "Github"
     url:            "https://github.com/shumchi/shumchi.github.io"
