@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2019-04-11-three-methods-to-plot-a-map-by-ggplot2"
+title: "three-methods-to-plot-a-map-by-ggplot2"
 description: "ggplot2地图可视化的三种方法."
 date: 2019-04-11
 tags: [ggplot2, map, visualization]
