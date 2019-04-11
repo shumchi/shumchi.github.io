@@ -1,14 +1,13 @@
-﻿---
+---
 layout: post
 title:  "Advence methods of imputating missing value"
-
 subtitle: " "
-
 date:   2019-04-11 12:00:00
-
 categories: [tools]
-
 ---
+
+Just a sample post to show some of the *typography* elements supported from
+**daktilo** theme.
 
 
 <br> <br>
