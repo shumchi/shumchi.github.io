@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Advence methods of imputating missing value"
+title:  "Advanced methods of imputation missing value"
 subtitle: " "
 date:   2019-04-11 12:00:00
 categories: [tools]
