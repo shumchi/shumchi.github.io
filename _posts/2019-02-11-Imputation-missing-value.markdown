@@ -250,7 +250,7 @@ value的处理也是非常重要的一个环节，因此规范的
 
     aggr(sleep, prop = FALSE, numbers = TRUE, labels = TRUE, )
 
-![](Imputation-missing-value_files/figure-markdown_strict/Example-4-1.png)
+![](2019-02-11-Imputation-missing-value/figure-markdown_strict/Example-4-1.png)
 
 **Fig.1 aggr()生成的sleep数据集的缺失值模式图形**
 
@@ -259,7 +259,7 @@ value的处理也是非常重要的一个环节，因此规范的
 
     matrixplot(sleep, main = "Fig.2 按实例（行）展示真实值和缺失值的矩阵图")
 
-![](Imputation-missing-value_files/figure-markdown_strict/Example-5-1.png)
+![](2019-02-11-Imputation-missing-value/figure-markdown_strict/Example-5-1.png)
 
 matrixplot()函数可生成展示每个实例数据的图形。
 此处，数值型数据被重新转换到\[0,
@@ -281,7 +281,7 @@ matrixplot()函数可生成展示每个实例数据的图形。
 
     marginplot(sleep[c("Gest", "Dream")], col = c("darkgrey", "red", "blue"), pch = c(20), main = "Fig.3 变量Gest与Deam的散点图及缺失信息")
 
-![](Imputation-missing-value_files/figure-markdown_strict/Example-6-1.png)
+![](2019-02-11-Imputation-missing-value/figure-markdown_strict/Example-6-1.png)
 
 图中，共显示了两部分信息，（a）散点图（b）边界显示缺失信息，具体为：
 
@@ -524,15 +524,15 @@ matching ）, 还有一些其他methods插补方法:
     library(lattice)
     xyplot(imp, Dream ~ Gest + Span, pch = 18, cex = 1)
 
-![](Imputation-missing-value_files/figure-markdown_strict/Example-9-1.png)
+![](2019-02-11-Imputation-missing-value/figure-markdown_strict/Example-9-1.png)
 
     densityplot(imp)
 
-![](Imputation-missing-value_files/figure-markdown_strict/Example-9-2.png)
+![](2019-02-11-Imputation-missing-value/figure-markdown_strict/Example-9-2.png)
 
     stripplot(imp, pch = 20, cex = 1.2)
 
-![](Imputation-missing-value_files/figure-markdown_strict/Example-9-3.png)
+![](2019-02-11-Imputation-missing-value/figure-markdown_strict/Example-9-3.png)
 
 **填补后数据集应用：**
 
