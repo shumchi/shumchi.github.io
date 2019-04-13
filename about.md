@@ -5,10 +5,10 @@ subtitle: Who am I?
 permalink: /about/
 ---
 
-Ph.D. Candidate
+Ph.D. Candidate  
 Xi'an Jiaotong Unoversity
 
-Research inserest: Health economics, Health policy, Data science.
+Research interests: Health economics, Health policy, Data science.
 
 You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
 
