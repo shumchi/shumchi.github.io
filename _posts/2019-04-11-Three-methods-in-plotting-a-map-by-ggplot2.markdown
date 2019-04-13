@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Three methods in plotting a map by ggplot2"
-subtitle: ""
+subtitle: " "
 date:   2019-04-11 11:56:45
 author: Chi Shen
 categories: [method]
