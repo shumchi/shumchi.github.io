@@ -3,7 +3,8 @@ layout: post
 title:  "Advanced methods of imputation missing value"
 subtitle: " "
 date:   2019-04-11 12:00:00
-categories: [tools]
+author: Chi Shen
+categories: [method]
 ---
 
 
