@@ -3,7 +3,8 @@ layout: post
 title:  "Three methods in plotting a map by ggplot2"
 subtitle: "ggplot2地图可视化的三种方法"
 date:   2019-04-11 11:56:45
-categories: [tools]
+author: Chi Shen
+categories: [method]
 ---
 
 
@@ -35,7 +36,7 @@ categories: [tools]
 
 ## 3.地图数据的读入方式
 
-+ sp::readShapePoly()  ==此方法目前虽可用，但不推荐==
++ sp::readShapePoly()  *此方法目前虽可用，但不推荐*
 + rgdal::readOGR()
 + sf::st_read() 
 
@@ -48,7 +49,7 @@ categories: [tools]
 	或：
 	ggplot(data = map_data) +
 	  geom_polygon(aes(x=long, y=lat, group=group, fill = fill_var))
-	==因为data参数会继承==
+	因为data参数会继承==
 
 此方法必须通过@data及fortity()函数将描述层与几何层分别读取后，添加需要映射的变量，然后合并后进行画图。
 
@@ -61,10 +62,10 @@ categories: [tools]
 	ggplot(fill_file, aes(fill = fill_var)) + 
 		geom_map(aes(map_id = merge_id), map = map_file)	
 
-fill_file为包含需要作图变量的数据框，map_file 为地图素材，即通过第4节中直接读取的文件，使用geom_map()函数不需要进行合并，因为合并的过程由**map_id**所制定的参数自动进行合并，merge_id为fill_file中的识别变量。
+fill_file为包含需要作图变量的数据框，map_file 为地图素材，即通过第4节中直接读取的文件，使用geom_map()函数不需要进行合并，因为合并的过程由**map_id**所指定的参数自动进行合并，merge_id为fill_file中的识别变量。
 
 **Note:  map_file中必须包含三个变量x或long、y或lat、region或id**
-==map_id指定的merge_id必须是能与region或id变量进行合并==
+**map_id指定的merge_id必须是能与region或id变量进行合并**
 
 例子：
 
@@ -89,7 +90,7 @@ fill_file为包含需要作图变量的数据框，map_file 为地图素材，�
 		geom_map(aes(map_id = ids, fill = value), map = positions, color = "red") +
 		expand_limits(positions)
 
-==以上两种方法使用coord_map()函数指定坐标投影系==
+**以上两种方法使用coord_map()函数指定坐标投影系**
 
 ### geom_sf()函数
 
