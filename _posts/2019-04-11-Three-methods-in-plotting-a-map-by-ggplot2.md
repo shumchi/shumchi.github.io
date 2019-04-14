@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  "Three methods in plotting a map by ggplot2"
 excerpt: ""
