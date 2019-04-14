@@ -11,8 +11,6 @@ comments: true
 
 
 
-
-
 > "The goal of matching is to reduce imbalance in the empirical
 > distribution of the pre-treatment confounders between the treated and
 > control groups."
@@ -72,7 +70,9 @@ Be Used for Matching”)中指出了PSM的不足，原文如下：
 propensity scores should be used for matching” **(Ben Jann, 2017).**
 ,至于CEM与PSM孰优孰劣，只能依据个人研究自行判断了。
 
-![](How-to-do-a-Coarsened-Exact-Matching_files/figure-markdown_strict/Number-of-article-1.png)![](How-to-do-a-Coarsened-Exact-Matching_files/figure-markdown_strict/Number-of-article-2.png)
+![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-04-14-How-to-do-a-Coarsened-Exact-Matching/figure-markdown_strict/Number-of-article-1.png?raw=true)
+
+![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-04-14-How-to-do-a-Coarsened-Exact-Matching/figure-markdown_strict/Number-of-article-2.png?raw=true)
 
 <br>
 
@@ -123,7 +123,7 @@ L1取值在0~1之间，0代表完全平衡，1代表完全不平衡。若L1为0.
          labs(y = "Prop", x = "Strates") +
          theme_chi
 
-![](How-to-do-a-Coarsened-Exact-Matching_files/figure-markdown_strict/imbalance-1.png)
+![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-04-14-How-to-do-a-Coarsened-Exact-Matching/figure-markdown_strict/imbalance-1.png?raw=true)
 
 <br>
 
