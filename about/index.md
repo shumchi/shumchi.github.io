@@ -6,9 +6,9 @@ date: 2019-04-11
 comments: false
 ---
     
-<center><a href="http://shumchi.github.io"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
+<center><a href="http://shumchi.github.io"><b>Here</b></a> is my reserved land.</center>
 
-## Features
+## Information
 * Ph.D. Candidate
 * Xi'an Jiaotong University
 * Research interests: health economics, data science, health utilization behavior.
