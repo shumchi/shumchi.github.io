@@ -516,23 +516,6 @@ Weights](https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2
     mat2 <- cem(treatment = "treated", data = df_1, drop = "re78",
                  eval.imbalance = TRUE, k2k = TRUE, method = "euclidean", mpower = 1)
 
-    ## Warning in min(x, na.rm = TRUE): no non-missing arguments to min; returning
-    ## Inf
-
-    ## Warning in min(x, na.rm = TRUE): no non-missing arguments to min; returning
-    ## Inf
-
-    ## Warning in min(x, na.rm = TRUE): no non-missing arguments to min; returning
-    ## Inf
-
-    ## Warning in min(x, na.rm = TRUE): no non-missing arguments to min; returning
-    ## Inf
-
-    ## Warning in chisq.test(cbind(t1[keep], t2[keep])): Chi-squared approximation
-    ## may be incorrect
-
-    ## Warning in chisq.test(cbind(t1[keep], t2[keep])): Chi-squared approximation
-    ## may be incorrect
 
 进行1:1匹配时，实际采用最近距离法在各层内选取，判断距离的方法可选（‘euclidean’,
 ‘maximum’, ‘manhattan’, ‘canberra’, ‘binary’ and ‘minkowski’)
