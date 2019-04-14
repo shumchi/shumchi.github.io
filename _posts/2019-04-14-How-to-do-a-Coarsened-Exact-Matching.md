@@ -50,8 +50,8 @@ Matching)进行了比较，提出了CEM的优势。
 
 在CEM方法提出之前，已有较多的匹配方法，其中最具有代表性的就是 **Paul R.
 Rosenbaum and Rubin (1983)** 提出的Propensity score matching (PSM)，
-截至目前，使用PSM的发表的论文已超过10000篇，是目前最常用的匹配方法。从下图中也能看出两种方法在发表论文中使用的差距。Gary
-Kingworking paper在一篇Working papaer (“Why Propensity Scores Should Not
+截至目前，使用PSM发表的论文已超过10000篇，是目前最常用的匹配方法。从下图中也能看出两种方法在发表论文中使用的差距。Gary
+King在一篇Working papaer (“Why Propensity Scores Should Not
 Be Used for Matching”)中指出了PSM的不足，原文如下：
 
 > We show here that PSM, as it is most commonly used in practice (or
@@ -93,10 +93,10 @@ CEM没有PSM那么复杂的反事实假设，其算法一共可分为三步：
 
 <br>
 
-## 4. 平衡度测量
+## 4. 不平衡度测量
 -------------
 
-CEM中引入了一个参数L1来衡量Treat组和Control组之间在协变量上的平衡度，其计算公式如下：
+CEM中引入了一个参数L1来衡量Treat组和Control组之间在协变量上的不平衡度，其计算公式如下：
 
 > *L*<sub>1</sub>(*f*, *g*) = 
 > ∑|*f*<sub>*e*</sub>(1...*k*)−*g*<sub>*e*</sub>(1...*k*)|
@@ -213,7 +213,7 @@ square。
 函数进行CEM匹配，参数treatment用来指定分组变量，drop用来排除结局变量。
 
 从结果可以看出，Control组从全部392个样本中匹配上95例，Treat组从全部258个样本中匹配上84例，匹配后样本的整体
-L1为0.605，相比匹配前，有所下降。另外，从statistic列的结果也可看出，各匹配变量中两组之间无统计学差异。
+L1为0.605，相比匹配前，有所下降。另外，从statistic列的结果也可看出，在各匹配变量中两组之间无统计学差异。
 
     mat <- cem(treatment = "treated", data = df, drop = "re78", eval.imbalance = TRUE)
     mat
