@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  "How to do a Coarsened Exact Matching"
 date:   2019-04-14 16:42:00
