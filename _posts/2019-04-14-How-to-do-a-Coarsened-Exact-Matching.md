@@ -9,7 +9,9 @@ feature: https://en.wikipedia.org/wiki/Lion#/media/File:Lion_waiting_in_Namibia.
 comments: true
 ---
 
+### Chi Shen, April 14 2019
 
+<br>
 
 > "The goal of matching is to reduce imbalance in the empirical
 > distribution of the pre-treatment confounders between the treated and
