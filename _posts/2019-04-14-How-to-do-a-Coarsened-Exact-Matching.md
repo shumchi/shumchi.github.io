@@ -534,7 +534,7 @@ Weights](https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2
     ## Warning in chisq.test(cbind(t1[keep], t2[keep])): Chi-squared approximation
     ## may be incorrect
 
-进行1:1匹配时，实际采用最近距离发在各层内选取，判断距离的方法可选（‘euclidean’,
+进行1:1匹配时，实际采用最近距离法在各层内选取，判断距离的方法可选（‘euclidean’,
 ‘maximum’, ‘manhattan’, ‘canberra’, ‘binary’ and ‘minkowski’)
 ，默认为NULL，即随机选取。
 
