@@ -1,10 +1,11 @@
-﻿---
+---
 layout: post
 title:  "Advanced methods of imputation missing value"
 date:   2019-04-11 12:00:00
 excerpt: ""
 author: Chi Shen
 tags: [R, Missing Value, Imputation]
+feature: https://en.wikipedia.org/wiki/Lion#/media/File:Lion_waiting_in_Namibia.jpg
 comments: true
 ---
 
