@@ -5,7 +5,7 @@ description:        "Share and save some study notes about health economics and 
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/logo.png'
-background:         'assets/img/Snow-Train.jpg'
+background:         'assets/img/black-hole.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
 url:                https://shumchi.github.io
