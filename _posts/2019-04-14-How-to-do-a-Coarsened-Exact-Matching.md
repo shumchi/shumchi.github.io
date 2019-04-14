@@ -23,7 +23,7 @@ comments: true
 
 <br>
 
-1. 背景介绍
+## 1. 背景介绍
 -----------
 
 Coarsened Exact Matching (CEM) 方法由University of Milan的Stefano M.
@@ -45,7 +45,7 @@ Matching)进行了比较，提出了CEM的优势。
 
 <br>
 
-2. PSM与CEM
+## 2. PSM与CEM
 -----------
 
 在CEM方法提出之前，已有较多的匹配方法，其中最具有代表性的就是 **Paul R.
@@ -78,7 +78,7 @@ propensity scores should be used for matching” **(Ben Jann, 2017).**
 
 <br>
 
-3. 算法
+## 3. 算法
 -------
 
 CEM没有PSM那么复杂的反事实假设，其算法一共可分为三步：
@@ -93,7 +93,7 @@ CEM没有PSM那么复杂的反事实假设，其算法一共可分为三步：
 
 <br>
 
-4. 平衡度测量
+## 4. 平衡度测量
 -------------
 
 CEM中引入了一个参数L1来衡量Treat组和Control组之间在协变量上的平衡度，其计算公式如下：
@@ -129,7 +129,7 @@ L1取值在0~1之间，0代表完全平衡，1代表完全不平衡。若L1为0.
 
 <br>
 
-5. 匹配
+## 5. 匹配
 -------
 
 **采用R语言中的cem包，示例的dataset为cem包中自带的LeLonde**
@@ -541,7 +541,7 @@ Weights](https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2
 <font color="#FF0000">
 需要注意的一点是，使用k2k进行1:1匹配后，后续统计分析时就无需进行权重加权了。</font>
 
-6. 参考文献
+## 6. 参考文献
 -----------
 
 -   Stuart, Elizabeth A. (2010): “Matching Methods for Causal Inference:
