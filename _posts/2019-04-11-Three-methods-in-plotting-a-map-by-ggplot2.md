@@ -4,7 +4,7 @@ title:  "Three methods in plotting a map by ggplot2"
 excerpt: ""
 date:   2019-04-11 11:56:45
 author: Chi Shen
-tags: [R, Missing Value, Imputation]
+tags: [R, ggplot2, Map]
 comments: true
 ---
 
