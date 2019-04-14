@@ -5,7 +5,7 @@ date:   2019-04-14 16:42:00
 excerpt: ""
 author: Chi Shen
 tags: [R, CEM, Matching]
-feature: https://en.wikipedia.org/wiki/Lion#/media/File:Lion_waiting_in_Namibia.jpg
+feature: https://img.huffingtonpost.com/asset/578782b91a00002700dd151c.jpeg
 comments: true
 ---
 
