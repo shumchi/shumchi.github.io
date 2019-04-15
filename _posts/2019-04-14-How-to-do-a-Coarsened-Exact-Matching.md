@@ -424,7 +424,7 @@ square.
 
 -   grouping参数赋值同理，list(c("strongly agree", "agree"),
     c("neutral","no opinion"),
-    c("strongly))，不过我个人比如习惯提取使用factor() 设定好分类。
+    c("strongly))，不过我个人比较习惯提取使用factor() 设定好分类。
 
 ### 5.5 权重weights的应用
 
