@@ -2,7 +2,8 @@
 layout: post
 title:  "How to do a Coarsened Exact Matching"
 date:   2019-04-14 16:42:00
-excerpt: ""
+excerpt: "Coarsened Exact Matching (CEM) 方法由University of Milan的Stefano M. 
+          Iacus，Harvard University的Gary King， 以及University of Trieste的Giuseppe Porro提出"
 author: Chi Shen
 tags: [R, CEM, Matching]
 feature: https://img.huffingtonpost.com/asset/578782b91a00002700dd151c.jpeg
@@ -17,7 +18,7 @@ comments: true
 > distribution of the pre-treatment confounders between the treated and
 > control groups."
 
-> ----- Stuart, Elizabeth A. (2010)
+>                                       ----- Stuart, Elizabeth A. (2010)
 
 ------------------------------------------------------------------------
 
