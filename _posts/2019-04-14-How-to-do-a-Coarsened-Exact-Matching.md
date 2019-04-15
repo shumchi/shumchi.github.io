@@ -18,7 +18,7 @@ comments: true
 > distribution of the pre-treatment confounders between the treated and
 > control groups."
 
->                                       ----- Stuart, Elizabeth A. (2010)
+> <p align = "right">----- Stuart, Elizabeth A. (2010) </p>
 
 ------------------------------------------------------------------------
 
