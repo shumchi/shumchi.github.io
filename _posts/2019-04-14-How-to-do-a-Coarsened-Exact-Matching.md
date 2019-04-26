@@ -52,7 +52,7 @@ Matching)进行了比较，提出了CEM的优势。
 在CEM方法提出之前，已有较多的匹配方法，其中最具有代表性的就是 **Paul R.
 Rosenbaum and Rubin (1983)** 提出的Propensity score matching (PSM)，
 截至目前，使用PSM发表的论文已超过10000篇，是目前最常用的匹配方法。从下图中也能看出两种方法在发表论文中使用的差距。Gary
-King在一篇Working papaer (“Why Propensity Scores Should Not
+King在一篇Working paper (“Why Propensity Scores Should Not
 Be Used for Matching”)中指出了PSM的不足，原文如下：
 
 > We show here that PSM, as it is most commonly used in practice (or
@@ -103,7 +103,7 @@ CEM中引入了一个参数L1来衡量Treat组和Control组之间在协变量上
 > ∑|*f*<sub>*e*</sub>(1...*k*)−*g*<sub>*e*</sub>(1...*k*)|
 
 L1取值在0~1之间，0代表完全平衡，1代表完全不平衡。若L1为0.6，即说明有40%的粗化后各层的频率分布
-直方图在Treat组和Control组之间是重叠的，L1即是更加各层的相对频率差值求和而得，示例如下：
+直方图在Treat组和Control组之间是重叠的，L1即是根据各层的相对频率差值求和而得，示例如下：
 
     假设有三个协变量（X1...X），粗化后个协变量的分类为（2, 3, 5），那么粗化后共有2*3*5=30个层，
     我们随机为Treat组和Control组在360个层生成一个正整数，最后计算频率并画出直方图。
@@ -338,7 +338,7 @@ square.
 **CEM**包中给出了不用单独提取出匹配后样本进行回归的函数 *att()*
 ,不过我个人比较倾向将匹配后的样本单独存储为一个对象， 但是 **CEM**
 包中并未给出像 **MatchIt**中的 *match.out()*
-函数，至少我还没有找到，所以只能自己动手，丰衣足食啦！
+函数，至少我还没有找到，所以只能自己动手，丰衣足食  
 
     ## List of 21
     ##  $ call          : language cem.match(data = data, verbose = verbose)
@@ -437,16 +437,16 @@ King的原话如下：
 
 **关于权重需要注意的三点：**
 
--   当匹配为不对称时，对匹配后的样本进行的所有的统计分析，都应对权重进行加权，再PSM中进行一对多匹配时同理
+-   当匹配为不对称时，对匹配后的样本进行的所有的统计分析，都应对权重进行加权，在PSM中进行一对多匹配时同理
 -   CEM中权重的理解十分简单，未匹配上的个案权重全为0，
     匹配上的Treat组个案权重都为1，
     匹配上的Control组个案的权重是对粗化后各层内
     Treat和Control组的样本比与全部样本中Treat和Control组的样本比相乘而来((m\_C/m\_T)\*Ws)
--   匹配后样本的权重之后就等于匹配后样本量的大小，如本例中sum of weigths
+-   匹配后样本的权重之和就等于匹配后样本量的大小，如本例中sum of weigths
     = sample of matched = 179
 
-关于权重的具体计算方法，详见（需要科学上网）[An Explanation for CEM
-Weights](https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2qeNoI5dE/edit)
+关于权重的具体计算方法，详见[An Explanation for CEM
+Weights](https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2qeNoI5dE/edit) （需要科学上网）  
 
 ### 5.6 k2k进行1:1匹配
 
