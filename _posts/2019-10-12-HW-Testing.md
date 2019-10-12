@@ -5,7 +5,7 @@ date:   2019-10-12 16:30:00
 excerpt: ""
 author: Chi Shen
 tags: [R, Primary num, Examination]
-feature: https://en.wikipedia.org/wiki/Pacific_Ocean#/media/File:Iss007e10807.jpg
+feature: https://upload.wikimedia.org/wikipedia/commons/0/0d/Iss007e10807.jpg
 comments: true
 
 ---
