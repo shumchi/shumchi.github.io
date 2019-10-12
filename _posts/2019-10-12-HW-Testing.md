@@ -4,7 +4,7 @@ title:  " HW公司校园招聘考试题目一题小计"
 date:   2019-10-12 16:30:00
 excerpt: ""
 author: Chi Shen
-tags: [R, Missing Value, Imputation]
+tags: [R, Primary num, Examination]
 feature: https://en.wikipedia.org/wiki/Pacific_Ocean#/media/File:Iss007e10807.jpg
 comments: true
 
