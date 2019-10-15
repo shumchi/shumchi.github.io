@@ -36,7 +36,7 @@ comments: true
 
 
 
-![Front House](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y1.jpg)
+![Front House](~/2019-10-14-M1 - Hello New Haven/Y1.jpg)
 
 ![East Rock](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y2.jpg)
 
