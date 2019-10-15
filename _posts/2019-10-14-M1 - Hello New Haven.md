@@ -36,11 +36,11 @@ comments: true
 
 
 
-![Front House](~/2019-10-14-M1 - Hello New Haven/Y1.jpg)
+![Front House](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y1.jpg)
 
-![East Rock](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y2.jpg)
+![East Rock](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y2.jpg)
 
-![Shuttle](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y11.jpg)
+![Shuttle](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y11.jpg)
 
 ---
 
@@ -48,9 +48,9 @@ comments: true
 
 整个纽村的Downtown特别小，没有大的mall，也没有大的城，有的只有Yale的各个楼，两三百年前的楼，可以说这里是潜心做学问的首选之地。
 
-![Downtown-1](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y9.jpg)
+![Downtown-1](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y9.jpg)
 
-![Downtown-2](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y7.jpg)
+![Downtown-2](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y7.jpg)
 
 ---
 
@@ -60,11 +60,11 @@ comments: true
 
 由于之前没有做好功课，错过了Harvard和Yale那两只著名的脚的典故，自然这一次是没有抹到老校长的左脚了。
 
-![Old Campus-1](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y4.jpg)
+![Old Campus-1](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y4.jpg)
 
-![Old Campus-2](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y3.jpg)
+![Old Campus-2](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y3.jpg)
 
-![Sterling Library](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y6.jpg)
+![Sterling Library](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Y6.jpg)
 
 ---
 
@@ -84,7 +84,7 @@ American food只能吃一次，第二次就腻了。多亏了小兰同学接济�
 
 安顿好生活后，激情满满的给自己列了个Schedule，计划着按计划过着计划的生活。但是执行了一周，发现太累，没有了科研时间，从第二周开始就只剩下听Seminar，蹭午饭和上英语课的热情了。
 
-![Schedule](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Schedule for backgroud - 20190928.png)
+![Schedule](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-14-M1%20-%20Hello%20New%20Haven/Schedule for backgroud - 20190928.png)
 
 ---
 
