@@ -110,7 +110,7 @@ psych包中给出了一个特别有用的函数fa.parallel(),可以很方便的�
 
     fa.parallel(df, n.obs = 302, n.iter = 100, main = "Parallel Analysis Scree Plots", fa = 'pc', show.legend = TRUE)
 
-![](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-21-Step-by-Step-to-do-Pricipal-Component-Analysis/figure-markdown_strict/step-2-1.png/step-2-1.png)
+![image](https://github.com/shumchi/shumchi.github.io/raw/master/_posts/2019-10-21-Step-by-Step-to-do-Pricipal-Component-Analysis/figure-markdown_strict/step-2-1.png/step-2-1.png)
 
     ## Parallel analysis suggests that the number of factors =  NA  and the number of components =  2
 
