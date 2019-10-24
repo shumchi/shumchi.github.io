@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Step-by-Step-to-do-Pricipal-Component-Analysis"
+title:  "Step by Step to do Pricipal Component Analysis"
 date:   2019-10-21 16:10:00
 excerpt: "主成分分析（Principal component analysis）是由Pearson在1901年提出的，后来被Hotelling在1933进行了发展。"
 author: Chi Shen
