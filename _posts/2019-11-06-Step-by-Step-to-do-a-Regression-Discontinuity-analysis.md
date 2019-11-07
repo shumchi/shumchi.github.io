@@ -22,8 +22,7 @@ comments: true
 
 **New Haven, CT**
 
-1. 简介
--------
+## 1. 简介
 
 断点回归（Regression
 Discontinuity）适用于以下情形：人群是否接受干预（Treatment）是依据某一
@@ -33,8 +32,7 @@ variable）是否高于或低于某一确定的阈值（threshold）或者分割
 assignment variable，score， running variable，forcing variable， or
 index）就是高考分数，阈值或者分割点就是本科录取分数线。
 
-2. 发展历史
------------
+## 2. 发展历史
 
 Regression Discontinuity最早由社会学家Thistlethwaite and Campbell
 在1960年提出的，
@@ -47,8 +45,7 @@ Issue](https://www.sciencedirect.com/journal/journal-of-econometrics/vol/142/iss
 Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本经济学国际顶级期刊之一**
 )。
 
-3. 特点与分类
--------------
+## 3. 特点与分类
 
 **RD有两个特点：**
 
@@ -71,8 +68,7 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
     I是no-shows，只存在处理组有未接受处理的个体， type
     II是同时存在no-shows和crossovers。实际就是RCT中常说的沾染问题。
 
-4. 适用RD分析的先决条件(Conditions for Internal Validity)
----------------------------------------------------------
+## 4. 适用RD分析的先决条件(Conditions for Internal Validity)
 
 由于RD仍然属于非实验方法，尽管也被成为类实验(quasi-experimental)，但本质还是非实验方法(nonexperimental)，
 所以它必须满足一系列前期条件，才能提供无偏估计和更可能的接近RCT的严格情形
@@ -113,8 +109,7 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
     因为只有干预是不连续的。**注意：此条件只需要在选择参数估计方法是要满足(applies
     only to parametric estimators)**
 
-5. 断点回归的图形分析(Graphical Presentations in the RD)
---------------------------------------------------------
+## 5.断点回归的图形分析(Graphical Presentations in the RD)
 
 **图形分析是进行RD的第一步，也是非常重要的组成部分**
 
@@ -127,8 +122,7 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
     Validity)条件
 -   结局变量与驱动变量的关系图，可以帮助预估干预效应的大小，以及判断结局变量与驱动变量之间的函数关系。而且必须是结局变量在纵轴，驱动变量在横轴。**注意：通常这一幅图是用来初步判断整个研究是否能够获得预期的干预效应的，如果在这幅图中无法观测到明显的jump，基本后续的分析也是徒劳。**
 
-6. 进行RD分析的步骤及示例
--------------------------
+## 6. 进行RD分析的步骤及示例
 
 **示列软件**: R version 3.5.3 (2019-03-11)  
 **示列分析包**：在R语言中一共有三个package可以进行RD分析：
@@ -156,6 +150,8 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
 
 ### 6.1 Step 1: 确定驱动变量(Rating variable)和断点(Cut-point)
 
+---
+
 根据研究设计，判断是否存在采用RD进行因果识别或者效应估计的可能，即是否可以找到合适的驱动变量和明确的断点来识别施加干预的状态。
 
 通常情况下时间（具体到天）、年龄（如研究退休，代表性的文章:
@@ -164,6 +160,8 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
 城市面板的证据”](http://www.cnki.com.cn/Article/CJFDTOTAL-NKJJ201704002.htm)）比较容易作为驱动变量。
 
 ### 6.2 Step 2: 内部有效性(Internal Validity)条件的检验
+
+---
 
 #### 条件一：通过画驱动变量的频率分布直方图或者密度分布图，以及McCrary检验
 
@@ -231,11 +229,13 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
     
     $Estplot
 
-![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-11-06-Step-by-Step-to-do-a-Regression-Discontinuity-analysis_files/figure-markdown_strict/Chunk-1-4.png?raw=true)
-
 #### 条件二三四根据研究设计及背景资料进行判断
 
+
+
 ### 6.3 Step 3: 画驱动变量与干预的关系图，判断sharp或者fuzzy类型
+
+---
 
 画驱动变量与干预的散点图，判断是否为sharp或者fuzzy类型。
 
@@ -252,6 +252,8 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
 ![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-11-06-Step-by-Step-to-do-a-Regression-Discontinuity-analysis_files/figure-markdown_strict/Chunk-2-1.png?raw=true)
 
 ### 6.4 Step 4: 画驱动变量与结果变量的关系图，选择合适的bin数量
+
+---
 
 #### 一、横轴为驱动变量，纵轴为结果变量，画散点图，初步判断两者之间关系
 
@@ -331,6 +333,8 @@ or bin)将使得关系取线更平顺
 
 ### 6.5 Step 5: 模型估计效应大小
 
+---
+
 **效应大小的估计方法一共有两种：**
 
 -   全局参数估计(Parametric/global strategy):
@@ -365,7 +369,9 @@ or bin)将使得关系取线更平顺
 
 **以上方法主要针对sharp类型，fuzzy类型的估计方法见最后一节**
 
-<br> \#\#\#\# 全局参数估计
+<br>
+
+#### （1）全局参数估计
 
 分为一次线性、一次线性加交互项、以及二次、三次线性及交互项，共6个模型，比较AIC或者回归残差，较小者模型较优。
 
@@ -435,7 +441,9 @@ or bin)将使得关系取线更平顺
     fit_5  6 10046.19
     fit_6  9 10045.74
 
-<br> \#\#\#\# 局部非参数估计
+<br> 
+
+#### （2）局部非参数估计
 
 利用**rdrobust**包的*rdrobust*函数进行拟合。由于该包是由Sebastian
 Calonico, Matias D. Cattaneo and Rocío Titiunik开发，
@@ -447,7 +455,7 @@ Cattaneo, and Titiunik三人姓氏的缩写。
 -   一是先利用*rdbwselect*函数计算出最优带宽，然后用*rdrobust*函数中的h参数手动指定左右的带宽。  
 -   二是直接利用*rdrobust*函数中的bdselect参数指定选择最优带宽的方法。
 
-\*\*\*\*rdrobust**包中一共提供了10种选择最优带宽的方法，如下**:
+**rdrobust**包中一共提供了10种选择最优带宽的方法，如下:
 
 -   其中，共包含MSE = Mean Square Error和CER = Coverage Error
     Rate两大类，MSE更适用于进行点估计的带宽选择，
@@ -530,6 +538,8 @@ Designs](https://journal.r-project.org/archive/2015/RJ-2015-004/RJ-2015-004.pdf)
     =============================================================================
 
 ### 6.6 Step 6: 敏感性分析
+
+---
 
 敏感性分析主要用来检验模型估计结果的稳健性，RD分析主要有四种敏感性分析方式;
 
