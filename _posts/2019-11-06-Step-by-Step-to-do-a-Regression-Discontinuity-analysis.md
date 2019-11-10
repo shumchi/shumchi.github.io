@@ -24,49 +24,28 @@ comments: true
 
 ## 1. 简介
 
-断点回归（Regression
-Discontinuity）适用于以下情形：人群是否接受干预（Treatment）是依据某一
-数值变量（rating
-variable）是否高于或低于某一确定的阈值（threshold）或者分割点（cut-point），
-例如在研究是否上大学会影响收入时，数值变量（rating variable，也叫
-assignment variable，score， running variable，forcing variable， or
-index）就是高考分数，阈值或者分割点就是本科录取分数线。
+断点回归（Regression Discontinuity）适用于以下情形：人群是否接受干预（Treatment）是依据某一
+数值变量（rating variable）是否高于或低于某一确定的阈值（threshold）或者分割点（cut-point），
+例如在研究是否上大学会影响收入时，数值变量（rating variable，也叫 assignment variable，score， running variable，forcing variable， or index）就是高考分数，阈值或者分割点就是本科录取分数线。
 
 ## 2. 发展历史
 
-Regression Discontinuity最早由社会学家Thistlethwaite and Campbell
-在1960年提出的，
-用于评估社会项目，但是他们的研究虽然引起一些影响但是没有得到广泛的注意，后来，在1972-2009年期间，
-被一系列经济学家(Goldberger，van der Klaauw，Imbens and
-Kalyanaraman等)在方法学方面进行了完善， 最终在2008年达到顶峰，
-标志是在2008年Journal of Econometrics出了一 期RD分析的[Special
-Issue](https://www.sciencedirect.com/journal/journal-of-econometrics/vol/142/issue/2)，
-光看期刊名字就知道是 经济学顶刊了(**Journal of
-Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本经济学国际顶级期刊之一**
-)。
+Regression Discontinuity最早由社会学家Thistlethwaite and Campbell在1960年提出的，用于评估社会项目，但是他们的研究虽然引起一些影响但是没有得到广泛的注意，后来，在1972-2009年期间，被一系列经济学家(Goldberger，van der Klaauw，Imbens and Kalyanaraman等)在方法学方面进行了完善， 最终在2008年达到顶峰，标志是在2008年Journal of Econometrics出了一 期RD分析的[Special Issue](https://www.sciencedirect.com/journal/journal-of-econometrics/vol/142/issue/2)，光看期刊名字就知道是 经济学顶刊了(**Journal of Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本经济学国际顶级期刊之一**)。
 
 ## 3. 特点与分类
 
 **RD有两个特点：**
 
--   在Rating
-    variable的一个明确点上，outcome出现了跳跃或者不连续(discontinuity at
+-   在Rating variable的一个明确点上，outcome出现了跳跃或者不连续(discontinuity at
     a cut-point)
--   可以认为在一个限定的rating
-    variable区间上，个体是服从局部随机的(local randomization)
+-   可以认为在一个限定的rating variable区间上，个体是服从局部随机的(local randomization)
 
 **RD有两种类型：**
 
--   精确断点(sharp design): 即所有个体(All
-    subject)在明确的cut-point之后全部接受干预(treatment)
-
--   模糊断点(fuzzy design): 即在cut-point前后，存在 no-shows (treatment
-    group members who do not receive the treatment) 或者crossovers
-    (control group members who do receive the treatment) ，
-    换句话说就无法找到一个明确的cut-point完全区分干预和对照组。
-    更严格的分法是，fuzzy也可以分成两类：type
-    I是no-shows，只存在处理组有未接受处理的个体， type
-    II是同时存在no-shows和crossovers。实际就是RCT中常说的沾染问题。
+-   精确断点(sharp design): 即所有个体(All subject)在明确的cut-point之后全部接受干预(treatment)
+    
+-   模糊断点(fuzzy design): 即在cut-point前后，存在 no-shows (treatment group members who do not receive the treatment) 或者crossovers (control group members who do receive the treatment) ，
+    换句话说就无法找到一个明确的cut-point完全区分干预和对照组。 更严格的分法是，fuzzy也可以分成两类：type I是no-shows，只存在处理组有未接受处理的个体， type II是同时存在no-shows和crossovers。实际就是RCT中常说的沾染问题。
 
 ## 4. 适用RD分析的先决条件(Conditions for Internal Validity)
 
@@ -144,9 +123,9 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
 
 -   数据集简介：该数据集包含了1914–2010年间美国参议院选举的数据，可以利用RD的方法分析民主党赢得参议院席位对于
     在下次选举中获得的相同席位的影响。该数据共包含两个变量：  
-    &gt; +
-    vote：记录了州级层面下的参议院议席中民主党所占的比例，值从0到100，是RD分析中结局变量 &gt; +
-    margin：记录了民主党在上次选举中获得相同参议院席位的胜利边际，值从-100到100，当大于0时，说明民主党胜利，小于0则输了，是RD分析中的驱动变量
+    
+    > vote：记录了州级层面下的参议院议席中民主党所占的比例，值从0到100，是RD分析中结局变量 &gt; +
+    > margin：记录了民主党在上次选举中获得相同参议院席位的胜利边际，值从-100到100，当大于0时，说明民主党胜利，小于0则输了，是RD分析中的驱动变量
 
 ### 6.1 Step 1: 确定驱动变量(Rating variable)和断点(Cut-point)
 
@@ -154,10 +133,7 @@ Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本
 
 根据研究设计，判断是否存在采用RD进行因果识别或者效应估计的可能，即是否可以找到合适的驱动变量和明确的断点来识别施加干预的状态。
 
-通常情况下时间（具体到天）、年龄（如研究退休，代表性的文章:
-[“退休影响会健康吗”](http://cpfd.cnki.com.cn/Article/CPFDTOTAL-BDGF201007002017.htm)）、地理距离（研究雾霾，代表性文章:
-[“冬季供暖导致雾霾？来自华北
-城市面板的证据”](http://www.cnki.com.cn/Article/CJFDTOTAL-NKJJ201704002.htm)）比较容易作为驱动变量。
+通常情况下时间（具体到天）、年龄（如研究退休，代表性的文章: [“退休影响会健康吗”](http://cpfd.cnki.com.cn/Article/CPFDTOTAL-BDGF201007002017.htm)）、地理距离（研究雾霾，代表性文章: [“冬季供暖导致雾霾？来自华北城市面板的证据”](http://www.cnki.com.cn/Article/CJFDTOTAL-NKJJ201704002.htm)）比较容易作为驱动变量。
 
 ### 6.2 Step 2: 内部有效性(Internal Validity)条件的检验
 
