@@ -18,5 +18,5 @@ project: true
 
 ## Reports
 
-- [Study-Note-of-DataCamp](https://shumchi.github.io/notebooks/Study-Note-of-DataCamp)
+- [Study-Note-of-DataCamp](https://shumchi.github.io/notebooks/Study-Note-of-DataCamp.html)
 
