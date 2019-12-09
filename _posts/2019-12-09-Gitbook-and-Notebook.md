@@ -4,7 +4,6 @@ title:  "All Gitbooks and Notebooks"
 date:   2019-11-17 19:40:00
 excerpt: "You can find some types of books and notebooks I wrote here"
 author: Chi Shen
-comments: true
 project: true
 
 ---
