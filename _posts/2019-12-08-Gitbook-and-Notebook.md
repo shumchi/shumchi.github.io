@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "List of Gitbooks and Notebooks"
-date:   2019-11-08
+date:   2019-12-08
 excerpt: "You can find some types of books and notebooks I wrote here."
 project: true
 tag:
