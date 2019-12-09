@@ -5,7 +5,6 @@ date:   2019-12-09
 excerpt: "You can find some types of books and notebooks I wrote here"
 author: Chi Shen
 project: true
-post: false
 
 ---
 
@@ -19,5 +18,5 @@ post: false
 
 ## Reports
 
-- [Study-Note-of-DataCamp](https://shumchi.github.io/notebooks/Study-Note-of-DataCamp/)
+- [Study-Note-of-DataCamp](https://shumchi.github.io/notebooks/Study-Note-of-DataCamp)
 
