@@ -1,6 +1,10 @@
 # Site navigation links
 
+- title: Projects
+  url: /projects/
+
 - title: Gitbooks
   url: /gitbooks/
+
 - title: Notebooks
   url: /notebooks/
