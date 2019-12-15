@@ -76,8 +76,8 @@ comments: true
 ![clock](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20Firsr%20Snow/clock-1.png?raw=true)
 
 ## 半晚的雪景有点暗
-![snow-1](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-1.png?raw=true)
+![snow-1](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-1.jpeg?raw=true)
 
-![snow-2](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-2.png?raw=true)
+![snow-2](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-2.jpeg?raw=true)
 
-![snow-3](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-3.png?raw=true)
+![snow-3](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-3.jpeg?raw=true)
