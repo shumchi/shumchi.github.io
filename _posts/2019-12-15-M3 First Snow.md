@@ -4,7 +4,7 @@ title:  "[#3] - 下雪了，不止一场"
 date:   2019-12-15 15:10:00
 excerpt: "有没有哪个哲人说过，开始下雪的时候就该回家了"
 author: Chi Shen
-tags: [New Haven, November, Evidence-based]
+tags: [Home, December, Snow]
 feature: https:https://news.yale.edu/sites/default/files/d6_files/P4.jpg
 comments: true
 ---
@@ -49,7 +49,7 @@ comments: true
         Sys.sleep(1) 
     }
 
-![letter](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20Firsr%20Snow/letter-1.png?raw=true)
+![letter](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/letter-1.png?raw=true)
 
     z=seq(0, 2*pi,length=60)
     plot(x = sin(z), y = cos(z), type="l", main = 'Next decade is on the way', xlab = ' ', ylab = ' ')
@@ -76,9 +76,8 @@ comments: true
 ![clock](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20Firsr%20Snow/clock-1.png?raw=true)
 
 ## 半晚的雪景有点暗
+![snow-1](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-1.png?raw=true)
 
-![snow-1](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20Firsr%20Snow/s-1.png?raw=true)
+![snow-2](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-2.png?raw=true)
 
-![snow-2](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20Firsr%20Snow/s-2.png?raw=true)
-
-![snow-3](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20Firsr%20Snow/s-3.png?raw=true)
+![snow-3](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-12-15-M3%20First%20Snow/s-3.png?raw=true)
