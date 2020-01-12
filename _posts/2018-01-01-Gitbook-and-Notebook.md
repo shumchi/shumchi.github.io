@@ -20,5 +20,6 @@ comments: true
 
 ## Reports
 
-- [Study-Note-of-DataCamp](https://shumchi.github.io/notebooks/Study-Note-of-DataCamp.html)
+- [Study Note of DataCamp](https://shumchi.github.io/notebooks/Study-Note-of-DataCamp.html)
+- [Study Note of Python in Data Science](https://shumchi.github.io/notebooks/Python-Learning-Note.html)
 
