@@ -5,7 +5,7 @@ date:   2019-12-15 15:10:00
 excerpt: "有没有哪个哲人说过，开始下雪的时候就该回家了"
 author: Chi Shen
 tags: [Home, December, Snow]
-feature: https:https://news.yale.edu/sites/default/files/d6_files/P4.jpg
+feature: https://news.yale.edu/sites/default/files/d6_files/P4.jpg
 comments: true
 ---
 
