@@ -185,12 +185,14 @@ panel["current"] = np.where(panel["period"] == 0, 1, 0) * panel["treated"]
 ```python
 import statsmodels.formula.api as smf
 
-formula = "y ~ did" + " + " + " + ".join(vars_pre) + " + current + " + " + ".join(vars_post) + "+ C(year) + C(country)"
+formula = "y ~ " + " + ".join(vars_pre) + " + current + " + " + ".join(vars_post) + "+ C(year) + C(country)"
 did = smf.ols(formula, data=panel).fit(cov_type="cluster", cov_kwds={"groups" : panel["country"]})
 did.summary()
 ```
 
-<table class="dataframe">
+
+
+<table class="simpletable">
 <caption>OLS Regression Results</caption>
 <tr>
   <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared:         </th> <td>   0.538</td>
@@ -199,13 +201,13 @@ did.summary()
   <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.292</td>
 </tr>
 <tr>
-  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   2.062</td>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   2.117</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sun, 23 Feb 2020</td> <th>  Prob (F-statistic):</th>  <td> 0.202</td> 
+  <th>Date:</th>             <td>Sun, 23 Feb 2020</td> <th>  Prob (F-statistic):</th>  <td> 0.194</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>20:53:31</td>     <th>  Log-Likelihood:    </th> <td> -1599.7</td>
+  <th>Time:</th>                 <td>22:17:18</td>     <th>  Log-Likelihood:    </th> <td> -1599.7</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    70</td>      <th>  AIC:               </th> <td>   3249.</td>
@@ -225,37 +227,37 @@ did.summary()
          <td></td>            <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
 </tr>
 <tr>
-  <th>Intercept</th>       <td>-1.004e+09</td> <td> 1.46e+09</td> <td>   -0.689</td> <td> 0.491</td> <td>-3.86e+09</td> <td> 1.85e+09</td>
+  <th>Intercept</th>       <td>-1.004e+09</td> <td> 1.44e+09</td> <td>   -0.697</td> <td> 0.486</td> <td>-3.83e+09</td> <td> 1.82e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1991]</th> <td> 1.003e+09</td> <td> 2.55e+09</td> <td>    0.393</td> <td> 0.694</td> <td>-3.99e+09</td> <td>    6e+09</td>
+  <th>C(year)[T.1991]</th> <td> 1.003e+09</td> <td> 2.52e+09</td> <td>    0.398</td> <td> 0.691</td> <td>-3.94e+09</td> <td> 5.94e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1992]</th> <td> 4.278e+08</td> <td> 1.59e+09</td> <td>    0.270</td> <td> 0.787</td> <td>-2.68e+09</td> <td> 3.54e+09</td>
+  <th>C(year)[T.1992]</th> <td> 4.278e+08</td> <td> 1.57e+09</td> <td>    0.273</td> <td> 0.785</td> <td>-2.65e+09</td> <td>  3.5e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1993]</th> <td> 4.003e+09</td> <td> 2.03e+09</td> <td>    1.972</td> <td> 0.049</td> <td> 2.48e+07</td> <td> 7.98e+09</td>
+  <th>C(year)[T.1993]</th> <td> 4.003e+09</td> <td> 2.01e+09</td> <td>    1.995</td> <td> 0.046</td> <td> 7.03e+07</td> <td> 7.94e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1994]</th> <td> 4.616e+09</td> <td> 2.21e+09</td> <td>    2.091</td> <td> 0.037</td> <td> 2.89e+08</td> <td> 8.94e+09</td>
+  <th>C(year)[T.1994]</th> <td> 4.616e+09</td> <td> 2.18e+09</td> <td>    2.115</td> <td> 0.034</td> <td> 3.38e+08</td> <td> 8.89e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1995]</th> <td> 5.214e+09</td> <td> 1.89e+09</td> <td>    2.757</td> <td> 0.006</td> <td> 1.51e+09</td> <td> 8.92e+09</td>
+  <th>C(year)[T.1995]</th> <td> 5.214e+09</td> <td> 1.87e+09</td> <td>    2.788</td> <td> 0.005</td> <td> 1.55e+09</td> <td> 8.88e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1996]</th> <td> 3.412e+09</td> <td> 1.38e+09</td> <td>    2.466</td> <td> 0.014</td> <td>    7e+08</td> <td> 6.12e+09</td>
+  <th>C(year)[T.1996]</th> <td> 3.412e+09</td> <td> 1.37e+09</td> <td>    2.494</td> <td> 0.013</td> <td> 7.31e+08</td> <td> 6.09e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1997]</th> <td> 4.195e+09</td> <td> 1.57e+09</td> <td>    2.669</td> <td> 0.008</td> <td> 1.11e+09</td> <td> 7.28e+09</td>
+  <th>C(year)[T.1997]</th> <td> 4.195e+09</td> <td> 1.55e+09</td> <td>    2.700</td> <td> 0.007</td> <td> 1.15e+09</td> <td> 7.24e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1998]</th> <td> 3.075e+09</td> <td> 1.53e+09</td> <td>    2.007</td> <td> 0.045</td> <td> 7.28e+07</td> <td> 6.08e+09</td>
+  <th>C(year)[T.1998]</th> <td> 3.075e+09</td> <td> 1.51e+09</td> <td>    2.031</td> <td> 0.042</td> <td> 1.07e+08</td> <td> 6.04e+09</td>
 </tr>
 <tr>
-  <th>C(year)[T.1999]</th> <td> 1.376e+09</td> <td> 2.81e+09</td> <td>    0.490</td> <td> 0.624</td> <td>-4.13e+09</td> <td> 6.89e+09</td>
+  <th>C(year)[T.1999]</th> <td> 1.376e+09</td> <td> 2.78e+09</td> <td>    0.495</td> <td> 0.620</td> <td>-4.07e+09</td> <td> 6.82e+09</td>
 </tr>
 <tr>
-  <th>C(country)[T.B]</th> <td>-1.514e+09</td> <td>      nan</td> <td>      nan</td> <td>   nan</td> <td>      nan</td> <td>      nan</td>
+  <th>C(country)[T.B]</th> <td>-1.514e+09</td> <td>    2.635</td> <td>-5.75e+08</td> <td> 0.000</td> <td>-1.51e+09</td> <td>-1.51e+09</td>
 </tr>
 <tr>
   <th>C(country)[T.C]</th> <td>-3.835e+08</td> <td>      nan</td> <td>      nan</td> <td>   nan</td> <td>      nan</td> <td>      nan</td>
@@ -264,46 +266,43 @@ did.summary()
   <th>C(country)[T.D]</th> <td> 1.912e+09</td> <td>      nan</td> <td>      nan</td> <td>   nan</td> <td>      nan</td> <td>      nan</td>
 </tr>
 <tr>
-  <th>C(country)[T.E]</th> <td>-4.477e+08</td> <td> 3.33e+08</td> <td>   -1.344</td> <td> 0.179</td> <td> -1.1e+09</td> <td> 2.05e+08</td>
+  <th>C(country)[T.E]</th> <td>-1.067e+09</td> <td>      nan</td> <td>      nan</td> <td>   nan</td> <td>      nan</td> <td>      nan</td>
 </tr>
 <tr>
-  <th>C(country)[T.F]</th> <td> 2.388e+09</td> <td> 3.33e+08</td> <td>    7.170</td> <td> 0.000</td> <td> 1.74e+09</td> <td> 3.04e+09</td>
+  <th>C(country)[T.F]</th> <td> 1.769e+09</td> <td>      nan</td> <td>      nan</td> <td>   nan</td> <td>      nan</td> <td>      nan</td>
 </tr>
 <tr>
-  <th>C(country)[T.G]</th> <td> 5.351e+08</td> <td> 3.33e+08</td> <td>    1.606</td> <td> 0.108</td> <td>-1.18e+08</td> <td> 1.19e+09</td>
+  <th>C(country)[T.G]</th> <td>-8.405e+07</td> <td>    2.583</td> <td>-3.25e+07</td> <td> 0.000</td> <td> -8.4e+07</td> <td> -8.4e+07</td>
 </tr>
 <tr>
-  <th>did</th>             <td>-1.342e+09</td> <td> 7.22e+08</td> <td>   -1.859</td> <td> 0.063</td> <td>-2.76e+09</td> <td> 7.31e+07</td>
+  <th>pre_4</th>           <td> 2.141e+09</td> <td> 1.71e+09</td> <td>    1.253</td> <td> 0.210</td> <td>-1.21e+09</td> <td> 5.49e+09</td>
 </tr>
 <tr>
-  <th>pre_4</th>           <td> 1.521e+09</td> <td> 1.73e+09</td> <td>    0.880</td> <td> 0.379</td> <td>-1.87e+09</td> <td> 4.91e+09</td>
+  <th>pre_3</th>           <td> 1.241e+09</td> <td> 2.43e+09</td> <td>    0.510</td> <td> 0.610</td> <td>-3.53e+09</td> <td> 6.01e+09</td>
 </tr>
 <tr>
-  <th>pre_3</th>           <td> 6.216e+08</td> <td> 2.18e+09</td> <td>    0.286</td> <td> 0.775</td> <td>-3.64e+09</td> <td> 4.89e+09</td>
+  <th>pre_2</th>           <td> 2.651e+09</td> <td> 6.91e+08</td> <td>    3.835</td> <td> 0.000</td> <td>  1.3e+09</td> <td> 4.01e+09</td>
 </tr>
 <tr>
-  <th>pre_2</th>           <td> 2.032e+09</td> <td> 8.76e+08</td> <td>    2.318</td> <td> 0.020</td> <td> 3.14e+08</td> <td> 3.75e+09</td>
+  <th>pre_1</th>           <td> 2.618e+08</td> <td> 2.28e+09</td> <td>    0.115</td> <td> 0.909</td> <td>-4.21e+09</td> <td> 4.73e+09</td>
 </tr>
 <tr>
-  <th>pre_1</th>           <td>-3.574e+08</td> <td> 2.18e+09</td> <td>   -0.164</td> <td> 0.870</td> <td>-4.63e+09</td> <td> 3.92e+09</td>
+  <th>current</th>         <td>-9.168e+07</td> <td> 1.84e+09</td> <td>   -0.050</td> <td> 0.960</td> <td>-3.71e+09</td> <td> 3.52e+09</td>
 </tr>
 <tr>
-  <th>current</th>         <td> 6.307e+08</td> <td> 1.89e+09</td> <td>    0.334</td> <td> 0.738</td> <td>-3.07e+09</td> <td> 4.33e+09</td>
+  <th>post_1</th>          <td>-6.432e+09</td> <td> 2.91e+09</td> <td>   -2.211</td> <td> 0.027</td> <td>-1.21e+10</td> <td>-7.31e+08</td>
 </tr>
 <tr>
-  <th>post_1</th>          <td> -5.71e+09</td> <td> 2.85e+09</td> <td>   -2.006</td> <td> 0.045</td> <td>-1.13e+10</td> <td>-1.31e+08</td>
+  <th>post_2</th>          <td>  -1.9e+08</td> <td> 1.56e+09</td> <td>   -0.122</td> <td> 0.903</td> <td>-3.25e+09</td> <td> 2.87e+09</td>
 </tr>
 <tr>
-  <th>post_2</th>          <td> 5.324e+08</td> <td>  1.9e+09</td> <td>    0.280</td> <td> 0.780</td> <td> -3.2e+09</td> <td> 4.26e+09</td>
+  <th>post_3</th>          <td> 1.035e+09</td> <td> 1.17e+09</td> <td>    0.887</td> <td> 0.375</td> <td>-1.25e+09</td> <td> 3.32e+09</td>
 </tr>
 <tr>
-  <th>post_3</th>          <td> 1.758e+09</td> <td> 1.33e+09</td> <td>    1.322</td> <td> 0.186</td> <td>-8.48e+08</td> <td> 4.36e+09</td>
+  <th>post_4</th>          <td>-2.716e+09</td> <td>  3.4e+09</td> <td>   -0.798</td> <td> 0.425</td> <td>-9.38e+09</td> <td> 3.95e+09</td>
 </tr>
 <tr>
-  <th>post_4</th>          <td>-1.993e+09</td> <td> 3.21e+09</td> <td>   -0.621</td> <td> 0.535</td> <td>-8.28e+09</td> <td>  4.3e+09</td>
-</tr>
-<tr>
-  <th>post_5</th>          <td> 3.441e+09</td> <td> 2.22e+09</td> <td>    1.551</td> <td> 0.121</td> <td>-9.08e+08</td> <td> 7.79e+09</td>
+  <th>post_5</th>          <td> 2.718e+09</td> <td>  2.4e+09</td> <td>    1.134</td> <td> 0.257</td> <td>-1.98e+09</td> <td> 7.42e+09</td>
 </tr>
 </table>
 <table class="simpletable">
@@ -317,9 +316,9 @@ did.summary()
   <th>Skew:</th>          <td>-0.144</td> <th>  Prob(JB):          </th> <td>   0.763</td>
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td> 3.320</td> <th>  Cond. No.          </th> <td>2.02e+16</td>
+  <th>Kurtosis:</th>      <td> 3.320</td> <th>  Cond. No.          </th> <td>9.40e+15</td>
 </tr>
-</table><br/><br/>Warnings:<br/>[1] Standard Errors are robust to cluster correlation (cluster)<br/>[2] The smallest eigenvalue is 2.27e-31. This might indicate that there are<br/>strong multicollinearity problems or that the design matrix is singular.
+</table><br/><br/>Warnings:<br/>[1] Standard Errors are robust to cluster correlation (cluster)<br/>[2] The smallest eigenvalue is 9.79e-31. This might indicate that there are<br/>strong multicollinearity problems or that the design matrix is singular.
 
 
 
@@ -361,6 +360,8 @@ coef_plot(did, vars, vars, ax)
 ```
 
 ![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2020-02-23-DID-Parallel-Test/output_6_0.png?raw=true)
+
+
 
 
 
