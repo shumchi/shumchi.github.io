@@ -142,7 +142,7 @@ ax.axvline(x=1994, linestyle='--', color='black', linewidth=1)
 sns.despine()
 ```
 
-![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2020-02-23-DID-Parallel-Test/output_1_0.svg?raw=true)
+![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2020-02-23-DID-Parallel-Test/output_1_0.png?raw=true)
 
 
 
@@ -361,7 +361,7 @@ fig, ax = plt.subplots(figsize=[12, 8])
 coef_plot(did, vars, vars, ax)
 ```
 
-![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2020-02-23-DID-Parallel-Test/output_6_0.svg?raw=true)
+![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2020-02-23-DID-Parallel-Test/output_6_0.png?raw=true)
 
 ## 
 
