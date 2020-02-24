@@ -190,9 +190,7 @@ did = smf.ols(formula, data=panel).fit(cov_type="cluster", cov_kwds={"groups" : 
 did.summary()
 ```
 
-
-
-<table class="simpletable">
+<table class="dataframe">
 <caption>OLS Regression Results</caption>
 <tr>
   <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared:         </th> <td>   0.538</td>
@@ -324,6 +322,7 @@ did.summary()
 </table><br/><br/>Warnings:<br/>[1] Standard Errors are robust to cluster correlation (cluster)<br/>[2] The smallest eigenvalue is 2.27e-31. This might indicate that there are<br/>strong multicollinearity problems or that the design matrix is singular.
 
 
+
 **画coef plot**
 
 为了更为直观的观察各年份虚拟变量交互项是否具有统计学意义（即是否包含0），可以将上述回归模型的系数作图，通常称为coef plot，`stata`和`R`中均有相应的package，都名为*coefplot*，操作十分简便。
@@ -362,8 +361,6 @@ coef_plot(did, vars, vars, ax)
 ```
 
 ![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2020-02-23-DID-Parallel-Test/output_6_0.png?raw=true)
-
-## 
 
 
 
