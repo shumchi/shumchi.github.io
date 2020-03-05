@@ -25,7 +25,7 @@ comments: true
 ## 1. 简介
 
 断点回归（Regression Discontinuity）适用于以下情形：人群是否接受干预（Treatment）是依据某一
-数值变量（rating variable）是否高于或低于某一确定的阈值（threshold）或者分割点（cut-point），
+数值变量（rating variable）是否高于或低于某一确定的阈值（threshold）或者分割点（cut-point）决定的，
 例如在研究是否上大学会影响收入时，数值变量（rating variable，也叫 assignment variable，score， running variable，forcing variable， or index）就是高考分数，阈值或者分割点就是本科录取分数线。
 
 ## 2. 发展历史
@@ -43,50 +43,34 @@ Regression Discontinuity最早由社会学家Thistlethwaite and Campbell在1960�
 **RD有两种类型：**
 
 -   精确断点(sharp design): 即所有个体(All subject)在明确的cut-point之后全部接受干预(treatment)
-    
+  
 -   模糊断点(fuzzy design): 即在cut-point前后，存在 no-shows (treatment group members who do not receive the treatment) 或者crossovers (control group members who do receive the treatment) ，
     换句话说就无法找到一个明确的cut-point完全区分干预和对照组。 更严格的分法是，fuzzy也可以分成两类：type I是no-shows，只存在处理组有未接受处理的个体， type II是同时存在no-shows和crossovers。实际就是RCT中常说的沾染问题。
 
 ## 4. 适用RD分析的先决条件(Conditions for Internal Validity)
 
-由于RD仍然属于非实验方法，尽管也被成为类实验(quasi-experimental)，但本质还是非实验方法(nonexperimental)，
-所以它必须满足一系列前期条件，才能提供无偏估计和更可能的接近RCT的严格情形
+由于RD仍然属于非实验方法，尽管也被成为类实验(quasi-experimental)，但本质还是非实验方法(nonexperimental)，所以它必须满足一系列前提条件，才能提供无偏估计和更可能的接近RCT的严格情形
 
 -   **一、** Rating variable
-    (中文的翻译很多，但比较通用的翻译为驱动变量或者配置变量)不能被干预(treatment)所影响，
-    Rating variable
-    的值必须是在干预(treatment)**之前**就已经确定了，或者是不可再更改的变量。
-    也就是只能是驱动变量的值决定是否接受干预，不能是干预决定驱动变量的值。
-
-    比如：高考成绩(Rating
-    variable)是在判断是否能够上大学(treatment)之前就已经确定了，并且分数不会再发生变化，
+    (中文的翻译很多，但比较通用的翻译为驱动变量或者配置变量)不能被干预(treatment)所影响，Rating variable 的值必须是在干预(treatment)**之前**就已经确定了，或者是不可再更改的变量。也就是只能是驱动变量的值决定是否接受干预，不能是干预决定驱动变量的值。
+    
+    比如：高考成绩(Rating variable)是在判断是否能够上大学(treatment)之前就已经确定了，并且分数不会再发生变化，
     如果存在严重的根据分数线修改高考成绩的情况，则高考分数就不能作为Rating
-    variable。  
-    **检验方法是：画Rating
-    variable的频率分布直方图或者密度图，再进行McCrary 检验**
-
+variable。  
+    **检验方法是：画Rating variable的频率分布直方图或者密度图，再进行McCrary 检验**
+    
 -   **二、**
-    断点(cut-point)是完全外生的，并且干预与否完全取决于驱动变量和断点。即断点不受其他因素影响而改变干预的判断，
-    即把本不该接受干预的对象划入了干预，或者把该接受干预的对象划入了对照。
-
-    比如，如果高考录取线(cut-point)的确定是完全已经严格的录取指标划定的，
-    而不存在为了使得某部分人群能够获得上大学的机会，而修改录取线。
-
+    断点(cut-point)是完全外生的，并且干预与否完全取决于驱动变量和断点。即断点不受其他因素影响而改变干预的判断，即把本不该接受干预的对象划入了干预，或者把该接受干预的对象划入了对照。
+    
+比如，如果高考录取线(cut-point)的确定是完全依据严格的录取指标划定的，而不存在为了使得某部分人群能够获得上大学的机会，而修改录取线。
+    
 -   **三、**
     在驱动变量的cut-point前后，除了干预与否(treatment)是不连续或者跳跃的(比如断点前为0，断点后为1)，
-    其他任何因素都不能出现不连续或者跳跃(Nothing other than treatment
-    status is discontinuous in the analysis interval)，
-    因为要保证outcome的跳跃只能是干预的不连续或者跳跃导致的。
+    其他任何因素都不能出现不连续或者跳跃(Nothing other than treatment status is discontinuous in the analysis interval)，因为要保证outcome的跳跃只能是干预的不连续或者跳跃导致的。
+    
+    比如，如果高考分数线除了决定是否能上大学外，还决定是否享有创业扶持机会，那么如果研究上大学对某种结局的影响，就无法分离出到底是大学教育导致，还是获得创业扶持机会导致的。
 
-    比如，如果高考分数线除了决定是否能上大学外，还决定是否享有创业扶持机会，
-    那么如果研究上大学对某种结局的影响，就无法分离出到底是大学教育导致，还是获得创业扶持机会导致的。
-
--   **四、** 驱动变量(rating
-    variable)与结局变量(outcome)之间的函数关系应该是连续的，严格的说，
-    应该是在进行RD分析的这段区间内(interval)是连续的。换句话说就是，如果不存在干预的情况，
-    驱动变量与结局变量之间不会出现不连续或者跳跃，才能在结局变量出现不连续的情况下，反推出是干预引起的，
-    因为只有干预是不连续的。**注意：此条件只需要在选择参数估计方法是要满足(applies
-    only to parametric estimators)**
+- **四、** 驱动变量(rating variable)与结局变量(outcome)之间的函数关系应该是连续的，严格的说，应该是在进行RD分析的这段区间内(interval)是连续的。换句话说就是，如果不存在干预的情况，驱动变量与结局变量之间不会出现不连续或者跳跃，才能在结局变量出现不连续的情况下，反推出是干预引起的，因为只有干预是不连续的。**注意：此条件只需要在选择参数估计方法时要满足(applies only to parametric estimators)**
 
 ## 5.断点回归的图形分析(Graphical Presentations in the RD)
 
@@ -95,10 +79,8 @@ Regression Discontinuity最早由社会学家Thistlethwaite and Campbell在1960�
 **通常，进行RD至少需要画4种图：**
 
 -   驱动变量与干预之间的关系图，在这一步可以确定是应该采取Sharp还是Fuzzy断点回归设计
--   非结局变量与驱动变量的关系图，可以用来判断是否满足第3条内部有效性(Internal
-    Validity)条件
--   驱动变量的密度分布图，是为了判断驱动变量是否连续，以及在cut-point附近是否存在被操控，可以用来判读石佛满足第1条内部有效性(Internal
-    Validity)条件
+-   非结局变量与驱动变量的关系图，可以用来判断是否满足第3条内部有效性(Internal Validity)条件
+-   驱动变量的密度分布图，是为了判断驱动变量是否连续，以及在cut-point附近是否存在被操控，可以用来判读石佛满足第1条内部有效性(Internal Validity)条件
 -   结局变量与驱动变量的关系图，可以帮助预估干预效应的大小，以及判断结局变量与驱动变量之间的函数关系。而且必须是结局变量在纵轴，驱动变量在横轴。**注意：通常这一幅图是用来初步判断整个研究是否能够获得预期的干预效应的，如果在这幅图中无法观测到明显的jump，基本后续的分析也是徒劳。**
 
 ## 6. 进行RD分析的步骤及示例
@@ -108,11 +90,8 @@ Regression Discontinuity最早由社会学家Thistlethwaite and Campbell在1960�
 
 -   **rdd**:
     由Dimmery在2016年发布，最后一次更新是2016-3-14，貌似目前没有获得积极的更新
--   **rddtools**：由Stigler &
-    Quast最早在2013年发布，最后一次更新是2015-07-27，貌似目前也没有获得积极的更新
--   **rdrobust**：由Sebastian Calonico, Matias D. Cattaneo, Max H.
-    Farrell等在2016年发布的，最后一次更新是2018-09-26，
-    是目前功能最完善的RD分析包，同时也开发了Stata版本。该包的作者同时也是RD方法学上的大佬，多种bandwidth选择方法的发明者，著名的CCT就是。
+-   **rddtools**：由Stigler & Quast最早在2013年发布，最后一次更新是2015-07-27，貌似目前也没有获得积极的更新
+-   **rdrobust**：由Sebastian Calonico, Matias D. Cattaneo, Max H. Farrell等在2016年发布的，最后一次更新是2018-09-26，是目前功能最完善的RD分析包，同时也开发了Stata版本。该包的作者同时也是RD方法学上的大佬，多种bandwidth选择方法的发明者，著名的CCT就是。
 
 > rdrobust简介：目前该包的开发项目可在<a href="https://sites.google.com/site/rdpackages/home" class="uri">https://sites.google.com/site/rdpackages/home</a>主页上查看，该包共有三个函数：
 > + rdplot：用来画图 + rdrobust：用来进行局部非参数估计 +
@@ -121,8 +100,7 @@ Regression Discontinuity最早由社会学家Thistlethwaite and Campbell在1960�
 
 **示列数据集**：采用rdrobust包中自带的*rdrobust\_RDsenate*数据集：
 
--   数据集简介：该数据集包含了1914–2010年间美国参议院选举的数据，可以利用RD的方法分析民主党赢得参议院席位对于
-    在下次选举中获得的相同席位的影响。该数据共包含两个变量：  
+-   数据集简介：该数据集包含了1914–2010年间美国参议院选举的数据，可以利用RD的方法分析民主党赢得参议院席位对于在下次选举中获得的相同席位的影响。该数据共包含两个变量：  
     
     > vote：记录了州级层面下的参议院议席中民主党所占的比例，值从0到100，是RD分析中结局变量 &gt; +
     > margin：记录了民主党在上次选举中获得相同参议院席位的胜利边际，值从-100到100，当大于0时，说明民主党胜利，小于0则输了，是RD分析中的驱动变量
@@ -519,23 +497,14 @@ Designs](https://journal.r-project.org/archive/2015/RJ-2015-004/RJ-2015-004.pdf)
 
 敏感性分析主要用来检验模型估计结果的稳健性，RD分析主要有四种敏感性分析方式;
 
--   1.  对前面所述的Internal
-        Validity条件三的检验，即除了干预(Treatment)变量外，其他的任何非结局变量(包括混杂因素在内)都不能在cut-point处
-        出现不连续或称为跳跃，如果存在，则无法推断结局变量的跳跃是由干预(Treatment)引起的，检验方式就是将所有的混杂因素作为结局，利用*rdrobust*函数进行检验，
-        输出结果的coef应该很小，且p值应该统计学不显著 (Continuity-Based
-        Analysis for Covariates)。
+-   1. 对前面所述的Internal
+       Validity条件三的检验，即除了干预(Treatment)变量外，其他的任何非结局变量(包括混杂因素在内)都不能在cut-point处出现不连续或称为跳跃，如果存在，则无法推断结局变量的跳跃是由干预(Treatment)引起的，检验方式就是将所有的混杂因素作为结局，利用*rdrobust*函数进行检验，输出结果的coef应该很小，且p值应该统计学不显著 (Continuity-Based Analysis for Covariates)。
 
--   1.  对cut-point的敏感性分析，即是更换cut-point，检验是否左右还存在处理效应，如果更换断点后，仍然存在处理效应，
-        则无法说明本研究的干预措施是有效的，因为在研究设定的断点处识别到的处理效应，有可能是由其他因素引起的。
+-   2. 对cut-point的敏感性分析，即是更换cut-point，检验是否左右还存在处理效应，如果更换断点后，仍然存在处理效应，则无法说明本研究的干预措施是有效的，因为在研究设定的断点处识别到的处理效应，有可能是由其他因素引起的。
 
--   1.  对cut-point附近个体的敏感性分析，在Internal
-        Validity条件一中提到，驱动变量不可被操控，但是这个无法直接检验，因此，换个思路，如果驱动变量被超控，
-        那自然是在cut-point左右离得最近的值被操纵的可能性最大，所以如果将这部分个体剔除，若仍然能观测到处理效应，则说明这种效应是真实由干预所导致。
-        这种方法被称为甜甜圈(donut
-        hole)法，同样也适用于个体过多的堆积与cut-point附近的RD分析。
+-   3. 对cut-point附近个体的敏感性分析，在Internal Validity条件一中提到，驱动变量不可被操控，但是这个无法直接检验，因此，换个思路，如果驱动变量被超控，那自然是在cut-point左右离得最近的值被操纵的可能性最大，所以如果将这部分个体剔除，若仍然能观测到处理效应，则说明这种效应是真实由干预所导致。这种方法被称为甜甜圈(donut hole)法，同样也适用于个体过多的堆积与cut-point附近的RD分析。
 
--   1.  对带宽bandwidth的敏感性分析，即是cut-point不改变，而是更换选择的最优带宽，进行多次局部非参数检验，如果更换带宽之后，仍然能在断点处识别的处理效应，
-        说明研究的干预措施是有效的，因为在研究设定的断点处识别到的处理效应不是由于某一特点的带宽下才观测到的，说明处理效应稳健。
+-   4. 对带宽bandwidth的敏感性分析，即是cut-point不改变，而是更换选择的最优带宽，进行多次局部非参数检验，如果更换带宽之后，仍然能在断点处识别的处理效应，说明研究的干预措施是有效的，因为在研究设定的断点处识别到的处理效应不是由于某一特点的带宽下才观测到的，说明处理效应稳健。
 
 #### 对cut-point的敏感性分析
 
@@ -713,8 +682,7 @@ Fuzzy类型的RD可以根据驱动变量与干预的实际情况采取不同的�
 8 结束
 ------
 
-由于真实世界的复杂性，对因果推断的分析方法的要求也越来越高，没有一种方法可以适用所有的情形，因此RD的方法也衍生发展出很多类型，
-包括多个断点(Multi-Cutoff RD Design)、多个驱动变量(Multi-Score RD
+由于真实世界的复杂性，对因果推断的分析方法的要求也越来越高，没有一种方法可以适用所有的情形，因此RD的方法也衍生发展出很多类型，包括多个断点(Multi-Cutoff RD Design)、多个驱动变量(Multi-Score RD
 Design)、离散驱动变量(Multi-Score RD Design)等等。
 
 Reference
