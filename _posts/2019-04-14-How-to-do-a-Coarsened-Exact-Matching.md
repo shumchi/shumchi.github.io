@@ -14,9 +14,7 @@ comments: true
 
 <br>
 
-> "The goal of matching is to reduce imbalance in the empirical
-> distribution of the pre-treatment confounders between the treated and
-> control groups."
+> "The goal of matching is to reduce imbalance in the empirical distribution of the pre-treatment confounders between the treated and control groups."
 
 > <p align = "right">----- Stuart, Elizabeth A. (2010) </p>
 
@@ -27,21 +25,11 @@ comments: true
 ## 1. 背景介绍
 -----------
 
-Coarsened Exact Matching (CEM) 方法由University of Milan的Stefano M.
-Iacus，Harvard University的Gary King， 以及University of
-Trieste的Giuseppe Porro提出，其算法最早于2008年在线发表在Gary
-King的Harvard University主页上 [“Matching for Causal Inference Without
-Balance Checking.”](http://gking.harvard.edu/files/abs/cem-abs.shtml)。
+Coarsened Exact Matching (CEM) 方法由University of Milan的Stefano M. Iacus，Harvard University的Gary King， 以及University of Trieste的Giuseppe Porro提出，其算法最早于2008年在线发表在Gary King的Harvard University主页上 [“Matching for Causal Inference Without Balance Checking.”](http://gking.harvard.edu/files/abs/cem-abs.shtml)。
 
-其后分别在 **Journal of Statistical Software (2009)** 和 **The Stata
-Journal (2009)** 上发表了R和Stata版本的相关package，
-其正式成果于2011年发表于 **Journal of the American Statistical
-Association** 上，以及2012的[Political
-Analysis](http://j.mp/2nRpUHQ)上。
+其后分别在 **Journal of Statistical Software (2009)** 和 **The Stata Journal (2009)** 上发表了R和Stata版本的相关package， 其正式成果于2011年发表于 **Journal of the American Statistical Association** 上，以及2012的[Political Analysis](http://j.mp/2nRpUHQ)上。
 
-CEM亦可称之为“Cochran Exact Matching” ，衍生于Cochran于1986年提出的
-**subclassification-based method （Cochran, W. G., 1968)**，
-在2011年发表的论文中Gary King等人亦将CEM与PSM (Propensity Score
+CEM亦可称之为“Cochran Exact Matching” ，衍生于Cochran于1986年提出的**subclassification-based method （Cochran, W. G., 1968)**，在2011年发表的论文中Gary King等人亦将CEM与PSM (Propensity Score
 Matching)进行了比较，提出了CEM的优势。
 
 <br>
@@ -105,26 +93,28 @@ CEM中引入了一个参数L1来衡量Treat组和Control组之间在协变量上
 L1取值在0~1之间，0代表完全平衡，1代表完全不平衡。若L1为0.6，即说明有40%的粗化后各层的频率分布
 直方图在Treat组和Control组之间是重叠的，L1即是根据各层的相对频率差值求和而得，示例如下：
 
-    假设有三个协变量（X1...X），粗化后个协变量的分类为（2, 3, 5），那么粗化后共有2*3*5=30个层，
-    我们随机为Treat组和Control组在360个层生成一个正整数，最后计算频率并画出直方图。
+```R
+假设有三个协变量（X1...X），粗化后个协变量的分类为（2, 3, 5），那么粗化后共有2*3*5=30个层，
+我们随机为Treat组和Control组在360个层生成一个正整数，最后计算频率并画出直方图。
 
-    library(magrittr)
-    # Set seed
-    set.seed(2019)
+library(magrittr)
+# Set seed
+set.seed(2019)
 
-    # Data
-    strate <- sample(paste("str", c(1:30), sep = "_"), size = 2000, replace = TRUE)
-    group <- rep(c("Treat", "Control"), 1000)
+# Data
+strate <- sample(paste("str", c(1:30), sep = "_"), size = 2000, replace = TRUE)
+group <- rep(c("Treat", "Control"), 1000)
 
-    imb <- data.frame(strate = strate, group = group)
-    imb_sum <- prop.table(table(imb$group, imb$strate), 1) %>% as.data.frame()
+imb <- data.frame(strate = strate, group = group)
+imb_sum <- prop.table(table(imb$group, imb$strate), 1) %>% as.data.frame()
 
-    # Plot
-    ggplot(imb_sum) +
-         geom_bar(aes(x = Var2, y = Freq, fill = Var1), position = "dodge", stat = "identity") +
-         scale_fill_manual(name = "", values = c(3, 2)) +
-         labs(y = "Prop", x = "Strates") +
-         theme_chi
+# Plot
+ggplot(imb_sum) +
+     geom_bar(aes(x = Var2, y = Freq, fill = Var1), position = "dodge", stat = "identity") +
+     scale_fill_manual(name = "", values = c(3, 2)) +
+     labs(y = "Prop", x = "Strates") +
+     theme_chi
+```
 
 ![](https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-04-14-How-to-do-a-Coarsened-Exact-Matching/figure-markdown_strict/imbalance-1.png?raw=true)
 
@@ -142,29 +132,31 @@ L1取值在0~1之间，0代表完全平衡，1代表完全不平衡。若L1为0.
 **Control variable:** c("age", "education", "black", "married",
 "nodegree", "re74", "re75", "hispanic", "u74", "u75","q1")
 
-    library(cem)
-    data(LeLonde)
-    df <- LeLonde[c("treated", "re78", "age", "education", "black", "married", "nodegree", "re74", "re75", "hispanic", "u74", "u75", "q1")] %>%
-            na.omit()
-           
-    str(df)
+```R
+library(cem)
+data(LeLonde)
+df <- LeLonde[c("treated", "re78", "age", "education", "black", "married", "nodegree", "re74", "re75", "hispanic", "u74", "u75", "q1")] %>%
+        na.omit()
+       
+str(df)
 
-    ## 'data.frame':    650 obs. of  13 variables:
-    ##  $ treated  : num  1 0 1 0 0 0 0 1 0 0 ...
-    ##  $ re78     : num  11657 499 16717 30248 4394 ...
-    ##  $ age      : int  20 39 49 26 38 28 27 33 44 31 ...
-    ##  $ education: int  12 12 8 8 10 12 12 12 9 12 ...
-    ##  $ black    : int  0 1 0 0 1 0 1 1 1 0 ...
-    ##  $ married  : int  1 1 1 1 1 0 1 1 1 0 ...
-    ##  $ nodegree : int  0 0 1 1 1 0 0 0 1 0 ...
-    ##  $ re74     : num  8644 19785 9715 37212 14759 ...
-    ##  $ re75     : num  8644 6608 7286 36941 14702 ...
-    ##  $ hispanic : int  0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ u74      : num  0 0 0 0 0 1 1 0 0 1 ...
-    ##  $ u75      : num  0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ q1       : Factor w/ 6 levels "agree","disagree",..: 5 3 4 4 6 1 4 1 3 3 ...
-    ##  - attr(*, "na.action")= 'omit' Named int  1 11 13 17 26 35 49 50 86 98 ...
-    ##   ..- attr(*, "names")= chr  "15993" "16003" "16005" "16009" ...
+## 'data.frame':    650 obs. of  13 variables:
+##  $ treated  : num  1 0 1 0 0 0 0 1 0 0 ...
+##  $ re78     : num  11657 499 16717 30248 4394 ...
+##  $ age      : int  20 39 49 26 38 28 27 33 44 31 ...
+##  $ education: int  12 12 8 8 10 12 12 12 9 12 ...
+##  $ black    : int  0 1 0 0 1 0 1 1 1 0 ...
+##  $ married  : int  1 1 1 1 1 0 1 1 1 0 ...
+##  $ nodegree : int  0 0 1 1 1 0 0 0 1 0 ...
+##  $ re74     : num  8644 19785 9715 37212 14759 ...
+##  $ re75     : num  8644 6608 7286 36941 14702 ...
+##  $ hispanic : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ u74      : num  0 0 0 0 0 1 1 0 0 1 ...
+##  $ u75      : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ q1       : Factor w/ 6 levels "agree","disagree",..: 5 3 4 4 6 1 4 1 3 3 ...
+##  - attr(*, "na.action")= 'omit' Named int  1 11 13 17 26 35 49 50 86 98 ...
+##   ..- attr(*, "names")= chr  "15993" "16003" "16005" "16009" ...
+```
 
 ### 5.1 匹配前准备：不平衡度测量
 
@@ -175,38 +167,40 @@ L1取值在0~1之间，0代表完全平衡，1代表完全不平衡。若L1为0.
 对于连续型变量，默认计算mean in difference，对于分类变量默认计算chi
 square。
 
-    imbalance(group = df$treated, data = df[, -c(1, 2)])
+```R
+imbalance(group = df$treated, data = df[, -c(1, 2)])
 
-    ## 
-    ## Multivariate Imbalance Measure: L1=0.902
-    ## Percentage of local common support: LCS=5.8%
-    ## 
-    ## Univariate Imbalance Measures:
-    ## 
-    ##               statistic   type           L1 min 25%      50%       75%
-    ## age        -0.252373042 (diff) 5.102041e-03   0   0   0.0000   -1.0000
-    ## education   0.153634710 (diff) 8.463851e-02   1   0   1.0000    1.0000
-    ## black      -0.010322734 (diff) 1.032273e-02   0   0   0.0000    0.0000
-    ## married    -0.009551495 (diff) 9.551495e-03   0   0   0.0000    0.0000
-    ## nodegree   -0.081217371 (diff) 8.121737e-02   0  -1   0.0000    0.0000
-    ## re74      -18.160446880 (diff) 5.551115e-17   0   0 284.0715  806.3452
-    ## re75      101.501761679 (diff) 5.551115e-17   0   0 485.6310 1238.4114
-    ## hispanic   -0.010144756 (diff) 1.014476e-02   0   0   0.0000    0.0000
-    ## u74        -0.045582186 (diff) 4.558219e-02   0   0   0.0000    0.0000
-    ## u75        -0.065555292 (diff) 6.555529e-02   0   0   0.0000    0.0000
-    ## q1          7.494021189 (Chi2) 1.067078e-01  NA  NA       NA        NA
-    ##                  max
-    ## age          -6.0000
-    ## education     1.0000
-    ## black         0.0000
-    ## married       0.0000
-    ## nodegree      0.0000
-    ## re74      -2139.0195
-    ## re75        490.3945
-    ## hispanic      0.0000
-    ## u74           0.0000
-    ## u75           0.0000
-    ## q1                NA
+## 
+## Multivariate Imbalance Measure: L1=0.902
+## Percentage of local common support: LCS=5.8%
+## 
+## Univariate Imbalance Measures:
+## 
+##               statistic   type           L1 min 25%      50%       75%
+## age        -0.252373042 (diff) 5.102041e-03   0   0   0.0000   -1.0000
+## education   0.153634710 (diff) 8.463851e-02   1   0   1.0000    1.0000
+## black      -0.010322734 (diff) 1.032273e-02   0   0   0.0000    0.0000
+## married    -0.009551495 (diff) 9.551495e-03   0   0   0.0000    0.0000
+## nodegree   -0.081217371 (diff) 8.121737e-02   0  -1   0.0000    0.0000
+## re74      -18.160446880 (diff) 5.551115e-17   0   0 284.0715  806.3452
+## re75      101.501761679 (diff) 5.551115e-17   0   0 485.6310 1238.4114
+## hispanic   -0.010144756 (diff) 1.014476e-02   0   0   0.0000    0.0000
+## u74        -0.045582186 (diff) 4.558219e-02   0   0   0.0000    0.0000
+## u75        -0.065555292 (diff) 6.555529e-02   0   0   0.0000    0.0000
+## q1          7.494021189 (Chi2) 1.067078e-01  NA  NA       NA        NA
+##                  max
+## age          -6.0000
+## education     1.0000
+## black         0.0000
+## married       0.0000
+## nodegree      0.0000
+## re74      -2139.0195
+## re75        490.3945
+## hispanic      0.0000
+## u74           0.0000
+## u75           0.0000
+## q1                NA
+```
 
 ### 5.2 开始匹配
 
@@ -216,32 +210,34 @@ square。
 从结果可以看出，Control组从全部392个样本中匹配上95例，Treat组从全部258个样本中匹配上84例，匹配后样本的整体
 L1为0.605，相比匹配前，有所下降。另外，从statistic列的结果也可看出，在各匹配变量中两组之间无统计学差异。
 
-    mat <- cem(treatment = "treated", data = df, drop = "re78", eval.imbalance = TRUE)
-    mat
+```R
+mat <- cem(treatment = "treated", data = df, drop = "re78", eval.imbalance = TRUE)
+mat
 
-    ##            G0  G1
-    ## All       392 258
-    ## Matched    95  84
-    ## Unmatched 297 174
-    ## 
-    ## 
-    ## Multivariate Imbalance Measure: L1=0.605
-    ## Percentage of local common support: LCS=25.8%
-    ## 
-    ## Univariate Imbalance Measures:
-    ## 
-    ##               statistic   type           L1 min 25% 50%      75%       max
-    ## age        9.404762e-02 (diff) 0.000000e+00   0   0   1   0.0000    0.0000
-    ## education -2.222222e-02 (diff) 2.222222e-02   0   0   0   0.0000    0.0000
-    ## black      1.110223e-16 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## married    0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## nodegree   0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## re74       1.496418e+02 (diff) 0.000000e+00   0   0   0 463.3308  889.5410
-    ## re75       1.587521e+02 (diff) 0.000000e+00   0   0   0 843.6863 -640.9307
-    ## hispanic   0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## u74        0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## u75        0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## q1         2.083349e+00 (Chi2) 1.387779e-17  NA  NA  NA       NA        NA
+##            G0  G1
+## All       392 258
+## Matched    95  84
+## Unmatched 297 174
+## 
+## 
+## Multivariate Imbalance Measure: L1=0.605
+## Percentage of local common support: LCS=25.8%
+## 
+## Univariate Imbalance Measures:
+## 
+##               statistic   type           L1 min 25% 50%      75%       max
+## age        9.404762e-02 (diff) 0.000000e+00   0   0   1   0.0000    0.0000
+## education -2.222222e-02 (diff) 2.222222e-02   0   0   0   0.0000    0.0000
+## black      1.110223e-16 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## married    0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## nodegree   0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## re74       1.496418e+02 (diff) 0.000000e+00   0   0   0 463.3308  889.5410
+## re75       1.587521e+02 (diff) 0.000000e+00   0   0   0 843.6863 -640.9307
+## hispanic   0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## u74        0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## u75        0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## q1         2.083349e+00 (Chi2) 1.387779e-17  NA  NA  NA       NA        NA
+```
 
 **然而**，此处我产生一个小疑惑，纳入匹配变量的数据类型是否会影响粗化分组过程，从而影响匹配结局？
 
@@ -251,75 +247,77 @@ L1为0.605，相比匹配前，有所下降。另外，从statistic列的结果�
 square.  
 <font color="#FF0000">另一个明显的区别在于，对于设置成分类变量后，在进行匹配时，不会再对分类变量进行粗化。</font>
 
-    df_1 <- df
-    df_1$black <- as.factor(df_1$black)
-    df_1$married <- as.factor(df_1$married)
-    df_1$nodegree <- as.factor(df_1$nodegree)
+```R
+df_1 <- df
+df_1$black <- as.factor(df_1$black)
+df_1$married <- as.factor(df_1$married)
+df_1$nodegree <- as.factor(df_1$nodegree)
 
-    imbalance(group = df$treated, data = df_1[, - c(1, 2)])
+imbalance(group = df$treated, data = df_1[, - c(1, 2)])
 
-    ## 
-    ## Multivariate Imbalance Measure: L1=0.902
-    ## Percentage of local common support: LCS=5.8%
-    ## 
-    ## Univariate Imbalance Measures:
-    ## 
-    ##              statistic   type           L1 min 25%      50%       75%
-    ## age        -0.25237304 (diff) 5.102041e-03   0   0   0.0000   -1.0000
-    ## education   0.15363471 (diff) 8.463851e-02   1   0   1.0000    1.0000
-    ## black       0.04859165 (Chi2) 1.032273e-02  NA  NA       NA        NA
-    ## married     0.04724359 (Chi2) 9.551495e-03  NA  NA       NA        NA
-    ## nodegree    5.54497304 (Chi2) 8.121737e-02  NA  NA       NA        NA
-    ## re74      -18.16044688 (diff) 5.551115e-17   0   0 284.0715  806.3452
-    ## re75      101.50176168 (diff) 5.551115e-17   0   0 485.6310 1238.4114
-    ## hispanic   -0.01014476 (diff) 1.014476e-02   0   0   0.0000    0.0000
-    ## u74        -0.04558219 (diff) 4.558219e-02   0   0   0.0000    0.0000
-    ## u75        -0.06555529 (diff) 6.555529e-02   0   0   0.0000    0.0000
-    ## q1          7.49402119 (Chi2) 1.067078e-01  NA  NA       NA        NA
-    ##                  max
-    ## age          -6.0000
-    ## education     1.0000
-    ## black             NA
-    ## married           NA
-    ## nodegree          NA
-    ## re74      -2139.0195
-    ## re75        490.3945
-    ## hispanic      0.0000
-    ## u74           0.0000
-    ## u75           0.0000
-    ## q1                NA
+## 
+## Multivariate Imbalance Measure: L1=0.902
+## Percentage of local common support: LCS=5.8%
+## 
+## Univariate Imbalance Measures:
+## 
+##              statistic   type           L1 min 25%      50%       75%
+## age        -0.25237304 (diff) 5.102041e-03   0   0   0.0000   -1.0000
+## education   0.15363471 (diff) 8.463851e-02   1   0   1.0000    1.0000
+## black       0.04859165 (Chi2) 1.032273e-02  NA  NA       NA        NA
+## married     0.04724359 (Chi2) 9.551495e-03  NA  NA       NA        NA
+## nodegree    5.54497304 (Chi2) 8.121737e-02  NA  NA       NA        NA
+## re74      -18.16044688 (diff) 5.551115e-17   0   0 284.0715  806.3452
+## re75      101.50176168 (diff) 5.551115e-17   0   0 485.6310 1238.4114
+## hispanic   -0.01014476 (diff) 1.014476e-02   0   0   0.0000    0.0000
+## u74        -0.04558219 (diff) 4.558219e-02   0   0   0.0000    0.0000
+## u75        -0.06555529 (diff) 6.555529e-02   0   0   0.0000    0.0000
+## q1          7.49402119 (Chi2) 1.067078e-01  NA  NA       NA        NA
+##                  max
+## age          -6.0000
+## education     1.0000
+## black             NA
+## married           NA
+## nodegree          NA
+## re74      -2139.0195
+## re75        490.3945
+## hispanic      0.0000
+## u74           0.0000
+## u75           0.0000
+## q1                NA
 
-    cem(treatment = "treated", data = df_1, drop = "re78", eval.imbalance = TRUE)
+cem(treatment = "treated", data = df_1, drop = "re78", eval.imbalance = TRUE)
 
-    ## Warning in chisq.test(cbind(t1[keep], t2[keep])): Chi-squared approximation
-    ## may be incorrect
+## Warning in chisq.test(cbind(t1[keep], t2[keep])): Chi-squared approximation
+## may be incorrect
 
-    ## Warning in chisq.test(cbind(t1[keep], t2[keep])): Chi-squared approximation
-    ## may be incorrect
+## Warning in chisq.test(cbind(t1[keep], t2[keep])): Chi-squared approximation
+## may be incorrect
 
-    ##            G0  G1
-    ## All       392 258
-    ## Matched    95  84
-    ## Unmatched 297 174
-    ## 
-    ## 
-    ## Multivariate Imbalance Measure: L1=0.605
-    ## Percentage of local common support: LCS=25.8%
-    ## 
-    ## Univariate Imbalance Measures:
-    ## 
-    ##               statistic   type           L1 min 25% 50%      75%       max
-    ## age        9.404762e-02 (diff) 0.000000e+00   0   0   1   0.0000    0.0000
-    ## education -2.222222e-02 (diff) 2.222222e-02   0   0   0   0.0000    0.0000
-    ## black      7.452718e-32 (Chi2) 0.000000e+00  NA  NA  NA       NA        NA
-    ## married    2.929392e-31 (Chi2) 0.000000e+00  NA  NA  NA       NA        NA
-    ## nodegree   7.216872e-31 (Chi2) 0.000000e+00  NA  NA  NA       NA        NA
-    ## re74       1.496418e+02 (diff) 0.000000e+00   0   0   0 463.3308  889.5410
-    ## re75       1.587521e+02 (diff) 0.000000e+00   0   0   0 843.6863 -640.9307
-    ## hispanic   0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## u74        0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## u75        0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
-    ## q1         2.083349e+00 (Chi2) 1.387779e-17  NA  NA  NA       NA        NA
+##            G0  G1
+## All       392 258
+## Matched    95  84
+## Unmatched 297 174
+## 
+## 
+## Multivariate Imbalance Measure: L1=0.605
+## Percentage of local common support: LCS=25.8%
+## 
+## Univariate Imbalance Measures:
+## 
+##               statistic   type           L1 min 25% 50%      75%       max
+## age        9.404762e-02 (diff) 0.000000e+00   0   0   1   0.0000    0.0000
+## education -2.222222e-02 (diff) 2.222222e-02   0   0   0   0.0000    0.0000
+## black      7.452718e-32 (Chi2) 0.000000e+00  NA  NA  NA       NA        NA
+## married    2.929392e-31 (Chi2) 0.000000e+00  NA  NA  NA       NA        NA
+## nodegree   7.216872e-31 (Chi2) 0.000000e+00  NA  NA  NA       NA        NA
+## re74       1.496418e+02 (diff) 0.000000e+00   0   0   0 463.3308  889.5410
+## re75       1.587521e+02 (diff) 0.000000e+00   0   0   0 843.6863 -640.9307
+## hispanic   0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## u74        0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## u75        0.000000e+00 (diff) 0.000000e+00   0   0   0   0.0000    0.0000
+## q1         2.083349e+00 (Chi2) 1.387779e-17  NA  NA  NA       NA        NA
+```
 
 ### 5.3 匹配后处理
 
@@ -331,80 +329,90 @@ square.
 
 -   breaks为一个list，其中记录匹配变量自动粗化过程中设置的cutpoint（仅包含numeric类型）  
 -   matched实为一个逻辑向量，记录了该个体是否进入了匹配后的样本  
--   w为匹配权重（详细见5.5），用于后续的统计分析中
+-   w为匹配权重（详细见5.5），用于后续的统计分析中  
+
+```R
+str(mat)
+## List of 21
+##  $ call          : language cem.match(data = data, verbose = verbose)
+##  $ strata        : int [1:650] 112 466 489 260 460 335 355 451 483 409 ...
+##  $ n.strata      : int 491
+##  $ vars          : chr [1:11] "age" "education" "black" "married" ...
+##  $ drop          : chr [1:2] "re78" "treated"
+##  $ breaks        :List of 10
+##   ..$ age      : num [1:11] 17 20.8 24.6 28.4 32.2 36 39.8 43.6 47.4 51.2 ...
+##   ..$ education: num [1:11] 3 4.2 5.4 6.6 7.8 9 10.2 11.4 12.6 13.8 ...
+##   ..$ black    : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
+##   ..$ married  : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
+##   ..$ nodegree : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
+##   ..$ re74     : num [1:11] 0 3957 7914 11871 15828 ...
+##   ..$ re75     : num [1:11] 0 3743 7486 11229 14973 ...
+##   ..$ hispanic : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
+##   ..$ u74      : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
+##   ..$ u75      : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
+##  $ treatment     : chr "treated"
+##  $ n             : int 650
+##  $ groups        : Factor w/ 2 levels "0","1": 2 1 2 1 1 1 1 2 1 1 ...
+##  $ g.names       : chr [1:2] "0" "1"
+##  $ n.groups      : int 2
+##  $ group.idx     :List of 2
+##   ..$ G0: int [1:392] 2 4 5 6 7 9 10 11 12 13 ...
+##   ..$ G1: int [1:258] 1 3 8 14 15 16 18 24 25 26 ...
+##  $ group.len     : Named int [1:2] 392 258
+##   ..- attr(*, "names")= chr [1:2] "G0" "G1"
+##  $ mstrata       : int [1:650] NA NA NA NA NA NA NA NA NA NA ...
+##  $ mstrataID     : int [1:62] 52 83 86 100 113 137 165 175 177 180 ...
+##  $ matched       : logi [1:650] FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ baseline.group: chr "1"
+##  $ tab           : num [1:3, 1:2] 392 95 297 258 84 174
+##   ..- attr(*, "dimnames")=List of 2
+##   .. ..$ : chr [1:3] "All" "Matched" "Unmatched"
+##   .. ..$ : chr [1:2] "G0" "G1"
+##  $ k2k           : logi FALSE
+##  $ w             : num [1:650] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ imbalance     :List of 2
+##   ..$ tab:'data.frame':  11 obs. of  8 variables:
+##   .. ..$ statistic: num [1:11] 9.40e-02 -2.22e-02 1.11e-16 0.00 0.00 ...
+##   .. ..$ type     : chr [1:11] "(diff)" "(diff)" "(diff)" "(diff)" ...
+##   .. ..$ L1       : num [1:11] 0 0.0222 0 0 0 ...
+##   .. ..$ min      : num [1:11] 0 0 0 0 0 0 0 0 0 0 ...
+##   .. ..$ 25%      : num [1:11] 0 0 0 0 0 0 0 0 0 0 ...
+##   .. ..$ 50%      : num [1:11] 1 0 0 0 0 0 0 0 0 0 ...
+##   .. ..$ 75%      : num [1:11] 0 0 0 0 0 ...
+##   .. ..$ max      : num [1:11] 0 0 0 0 0 ...
+##   ..$ L1 :List of 4
+##   .. ..$ L1      : num 0.605
+##   .. ..$ breaks  :List of 10
+##   .. .. ..$ age      : int [1:21] 16 18 20 22 24 26 28 30 32 34 ...
+##   .. .. ..$ education: num [1:25] 3 3.5 4 4.5 5 5.5 6 6.5 7 7.5 ...
+##   .. .. ..$ black    : num [1:6] 0 0.2 0.4 0.6 0.8 1
+##   .. .. ..$ married  : num [1:6] 0 0.2 0.4 0.6 0.8 1
+##   .. .. ..$ nodegree : num [1:6] 0 0.2 0.4 0.6 0.8 1
+##   .. .. ..$ re74     : num [1:21] 0 2000 4000 6000 8000 10000 12000 14000 16000 18000 ...
+##   .. .. ..$ re75     : num [1:20] 0 2000 4000 6000 8000 10000 12000 14000 16000 18000 ...
+##   .. .. ..$ hispanic : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
+##   .. .. ..$ u74      : num [1:6] 0 0.2 0.4 0.6 0.8 1
+##   .. .. ..$ u75      : num [1:6] 0 0.2 0.4 0.6 0.8 1
+##   .. ..$ LCS     : num 25.8
+##   .. ..$ grouping: NULL
+##   .. ..- attr(*, "class")= chr "L1.meas"
+##   ..- attr(*, "class")= chr "imbalance"
+##  - attr(*, "class")= chr "cem.match"
+```
 
 #### 提取匹配后的样本:
 
-**CEM**包中给出了不用单独提取出匹配后样本进行回归的函数 *att()*
-,不过我个人比较倾向将匹配后的样本单独存储为一个对象， 但是 **CEM**
-包中并未给出像 **MatchIt**中的 *match.out()*
-函数，至少我还没有找到，所以只能自己动手，丰衣足食  
+**CEM**包中给出了不用单独提取出匹配后样本进行回归的函数 *att()*, 不过我个人比较倾向将匹配后的样本单独存储为一个对象， 但是 **CEM**包中并未给出像 **MatchIt**中的 *match.out()*函数，至少我还没有找到，所以只能自己动手，丰衣足食
 
-    ## List of 21
-    ##  $ call          : language cem.match(data = data, verbose = verbose)
-    ##  $ strata        : int [1:650] 112 466 489 260 460 335 355 451 483 409 ...
-    ##  $ n.strata      : int 491
-    ##  $ vars          : chr [1:11] "age" "education" "black" "married" ...
-    ##  $ drop          : chr [1:2] "re78" "treated"
-    ##  $ breaks        :List of 10
-    ##   ..$ age      : num [1:11] 17 20.8 24.6 28.4 32.2 36 39.8 43.6 47.4 51.2 ...
-    ##   ..$ education: num [1:11] 3 4.2 5.4 6.6 7.8 9 10.2 11.4 12.6 13.8 ...
-    ##   ..$ black    : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
-    ##   ..$ married  : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
-    ##   ..$ nodegree : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
-    ##   ..$ re74     : num [1:11] 0 3957 7914 11871 15828 ...
-    ##   ..$ re75     : num [1:11] 0 3743 7486 11229 14973 ...
-    ##   ..$ hispanic : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
-    ##   ..$ u74      : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
-    ##   ..$ u75      : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
-    ##  $ treatment     : chr "treated"
-    ##  $ n             : int 650
-    ##  $ groups        : Factor w/ 2 levels "0","1": 2 1 2 1 1 1 1 2 1 1 ...
-    ##  $ g.names       : chr [1:2] "0" "1"
-    ##  $ n.groups      : int 2
-    ##  $ group.idx     :List of 2
-    ##   ..$ G0: int [1:392] 2 4 5 6 7 9 10 11 12 13 ...
-    ##   ..$ G1: int [1:258] 1 3 8 14 15 16 18 24 25 26 ...
-    ##  $ group.len     : Named int [1:2] 392 258
-    ##   ..- attr(*, "names")= chr [1:2] "G0" "G1"
-    ##  $ mstrata       : int [1:650] NA NA NA NA NA NA NA NA NA NA ...
-    ##  $ mstrataID     : int [1:62] 52 83 86 100 113 137 165 175 177 180 ...
-    ##  $ matched       : logi [1:650] FALSE FALSE FALSE FALSE FALSE FALSE ...
-    ##  $ baseline.group: chr "1"
-    ##  $ tab           : num [1:3, 1:2] 392 95 297 258 84 174
-    ##   ..- attr(*, "dimnames")=List of 2
-    ##   .. ..$ : chr [1:3] "All" "Matched" "Unmatched"
-    ##   .. ..$ : chr [1:2] "G0" "G1"
-    ##  $ k2k           : logi FALSE
-    ##  $ w             : num [1:650] 0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ imbalance     :List of 2
-    ##   ..$ tab:'data.frame':  11 obs. of  8 variables:
-    ##   .. ..$ statistic: num [1:11] 9.40e-02 -2.22e-02 1.11e-16 0.00 0.00 ...
-    ##   .. ..$ type     : chr [1:11] "(diff)" "(diff)" "(diff)" "(diff)" ...
-    ##   .. ..$ L1       : num [1:11] 0 0.0222 0 0 0 ...
-    ##   .. ..$ min      : num [1:11] 0 0 0 0 0 0 0 0 0 0 ...
-    ##   .. ..$ 25%      : num [1:11] 0 0 0 0 0 0 0 0 0 0 ...
-    ##   .. ..$ 50%      : num [1:11] 1 0 0 0 0 0 0 0 0 0 ...
-    ##   .. ..$ 75%      : num [1:11] 0 0 0 0 0 ...
-    ##   .. ..$ max      : num [1:11] 0 0 0 0 0 ...
-    ##   ..$ L1 :List of 4
-    ##   .. ..$ L1      : num 0.605
-    ##   .. ..$ breaks  :List of 10
-    ##   .. .. ..$ age      : int [1:21] 16 18 20 22 24 26 28 30 32 34 ...
-    ##   .. .. ..$ education: num [1:25] 3 3.5 4 4.5 5 5.5 6 6.5 7 7.5 ...
-    ##   .. .. ..$ black    : num [1:6] 0 0.2 0.4 0.6 0.8 1
-    ##   .. .. ..$ married  : num [1:6] 0 0.2 0.4 0.6 0.8 1
-    ##   .. .. ..$ nodegree : num [1:6] 0 0.2 0.4 0.6 0.8 1
-    ##   .. .. ..$ re74     : num [1:21] 0 2000 4000 6000 8000 10000 12000 14000 16000 18000 ...
-    ##   .. .. ..$ re75     : num [1:20] 0 2000 4000 6000 8000 10000 12000 14000 16000 18000 ...
-    ##   .. .. ..$ hispanic : num [1:11] 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 ...
-    ##   .. .. ..$ u74      : num [1:6] 0 0.2 0.4 0.6 0.8 1
-    ##   .. .. ..$ u75      : num [1:6] 0 0.2 0.4 0.6 0.8 1
-    ##   .. ..$ LCS     : num 25.8
-    ##   .. ..$ grouping: NULL
-    ##   .. ..- attr(*, "class")= chr "L1.meas"
-    ##   ..- attr(*, "class")= chr "imbalance"
-    ##  - attr(*, "class")= chr "cem.match"
+```R
+# 提取匹配结果
+mat$matched
+
+# 提取匹配后的样本
+df_matched <- cbind(df, mat$w, mat$matched)[which(mat$matched),]
+```
+
+
 
 
 ### 5.4 自行设定粗化的cutpoint
@@ -445,26 +453,25 @@ King的原话如下：
 -   匹配后样本的权重之和就等于匹配后样本量的大小，如本例中sum of weigths
     = sample of matched = 179
 
-关于权重的具体计算方法，详见[An Explanation for CEM
-Weights](https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2qeNoI5dE/edit) （需要科学上网）  
+关于权重的具体计算方法，详见[An Explanation for CEM Weights](https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2qeNoI5dE/edit) （需要科学上网）  
 
 ### 5.6 k2k进行1:1匹配
 
 虽然CEM的优势在于可以进行非对称匹配，从而保留更多的样本，但是当样本量比较充足时，为了保证更准确的估计ATT，可以
 进行1:1匹配，**cem() 包** 也给出了对应的函数 *k2k()* ，示列如下：
 
-    # 用单独的k2k函数时，之前生成cem对象mat时，必须加上keep.all = TRUE参数
-    # mat2 <- k2k(obj = mat, data = df, method = "euclidean", mpower = 1)
+```R
+# 用单独的k2k函数时，之前生成cem对象mat时，必须加上keep.all = TRUE参数
+# mat2 <- k2k(obj = mat, data = df, method = "euclidean", mpower = 1)
 
-    # 或
+# 或
 
-    mat2 <- cem(treatment = "treated", data = df_1, drop = "re78",
-                 eval.imbalance = TRUE, k2k = TRUE, method = "euclidean", mpower = 1)
+mat2 <- cem(treatment = "treated", data = df_1, drop = "re78",
+             eval.imbalance = TRUE, k2k = TRUE, method = "euclidean", mpower = 1)
+```
 
 
-进行1:1匹配时，实际采用最近距离法在各层内选取，判断距离的方法可选（‘euclidean’,
-‘maximum’, ‘manhattan’, ‘canberra’, ‘binary’ and ‘minkowski’)
-，默认为NULL，即随机选取。
+进行1:1匹配时，实际采用最近距离法在各层内选取，判断距离的方法可选（‘euclidean’, ‘maximum’, ‘manhattan’, ‘canberra’, ‘binary’ and ‘minkowski’)，默认为NULL，即随机选取。
 
 <font color="#FF0000">
 需要注意的一点是，使用k2k进行1:1匹配后，后续统计分析时就无需进行权重加权了。</font>
