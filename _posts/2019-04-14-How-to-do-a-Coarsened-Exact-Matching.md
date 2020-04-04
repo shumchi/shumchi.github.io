@@ -158,7 +158,7 @@ str(df)
 ##   ..- attr(*, "names")= chr  "15993" "16003" "16005" "16009" ...
 ```
 
-### 5.1 匹配前准备：不平衡度测量
+### 5.2 匹配前准备：不平衡度测量
 
 利用 *imbalance()*
 函数对匹配的数据的不平衡进行测量，如下结果所示，整体不平衡度为0.902，
@@ -202,7 +202,7 @@ imbalance(group = df$treated, data = df[, -c(1, 2)])
 ## q1                NA
 ```
 
-### 5.2 开始匹配
+### 5.3 开始匹配
 
 利用 *cem()*
 函数进行CEM匹配，参数treatment用来指定分组变量，drop用来排除结局变量。
@@ -319,7 +319,7 @@ cem(treatment = "treated", data = df_1, drop = "re78", eval.imbalance = TRUE)
 ## q1         2.083349e+00 (Chi2) 1.387779e-17  NA  NA  NA       NA        NA
 ```
 
-### 5.3 匹配后处理
+### 5.4 匹配后处理
 
 匹配后生成的匹配对象（mat），其类为 cem.match，其属性实为 list。
 
@@ -415,7 +415,7 @@ df_matched <- cbind(df, mat$w, mat$matched)[which(mat$matched),]
 
 
 
-### 5.4 自行设定粗化的cutpoint
+### 5.5 自行设定粗化的cutpoint
 
 对于连续型变量或者类别较多的分类变量，可以通过 *cem()函数*
 中cutpoints和grouping两个参数来设定粗化的分割点，以下以cutpoints为例;
@@ -434,7 +434,7 @@ df_matched <- cbind(df, mat$w, mat$matched)[which(mat$matched),]
     c("neutral","no opinion"),
     c("strongly))，不过我个人比较习惯提前使用factor() 设定好分类。
 
-### 5.5 权重weights的应用
+### 5.6 权重weights的应用
 
 由于CEM为不对称匹配，当一个Treat样本匹配多个Control样本时，需要通过权重来更准确的估计平均处理效应(ATT)，Gary
 King的原话如下：
@@ -455,7 +455,7 @@ King的原话如下：
 
 关于权重的具体计算方法，详见[An Explanation for CEM Weights](https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2qeNoI5dE/edit) （需要科学上网）  
 
-### 5.6 k2k进行1:1匹配
+### 5.7 k2k进行1:1匹配
 
 虽然CEM的优势在于可以进行非对称匹配，从而保留更多的样本，但是当样本量比较充足时，为了保证更准确的估计ATT，可以
 进行1:1匹配，**cem() 包** 也给出了对应的函数 *k2k()* ，示列如下：
