@@ -62,6 +62,7 @@ variable。
 -   **二、**
     断点(cut-point)是完全外生的，并且干预与否完全取决于驱动变量和断点。即断点不受其他因素影响而改变干预的判断，即把本不该接受干预的对象划入了干预，或者把该接受干预的对象划入了对照。
     
+
 比如，如果高考录取线(cut-point)的确定是完全依据严格的录取指标划定的，而不存在为了使得某部分人群能够获得上大学的机会，而修改录取线。
     
 -   **三、**
@@ -94,14 +95,15 @@ variable。
 -   **rdrobust**：由Sebastian Calonico, Matias D. Cattaneo, Max H. Farrell等在2016年发布的，最后一次更新是2018-09-26，是目前功能最完善的RD分析包，同时也开发了Stata版本。该包的作者同时也是RD方法学上的大佬，多种bandwidth选择方法的发明者，著名的CCT就是。
 
 > rdrobust简介：目前该包的开发项目可在<a href="https://sites.google.com/site/rdpackages/home" class="uri">https://sites.google.com/site/rdpackages/home</a>主页上查看，该包共有三个函数：
-> + rdplot：用来画图 + rdrobust：用来进行局部非参数估计 +
-> rdbwselect：用来进行bandwidth选择
-> 另外还有一个协同的包**rddensity**，需要从CRAN上单独安装，用来进行对驱动变量是否被操控进行检验，因为rdrobust包未包含McCrary检验
+> + rdplot：用来画图 
+> + rdrobust：用来进行局部非参数估计
+> +  rdbwselect：用来进行bandwidth选择
+> + 另外还有一个协同的包**rddensity**，需要从CRAN上单独安装，用来进行对驱动变量是否被操控进行检验，因为rdrobust包未包含McCrary检验
 
 **示列数据集**：采用rdrobust包中自带的*rdrobust\_RDsenate*数据集：
 
 -   数据集简介：该数据集包含了1914–2010年间美国参议院选举的数据，可以利用RD的方法分析民主党赢得参议院席位对于在下次选举中获得的相同席位的影响。该数据共包含两个变量：  
-    
+  
     > vote：记录了州级层面下的参议院议席中民主党所占的比例，值从0到100，是RD分析中结局变量 &gt; +
     > margin：记录了民主党在上次选举中获得相同参议院席位的胜利边际，值从-100到100，当大于0时，说明民主党胜利，小于0则输了，是RD分析中的驱动变量
 
