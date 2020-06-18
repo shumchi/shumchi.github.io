@@ -11,7 +11,7 @@ comments: true
 
 **Shen, Chi**
 
-**April 19 2020, New Haven, CT**
+**May 19 2020, New Haven, CT**
 
 > 在towards data science上看了一篇文章，觉得挺好，画图这个事儿，确实需要些审美。
 
