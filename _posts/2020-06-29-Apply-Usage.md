@@ -4,7 +4,7 @@ title:  "当pandas传入的多个参数均为column时"
 date:   2020-06-29
 excerpt: "apply函数的扩展用法"
 author: Chi Shen
-tags: [python, plotly]
+tags: [python, pandas]
 feature: https://i1.wp.com/box5497.temp.domains/~betwefc1/wp-content/uploads/2017/06/Five_Mile_Point_Light_-_New_Haven_CT.jpg
 comments: true
 ---
