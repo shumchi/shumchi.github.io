@@ -154,7 +154,7 @@ $$ y_{it} = \lambda_i + \delta_i + \beta_1 \cdot Treat_{it}*Pre_2 + \beta_2 \cdo
 
 式中：
 
-$\lambda_i$表示个体固定效应，$\delta_i$表示时间固定效应，Pre、Current和Post表示指示相对于干预年份的dummy变量，$Treat_{it}$表示干预的指示变量。**这里需要考虑是否要放入控制变量**[^2]
+$\lambda_i$ 表示个体固定效应，$\delta_i$ 表示时间固定效应，Pre、Current和Post表示指示相对于干预年份的dummy变量，$Treat_{it}$ 表示干预的指示变量。**这里需要考虑是否要放入控制变量**[^2]
 
 原理很简单，就是将每一年与干预年的关系做成虚拟变量，然后与干预变量做交互，放入回归中，看干预前年份的回归系数是否有统计学意义，如果无统计学意义，则说明满足平行趋势假设。
 
@@ -180,7 +180,7 @@ panel["current"] = np.where(panel["period"] == 0, 1, 0) * panel["treated"]
 
 **然后进行回归**
 
-主要是双向固定效应模型，可以采用ols，通过lsdv的估计方式加入个体和时间固定效应，也可以采用如`stata`中的*xtreg*函数和`R`中的*plm*函数直接进行面板回归，但是需要注意的是，最好计算稳健聚类的std.err，否则容易高估std.err，导致p值不显著。
+主要是双向固定效应模型，可以采用ols，通过lsdv的估计方式加入个体和时间固定效应，也可以采用如`stata`中的*xtreg*函数和`R`中的*plm*函数直接进行面板回归，但是需要注意的是，最好计算稳健聚类的std.err，否则容易低估std.err，导致p值显著，出现假阳性。
 
 ```python
 import statsmodels.formula.api as smf
@@ -190,6 +190,7 @@ did = smf.ols(formula, data=panel).fit(cov_type="cluster", cov_kwds={"groups" : 
 did.summary()
 ```
 
+**需要特别说明的是**：最好将`pre_1`作为对照组（基期），即在模型中不放入`pre_1`，以便更好的观察干预前的组间差异。若像本例中，不特别指定基期，那么模型会自动drop一期，不同软件中规则不一样，比如本例中是将最后一期`post_6`给drop掉了，也就是`post_6`的系数为0.
 
 
 <table class="simpletable">
