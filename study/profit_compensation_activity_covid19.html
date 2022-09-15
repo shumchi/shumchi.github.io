@@ -12,7 +12,7 @@
 
 <meta name="author" content="Shen, Chi" />
 
-<meta name="date" content="2022-08-21" />
+<meta name="date" content="2022-09-15" />
 
 <title>Did hospitals adopt profit compensation activity after the 2020’s first wave outbreak of COVID-19: Evidence from western China</title>
 
@@ -146,7 +146,7 @@ compensation activity<br />
 after the 2020’s first wave outbreak of COVID-19:<br />
 Evidence from western China</h1>
 <h4 class="author project-author">Shen, Chi</h4>
-<h4 class="date project-date">2022-08-21</h4>
+<h4 class="date project-date">2022-09-15</h4>
 </section>
 
 
@@ -200,7 +200,14 @@ causal inference</a></li>
 and sensitivity analysis</a>
 <ul>
 <li><a href="#heterogeneous">3.4.1 Heterogeneous</a></li>
-<li><a href="#sensitivity">3.5 Sensitivity</a></li>
+</ul></li>
+<li><a href="#sensitivity">3.5 Sensitivity</a>
+<ul>
+<li><a href="#laboratory-test-expenses">3.5.1 Laboratory test
+expenses</a></li>
+<li><a href="#medical-consumables-expenses">3.5.2 Medical consumables
+expenses</a></li>
+<li><a href="#drug-expenses">3.5.3 Drug expenses</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -311,7 +318,7 @@ nickname       One Push-Up </code></pre>
 <span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;lab_diag_fee&quot;</span>, <span class="st">&quot;radio_diag_fee&quot;</span>, <span class="st">&quot;west_drug_fee&quot;</span>, </span>
 <span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;antibat_drug_fee&quot;</span>, <span class="st">&quot;chn_drug_fee&quot;</span>, </span>
 <span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;disposable_treat_mat_fee&quot;</span>, <span class="st">&quot;disposable_surg_mat_fee&quot;</span>,</span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;diag_inpatient_code_1&quot;</span>, <span class="st">&quot;diag_inpatient_code_3&quot;</span>, <span class="st">&quot;surg_code&quot;</span>)</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;diag_inpatient_code&quot;</span>, <span class="st">&quot;surg_code&quot;</span>)</span>
 <span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
@@ -358,32 +365,44 @@ nickname       One Push-Up </code></pre>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>xiyi_2020_sub[, <span class="fu">c</span>(<span class="st">&quot;len_admission&quot;</span>, </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;fee_insure&quot;</span>,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;surg_code_std&quot;</span>,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;mat_fee&quot;</span>) <span class="sc">:</span><span class="er">=</span> <span class="fu">list</span>(discharge_date_std <span class="sc">-</span> admission_date_std <span class="sc">+</span> <span class="dv">1</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                                     total_fee <span class="sc">-</span> oop,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">ifelse</span>(surg_code <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                     disposable_treat_mat_fee <span class="sc">+</span> disposable_surg_mat_fee</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                                    )]</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#---</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>xiyi_2019_sub[, <span class="fu">c</span>(<span class="st">&quot;len_admission&quot;</span>, </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;fee_insure&quot;</span>,</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;surg_code_std&quot;</span>,</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;mat_fee&quot;</span>) <span class="sc">:</span><span class="er">=</span> <span class="fu">list</span>(discharge_date_std <span class="sc">-</span> admission_date_std <span class="sc">+</span> <span class="dv">1</span>,</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                                     total_fee <span class="sc">-</span> oop,</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">ifelse</span>(surg_code <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                                     disposable_treat_mat_fee <span class="sc">+</span> disposable_surg_mat_fee</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                                    )]</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#---</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>xiyi_2018_sub[, <span class="fu">c</span>(<span class="st">&quot;len_admission&quot;</span>, </span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;fee_insure&quot;</span>,</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;surg_code_std&quot;</span>,</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;mat_fee&quot;</span>) <span class="sc">:</span><span class="er">=</span> <span class="fu">list</span>(discharge_date_std <span class="sc">-</span> admission_date_std <span class="sc">+</span> <span class="dv">1</span>,</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>                                     total_fee <span class="sc">-</span> oop,</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">ifelse</span>(surg_code <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>                                     disposable_treat_mat_fee <span class="sc">+</span> disposable_surg_mat_fee</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>                                    )]</span></code></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;mat_fee&quot;</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;diag_inpatient_code_1&quot;</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;diag_inpatient_code_3&quot;</span>) <span class="sc">:</span><span class="er">=</span> <span class="fu">list</span>(discharge_date_std <span class="sc">-</span> admission_date_std <span class="sc">+</span> <span class="dv">1</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                     total_fee <span class="sc">-</span> oop,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">ifelse</span>(surg_code <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                                     disposable_treat_mat_fee <span class="sc">+</span> disposable_surg_mat_fee,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">toupper</span>(<span class="fu">substr</span>(diag_inpatient_code, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">toupper</span>(<span class="fu">substr</span>(diag_inpatient_code, <span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                                    )]</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#---</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>xiyi_2019_sub[, <span class="fu">c</span>(<span class="st">&quot;len_admission&quot;</span>, </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;fee_insure&quot;</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;surg_code_std&quot;</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;mat_fee&quot;</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;diag_inpatient_code_1&quot;</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;diag_inpatient_code_3&quot;</span>) <span class="sc">:</span><span class="er">=</span> <span class="fu">list</span>(discharge_date_std <span class="sc">-</span> admission_date_std <span class="sc">+</span> <span class="dv">1</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                                     total_fee <span class="sc">-</span> oop,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">ifelse</span>(surg_code <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>                                     disposable_treat_mat_fee <span class="sc">+</span> disposable_surg_mat_fee,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">toupper</span>(<span class="fu">substr</span>(diag_inpatient_code, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">toupper</span>(<span class="fu">substr</span>(diag_inpatient_code, <span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>                                    )]</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">#---</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>xiyi_2018_sub[, <span class="fu">c</span>(<span class="st">&quot;len_admission&quot;</span>, </span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;fee_insure&quot;</span>,</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;surg_code_std&quot;</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;mat_fee&quot;</span>,</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;diag_inpatient_code_1&quot;</span>,</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;diag_inpatient_code_3&quot;</span>) <span class="sc">:</span><span class="er">=</span> <span class="fu">list</span>(discharge_date_std <span class="sc">-</span> admission_date_std <span class="sc">+</span> <span class="dv">1</span>,</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>                                     total_fee <span class="sc">-</span> oop,</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">ifelse</span>(surg_code <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>                                     disposable_treat_mat_fee <span class="sc">+</span> disposable_surg_mat_fee,</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">toupper</span>(<span class="fu">substr</span>(diag_inpatient_code, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">toupper</span>(<span class="fu">substr</span>(diag_inpatient_code, <span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>                                    )]</span></code></pre></div>
 </div>
 <div id="sample-description" class="section level2">
 <h2>2.5 Sample description</h2>
@@ -1049,10 +1068,11 @@ claiming expenses of hospitalized patients in 42 tertiary hospitals from
 <span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(mods_priv, mods_pub)</span></code></pre></div>
 </div>
-<div id="sensitivity" class="section level3">
-<h3>3.5 Sensitivity</h3>
-<div id="laboratory-test-expenses" class="section level4">
-<h4>3.5.1 Laboratory test expenses</h4>
+</div>
+<div id="sensitivity" class="section level2">
+<h2>3.5 Sensitivity</h2>
+<div id="laboratory-test-expenses" class="section level3">
+<h3>3.5.1 Laboratory test expenses</h3>
 <p><strong>Figure 6B</strong></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---Week</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mod_lab_week <span class="ot">&lt;-</span> <span class="fu">feols</span>(<span class="fu">log</span>(lab_diag_fee <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">~</span> <span class="fu">sunab</span>(week_treated, week_for_sunab) <span class="sc">+</span> </span>
@@ -1068,8 +1088,8 @@ claiming expenses of hospitalized patients in 42 tertiary hospitals from
 <span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(mod_lab_week)</span></code></pre></div>
 </div>
-<div id="medical-consumables-expenses" class="section level4">
-<h4>3.5.2 Medical consumables expenses</h4>
+<div id="medical-consumables-expenses" class="section level3">
+<h3>3.5.2 Medical consumables expenses</h3>
 <p><strong>Figure 6C</strong></p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---Week</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>mod_mat_week <span class="ot">&lt;-</span> <span class="fu">feols</span>(<span class="fu">log</span>(mat_fee <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">~</span> <span class="fu">sunab</span>(week_treated, week_for_sunab) <span class="sc">+</span> </span>
@@ -1086,8 +1106,8 @@ claiming expenses of hospitalized patients in 42 tertiary hospitals from
 <span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(mod_mat_week)</span></code></pre></div>
 </div>
-<div id="drug-expenses" class="section level4">
-<h4>3.5.3 Drug expenses</h4>
+<div id="drug-expenses" class="section level3">
+<h3>3.5.3 Drug expenses</h3>
 <p><strong>Figure 6D</strong></p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---Week</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>mod_westdrug_week <span class="ot">&lt;-</span> <span class="fu">feols</span>(<span class="fu">log</span>(west_drug_fee <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">~</span> <span class="fu">sunab</span>(week_treated, week_for_sunab) <span class="sc">+</span> </span>
@@ -1111,7 +1131,6 @@ claiming expenses of hospitalized patients in 42 tertiary hospitals from
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;(A) Private &amp; Public&quot;, &quot;(B) Laboratory Test&quot;, </span></span>
 <span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;(C) Medical Consumables Expenses&quot;, &quot;(D) Drug Expenses&quot;</span></span></code></pre></div>
-</div>
 </div>
 </div>
 </div>
