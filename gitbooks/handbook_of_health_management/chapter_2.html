@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>卫生政策实证研究手册 - 2&nbsp; 数据库操作</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter_3.html" rel="next">
+<link href="./chapter_1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">卫生政策实证研究手册</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">前言</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">文献知识的获取与管理</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据的清洗</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据的描述</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据的可视化</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">因果推断方法</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">参考文献</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="toc-section-number">2.1</span>  引子</a></li>
+  <li><a href="#数据的采集原则" id="toc-数据的采集原则" class="nav-link" data-scroll-target="#数据的采集原则"><span class="toc-section-number">2.2</span>  数据的采集原则</a>
+  <ul class="collapse">
+  <li><a href="#数据的分类" id="toc-数据的分类" class="nav-link" data-scroll-target="#数据的分类"><span class="toc-section-number">2.2.1</span>  数据的分类</a></li>
+  <li><a href="#数据库设计" id="toc-数据库设计" class="nav-link" data-scroll-target="#数据库设计"><span class="toc-section-number">2.2.2</span>  数据库设计</a></li>
+  <li><a href="#变量名命名规范" id="toc-变量名命名规范" class="nav-link" data-scroll-target="#变量名命名规范"><span class="toc-section-number">2.2.3</span>  变量名命名规范</a></li>
+  <li><a href="#数据字典" id="toc-数据字典" class="nav-link" data-scroll-target="#数据字典"><span class="toc-section-number">2.2.4</span>  数据字典</a></li>
+  <li><a href="#数据库建立工具" id="toc-数据库建立工具" class="nav-link" data-scroll-target="#数据库建立工具"><span class="toc-section-number">2.2.5</span>  数据库建立工具</a></li>
+  </ul></li>
+  <li><a href="#数据的读取" id="toc-数据的读取" class="nav-link" data-scroll-target="#数据的读取"><span class="toc-section-number">2.3</span>  数据的读取</a>
+  <ul class="collapse">
+  <li><a href="#统计分析软件" id="toc-统计分析软件" class="nav-link" data-scroll-target="#统计分析软件"><span class="toc-section-number">2.3.1</span>  统计分析软件</a></li>
+  <li><a href="#单个文件读取" id="toc-单个文件读取" class="nav-link" data-scroll-target="#单个文件读取"><span class="toc-section-number">2.3.2</span>  单个文件读取</a></li>
+  <li><a href="#批量读取" id="toc-批量读取" class="nav-link" data-scroll-target="#批量读取"><span class="toc-section-number">2.3.3</span>  批量读取</a></li>
+  </ul></li>
+  <li><a href="#整洁数据的含义" id="toc-整洁数据的含义" class="nav-link" data-scroll-target="#整洁数据的含义"><span class="toc-section-number">2.4</span>  整洁数据的含义</a></li>
+  <li><a href="#数据库转换" id="toc-数据库转换" class="nav-link" data-scroll-target="#数据库转换"><span class="toc-section-number">2.5</span>  数据库转换</a></li>
+  <li><a href="#数据整合" id="toc-数据整合" class="nav-link" data-scroll-target="#数据整合"><span class="toc-section-number">2.6</span>  数据整合</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="引子" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">2.1</span> 引子</h2>
+<p>在数据的发展历程中有过两次革命。第一次数据革命是近代科学诞生之时，实现了数据与科学研究的融合，数据在科学研究中的基础地位得到确立。对研究过程和结果赋予精确化的诉求，是近代科学的基本特征之一。在以数据为依据的研究范式中，数据的可靠性和准确性代表了研究的精确性，人们甚至将以数据为依据的实证研究作为判断 “科学”与“伪科学”的标准。第二次数据革命发生于因信息技术的发展而导致数据产生的速度和规模急剧发展之时，它不仅改变着科学研究范式，实现社会科学研究的定量化，也将促使经济、社会、军事等所有社会领域产生巨大的变革。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>因此，掌握数据的分析能力是现代社会科学研究必须要掌握的技能。</p>
+<p>现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型，它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%的时间都需要花费在数据的清洗和预处理阶段，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
+<p>一个基于数据开展实证研究（不论定性或是定量）的基本流程至少都应该包含以下步骤：</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+  A[采集 Collection]--&gt; B[数字化 Digitalization]
+  B --&gt; C{清洗 Clean}
+  C --&gt; D[分析 Analysis]
+  D --&gt; E[展示 Presentation]
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<p>不过，随着互联网技术的发展，现阶段基本可以采用一些调查工具将<strong>采集</strong>和<strong>数字化</strong>两个阶段同时进行，比如最常用的问卷星、腾讯问卷，国外的话有<a href="https://www.surveymonkey.com/">SurveyMonkey</a>和<a href="https://www.limesurvey.org/">LimeSurvey</a>，也可以基于RedCap搭建自有的调查系统。</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+本章就主要介绍数据操作（Data Manipulate）的主要内容和方法，包括：
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>数据的采集原则</li>
+<li>数据的批量读取</li>
+<li>数据库转换</li>
+<li>数据整合</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="数据的采集原则" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="数据的采集原则"><span class="header-section-number">2.2</span> 数据的采集原则</h2>
+<section id="数据的分类" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="数据的分类"><span class="header-section-number">2.2.1</span> 数据的分类</h3>
+<p>在介绍数据采集原则之前，先说一下数据的分类，当然这里不讨论统计学上对数据的分类（如定性、定量、计数、计量等等），而是按照数据产生的途径将数据进行分类，我个人理解可以归纳为三类；</p>
+<ul>
+<li><p>调查数据（Survey data）：也就是通过针对个人或者机构的调查获得的数据，调查研究是开展社会科学研究的最主要方式，如田野调查、问卷调查、访谈等等。</p></li>
+<li><p>行为数据（Behavioral data）：即记录人或者机器行为的数据，如日常的网购数据、出行数据、够药数据、医保账户使用数据等等，最早应用于商业领域的用户行为分析。</p></li>
+<li><p>统计数据（Statistical data）：即政府或者机构对于涉及经济、社会和日常职能业务相关的指标进行按时间加总之后的数据，如金融情况、财政情况、教育资源、卫生资源等等，严格来说统计数据是基于调查数据和行为数据进行聚合、统计、校正之后形成的。</p></li>
+</ul>
+<p>我将三种数据的优缺点总结如 <a href="#tbl-datasource">表&nbsp;<span>2.1</span></a></p>
+<div id="tbl-datasource" class="anchored">
+<table class="table">
+<caption>表&nbsp;2.1: 三种类型数据优缺点比较</caption>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 42%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>数据类型</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>调查数据</td>
+<td>1.容易组织，指的是小样本调查；<br> 2.调查内容和质量相对可控；<br> 3.分析简单。</td>
+<td>1.调查成本高，特别是大样本人群调查；<br> 2.回忆偏倚、调查者偏倚、访员偏倚等不可避免。</td>
+</tr>
+<tr class="even">
+<td>行为数据</td>
+<td>1.样本大，通常为海量数据；<br> 2.时间和空间尺度细腻。</td>
+<td>1.获取较难，通常被机构和平台掌握；<br> 2.对分析技能要求高；<br> 3.通常混有非真实数据，如网购中的刷单，医保中的骗保等。</td>
+</tr>
+<tr class="odd">
+<td>统计数据</td>
+<td>1.较易获取。</td>
+<td>1.真实性难以验证；<br> 2.时间和空间尺度粗糙；<br> 3.指标不够丰富。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="数据库设计" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="数据库设计"><span class="header-section-number">2.2.2</span> 数据库设计</h3>
+<p>数据库（Database）设计主要针对的是将调查问卷电子化，虽然这个工作看似简单，但是其对于后续的数据清洗和数据分析十分关键，如果数据库设计得不够合理，会给后续工作带来很多麻烦。很多研究人员往往都忽视了数据库设计的重要性。</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+数据库的设计应该至少要做到以下三点：
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>数据库的设计应该要考虑到数据分析的需求，如变量的设计、变量类型的约束、逻辑核查规则、纵向或横向结构等。</li>
+<li>数据库的设计应该与调查问卷的设计同步进行，也就是当调查问卷定稿后，调查开始之前，就应该将电子化的数据库搭建完成，并在预调查阶段对数据库进行修订。</li>
+<li>数据库的设计应该要重视版本管理，且必须由专人负责管理，这一点对于长期历时多年的追踪调查十分重要，必须要做到问卷版本与数据库版本对应。</li>
+</ul>
+</div>
+</div>
+<p>下面针对以上三点分别举几例：</p>
+<ul>
+<li><p>关于数据库中变量设计最常见的就是多选题的变量设置，如对于以下一个多选题：</p>
+<ul>
+<li><blockquote class="blockquote">
+<p>您经常选择就诊的医疗机构有哪些？（多选）：1.村卫生室；2.诊所；3.卫生院；4.县区医院；5.省市医院。假设受访者回答；1，3，4。</p>
+</blockquote></li>
+<li>那么，数据库中变量设置有两种方法：
+<ol type="1">
+<li>设置1个变量（visit_institution），变量类型Char，长度为5，那么以上回答在录入时就是：134.</li>
+<li>设置5个变量（分别为：visit_village, visit_clinic, visit_thc, visit_county,visit_tert），变量类型分别为Num，长度为1，取值限定为0或1，那么以上回答在录入时就是，1，0，1，1，0。</li>
+</ol></li>
+<li><em>显然方法二对于描述性分析时更为友好</em>。</li>
+</ul></li>
+<li><p>关于数据库的设计应该与调查问卷的设计同步进行，是为了保证提前对数据库和问卷进行检验和修订，及时对问卷中设置不合理的问题进行调整。若不同步进行就可能会带来一个问题，也就是在调查完成之后再进行数据库的建立，就很有可能在数据录入的过程中发现问卷中的问题难以在数据库中采取合理的方式进行录入。这一点对于采取电子化调查一样适用，因为问卷的形成通常是通过Word先完成的，电子化调查只是将数据调查过程和录入过程进行了合并。</p></li>
+<li><p>在说明数据库的版本管理为何重要之前，我们可以假设这样一个场景：</p>
+<ul>
+<li><blockquote class="blockquote">
+<p>有一项调查研究，需要历时5年，每一年进行一次追踪调查，每次调查完成之后进行数据的电子化，但是在第2年和第4年对问卷进行了补充和修订（这样的操作很常见）。</p>
+</blockquote></li>
+<li>那么，对于这样一个研究有几个问题是无法避免的：1）每次问卷调查人员会有变化；2）数据录入人员会有变动；3）数据库的建立人员会有变动。面对这样的问题，应该如何才能保证数据库管理的工作正常进行呢？我想一时间你很难想到很好的解决办法。</li>
+<li><strong>在这里我给出三点建议</strong>：
+<ol type="1">
+<li>在问卷的footnote或者header里必须增加这些版本识别信息：起草人、生成日期、核准人、版本号。</li>
+<li>在数据库的footnote或者header里必须增加这些版本识别信息：起草人、生成日期、核准人、版本号、<strong>问卷版本号</strong>。</li>
+<li>数据的录入工作可以由不同的人完成，但是数据库的建立必须由专人负责，录入人员在录入时不得擅自建立数据库用于录入，且要保证录入问卷的版本号和数据库中记录的问卷版本号对应。</li>
+</ol></li>
+</ul></li>
+</ul>
+</section>
+<section id="变量名命名规范" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="变量名命名规范"><span class="header-section-number">2.2.3</span> 变量名命名规范</h3>
+<p>变量名的命名是指为变量赋予一个简短的字符，用于在统计软件作为变量的识别符号，一般需要遵循以下几项原则：</p>
+<ul>
+<li><p>尽量通过简短的单词或者符号来反映出变量的含义，推荐用英文单词，比如简单的：编号(id)、姓名(name)、性别(sex)，复杂一点的：家庭年收入(family_income)，这里不提倡用拼音的原因是为了保证研究的国际化，在研究过程中进行国际交流是十分常见的，如果采用拼音会在与国外的研究者进行交流时产生阻碍。同时也不提倡采用var1、var2这种没有规律的命名方式，因为难以对应出变量本身代表的含义。</p></li>
+<li><p>变量名不可用数字或者下划线开头，也不可包含. * ？- ！～等特殊字符。</p></li>
+<li><p>变量名的长度最好不要超过32个字符，如果过长会在统计分析的coding过程中增加不必要的键盘敲击量，增加额外的负担，影响效率。</p></li>
+<li><p>变量名可以采用驼峰命名法(familyIncome)、双峰命名法(FamilyIncome)、下划线法(family_income)等规则，重要的是保持一致，尽量不要在同一个数据库或者项目中混合采用不同的命名方式。</p></li>
+</ul>
+</section>
+<section id="数据字典" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="数据字典"><span class="header-section-number">2.2.4</span> 数据字典</h3>
+<p>数据字典（Data dictionary）也称作Codebook或者Specification，是指详细记录数据库中的变量名、变量内容、变量取值、变量标签、变量属性等信息，其作用主要是为了方便统计分析过程中检查和查看变量。</p>
+<p>数据字典可以手动整理，也可以通过统计软件中的函数生成，如Stata中的<code>codebook</code>命令，R中也有<a href="https://cran.nyuad.nyu.edu/web/packages/codebookr/index.html">codebookr</a>和<a href="https://cran.r-project.org/web/packages/datadictionary/index.html">datadictionary</a>两个package。</p>
+<p>下面给出一个我之前整理的一个codebook的示例，如 <a href="#fig-codebook1">图&nbsp;<span>2.1</span></a> 和 <a href="#fig-codebook2">图&nbsp;<span>2.2</span></a></p>
+<div id="fig-codebook1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/fig-3-Codebook1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;2.1: Codebook封面信息</figcaption><p></p>
+</figure>
+</div>
+<div id="fig-codebook2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/fig-4-Codebook2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;2.2: Codebook内容</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="数据库建立工具" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="数据库建立工具"><span class="header-section-number">2.2.5</span> 数据库建立工具</h3>
+<ul>
+<li><p><strong>入门工具</strong>：EpiData，这个基本是各个学校开设数据库管理课程都会讲到的一个工具，但是EpiData比较古老了，如果没记错应该是从2008年之后就再未更新过。</p></li>
+<li><p><strong>普通线上工具</strong>：问卷星、腾讯问卷，能满足基本的数据库建立需求，但是对于较大型的研究一般不推荐。</p></li>
+<li><p><strong>专业线上工具</strong>：推荐<a href="https://www.limesurvey.org/">LimeSurvey</a>，有Cloud版和社区版，社区版可以通过自行搭建在云服务器或者本地服务器上。</p></li>
+<li><p><strong>综合数据与分析平台</strong>：推荐RedCap(Research Electronic Data Capture)，RedCap是由范德堡大学Paul Harris教授团队自2004年开发的一个成熟开源、安全可靠、网络化的在线临床研究和试验数据库管理程序，基本国内外知名高校均搭建有自己服务器，西安交通大学也有，如下：</p></li>
+</ul>
+<div id="fig-redcap" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/fig-5-Redcap.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;2.3: 西安交通大学开放研究数据平台</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="数据的读取" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="数据的读取"><span class="header-section-number">2.3</span> 数据的读取</h2>
+<p>数据读取是数据清洗和数据分析的第一步，为什么要单独把这一部分拿出来详细说明，是因为数据库管理工具通常与统计分析软件是分割开的，当然这里有一个例外，那就是MS EXCEL，很多人会把EXCEL既当成数据管理工具（虽然不推荐）又当作统计分析软件。</p>
+<p>数据读取虽然是很简单的一个操作，但是通常情况下会由于中文字符编码（Encoding）等问题导致在不同的统计软件之间转换时浪费一些时间和精力，所以有必要拿出来讲一讲。</p>
+<p>尽管现在的数据管理软件，不管是古老的EpiData或是时下流行的RedCap，都可以支持直接导出适用于不同统计分析软件的特定格式，比如dta（支持Stata）、sas7bat（支持SAS）、sav（支持SPSS），<em>但是我个人还是强烈推荐以CSV格式作为中介，因为几乎所有的统计软件都支持CSV数据格式</em>。</p>
+<section id="统计分析软件" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="统计分析软件"><span class="header-section-number">2.3.1</span> 统计分析软件</h3>
+<p>顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <span class="citation" data-cites="tab-tbl-statsoftware">(<a href="references.html#ref-tab-tbl-statsoftware" role="doc-biblioref"><strong>tab-tbl-statsoftware?</strong></a>)</span>，我个人推荐R，因此后文关于coding部分均是基于R的。</p>
+<div id="tbl-statsoftware" class="anchored">
+<table class="table">
+<caption>表&nbsp;2.2: 社会科学研究中常用统计软件比较</caption>
+<thead>
+<tr class="header">
+<th>软件名</th>
+<th style="text-align: left;">说明</th>
+<th style="text-align: center;">推荐指数</th>
+<th style="text-align: center;">是否收费</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SPSS</td>
+<td style="text-align: left;">入门基础款</td>
+<td style="text-align: center;">*</td>
+<td style="text-align: center;">收费</td>
+</tr>
+<tr class="even">
+<td>Stata</td>
+<td style="text-align: left;">最流行款，学习门槛低，硬件要求低</td>
+<td style="text-align: center;">***</td>
+<td style="text-align: center;">收费</td>
+</tr>
+<tr class="odd">
+<td>SAS</td>
+<td style="text-align: left;">较流行，公共卫生领域研究人员使用多</td>
+<td style="text-align: center;">**</td>
+<td style="text-align: center;">收费</td>
+</tr>
+<tr class="even">
+<td>R</td>
+<td style="text-align: left;">开源，学习门槛较高，第三方工具丰富</td>
+<td style="text-align: center;">***</td>
+<td style="text-align: center;">免费</td>
+</tr>
+<tr class="odd">
+<td>Python</td>
+<td style="text-align: left;">开源，学习门槛高，第三方工具较丰富</td>
+<td style="text-align: center;">**</td>
+<td style="text-align: center;">免费</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="单个文件读取" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="单个文件读取"><span class="header-section-number">2.3.2</span> 单个文件读取</h3>
+<p>在R中读取不同的数据格式还是相对比较方便的，主要有两种方式：</p>
+<ul>
+<li>基于<strong>base</strong>包的，可以相对较容易的读取CSV，如<code>read.csv()</code>。</li>
+<li>基于第三方包的，主要涉及<strong>readr</strong>、<strong>readxl</strong>、<strong>haven</strong>，均包含在tidyverse系列中：
+<ul>
+<li><strong>readr</strong>：主要用于读取CSV，如<code>read_csv()</code></li>
+<li><strong>readxl</strong>：主要用于读取EXCEL的xls和xlsx格式，如<code>read_excel()</code></li>
+<li><strong><a href="https://www.rdocumentation.org/packages/haven/versions/2.5.1">haven</a></strong>：主要用于读取SAS、SPSS和Stata格式数据文件，具体如下，摘自官方文档：
+<ul>
+<li><blockquote class="blockquote">
+<p><strong>SAS</strong>: read_sas() reads .sas7bdat + .sas7bcat files and read_xpt() reads SAS transport files (version 5 and version 8).</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p><strong>SPSS</strong>: read_sav() reads .sav files and read_por() reads the older .por files. write_sav() writes .sav files.</p>
+</blockquote></li>
+<li><blockquote class="blockquote">
+<p><strong>Stata</strong>: read_dta() reads .dta files (up to version 15). write_dta() writes .dta files (versions 8-15).</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>由于以上package和函数都比较简单，参看官方文档之后就能熟练使用，因此不详细赘述，通过以上tidyverse系列的三个package，在R中基本可以应对绝大多数的数据读取问题。</p>
+<p>另外，对于数据量较大的情况，如百万或者千万级别的数据记录条数时，以上package中的函数会耗时较多，遇到这种情况，推荐使用<strong>data.table</strong>中的<code>fread()</code>函数处理，尽管<strong>data.table</strong>是不同于tidyverse的另一套对于数据库的操作体系，但是<strong>data.table</strong>同时具备data.frame的属性，兼容tidyverse语法。</p>
+<p>但是，<code>fread()</code>函数有一个不足之处，就是字符编码只支持<strong>UTF-8</strong>和<strong>Latin</strong>，无法支持中文字符常见的<strong>gb18030</strong>编码，略显遗憾。</p>
+</section>
+<section id="批量读取" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="批量读取"><span class="header-section-number">2.3.3</span> 批量读取</h3>
+<p>批量读取数据是在统计分析过程中很常见的一个需求，具体分为两种情况</p>
+<section id="读取同一个文件夹中的多个文件" class="level4" data-number="2.3.3.1">
+<h4 data-number="2.3.3.1" class="anchored" data-anchor-id="读取同一个文件夹中的多个文件"><span class="header-section-number">2.3.3.1</span> 读取同一个文件夹中的多个文件</h4>
+<p>如，在一个名为<em>data</em>的的文件夹中有365个CSV文件，分别命名为<code>china_cities_20210101</code>…<code>china_cities_20211231</code>，分别记录了全国所有地级市每一天的空气质量数据，现在需要对空气质量进行分析，那么第一步就需要将这365个文件读取并整合进一个数据库中，面对这个问题，你首先会想到如何处理呢？</p>
+<p>这里提供两种思路：</p>
+<ol type="1">
+<li><p>根据文件命名，可以发现其中有一定的规律，也就是每个文件名自由最后的数字在变动，并且是按日期累加，那么就可以直接利用循环进行读取，因为思路较简单，代码略。</p></li>
+<li><p>以上这种情况并不常见，有时很难从文件名中发现规律，那么就只能先想办法获取所有文件名称，然后进行循环读取。</p></li>
+</ol>
+<ul>
+<li>由于文件全部为同一类型，因此可以使用<code>list.files()</code>函数进行获得（代码如下），其中path参数指定的是文件夹路径，pattern参数指定的是文件类型，其中*是通配符。</li>
+<li>剩下的工作就是循环读取了，可以使用if循环，但是不推荐，这里推荐使用<strong>purrr</strong>包中的<code>map()</code>函数，其实<strong>purrr</strong>是R自带的<code>apply()</code>函数族的高阶版本，由于是CSV文件，因此<code>map()</code>函数中FUNC参数使用<strong>readr</strong>包中<code>read_csv()</code>函数。</li>
+<li>最后一步就是将合并为一个data.frame，由于<code>map()</code>函数返回的是一个列表list，因此可以通过<code>do.call()</code>函数对list中的对象进行递归。</li>
+<li>也可以使用 <code>map_dfr()</code>直接省略第三步。</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---------Mehotd 1---------------#</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>csv_list <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dir, <span class="fu">list.files</span>(<span class="at">path =</span> dir, <span class="at">pattern =</span> <span class="st">"*.csv"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(csv_list, readr<span class="sc">::</span>read_csv, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"UTF-8"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, df_list)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#---------Mehotd 2---------------#</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>csv_list <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dir, <span class="fu">list.files</span>(<span class="at">path =</span> dir, <span class="at">pattern =</span> <span class="st">"*.csv"</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(csv_list, readr<span class="sc">::</span>read_csv, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"UTF-8"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="读取同一个excel文件中的多个sheet" class="level4" data-number="2.3.3.2">
+<h4 data-number="2.3.3.2" class="anchored" data-anchor-id="读取同一个excel文件中的多个sheet"><span class="header-section-number">2.3.3.2</span> 读取同一个EXCEL文件中的多个Sheet</h4>
+<p>这种情况在现实中更为常见，处理思路基本同上，第一步依然是获取所有Sheet的名称。这里需要使用<strong>readxl</strong>包中的<code>excel_sheets()</code>函数，具体代码如下：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sheet_name <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">excel_sheets</span>(<span class="st">"datasets.xlsx"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(sheet_name, readxl<span class="sc">::</span>read_excel, <span class="at">path =</span> <span class="st">"datasets.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>有两点需要强调一下：</strong></p>
+<ul>
+<li>所有的文件路径中最好不要有中文</li>
+<li>自由当不同的文件或者sheet中的数据结构完全一致时，才建议直接使用<code>map_dfr()</code>函数将文件合并，如果不一致，建议使用<code>map()</code>函数先保存为列表list，然后根据不同的分析需求进一步处理。</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="整洁数据的含义" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="整洁数据的含义"><span class="header-section-number">2.4</span> 整洁数据的含义</h2>
+<p>（Tidy data）</p>
+</section>
+<section id="数据库转换" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="数据库转换"><span class="header-section-number">2.5</span> 数据库转换</h2>
+<p>（Transforming DataFrames）</p>
+<p>也称作reshape</p>
+<p>长宽类型转换</p>
+<p>合并</p>
+</section>
+<section id="数据整合" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="数据整合"><span class="header-section-number">2.6</span> 数据整合</h2>
+<p>（Aggregating DataFrames）</p>
+<p>分组计算</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>刘红(中国科学院大学人文学院)：大数据 第二次数据革命. 中国社会科学报, 2014/1/21<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter_1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">文献知识的获取与管理</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter_3.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据的清洗</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2022 Chi Shen, Xi'an Jiaotong University
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>
