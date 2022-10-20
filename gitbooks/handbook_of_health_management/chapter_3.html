@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -138,7 +157,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="toc-section-number">3.1</span>  引子</a></li>
+  <li><a href="#sec-3-2" id="toc-sec-3-2" class="nav-link" data-scroll-target="#sec-3-2"><span class="toc-section-number">3.2</span>  整洁数据的含义</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -159,9 +185,190 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>In summary, this book has no content whatsoever.</p>
+<section id="引子" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">3.1</span> 引子</h2>
+<p>正如前文所述，数据清洗（Data Clean）和数据准备（Data Preparation）工作通常会占掉整个数据分析过程70%到80%的工作量，这一点基本被很多学者说认可，因此，应该清楚地认识到数据清洗工作的重要性。然而，很多学者，特别是还处在科研早期阶段的硕博士研究生，十分热衷于跑模型（Run model），拿到数据既不详细摸索数据结构，也不观察变量分布情况，简单的描述一下数据后，就开始跑各种回归，目的只在发现统计显著的回归系数，这是一个不太好的研究习惯。</p>
+</section>
+<section id="sec-3-2" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-3-2"><span class="header-section-number">3.2</span> 整洁数据的含义</h2>
+<p>整洁数据（Tidy Data）是由<a href="https://posit.co/">Posit</a>公司（之前名称为Rstudio）的首席科学家Hadley Wickham提出的，初衷是为了简化数据清洗的流程，提高数据清洗效率。<span class="citation" data-cites="wickham2014">Wickham (<a href="references.html#ref-wickham2014" role="doc-biblioref">2014</a>)</span> 认为Tidy Data更易于操作、建模和可视化，并且应该具备三种特征：</p>
+<ul>
+<li>Each variable is a column, , and that column contains one “type” of data.</li>
+<li>Each observation is a row.</li>
+<li>Each type of observational unit is a table.</li>
+</ul>
+<p>打眼一看，你可能觉得上面三句话说的是废话，心里想着大家不是都是这么建数据库的吗？其实不然，比如可以看下面的例子。</p>
+<p>如 <a href="#tbl-sample-tidy-1">表&nbsp;<span>3.1</span></a> 是日常工作和研究中非常常见的建数据库方式，但是这样的方式对于统计分析来说并不友好，比如当你想要知道每一科课考试的最大值最小值时，你通常需要重复同样的操作。</p>
+<div id="tbl-sample-tidy-1" class="anchored">
+<table class="table">
+<caption>表&nbsp;3.1: 常见数据结构示例一</caption>
+<thead>
+<tr class="header">
+<th>姓名</th>
+<th>数学</th>
+<th>语文</th>
+<th>英语</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>80</td>
+<td>90</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>88</td>
+<td>95</td>
+<td>97</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>再比如，当有多次考试的成绩需要记录时，很多人会选择 <a href="#tbl-sample-tidy-2">表&nbsp;<span>3.2</span></a> 这样的方式，但是这样的结构在数据分析时会更不友好。</p>
+<div id="tbl-sample-tidy-2" class="anchored">
+<table class="table">
+<caption>表&nbsp;3.2: 常见数据结构示例二</caption>
+<thead>
+<tr class="header">
+<th>姓名</th>
+<th>第一次模拟考试</th>
+<th></th>
+<th></th>
+<th>第二次模拟考</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>数学</td>
+<td>语文</td>
+<td>英语</td>
+<td>数学</td>
+<td>语文</td>
+<td>英语</td>
+</tr>
+<tr class="even">
+<td>张三</td>
+<td>80</td>
+<td>90</td>
+<td>95</td>
+<td>85</td>
+<td>92</td>
+<td>97</td>
+</tr>
+<tr class="odd">
+<td>李四</td>
+<td>88</td>
+<td>95</td>
+<td>97</td>
+<td>87</td>
+<td>90</td>
+<td>98</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>符合Tidy Data要求的建立数据库的方式应该如 <a href="#tbl-sample-tidy-3">表&nbsp;<span>3.3</span></a> 所示，在这种结构下，结合Group by等操作，会给数据分析带来很大的便利。</p>
+<div id="tbl-sample-tidy-3" class="anchored">
+<table class="table">
+<caption>表&nbsp;3.3: 常见数据结构示例三</caption>
+<thead>
+<tr class="header">
+<th>姓名</th>
+<th>考试</th>
+<th>学科</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>第一次模拟考</td>
+<td>数学</td>
+<td>80</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>第一次模拟考</td>
+<td>数学</td>
+<td>88</td>
+</tr>
+<tr class="odd">
+<td>张三</td>
+<td>第一次模拟考</td>
+<td>语文</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>第一次模拟考</td>
+<td>语文</td>
+<td>95</td>
+</tr>
+<tr class="odd">
+<td>张三</td>
+<td>第一次模拟考</td>
+<td>英语</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>第一次模拟考</td>
+<td>英语</td>
+<td>97</td>
+</tr>
+<tr class="odd">
+<td>张三</td>
+<td>第二次模拟考</td>
+<td>数学</td>
+<td>85</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>第二次模拟考</td>
+<td>数学</td>
+<td>87</td>
+</tr>
+<tr class="odd">
+<td>张三</td>
+<td>第二次模拟考</td>
+<td>语文</td>
+<td>92</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>第二次模拟考</td>
+<td>语文</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td>张三</td>
+<td>第二次模拟考</td>
+<td>英语</td>
+<td>97</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>第二次模拟考</td>
+<td>英语</td>
+<td>98</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>关于Tidy Data的内容还有很多，具体可以详细参考 <span class="citation" data-cites="wickham2014">Wickham (<a href="references.html#ref-wickham2014" role="doc-biblioref">2014</a>)</span> 的文章，这里就不进行搬运工作了。在设计数据库的时候，只需要记住不要把数据展示形式当成数据库的结构形式就可以。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-wickham2014" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2014. <span>“Tidy Data.”</span> <em>Journal of Statistical Software</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

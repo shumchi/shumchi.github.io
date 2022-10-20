@@ -83,6 +83,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -223,9 +242,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#单个文件读取" id="toc-单个文件读取" class="nav-link" data-scroll-target="#单个文件读取"><span class="toc-section-number">2.3.2</span>  单个文件读取</a></li>
   <li><a href="#批量读取" id="toc-批量读取" class="nav-link" data-scroll-target="#批量读取"><span class="toc-section-number">2.3.3</span>  批量读取</a></li>
   </ul></li>
-  <li><a href="#整洁数据的含义" id="toc-整洁数据的含义" class="nav-link" data-scroll-target="#整洁数据的含义"><span class="toc-section-number">2.4</span>  整洁数据的含义</a></li>
-  <li><a href="#数据库转换" id="toc-数据库转换" class="nav-link" data-scroll-target="#数据库转换"><span class="toc-section-number">2.5</span>  数据库转换</a></li>
-  <li><a href="#数据整合" id="toc-数据整合" class="nav-link" data-scroll-target="#数据整合"><span class="toc-section-number">2.6</span>  数据整合</a></li>
+  <li><a href="#数据库转换" id="toc-数据库转换" class="nav-link" data-scroll-target="#数据库转换"><span class="toc-section-number">2.4</span>  数据库转换</a>
+  <ul class="collapse">
+  <li><a href="#长宽类型转换" id="toc-长宽类型转换" class="nav-link" data-scroll-target="#长宽类型转换"><span class="toc-section-number">2.4.1</span>  长宽类型转换</a></li>
+  <li><a href="#数据库的连接" id="toc-数据库的连接" class="nav-link" data-scroll-target="#数据库的连接"><span class="toc-section-number">2.4.2</span>  数据库的连接</a></li>
+  <li><a href="#筛选观测值" id="toc-筛选观测值" class="nav-link" data-scroll-target="#筛选观测值"><span class="toc-section-number">2.4.3</span>  筛选观测值</a></li>
+  <li><a href="#筛选变量" id="toc-筛选变量" class="nav-link" data-scroll-target="#筛选变量"><span class="toc-section-number">2.4.4</span>  筛选变量</a></li>
+  </ul></li>
+  <li><a href="#数据聚合" id="toc-数据聚合" class="nav-link" data-scroll-target="#数据聚合"><span class="toc-section-number">2.5</span>  数据聚合</a></li>
   </ul>
 </nav>
     </div>
@@ -252,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">2.1</span> 引子</h2>
 <p>在数据的发展历程中有过两次革命。第一次数据革命是近代科学诞生之时，实现了数据与科学研究的融合，数据在科学研究中的基础地位得到确立。对研究过程和结果赋予精确化的诉求，是近代科学的基本特征之一。在以数据为依据的研究范式中，数据的可靠性和准确性代表了研究的精确性，人们甚至将以数据为依据的实证研究作为判断 “科学”与“伪科学”的标准。第二次数据革命发生于因信息技术的发展而导致数据产生的速度和规模急剧发展之时，它不仅改变着科学研究范式，实现社会科学研究的定量化，也将促使经济、社会、军事等所有社会领域产生巨大的变革。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>因此，掌握数据的分析能力是现代社会科学研究必须要掌握的技能。</p>
-<p>现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型，它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%的时间都需要花费在数据的清洗和预处理阶段，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
+<p>现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型，它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%到80%的时间都需要花费在数据的清洗和预处理阶段<span class="citation" data-cites="dasu2003">(<a href="references.html#ref-dasu2003" role="doc-biblioref">Dasu and Johnson 2003</a>)</span>，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
 <p>一个基于数据开展实证研究（不论定性或是定量）的基本流程至少都应该包含以下步骤：</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -441,7 +465,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>尽管现在的数据管理软件，不管是古老的EpiData或是时下流行的RedCap，都可以支持直接导出适用于不同统计分析软件的特定格式，比如dta（支持Stata）、sas7bat（支持SAS）、sav（支持SPSS），<em>但是我个人还是强烈推荐以CSV格式作为中介，因为几乎所有的统计软件都支持CSV数据格式</em>。</p>
 <section id="统计分析软件" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="统计分析软件"><span class="header-section-number">2.3.1</span> 统计分析软件</h3>
-<p>顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <span class="citation" data-cites="tab-tbl-statsoftware">(<a href="references.html#ref-tab-tbl-statsoftware" role="doc-biblioref"><strong>tab-tbl-statsoftware?</strong></a>)</span>，我个人推荐R，因此后文关于coding部分均是基于R的。</p>
+<p>顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <a href="#tbl-statsoftware">表&nbsp;<span>2.2</span></a> ，我个人推荐R，因此后文关于coding部分均是基于R的。</p>
 <div id="tbl-statsoftware" class="anchored">
 <table class="table">
 <caption>表&nbsp;2.2: 社会科学研究中常用统计软件比较</caption>
@@ -553,36 +577,664 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(sheet_name, readxl<span class="sc">::</span>read_excel, <span class="at">path =</span> <span class="st">"datasets.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>有两点需要强调一下：</strong></p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+有两点需要强调一下：
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <ul>
-<li>所有的文件路径中最好不要有中文</li>
-<li>自由当不同的文件或者sheet中的数据结构完全一致时，才建议直接使用<code>map_dfr()</code>函数将文件合并，如果不一致，建议使用<code>map()</code>函数先保存为列表list，然后根据不同的分析需求进一步处理。</li>
+<li>所有的文件路径中最好不要有中文.</li>
+<li>只有当不同的文件或者Sheet中的数据结构完全一致时，才建议直接使用<code>map_dfr()</code>函数将文件合并，如果不一致，建议使用<code>map()</code>函数先保存为列表list，然后根据不同的分析需求进一步处理。</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="数据库转换" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="数据库转换"><span class="header-section-number">2.4</span> 数据库转换</h2>
+<p>这一节的内容其实和 <a href="chapter_3.html#sec-3-2"><span>Section&nbsp;3.2</span></a> 关联比较紧密，通常会用在Tidy Data的整理过程中。数据库转换其实就是对数据库的行（Row）和列（Column）进行的一系列操作，可以对数据库的结构进行改变。</p>
+<section id="长宽类型转换" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="长宽类型转换"><span class="header-section-number">2.4.1</span> 长宽类型转换</h3>
+<p>也称作数据库的重构（Reshape），本质是对长数据（Long）和宽数据（Wide）形式之间进行转换。</p>
+<p>先简单说明一下长数据（Long）和宽数据（Wide）：</p>
+<ul>
+<li><p>长数据（Long）：不是指行比列多，虽然通常情况下这种数据结构确实是行比列多，但本质是指同一个个体<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>有多条观测值，比如面板数据（Panel data）就是长数据。英文表述可能更清楚：A “long” dataset contains more than one row per subject, and uses a unique ID to identify each subject.</p></li>
+<li><p>宽数据（Wide）：与长数据相对的形式，比较好理解了，就是每个个体只有一条观测值。</p></li>
+</ul>
+<p>从网上借了一张图，很清晰的说明了长款数据之间的差异，如 <a href="#fig-6">图&nbsp;<span>2.4</span></a>：</p>
+<div id="fig-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/fig-6-longwide.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;2.4: 长款数据示意图，数据来源：https://www.statology.org/long-vs-wide-data/</figcaption><p></p>
+</figure>
+</div>
+<p>在数据分析过程中，进行长宽数据之间的转换是经常会有的需求，这时你可能就会问了，比如呢！</p>
+<p>比如 <a href="#tbl-panel">表&nbsp;<span>2.3</span></a>，一个微观调查的数据库，当在回归中需要控制时间固定效应时，你肯定希望数据是 <a href="#tbl-panel-long">表&nbsp;<span>2.3 (a)</span></a> 形式，而当需要计算两次wave调查的income的差值时，你肯定希望数据是 <a href="#tbl-panel-wide">表&nbsp;<span>2.3 (b)</span></a> 形式。</p>
+<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>表&nbsp;2.3: 长宽数据转换需求示例</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-panel-long" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table">
+<caption>(a) 长数据示例</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">wave</th>
+<th style="text-align: left;">income</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">001</td>
+<td style="text-align: left;">Wave 1</td>
+<td style="text-align: left;">1500</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">001</td>
+<td style="text-align: left;">Wave 2</td>
+<td style="text-align: left;">2000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">002</td>
+<td style="text-align: left;">Wave 1</td>
+<td style="text-align: left;">2200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">002</td>
+<td style="text-align: left;">Wave 2</td>
+<td style="text-align: left;">2800</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-panel-wide" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table">
+<caption>(b) 宽数据示例</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">wave1</th>
+<th style="text-align: left;">wave2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">001</td>
+<td style="text-align: left;">1500</td>
+<td style="text-align: left;">2000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">002</td>
+<td style="text-align: left;">2200</td>
+<td style="text-align: left;">2800</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>常见的统计软件也都提供了数据库长宽转换的方法，只是易用性方面有所不同。比如，Stata中有<code>reshape</code>命令，而在R中，目前用得最为广泛的是<strong>tidyr</strong>包中的<code>pivot_longer()</code>和<code>pivot_wider()</code>函数，而之前这两个函数的功能是由另外两个函数：<code>gather()</code> 和 <code>spread()</code>提供的，由于后两个函数不容易被记住（这是Hadley Wickham的原话），所以Wickham就重写了这两个函数。</p>
+<p><code>pivot_longer()</code>和<code>pivot_wider()</code>函数的功能在官方文档中解释得非常清楚了，直接搬运如下：</p>
+<ul>
+<li><p>pivot_longer() makes datasets longer by increasing the number of rows and decreasing the number of columns.</p></li>
+<li><p>pivot_longer() is commonly needed to tidy wild-caught datasets as they often optimise for ease of data entry or ease of comparison rather than ease of analysis.</p></li>
+</ul>
+<p>以上两个函数的使用方式都特别简单和直观，参考<a href="https://cran.r-project.org/web/packages/tidyr/vignettes/pivot.html">官方文档</a>即可，在此不再赘述，仅提供一个例子作为演示，具体如下。</p>
+<p>我们还是使用 <a href="#tbl-panel">表&nbsp;<span>2.3</span></a> 的例子</p>
+<ul>
+<li>构造数据库</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>survey <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"ID"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"001"</span>, <span class="st">"001"</span>, <span class="st">"002"</span>, <span class="st">"002"</span>, <span class="st">"003"</span>, <span class="st">"003"</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"wave"</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Wave 1"</span>, <span class="st">"Wave 2"</span>), <span class="dv">3</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"income"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">2000</span>, <span class="dv">2200</span>, <span class="dv">2800</span>, <span class="dv">3000</span>, <span class="dv">2400</span>)                    </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                     )</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-demo" class="anchored">
+<table class="table table-sm table-striped">
+<caption>表&nbsp;2.4: Dataframe of demo</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">wave</th>
+<th style="text-align: right;">income</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">001</td>
+<td style="text-align: left;">Wave 1</td>
+<td style="text-align: right;">1500</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">001</td>
+<td style="text-align: left;">Wave 2</td>
+<td style="text-align: right;">2000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">002</td>
+<td style="text-align: left;">Wave 1</td>
+<td style="text-align: right;">2200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">002</td>
+<td style="text-align: left;">Wave 2</td>
+<td style="text-align: right;">2800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">003</td>
+<td style="text-align: left;">Wave 1</td>
+<td style="text-align: right;">3000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">003</td>
+<td style="text-align: left;">Wave 2</td>
+<td style="text-align: right;">2400</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>长数据转换为宽数据</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>survey_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(survey, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_from =</span> <span class="st">"wave"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">values_from =</span> <span class="st">"income"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-demo-wide" class="anchored">
+<table class="table table-sm table-striped">
+<caption>表&nbsp;2.5: Dataframe of demo (Long to Wide)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: right;">Wave 1</th>
+<th style="text-align: right;">Wave 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">001</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">2000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">002</td>
+<td style="text-align: right;">2200</td>
+<td style="text-align: right;">2800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">003</td>
+<td style="text-align: right;">3000</td>
+<td style="text-align: right;">2400</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>宽数据转换为长数据</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>survey_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(survey_wide, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Wave 1"</span>, <span class="st">"Wave 2"</span>),</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">names_to =</span> <span class="st">"wave"</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">values_to =</span> <span class="st">"income"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-demo-long" class="anchored">
+<table class="table table-sm table-striped">
+<caption>表&nbsp;2.6: Dataframe of demo (Wide to Long)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">wave</th>
+<th style="text-align: right;">income</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">001</td>
+<td style="text-align: left;">Wave 1</td>
+<td style="text-align: right;">1500</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">001</td>
+<td style="text-align: left;">Wave 2</td>
+<td style="text-align: right;">2000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">002</td>
+<td style="text-align: left;">Wave 1</td>
+<td style="text-align: right;">2200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">002</td>
+<td style="text-align: left;">Wave 2</td>
+<td style="text-align: right;">2800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">003</td>
+<td style="text-align: left;">Wave 1</td>
+<td style="text-align: right;">3000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">003</td>
+<td style="text-align: left;">Wave 2</td>
+<td style="text-align: right;">2400</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="数据库的连接" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="数据库的连接"><span class="header-section-number">2.4.2</span> 数据库的连接</h3>
+<p>数据库的连接分为两大类：</p>
+<ul>
+<li>横向连接，一般称为merge或者join，指的是对列（Column）的扩展。</li>
+<li>纵向连接，一般称为append或者concat或者union，指的是对行（Row）的扩展。</li>
+</ul>
+<section id="横向联接" class="level4" data-number="2.4.2.1">
+<h4 data-number="2.4.2.1" class="anchored" data-anchor-id="横向联接"><span class="header-section-number">2.4.2.1</span> 横向联接</h4>
+<p>在统计软件中一般使用<code>merge()</code>函数的较多，比如Stata和R中都具备此命令或者函数，不过现在使用join系列函数的比较多，可能更多的是为了和SQL语言统一，比如R中<strong>dplyr</strong>包提供了<code>join_**()</code>系列函数。</p>
+<p>横向连接一共分为六种情况，这里就用从网上借的一张 <a href="#fig-join">图&nbsp;<span>2.5</span></a> 来说明:</p>
+<ul>
+<li>内联（inner join）</li>
+<li>左联（left join）</li>
+<li>右联（right join）</li>
+<li>全联（full join）</li>
+<li>外联（anti join）</li>
+<li>半连（semi join）</li>
+</ul>
+<p>从图中可以很清晰的看出不同联接方式的差异，<strong>dplyr</strong>包中的<code>join_**()</code>系列函数也十分友好，查看<a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">官方文档</a>之后就可以很快熟练使用，在此不再举例说明。</p>
+<div id="fig-join" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/fig-7-joinfuncs.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;2.5: dplyr包中的join系列函数，数据来源：https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+使用merge或者join时应该注意的问题
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>在联接之前，应该先对需要进行合并操作的数据库结构有熟悉的了解，特别是联接键（Identify variable）的情况，是否有重复？两个数据库之间是何种关系？这些情况都需要提前掌握。</li>
+<li>在进行联接操作之前，应该已经对联接后的结果有一个基本的预期和判断，这样才能保证连接操作的正确性。</li>
+</ol>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+One more thing: 提供两种一次联接多个数据库的方法
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>方法一：利用管道函数（%&gt;%）实现</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df1 <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">left_join</span>(df2, <span class="at">by=</span><span class="st">'a'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">left_join</span>(df3, <span class="at">by=</span><span class="st">'a'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>方法二：利用<strong>purrr</strong>包中的<code>reduce()</code>函数</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">reduce</span>(<span class="fu">list</span>(df1, df2, df3), left_join, <span class="at">by =</span> <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="纵向联接" class="level4" data-number="2.4.2.2">
+<h4 data-number="2.4.2.2" class="anchored" data-anchor-id="纵向联接"><span class="header-section-number">2.4.2.2</span> 纵向联接</h4>
+<p>纵向联接也有多种方法如R自带<strong>base</strong>包提供的<code>rbind()</code>函数，功能相对比较基本，以及<strong>dplyr</strong>包中的系列函数，如下：</p>
+<ul>
+<li><code>union()</code>：获得两个数据库行（Row）的并集，但会<em>剔除</em>重复的行。</li>
+<li><code>union_all()</code>：获得两个数据库行（Row）的并集，但会<em>保留</em>重复的行。</li>
+<li><code>intersec()</code>：获得两个数据库行（Row）的交集，也就是只保留重复的行。</li>
+<li><code>setdiff()</code>：获得两个数据库行（Row）的差集，也就是只保留第一个数据库中与第二个数据不一样的行。</li>
+</ul>
+<p>具体示例如下：</p>
+<ul>
+<li>构造数据库</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>), </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"product"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Oven"</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">"Television"</span>, <span class="dv">3</span>)))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">7</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"product"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Television"</span>, <span class="dv">2</span>), <span class="fu">rep</span>(<span class="st">"Air conditioner"</span>, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df1)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-union-demo" class="cell tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>表&nbsp;2.7: 示例数据集</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-union-demo-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-demo" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table table-sm table-striped">
+<caption>(a) 1</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">product</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Television</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-union-demo-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-demo" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table table-sm table-striped">
+<caption>(b) 2</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">product</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Air conditioner</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Air conditioner</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>纵向联接</li>
+</ul>
+<div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_union <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">union</span>(df1, df2)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_union)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df_union_all <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">union_all</span>(df1, df2)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_union_all)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>df_ints <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">intersect</span>(df1, df2)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_ints)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>df_setdiff <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">setdiff</span>(df1, df2)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_setdiff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-union-res" class="cell tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>表&nbsp;2.8: 纵向联接操作</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-union-res-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table table-sm table-striped">
+<caption>(a) union</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">product</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Air conditioner</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Air conditioner</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-union-res-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table table-sm table-striped">
+<caption>(b) union_all</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">product</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Air conditioner</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Air conditioner</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-union-res-3" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table table-sm table-striped">
+<caption>(c) intersect</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">product</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Television</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Television</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-union-res-4" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table table-sm table-striped">
+<caption>(d) setdiff</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">product</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Oven</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Television</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="筛选观测值" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="筛选观测值"><span class="header-section-number">2.4.3</span> 筛选观测值</h3>
+<p>筛选观测值，或者称作筛选行（Row），是非常常见的数据库操作，但是也比较简单，主要是和条件语句（Condition）结合使用。</p>
+<p>在Stata里就是通过<code>keep</code>、<code>drop</code>、<code>in</code>等命令进行行筛选操作。</p>
+<p>在R里主要有两种方法：</p>
+<ul>
+<li><strong>base</strong>包自带的函数：如<code>subset()</code>函数，或者切片等方法。</li>
+<li><strong>dplyr</strong>包里的<code>filter()</code>函数。</li>
+</ul>
+</section>
+<section id="筛选变量" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="筛选变量"><span class="header-section-number">2.4.4</span> 筛选变量</h3>
+<p>筛选便利，也称作筛选列（Column）或者筛选变量（Variable），同样是非常常见的数据库操作，一样也很简单。</p>
+<p>在Stata里也可以通过<code>keep</code>、<code>drop</code>等命令进行列筛选操作，是的你没看错，这两个命令可以同时进行行和列筛选。</p>
+<p>在R里主要有两种方法：</p>
+<ul>
+<li><strong>base</strong>包自带的函数：如<code>subset()</code>函数，或者切片等方法，是的你还是没看错，此方法可以同时进行行和列筛选。。</li>
+<li><strong>dplyr</strong>包里的<code>select()</code>函数，特别可以注意一下与<code>starts_with()</code>、<code>ends_with()</code>、<code>contains()</code>等函数联用<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>，可以极大提高变量选择的效率。另外，<code>select()</code>函数现在有三个拓展函数<code>select_all()</code>、<code>select_at()</code>、<code>select_if()</code>，针对不同的使用场景，如下：
+<ul>
+<li><code>select_if()</code>：如果需要一次性筛选所有的数值型变量，那么可以<code>df %&gt;% select_if(is.numeric)</code></li>
+<li><code>select_at()</code>：如果需要对符合特定条件的变量进行某种操作，那么可以<code>select_at(vars(-contains("ar")), toupper)</code></li>
+</ul></li>
 </ul>
 </section>
 </section>
-</section>
-<section id="整洁数据的含义" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="整洁数据的含义"><span class="header-section-number">2.4</span> 整洁数据的含义</h2>
-<p>（Tidy data）</p>
-</section>
-<section id="数据库转换" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="数据库转换"><span class="header-section-number">2.5</span> 数据库转换</h2>
-<p>（Transforming DataFrames）</p>
-<p>也称作reshape</p>
-<p>长宽类型转换</p>
-<p>合并</p>
-</section>
-<section id="数据整合" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="数据整合"><span class="header-section-number">2.6</span> 数据整合</h2>
+<section id="数据聚合" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="数据聚合"><span class="header-section-number">2.5</span> 数据聚合</h2>
 <p>（Aggregating DataFrames）</p>
 <p>分组计算</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-dasu2003" class="csl-entry" role="doc-biblioentry">
+Dasu, T., and T. Johnson. 2003. <em>Exploratory Data Mining and Data Cleaning</em>. John Wiley &amp; Sons, Inc.
+</div>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>刘红(中国科学院大学人文学院)：大数据 第二次数据革命. 中国社会科学报, 2014/1/21<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>这里的个体并非特指人，也可以机构，就是指最小统计单元。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>似乎在最新版本的<strong>dplyr</strong>包中这些已经整合进了<code>where()</code>函数。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
