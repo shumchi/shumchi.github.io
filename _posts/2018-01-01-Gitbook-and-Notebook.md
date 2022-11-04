@@ -17,6 +17,7 @@ comments: true
 ## Books
 
 - [Health system evaluation](https://shumchi.github.io/gitbooks/health-system/)
+- [Handbook of Empirical Research in Health Management](https://shumchi.github.io/gitbooks/handbook_of_health_management/)
 
 ## Reports
 
