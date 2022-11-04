@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>卫生政策实证研究手册 - 6&nbsp; 因果推断方法</title>
+<title>卫生政策实证研究手册 - 6&nbsp; 番外篇</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,88 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -70,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">因果推断方法</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -120,12 +202,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据的可视化</span></a>
+  <a href="./chapter_5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">因果推断方法</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">因果推断方法</span></a>
+  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,9 +224,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#双重差分" id="toc-双重差分" class="nav-link active" data-scroll-target="#双重差分"><span class="toc-section-number">6.1</span>  双重差分</a></li>
-  <li><a href="#断点回归" id="toc-断点回归" class="nav-link" data-scroll-target="#断点回归"><span class="toc-section-number">6.2</span>  断点回归</a></li>
-  <li><a href="#工具变量" id="toc-工具变量" class="nav-link" data-scroll-target="#工具变量"><span class="toc-section-number">6.3</span>  工具变量</a></li>
+  <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="toc-section-number">6.1</span>  引子</a></li>
+  <li><a href="#随机分组方法简介" id="toc-随机分组方法简介" class="nav-link" data-scroll-target="#随机分组方法简介"><span class="toc-section-number">6.2</span>  随机分组方法简介</a></li>
+  <li><a href="#随机分组的具体过程及r语言代码" id="toc-随机分组的具体过程及r语言代码" class="nav-link" data-scroll-target="#随机分组的具体过程及r语言代码"><span class="toc-section-number">6.3</span>  随机分组的具体过程及R语言代码</a>
+  <ul class="collapse">
+  <li><a href="#简单随机分组simple-randomization" id="toc-简单随机分组simple-randomization" class="nav-link" data-scroll-target="#简单随机分组simple-randomization"><span class="toc-section-number">6.3.1</span>  简单随机分组（simple randomization）</a></li>
+  <li><a href="#区组随机分组block-randomization" id="toc-区组随机分组block-randomization" class="nav-link" data-scroll-target="#区组随机分组block-randomization"><span class="toc-section-number">6.3.2</span>  区组随机分组（block randomization）</a></li>
+  <li><a href="#分层随机分组stratified-randomization" id="toc-分层随机分组stratified-randomization" class="nav-link" data-scroll-target="#分层随机分组stratified-randomization"><span class="toc-section-number">6.3.3</span>  分层随机分组（stratified randomization）</a></li>
+  </ul></li>
+  <li><a href="#讨论" id="toc-讨论" class="nav-link" data-scroll-target="#讨论"><span class="toc-section-number">6.4</span>  讨论</a></li>
   </ul>
 </nav>
     </div>
@@ -153,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">因果推断方法</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇</span></h1>
 </div>
 
 
@@ -167,33 +255,803 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="双重差分" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="双重差分"><span class="header-section-number">6.1</span> 双重差分</h2>
-<p>先说为什么会想着写这本书：</p>
-<ul>
-<li><p>一是因为这么多年学习和研究的领域是卫生管理（Health Management）与卫生政策（Health Policy），在研究方法方面一直是受卫生统计学或者应用统计学的影响比较大，但是近些年随着<strong>因果推断革命（Causal Inference Revolution）</strong>对各个学科在研究方法上的强烈冲击，特别是社会科学，卫生政策领域的研究在方法学上也受到计量经济学非常大的影响，其中被国内外学者使用最广泛的应该就当属双重差分（Difference-in-Difference）了；</p></li>
-<li><p>二是因为我本人的学科背景并非为经济学，所以很多计量经济学的方法都是在当研究需要时一点一点自学的，尽管计量经济学与统计学存在很多的渊源，但毕竟理论体系不太一样，这就导致在碎片化自学过程中难免会犯一些错误和走一些弯路，再加上这些年记忆力不比从前，对”烂笔头”的依赖越来越高，因此就索性把这些年攒下来的一些笔记，加上最近更新的一些关于DID的知识点整理出来了；</p></li>
-<li><p>三是最近几年随着微信公众号和知乎等迅速成为各类信息传播的主要平台，国内科研工作者慢慢的很少”逛”论坛、发帖子、写博客了，有的转战公众号开设自己的账号，有的开始团队运营，这些平台给科学研究提供了不少便利性，扩大了知识获取面，降低了知识检索的时间成本，但是其弊端也毕竟明显，一方面是导致很多人对前沿科学咨讯的获取基本来源于公众号，很少阅读原始文献，另一方面是公众号或者知乎平台分享的信息和知识点没有经过同行评议，其实不乏有错误之处，若不加思索的参考或者照搬很容易导致研究方法误用，特别是对于尚处于学术生涯初期的研究生。</p></li>
-</ul>
-<p>时刻更新自己的知识体系是科研工作者日常生活中的一部分，保持对新知识的学习热情应该是一个合格的打工人的基本素养吧。DID早在20世纪80年代就被提出，其基本原理很简单，但是如果据此就认为采用DID识别框架的方法都很简单就错了，随着Joshua D. Angrist、Guido W. Imbens、Gary King、Susan Athey等经济学和统计学家对因果识别方法体系的贡献，时至今日，DID已经衍生出了多种多样的类型来使用不同的研究设计和数据结构，可以说已经是一大方法家族了吧。</p>
-<p>写这本书就是打算能给卫生管理和卫生政策方向的年轻硕士和博士生在研究中以参考，因此这本书注重实践性。在这本书里面打算既介绍DiD的原理也给出完整的分析方法和过程，由于目前我还写不清楚所以不会涉及详细的数理推导。</p>
-<p><strong>本书的主要参考资料如下：</strong></p>
-<blockquote class="blockquote">
+<section id="引子" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">6.1</span> 引子</h2>
+<p>  实验研究作为因果推断效能最高的一种研究设计，被广泛应用于医学及社会科学研究中。在实验研究中又以随机对照试验（Randomised Controlled Trials，RCT）最为常见。RCT研究一个最明显的特点就是随机化（Randomization）施加干预<span class="citation" data-cites="li2007">(<a href="references.html#ref-li2007" role="doc-biblioref">李 2007</a>)</span>，随机化和盲法是RCT研究的基石<span class="citation" data-cites="kendall2003">(<a href="references.html#ref-kendall2003" role="doc-biblioref">Kendall 2003</a>)</span>。随机化干预的重要性在于可以有效避免选择或其他偏倚，提供统一的统计分析方法，以及为精确检验显著性和区间估计提供基础<span class="citation" data-cites="roberts1998 cox2009">(<a href="references.html#ref-roberts1998" role="doc-biblioref">Roberts and Torgerson 1998</a>; <a href="references.html#ref-cox2009" role="doc-biblioref">Cox 2009</a>)</span>。</p>
+<p>  在具体的研究中，随机化干预的基础是对干预对象进行随机分组，然而，在现有针对本科生和研究生阶段学习的统计教材中，却缺少对随机分组方法以及其具体实现方法的详细介绍，一定程度上不利于青年研究者将RCT方法应用到具体的研究实践中。尽管已有文献报道了基于SAS和Stata的随机分组方法<span class="citation" data-cites="hu2011 liu2001 wu2013">(<a href="references.html#ref-hu2011" role="doc-biblioref">胡 et al. 2011</a>; <a href="references.html#ref-liu2001" role="doc-biblioref">刘玉秀. et al. 2001</a>; <a href="references.html#ref-wu2013" role="doc-biblioref">吴, 王, and 李 2013</a>)</span>，但是相较于SAS和Stata而言，R语言安装与使用更为简便，并且由于其开源免费的特性更易于获取。因此，本文基于已有文献，详细介绍三种随机分组的具体方法和操作过程，以及提供基于R语言的实现代码，供其他学者在具体研究中作为参考。</p>
+</section>
+<section id="随机分组方法简介" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="随机分组方法简介"><span class="header-section-number">6.2</span> 随机分组方法简介</h2>
+<p>  随机化的概念最早由Fisher于1926年提出<span class="citation" data-cites="aylmerfisher1926">(<a href="references.html#ref-aylmerfisher1926" role="doc-biblioref">Aylmer Fisher 1926</a>)</span>，其后被广泛应用于实验研究中，已成为控制干预组和对照组之间混杂偏倚的必要手段。随机化具体指将受试者按照相同的概率分配在干预组和非干预组的过程<span class="citation" data-cites="fleiss2003">(<a href="references.html#ref-fleiss2003" role="doc-biblioref">Fleiss, Levin, and Paik 2003</a>)</span>，根据实验设计的样本大小以及受试者招募时间长短等因素的不同，随机化分组方法很多种，但较为常用的有三种：简单随机分组（simple randomization）、区组随机分组（block randomization）和分层随机分组（stratified randomization）<span class="citation" data-cites="kang2008">(<a href="references.html#ref-kang2008" role="doc-biblioref">Kang, Ragan, and Park 2008</a>)</span>。具体如下：</p>
 <ol type="1">
-<li>Angrist, &amp; JoshuaDavid. (2010). Mostly Harmless Econometrics: An Empiricist Companion. Princeton University Press.</li>
-<li>伍德里奇, &amp; 费剑平校. (2010). 计量经济学导论: 第4版. 中国人民大学出版社.</li>
-<li>Scott Cunningham. (2020). Causal Inference: The Mixtape. Yale University Press.</li>
-<li><a href="https://lost-stats.github.io/Model_Estimation/Research_Design/event_study.html" class="uri">https://lost-stats.github.io/Model_Estimation/Research_Design/event_study.html</a></li>
+<li><p>简单随机分组是指按照一组随机序列将受试者以相同的概率分配至不同的实验组中，最典型的简单随机分组方法是抛硬币（flipping a coin）。简单随机分组操作容易，但是存在一个明显的不足，即当受试者样本量较小时，无法保证纳入不同实验组的受试者数量相等<span class="citation" data-cites="kang2008 kernan1999">(<a href="references.html#ref-kang2008" role="doc-biblioref">Kang, Ragan, and Park 2008</a>; <a href="references.html#ref-kernan1999" role="doc-biblioref">Kernan et al. 1999</a>)</span>。一般认为当受试者样本量小于200时不宜采用简单随机分组<span class="citation" data-cites="kang2008">(<a href="references.html#ref-kang2008" role="doc-biblioref">Kang, Ragan, and Park 2008</a>)</span>。实际上，在具体的研究过程中（如临床药物试验），通常要求干预组和对照组所分配的受试者数量相等或达到一定的比例，因此即使样本量大于200简单随机分组也不适用。然而，在实际研究过程中，会对简单随机分组方法进行一定的变化以满足研究设计需要，具体见下节。</p></li>
+<li><p>区组随机分组是指先根据受试者样本量大小及实验分组数量和组间比例设定好区组（block）的长度和数量，将特征相似或相同（如入组时间、地区来源）的受试者编入同一区组，然后在每个区组内部进行简单随机分组。区组随机分组可以有效保证不同的实验组中所分配的受试者数量严格满足研究设计要求。不仅如此，区组随机分组的另一个优势在于，当入组后的受试者出现某种不满足实验要求而需退出实验时，可以直接将该受试者所在的区组舍弃另外补充新的区组，而不破坏整个实验的随机化。</p></li>
+<li><p>分层随机分组是指先按已知的混杂因素对受试者进行分层后，再在各个层内采用简单随机或者区组随机方法将受试者分配至不同的实验组。分层随机分组可以在实验设计阶段就对部分混杂因素进行控制，从而提高不同实验组中受试者的基线均衡性<span class="citation" data-cites="kernan1999">(<a href="references.html#ref-kernan1999" role="doc-biblioref">Kernan et al. 1999</a>)</span>。</p></li>
 </ol>
+<p>  其他随机分组方法还有：协变量自适应随机分组（covariate adaptive randomization）和响应自适应随机分组（ response-adaptive randomization） 。需要补充的是，在实际研究过程中，很难一次性招募足够的受试者，然后再为受试者分配随机号进行随机分组工作。通常情况是会设定一段时间（一个月或三个月，视具体情况而定）的招募入组期，当有受试者满足入组条件后就需要进行随机分组，既而接受相应的干预，因此，这就需要在受试者入组之前准备好随机分组规则，受试者根据进入研究的顺序，依据预先准备好的随机分组表进入相应的实验组。</p>
+</section>
+<section id="随机分组的具体过程及r语言代码" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="随机分组的具体过程及r语言代码"><span class="header-section-number">6.3</span> 随机分组的具体过程及R语言代码</h2>
+<section id="简单随机分组simple-randomization" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="简单随机分组simple-randomization"><span class="header-section-number">6.3.1</span> 简单随机分组（simple randomization）</h3>
+<p>  简单随机分组的基本步骤一共有五点：1）按照实验设计的受试者样本量生成受试者编号；2）利用随机函数生成与受试者编号数量相等的随机数字；3）对生成的随机数字进行编秩；4）根据实验设计的组数及分组比例，对随机数字的秩序按照大小或者奇偶数进行分组；5）获得符合实验设计要求的随机分组表。本文提供了一段基于R语言的自编函数，能够满足两组及以上分组且不同组间比例的简单随机分组需求，自编函数代码及具体含义如下：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>simple_random <span class="ot">&lt;-</span> <span class="cf">function</span>(size, <span class="at">grp =</span> <span class="dv">2</span>, <span class="at">T_2_C =</span> <span class="st">"1:1"</span>){</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set.seed</span>(<span class="dv">20210412</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    id_num <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, size, <span class="dv">1</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    random_seq <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> size, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    int_rank <span class="ot">&lt;-</span> <span class="fu">rank</span>(random_seq)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    ratio_T <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(T_2_C, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    ratio_C <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(T_2_C, <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (grp <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        group <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(int_rank <span class="sc">&lt;=</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                        size<span class="sc">/</span>(ratio_T <span class="sc">+</span> ratio_C), </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"T"</span>, <span class="st">"C"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (grp <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        group <span class="ot">&lt;-</span> <span class="fu">cut</span>(int_rank, <span class="at">breaks =</span> grp, </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">paste</span>(<span class="st">"Group"</span>, <span class="dv">1</span><span class="sc">:</span>grp))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"ID"</span> <span class="ot">=</span> id_num, </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"RandomNum"</span> <span class="ot">=</span> random_seq, </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Rank"</span> <span class="ot">=</span> int_rank, <span class="st">"Group"</span> <span class="ot">=</span> group)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.csv</span>(df, <span class="st">"simple randomization table.csv"</span>, </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>              <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(df)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li><p>函数名为simple_random，函数共有3个参数，分别为size（样本量大小）、grp（分组数）和T_2_C（干预组与对照组比例），grp和T_2_C为默认参数，分别默认赋值为2和”1:1”；</p></li>
+<li><p>set.seed()函数用于设定随机种子数，以便下一步利用随机函数生成的随机数可再现，此步骤在利用计算机进行实验研究的随机化分组时十分关键，因为只有固定了随机种子数，才可以保证实验研究中生成的随机分组表可以复现，这一点对于研究论文的发表和临床药物试验质量稽查十分重要。利用计算机生成的随机数本质为伪随机数（Pseudorandomness），它是通过特定的算法计算所得，其满足随机数的统计特征，在相同的计算平台下可以重复出现。</p></li>
+<li><p>seq()函数用于生成从1开始的受试者编号；</p></li>
+<li><p>runif()函数用于生成与受试者人数相等的服从均匀分布的0到1之间随机数字，其中min和max参数可以任意指定，此处也可采用R语言中自带的其他随机函数，如rnorm()等，也可以采用sample()函数直接生成非负随机整数；</p></li>
+<li><p>rank()函数用于对生成的随机数字按照升序进行编秩；</p></li>
+<li><p>ratio_T和ratio_C变量用于提取T_2_C参数的赋值，用于分组比例的计算；</p></li>
+<li><p>if条件语句中的内容即是对随机数字的秩进行分组，其规则为：当为两组且组间比例为1:1时，随机数字的秩位于前50%的受试者编号设定为干预组（“T”），后50%对应的受试者编号设定为对照组（“C”），当为两组且组间比例为1:N时，随机数字的秩位于前1/(1+N)的受试者编号设定为干预组（“T”），剩余受试者编号设定为对照组（“C”），当为三组及以上时，本文提供的自编函数仅支持组间比例相等的情况，其分组规则为将随机数字的秩进行等分，与秩对应的受试者编号分别分入”Group 1”、“Group 2”…“Group N”；</p></li>
+<li><p>data.frame()和write.csv()函数用于生成随机分组表并输出为csv格式，随机分组表中包含受试者编号、随机数字、随机数字的秩、分组。</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>实例一：为检验某一治疗高血压新药A的临床疗效，选择已上市B药作为对照组，开展单中心双臂临床试验，需要受试者240名，每组各120名受试者，请按简单随机分组方法制定随机分组表。利用本文提供的自编函数simple_random()则可将参数size设定为240， 参数grp设定为2，参数T_2_C设定为”1:1”（注意此处为英文半角引号），具体如下：</p>
 </blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">simple_random</span>(<span class="at">size =</span> <span class="dv">240</span>, <span class="at">grp =</span> <span class="dv">2</span>, <span class="at">T_2_C =</span> <span class="st">"1:1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>  函数输出的随机分组表见 <a href="#tbl-random-1">表&nbsp;<span>6.1</span></a> ，其中分组为T和C的受试者分别为120名。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(res[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">229</span><span class="sc">:</span><span class="dv">240</span>),])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-random-1" class="anchored">
+<table class="table table-sm table-striped">
+<caption>表&nbsp;6.1: 简单随机分组表</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">ID</th>
+<th style="text-align: right;">RandomNum</th>
+<th style="text-align: right;">Rank</th>
+<th style="text-align: left;">Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.8323749</td>
+<td style="text-align: right;">198</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.9552218</td>
+<td style="text-align: right;">228</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.5978788</td>
+<td style="text-align: right;">134</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.3507679</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.4315742</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.6332632</td>
+<td style="text-align: right;">147</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.7801558</td>
+<td style="text-align: right;">189</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.4699095</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.3853540</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.6336118</td>
+<td style="text-align: right;">148</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.7365508</td>
+<td style="text-align: right;">178</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.4967514</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">229</td>
+<td style="text-align: right;">229</td>
+<td style="text-align: right;">0.6637343</td>
+<td style="text-align: right;">156</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">230</td>
+<td style="text-align: right;">230</td>
+<td style="text-align: right;">0.9801347</td>
+<td style="text-align: right;">235</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">231</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">0.1659937</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">232</td>
+<td style="text-align: right;">232</td>
+<td style="text-align: right;">0.4225586</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">233</td>
+<td style="text-align: right;">233</td>
+<td style="text-align: right;">0.3599470</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">234</td>
+<td style="text-align: right;">234</td>
+<td style="text-align: right;">0.6065274</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">235</td>
+<td style="text-align: right;">235</td>
+<td style="text-align: right;">0.5213893</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">236</td>
+<td style="text-align: right;">236</td>
+<td style="text-align: right;">0.8585871</td>
+<td style="text-align: right;">202</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">237</td>
+<td style="text-align: right;">237</td>
+<td style="text-align: right;">0.6808066</td>
+<td style="text-align: right;">161</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">238</td>
+<td style="text-align: right;">238</td>
+<td style="text-align: right;">0.2789617</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">239</td>
+<td style="text-align: right;">239</td>
+<td style="text-align: right;">0.9939375</td>
+<td style="text-align: right;">236</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">240</td>
+<td style="text-align: right;">240</td>
+<td style="text-align: right;">0.7866525</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: left;">C</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
-<section id="断点回归" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="断点回归"><span class="header-section-number">6.2</span> 断点回归</h2>
+<section id="区组随机分组block-randomization" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="区组随机分组block-randomization"><span class="header-section-number">6.3.2</span> 区组随机分组（block randomization）</h3>
+<section id="方法一" class="level4" data-number="6.3.2.1">
+<h4 data-number="6.3.2.1" class="anchored" data-anchor-id="方法一"><span class="header-section-number">6.3.2.1</span> 方法一</h4>
+<p>  区组随机分组一般有两种办法，第一种是先根据实验分组情况设定区组长度和区组类型组合，再根据区组数量对区组类型进行随机抽样，从而获得每个区组内部的分组情况<span class="citation" data-cites="kang2008">(<a href="references.html#ref-kang2008" role="doc-biblioref">Kang, Ragan, and Park 2008</a>)</span>，其基本步骤为：1）按照实验设计的受试者样本量生成受试者编号；2）设定区组长度和区组组合；3）根据样本量计算区组数；4）根据区组数从区组组合中随机抽取对应数量的区组类型；5）将随机抽取的区组类型顺序连接，从而获得符合实验设计要求的随机分组表。本文同样提供了一段基于R语言的自编函数，但仅能满足组间比例为1:1的区组随机分组需求，自编函数代码及具体含义如下：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>block_random_m1 <span class="ot">&lt;-</span> <span class="cf">function</span>(size, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                            block_len, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                            block_category){</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    id_num <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, size, <span class="dv">1</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    block <span class="ot">&lt;-</span> size <span class="sc">/</span> block_len</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    block_set <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    block_num <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>block) {</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">set.seed</span>(<span class="dv">20210412</span><span class="sc">+</span>i)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        block <span class="ot">&lt;-</span> <span class="fu">sample</span>(block_category, <span class="dv">1</span>, </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        block_set[i] <span class="ot">&lt;-</span> block</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        block_num <span class="ot">&lt;-</span> <span class="fu">append</span>(block_num, </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">rep</span>(i, block_len))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    group <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">unlist</span>(</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">strsplit</span>(</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">paste0</span>(block_set, </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">collapse=</span><span class="st">";"</span>), </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">split=</span><span class="st">";"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                            )</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                      )</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"ID"</span> <span class="ot">=</span> id_num, </span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Block"</span> <span class="ot">=</span> block_num, </span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Group"</span> <span class="ot">=</span> group)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># write.csv(df, </span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">#           "block radomization table 1.csv", </span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">#           row.names = FALSE)</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(df)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li><p>函数名为block_random_m1，函数共有3个参数，分别为size（样本量大小）、block_len（区组长度）和block_category（区组组合）；</p></li>
+<li><p>seq()函数和set.seed()作用同上；</p></li>
+<li><p>block变量为根据样本量和区组长度计算的区组数量；</p></li>
+<li><p>两组实验中常用的区组长度为4，那么参数block_ken即为4，对应的区组组合共有6种情况（“TTCC”, “TCTC”, “TCCT”, “CCTT”, “CTCT”, “CTTC”），其中T表示干预组，C表示对照组，用参数block_category来指定；</p></li>
+<li><p>for循环中即是依据计算所得的区组数量，利用sample()函数从全部区组组合中随机抽取相应数量的区组组合，其中sample()函数的第二个参数用于指定每次抽取的组合数，本文中采取每次抽取1个，第三个参数replace用于指定是否为有放回抽样，当每次抽取数量大于1时应采取无放回抽样，replace的值应设定为FALSE；</p></li>
+<li><p>block_set变量表示将for循环随机抽取的区组组合以向量的形式存储，以便于后续输出结构化的随机分组表；</p></li>
+<li><p>block_num变量用于记录区组的编号；</p></li>
+<li><p>as.vector()函数是将block_set变量中存储的区组组合连接成与样本量相同的长度，以便与受试者编号对应；</p></li>
+<li><p>data.frame()和write.csv()函数用于生成随机分组表并输出为csv格式，随机分组表中包含受试者编号、区组编号、分组。</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>实例二：为检验某一治疗肿瘤新化疗方案的临床疗效，选择常规化疗方案作为对照组，开展单中心双臂临床试验，需要受试者120名，每组各60名受试者，受试者入组期为3个月，化疗期为6个月，请按区组随机分组方法制定随机分组表。利用本文提供的自编函数block_random_m1()则可将参数size设定为120， 参数block_len设定为4，参数block_category设定为c(“T;T;C;C”, “T;C;T;C”, “T;C;C;T”, “C;C;T;T”, “C;T;C;T”, “C;T;T;C”)，具体如下：</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>res_block1 <span class="ot">&lt;-</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">block_random_m1</span>(<span class="at">size =</span> <span class="dv">120</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">block_len =</span> <span class="dv">4</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">block_category =</span> <span class="fu">c</span>(<span class="st">"T;T;C;C"</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"T;C;T;C"</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"T;C;C;T"</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"C;C;T;T"</span>, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"C;T;C;T"</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"C;T;T;C"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>  函数输出的随机分组表见 <a href="#tbl-random-2">表&nbsp;<span>6.2</span></a>，其中共产生30个区组，每个区组内干预组和对照组各2名受试者。在实际的研究中区组长度的设定可适当变化，具体可见本文讨论部分。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(res_block1[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">109</span><span class="sc">:</span><span class="dv">120</span>), ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-random-2" class="anchored">
+<table class="table table-sm table-striped">
+<caption>表&nbsp;6.2: 方法一区组随机分组表</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">ID</th>
+<th style="text-align: right;">Block</th>
+<th style="text-align: left;">Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">109</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">110</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">111</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">112</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">113</td>
+<td style="text-align: right;">113</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">114</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">115</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">116</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">117</td>
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">118</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">119</td>
+<td style="text-align: right;">119</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">120</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">T</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
-<section id="工具变量" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="工具变量"><span class="header-section-number">6.3</span> 工具变量</h2>
+<section id="方法二" class="level4" data-number="6.3.2.2">
+<h4 data-number="6.3.2.2" class="anchored" data-anchor-id="方法二"><span class="header-section-number">6.3.2.2</span> 方法二</h4>
+<p>  第二种是先根据受试者数量生成随机数字，然后根据实验分组情况设定区组长度并依次对区组编号，再按区组编号分组对生成的随机数字编秩，最后根据各区组内随机数字秩的大小关系进行分组，其基本步骤为：1）按照实验设计的受试者样本量生成受试者编号；2）设定区组长度并根据受试者数量计算区组数并依次编号；3）利用随机函数生成与受试者编号数量相等的随机数字；4）按区组编号分组计算随机数字的秩；5）在各区组内，按照实验设计的组数及分组比例，对随机数字的秩序按照大小或者奇偶数进行分组；6）获得符合实验设计要求的随机分组表。本文同样提供了一段基于R语言的自编函数，能满足两组及多组且组间比例不同的区组随机分组需求，自编函数代码及具体含义如下：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr, <span class="at">warn =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>block_random_m2 <span class="ot">&lt;-</span> <span class="cf">function</span>(size, block_len, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">grp =</span> <span class="dv">2</span>, <span class="at">T_2_C =</span> <span class="st">"1:1"</span>){</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    id_num <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, size, <span class="dv">1</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    block <span class="ot">&lt;-</span> size <span class="sc">/</span> block_len</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    block_num <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>block) {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        block_num <span class="ot">&lt;-</span> <span class="fu">append</span>(block_num, </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">rep</span>(i, block_len))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    random_seq <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> size, </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                        <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"ID"</span> <span class="ot">=</span> id_num, </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"BlockNum"</span> <span class="ot">=</span> block_num, </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"RandomNum"</span> <span class="ot">=</span> random_seq)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    df_rank <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(BlockNum) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>               <span class="fu">mutate</span>(<span class="at">Rank =</span> <span class="fu">rank</span>(RandomNum))</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    ratio_T <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(T_2_C, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    ratio_C <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(T_2_C, <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (grp <span class="sc">==</span> <span class="dv">2</span>){</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        df_rank<span class="sc">$</span>Group <span class="ot">&lt;-</span> </span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ifelse</span>(df_rank<span class="sc">$</span>Rank <span class="sc">&lt;=</span> </span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>                   block_len<span class="sc">/</span>(ratio_T <span class="sc">+</span> ratio_C), </span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"T"</span>, <span class="st">"C"</span>)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (grp <span class="sc">&gt;</span><span class="dv">2</span>) {</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        df_rank<span class="sc">$</span>Group <span class="ot">&lt;-</span> </span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>            <span class="fu">cut</span>(df_rank<span class="sc">$</span>Rank, </span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">breaks =</span> grp, </span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">paste</span>(<span class="st">"Group"</span>, <span class="dv">1</span><span class="sc">:</span>grp))</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># write.csv(df_rank, </span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">#            "block radomization table 2.csv", </span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">#            row.names = FALSE)   </span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(df_rank)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li><p>函数名为block_random_m2，函数共有4个参数，分别为size（样本量大小）、block_len（区组长度）、grp（分组数）和T_2_C（干预组与对照组比例），grp和T_2_C为默认参数，分别默认赋值为2和”1:1”；</p></li>
+<li><p>seq()和runif()函数作用同上；</p></li>
+<li><p>由于此方法需要进行分组编秩，考虑到R语言自带分组功能使用较为不便，本文在自编函数中引入了第三方程序包dplyr，可通过install.packages(“dplyr”)安装，其中group_by()、mutate()及%&gt;%管道函数为dplyr包中引入的函数;</p></li>
+<li><p>变量ratio_T和ratio_C，以及if条件语句中的功能与简单随机分组相同。</p></li>
+<li><p>data.frame()和write.csv()函数用于生成随机分组表并输出为csv格式，随机分组表中包含受试者编号、区组编号、随机数字、分组。</p></li>
+</ol>
+<p>  同样以实例二为例，利用block_random_m2()函数可以获得同表2相似的结果，具体使用方式如下，输出结果见 <a href="#tbl-random-3">表&nbsp;<span>6.3</span></a> 。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>res_block2 <span class="ot">&lt;-</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">block_random_m2</span>(<span class="at">size =</span> <span class="dv">120</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">block_len =</span> <span class="dv">4</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">grp =</span> <span class="dv">2</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">T_2_C =</span> <span class="st">"1:1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(res_block2[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">109</span><span class="sc">:</span><span class="dv">120</span>), ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-random-3" class="anchored">
+<table class="table table-sm table-striped">
+<caption>表&nbsp;6.3: 方法二区组随机分组表</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">ID</th>
+<th style="text-align: right;">BlockNum</th>
+<th style="text-align: right;">RandomNum</th>
+<th style="text-align: right;">Rank</th>
+<th style="text-align: left;">Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2355342</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.1950892</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.7458419</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2197261</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0764369</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.6039926</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.4317742</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.4814425</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.7359029</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.8289157</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.9952405</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.5653650</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.7804675</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.6807008</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.3534151</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.3243371</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">113</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.3971316</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.5407747</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.4979685</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.1560650</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">0.6870941</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">0.7521457</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">119</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">0.8746505</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">0.7950460</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">C</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="分层随机分组stratified-randomization" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="分层随机分组stratified-randomization"><span class="header-section-number">6.3.3</span> 分层随机分组（stratified randomization）</h3>
+<p>  从操作层面而言，分层随机分组的本质是根据混杂因素对受试者进行分层后，再在各个层内采用简单随机或者区组随机的方法将受试者分配至不同的实验组。如在进行多中心肿瘤疾病的临床试验中，研究中心的情况和受试者肿瘤的分型分期会对治疗结局产生明显的影响，但是若采取简单随机或者区组随机分组的方法，很难确保不同研究中心入组的受试者特征相似，以及不同实验组间受试者肿瘤分型分期均衡，因此需要对此类明显可能造成实验结局偏倚的变量进行分层控制。假设存在3个研究中心，肿瘤共分为2型2期，那么就可以设置12个层，再在12个层内分别采用简单随机或者区组随机分组方法生成随机分组表，由于所采用方法同上，此处不再详细叙述。</p>
+</section>
+</section>
+<section id="讨论" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="讨论"><span class="header-section-number">6.4</span> 讨论</h2>
+<p>  本文详细梳理了当前阶段实验研究中常用的随机分组方法，并以此为基础，结合现阶段研究领域常用的开源统计软件R语言，详细介绍了实验研究中进行随机分组的具体过程，并通过自编函数的形式提出了集成化解决方案，且通过实例验证了自编函数的可靠性，可为研究者在开展实验研究的随机分组时提供借鉴和参考。有几点需要讨论说明，如下：</p>
+<p>  随机种子数的设定及管理。在RCT研究中，随机化通常和盲法联合使用，而随机分组的结果和规则是盲法的重要内容之一，因此除了需要保证不将随机分组结果透露至研究人员或者受试者外，还需要保证随机分组规则不可轻易被猜出。在利用计算机平台进行随机数生成时，合理设定随机种子数是保证生成的随机数可再现的重要前提。那么随机种子数的设定就十分关键，一般情况下随机种子数不可设置过于简单，如1或者2，亦或者年份。随机种子数应由项目组的统计人员保管，在实验揭盲或者结束之前不可透露给其他研究相关人员。</p>
+<p>  区组随机中区组长度的设定。区组长度由研究者确定，对于实验组为两组时通常取4和6<span class="citation" data-cites="kang2008">(<a href="references.html#ref-kang2008" role="doc-biblioref">Kang, Ragan, and Park 2008</a>)</span>。考虑到区组长度较短且单一时，研究人员容易总结发现其中规律，可能会破坏盲法，因此在设定区组长度时可以采用复合方案，即在同一份随机分组表中同时设置4和6的区组长度，从而增加区组的复杂性，减少可预见性。另一方面，由于在具体的实验研究中，受试者脱落或者中途退出的情况并不少见，因此在生成随机分组表时，一般情况下推荐多设置1至2个区组，以备进行补充。</p>
+<p>  除本文中详细介绍的三种常用随机分组方法外，为了应对受试者入组的复杂情况，还有协变量自适应随机分组（covariate adaptive randomization）<span class="citation" data-cites="kang2008">(<a href="references.html#ref-kang2008" role="doc-biblioref">Kang, Ragan, and Park 2008</a>)</span>和响应自适应随机分组（ response-adaptive randomization）<span class="citation" data-cites="liu2008">(<a href="references.html#ref-liu2008" role="doc-biblioref">刘晓燕. et al. 2008</a>)</span>方法，由于以上方法已有学者开发出了供R语言直接使用的软件包（carat），因此本文中未详细介绍，具体可见 <a href="https://cran.r-project.org/package=carat">&lt;https://CRAN.R-project.org/package=carat&gt;</a>。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-aylmerfisher1926" class="csl-entry" role="doc-biblioentry">
+Aylmer Fisher, Ronald. 1926. <span>“The Arrangement of Field Experiments.”</span> <em>Journal of the Ministry of Agriculture of Great Britain</em> 33: 503–13. <a href="https://doi.org/10.23637/ROTHAMSTED.8V61Q">https://doi.org/10.23637/ROTHAMSTED.8V61Q</a>.
+</div>
+<div id="ref-cox2009" class="csl-entry" role="doc-biblioentry">
+Cox, D R. 2009. <span>“Randomization in the <span>Design</span> of <span>Experiments</span>.”</span> <em>International Statistical Review</em> 77 (3): 415–29.
+</div>
+<div id="ref-fleiss2003" class="csl-entry" role="doc-biblioentry">
+Fleiss, Joseph L, Bruce A Levin, and Myunghee Cho Paik. 2003. <em>Chapter 5: <span>How</span> to <span>Randomize</span> in <span>Statistical</span> Methods for Rates and Proportions.</em> <span>Hoboken, N.J.</span>: <span>Wiley-Interscience</span>.
+</div>
+<div id="ref-kang2008" class="csl-entry" role="doc-biblioentry">
+Kang, Minsoo, Brian G. Ragan, and Jae-Hyeon Park. 2008. <span>“Issues in <span>Outcomes Research</span>: <span>An Overview</span> of <span>Randomization Techniques</span> for <span>Clinical Trials</span>.”</span> <em>Journal of Athletic Training</em> 43 (2): 215–21. <a href="https://doi.org/10.4085/1062-6050-43.2.215">https://doi.org/10.4085/1062-6050-43.2.215</a>.
+</div>
+<div id="ref-kendall2003" class="csl-entry" role="doc-biblioentry">
+Kendall, J M. 2003. <span>“Designing a Research Project: Randomised Controlled Trials and Their Principles.”</span> <em>Emergency Medicine Journal</em> 20 (2): 164–68. <a href="https://doi.org/10.1136/emj.20.2.164">https://doi.org/10.1136/emj.20.2.164</a>.
+</div>
+<div id="ref-kernan1999" class="csl-entry" role="doc-biblioentry">
+Kernan, Walter N, Catherine M Viscoli, Robert W Makuch, Lawrence M Brass, and Ralph I Horwitz. 1999. <span>“Stratified <span>Randomization</span> for <span>Clinical Trials</span>.”</span> <em>Journal of Clinical Epidemiology</em> 52 (1): 19–26. <a href="https://doi.org/10.1016/S0895-4356(98)00138-3">https://doi.org/10.1016/S0895-4356(98)00138-3</a>.
+</div>
+<div id="ref-roberts1998" class="csl-entry" role="doc-biblioentry">
+Roberts, C., and D. Torgerson. 1998. <span>“Understanding Controlled Trials: <span>Randomisation</span> Methods in Controlled Trials.”</span> <em>BMJ</em> 317 (7168): 1301–10. <a href="https://doi.org/10.1136/bmj.317.7168.1301">https://doi.org/10.1136/bmj.317.7168.1301</a>.
+</div>
+<div id="ref-liu2008" class="csl-entry" role="doc-biblioentry">
+刘晓燕, 陈峰, 魏永越, 柏建岭, and 于浩. 2008. <span>“响应—自适应随机化分组方法.”</span> 10.3969/j.issn.1009-2501.2008.06.016. <em>临床药理学</em> 13 (6): 684–89.
+</div>
+<div id="ref-liu2001" class="csl-entry" role="doc-biblioentry">
+刘玉秀, 姚晨, 杨友春, and 陈峰. 2001. <span>“随机化临床试验及随机化的SAS实现.”</span> 10.3969/j.issn.1009-2501.2001.03.001. <em>中国临床药理学与治疗学</em> 6 (3): 193–95. <a href="https://doi.org/10.3969/j.issn.1009-2501.2001.03.001">https://doi.org/10.3969/j.issn.1009-2501.2001.03.001</a>.
+</div>
+<div id="ref-wu2013" class="csl-entry" role="doc-biblioentry">
+吴春霖, 王镭, and 李卫兵. 2013. <span>“临床试验随机化分组及其Stata的实现.”</span> 10.7507/1672-2531.20130041. <em>中国循证医学杂志</em> 13 (2): 242–44. <a href="https://doi.org/10.7507/1672-2531.20130041">https://doi.org/10.7507/1672-2531.20130041</a>.
+</div>
+<div id="ref-li2007" class="csl-entry" role="doc-biblioentry">
+李立明. 2007. <em>流行病学</em>. <span>北京</span>: <span>人民卫生出版社</span>.
+</div>
+<div id="ref-hu2011" class="csl-entry" role="doc-biblioentry">
+胡良平, 关雪, 毛玮, and 高辉. 2011. <span>“<span>各种常见随机化的sas实现</span>.”</span> <em>中华脑血管病杂志(电子版)</em> 5 (01): 68–76.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -298,7 +1156,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chapter_5.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据的可视化</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">因果推断方法</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

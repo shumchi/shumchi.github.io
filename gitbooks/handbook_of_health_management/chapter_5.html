@@ -83,6 +83,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -93,7 +112,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./chapter_6.html" rel="next">
 <link href="./chapter_4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -192,6 +211,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">参考文献</a>
   </div>
 </li>
@@ -216,7 +240,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#进行rd分析的步骤及示例" id="toc-进行rd分析的步骤及示例" class="nav-link" data-scroll-target="#进行rd分析的步骤及示例"><span class="toc-section-number">5.3.6</span>  进行RD分析的步骤及示例</a></li>
   <li><a href="#关于fuzzy类型的rd模型估计方法" id="toc-关于fuzzy类型的rd模型估计方法" class="nav-link" data-scroll-target="#关于fuzzy类型的rd模型估计方法"><span class="toc-section-number">5.3.7</span>  关于Fuzzy类型的RD模型估计方法</a></li>
   <li><a href="#结束" id="toc-结束" class="nav-link" data-scroll-target="#结束"><span class="toc-section-number">5.3.8</span>  结束</a></li>
-  <li><a href="#本章参考文献" id="toc-本章参考文献" class="nav-link" data-scroll-target="#本章参考文献"><span class="toc-section-number">5.3.9</span>  本章参考文献</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -267,11 +290,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="5.3" class="anchored" data-anchor-id="断点回归"><span class="header-section-number">5.3</span> 断点回归</h2>
 <section id="简介" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">5.3.1</span> 简介</h3>
-<p>  断点回归（Regression Discontinuity）适用于以下情形：人群是否接受干预（Treatment）是依据某一数值变量（rating variable）是否高于或低于某一确定的阈值（threshold）或者分割点（cut-point），例如在研究是否上大学会影响收入时，数值变量（rating variable，也叫 assignment variable，score，running variable，forcing variable， or index）就是高考分数，阈值或者分割点就是本科录取分数线。</p>
+<p>  断点回归（Regression Discontinuity）适用于以下情形：人群是否接受干预（Treatment）是依据某一数值变量（rating variable）是否高于或低于某一确定的阈值（threshold）或者分割点（cut-point），例如在研究是否上大学会影响收入时，数值变量（rating variable，也叫 assignment variable，score，running variable，forcing variable， or index）就是高考分数，阈值或者分割点就是本科录取分数线。以下内容主要参考：<span class="citation" data-cites="Sebastian2022">谢谦, 薛仙玲, and 付明卫 (<a href="references.html#ref-xie2019" role="doc-biblioref">2019</a>)</span>。</p>
 </section>
 <section id="发展历史" class="level3" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="发展历史"><span class="header-section-number">5.3.2</span> 发展历史</h3>
-<p>  Regression Discontinuity最早由社会学家Thistlethwaite and Campbell 在1960年提出的，用于评估社会项目，但是他们的研究虽然引起一些影响但是没有得到广泛的注意，后来，在1972-2009年期间，被一系列经济学家(Goldberger，van der Klaauw，Imbens and Kalyanaraman等)在方法学方面进行了完善，最终在2008年达到顶峰，标志是在2008年Journal of Econometrics出了一期RD分析的<a href="https://www.sciencedirect.com/journal/journal-of-econometrics/vol/142/issue/2">Special Issue</a>，光看期刊名字就知道是经济学顶刊了(<strong>Journal of Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本经济学国际顶级期刊之一</strong> )。</p>
+<p>  Regression Discontinuity最早由社会学家Thistlethwaite and Campbell 在1960年提出的，用于评估社会项目，但是他们的研究虽然引起一些影响但是没有得到广泛的注意，后来，在1972-2009年期间，被一系列经济学家(Goldberger，van der Klaauw，Imbens and Kalyanaraman等)在方法学方面进行了完善，最终在2008年达到顶峰，标志是在2008年Journal of Econometrics出了一期RD分析的<a href="https://www.sciencedirect.com/journal/journal-of-econometrics/vol/142/issue/2">Special Issue</a>，光看期刊名字就知道是经济学顶刊了(<strong>Journal of Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本经济学国际顶级期刊之一</strong> )。</p>
 </section>
 <section id="特点与分类" class="level3" data-number="5.3.3">
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="特点与分类"><span class="header-section-number">5.3.3</span> 特点与分类</h3>
@@ -288,7 +311,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="适用rd分析的先决条件conditions-for-internal-validity" class="level3" data-number="5.3.4">
 <h3 data-number="5.3.4" class="anchored" data-anchor-id="适用rd分析的先决条件conditions-for-internal-validity"><span class="header-section-number">5.3.4</span> 适用RD分析的先决条件(Conditions for Internal Validity)</h3>
-<p>  由于RD仍然属于非实验方法，尽管也被成为类实验(quasi-experimental)，但本质还是非实验方法(nonexperimental)， 所以它必须满足一系列前期条件，才能提供无偏估计和更可能的接近RCT的严格情形。</p>
+<p>  由于RD仍然属于非实验方法，尽管也被成为类实验(quasi-experimental)，但本质还是非实验方法(nonexperimental)， 所以它必须满足一系列前期条件，才能提供无偏估计和更可能的接近RCT的严格情形。</p>
 <ul>
 <li><p><strong>一、</strong> Rating variable (中文的翻译很多，但比较通用的翻译为驱动变量或者配置变量)不能被干预(treatment)所影响，Rating variable 的值必须是在干预(treatment)<strong>之前</strong>就已经确定了，或者是不可再更改的变量。也就是只能是驱动变量的值决定是否接受干预，不能是干预决定驱动变量的值。比如：高考成绩(Rating variable)是在判断是否能够上大学(treatment)之前就已经确定了，并且分数不会再发生变化，如果存在严重的根据分数线修改高考成绩的情况，则高考分数就不能作为Rating variable。 <strong>检验方法是：画Rating variable的频率分布直方图或者密度图，再进行McCrary 检验</strong></p></li>
 <li><p><strong>二、</strong> 断点(cut-point)是完全外生的，并且干预与否完全取决于驱动变量和断点。即断点不受其他因素影响而改变干预的判断，即把本不该接受干预的对象划入了干预，或者把该接受干预的对象划入了对照。 比如，如果高考录取线(cut-point)的确定是完全已经严格的录取指标划定的， 而不存在为了使得某部分人群能够获得上大学的机会，而修改录取线。</p></li>
@@ -413,7 +436,7 @@ attr(,"class")
 </section>
 <section id="step-3-画驱动变量与干预的关系图判断sharp或者fuzzy类型" class="level4" data-number="5.3.6.3">
 <h4 data-number="5.3.6.3" class="anchored" data-anchor-id="step-3-画驱动变量与干预的关系图判断sharp或者fuzzy类型"><span class="header-section-number">5.3.6.3</span> Step 3: 画驱动变量与干预的关系图，判断sharp或者fuzzy类型</h4>
-<p>  画驱动变量与干预的散点图，判断是否为sharp或者fuzzy类型。可以看出本例中，干预在cut-point前后，有明确的界限，为sharp类型。</p>
+<p>  画驱动变量与干预的散点图，判断是否为sharp或者fuzzy类型。可以看出本例中，干预在cut-point前后，有明确的界限，为sharp类型。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rdrobust_RDsenate<span class="sc">$</span>treatment <span class="ot">&lt;-</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(rdrobust_RDsenate<span class="sc">$</span>margin <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
@@ -446,7 +469,7 @@ attr(,"class")
 <section id="step-4-画驱动变量与结果变量的关系图选择合适的bin数量" class="level4" data-number="5.3.6.4">
 <h4 data-number="5.3.6.4" class="anchored" data-anchor-id="step-4-画驱动变量与结果变量的关系图选择合适的bin数量"><span class="header-section-number">5.3.6.4</span> Step 4: 画驱动变量与结果变量的关系图，选择合适的bin数量</h4>
 <p><strong>一、画散点图</strong></p>
-<p>  横轴为驱动变量，纵轴为结果变量，画散点图，初步判断两者之间关系，但是散点图噪音(noise)太大，不利于发现跳跃点，需要对驱动变量分不同的段(intervals or bin)将使得关系取线更平顺。</p>
+<p>  横轴为驱动变量，纵轴为结果变量，画散点图，初步判断两者之间关系，但是散点图噪音(noise)太大，不利于发现跳跃点，需要对驱动变量分不同的段(intervals or bin)将使得关系取线更平顺。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 第一步：散点图</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -469,7 +492,7 @@ attr(,"class")
 </div>
 </div>
 <p><strong>二、将驱动变量分段的步骤</strong></p>
-<p>  将驱动变量分段后再做关系图，大致有四步：</p>
+<p>  将驱动变量分段后再做关系图，大致有四步：</p>
 <ul>
 <li>将驱动变量分成若干宽度(width)相等的区间(bin)，但是需要注意的是不能存在骑跨cut-point的区间， 所以最好从cut-point开始分别向左右两端进行划分，并不一定要求左右两边的bin数量相等。<br>
 </li>
@@ -478,7 +501,7 @@ attr(,"class")
 <li>为了更好的显示两变量之间的关系，最好加上局部加权平滑回归取线(如：lowess: locally weighted regression)</li>
 </ul>
 <p><strong>三、确定bins数量的方法</strong></p>
-<p>  如何设定bin的数量或者binwidth的方法比较复杂，bin的数量不宜过多或过少，过少起不到将噪音的作用，过多会导致jump不明显，在Stata和R中有打包的好的方法去判断bin的数量，本例中采用<strong>rdrobust</strong>包中的<em>rdplot</em>函数进行判断。</p>
+<p>  如何设定bin的数量或者binwidth的方法比较复杂，bin的数量不宜过多或过少，过少起不到将噪音的作用，过多会导致jump不明显，在Stata和R中有打包的好的方法去判断bin的数量，本例中采用<strong>rdrobust</strong>包中的<em>rdplot</em>函数进行判断。</p>
 <p><strong><em>rdplot</em>函数的常用参数有</strong>：</p>
 <ul>
 <li>c为cut-point，默认为0</li>
@@ -556,10 +579,10 @@ Y_i = &amp; \alpha + \beta_0 \cdot Treatment_i + \beta_1 \cdot (rating_i - cutpo
 </ol></li>
 <li>局部非参数估计(Nonparametric/local strategy): 即是在cut-point左右选择一段合适的带宽(bandwidth)，在这一段带宽局部范围内， 拟合驱动变量和结局变量的线性或者多项式回归模型，此方法利用的是RD设计的”局部随机(local randomization)“的特性。此方法适用于样本量较大的情况， 因为样本量太少，设定带宽之后样本量将会不足，增加估计误差。前面所提到的R包中均只提供局部非参数估计函数。<strong>局部非参数估计的难点在于如何确定最优带宽，常用的方法有交叉验证法(cross validation procedure， CV)、 IK 法和 CCT 法，后两种方法较为推荐</strong></li>
 </ul>
-<p>  <strong>关于上述两种方法的比较或者权衡，主要是关于精度和误差，全局参数估计因为利用了全部样本，通常对效应的估计精度更高</strong>，然而其也存在一个问题，就是驱动变量和结局变量的关系函数在越大的区间下越难以准确识别；而非参数估计可以通过局部拟合加权线性或者多项式回归模型而减少这种偏误。</p>
-<p>  <strong>以上方法主要针对sharp类型，fuzzy类型的估计方法见最后一节。</strong></p>
+<p>  <strong>关于上述两种方法的比较或者权衡，主要是关于精度和误差，全局参数估计因为利用了全部样本，通常对效应的估计精度更高</strong>，然而其也存在一个问题，就是驱动变量和结局变量的关系函数在越大的区间下越难以准确识别；而非参数估计可以通过局部拟合加权线性或者多项式回归模型而减少这种偏误。</p>
+<p>  <strong>以上方法主要针对sharp类型，fuzzy类型的估计方法见最后一节。</strong></p>
 <p><strong>2) 全局参数估计</strong></p>
-<p>  分为一次线性、一次线性加交互项、以及二次、三次线性及交互项，共6个模型，比较AIC或者回归残差，较小者模型较优。</p>
+<p>  分为一次线性、一次线性加交互项、以及二次、三次线性及交互项，共6个模型，比较AIC或者回归残差，较小者模型较优。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>rdrobust_RDsenate<span class="sc">$</span>margin_del <span class="ot">&lt;-</span> rdrobust_RDsenate<span class="sc">$</span>margin <span class="sc">-</span> <span class="dv">0</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -589,16 +612,16 @@ Y_i = &amp; \alpha + \beta_0 \cdot Treatment_i + \beta_1 \cdot (rating_i - cutpo
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co"># cubic interaction</span></span>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>fit_6 <span class="ot">&lt;-</span> <span class="fu">lm</span>(vote <span class="sc">~</span> (margin_del <span class="sc">+</span> <span class="fu">I</span>(margin_del <span class="sc">^</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
 <span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">I</span>(margin_del <span class="sc">^</span> <span class="dv">3</span>)) <span class="sc">*</span> treatment, </span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> rdrobust_RDsenate) </span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Linear"</span> <span class="ot">=</span> fit_1, </span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Linear interaction"</span> <span class="ot">=</span> fit_2, </span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Quadratic"</span> <span class="ot">=</span> fit_3), </span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">output =</span> <span class="st">"kableExtra"</span>,</span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>              <span class="at">stars =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> rdrobust_RDsenate) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Linear"</span> <span class="ot">=</span> fit_1, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Linear interaction"</span> <span class="ot">=</span> fit_2, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Quadratic"</span> <span class="ot">=</span> fit_3), </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">output =</span> <span class="st">"kableExtra"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">stars =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-rd1" class="anchored">
 
@@ -729,7 +752,7 @@ Y_i = &amp; \alpha + \beta_0 \cdot Treatment_i + \beta_1 \cdot (rating_i - cutpo
 </div>
 </div>
 <p><strong>3) 局部非参数估计</strong></p>
-<p>  利用<strong>rdrobust</strong>包的<em>rdrobust</em>函数进行拟合。由于该包是由Sebastian Calonico, Matias D. Cattaneo and Rocío Titiunik开发，所以该包中所提供的带宽选择方法可认为就是CCT法，因为CCT本来就是Calonico, Cattaneo, and Titiunik三人姓氏的缩写。</p>
+<p>  利用<strong>rdrobust</strong>包的<em>rdrobust</em>函数进行拟合。由于该包是由Sebastian Calonico, Matias D. Cattaneo and Rocío Titiunik开发，所以该包中所提供的带宽选择方法可认为就是CCT法，因为CCT本来就是Calonico, Cattaneo, and Titiunik三人姓氏的缩写。</p>
 <p><strong>有两种确定带宽的方法</strong>：</p>
 <ul>
 <li>一是先利用<em>rdbwselect</em>函数计算出最优带宽，然后用<em>rdrobust</em>函数中的h参数手动指定左右的带宽。<br>
@@ -743,9 +766,9 @@ Y_i = &amp; \alpha + \beta_0 \cdot Treatment_i + \beta_1 \cdot (rating_i - cutpo
 <li><p>h即为选择的左右最优带宽，而b给出的是用来进行敏感性分析时应该考虑的带宽。</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rdbwselect</span>(<span class="at">y =</span> rdrobust_RDsenate<span class="sc">$</span>vote, </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> rdrobust_RDsenate<span class="sc">$</span>margin, </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rdbwselect</span>(<span class="at">y =</span> rdrobust_RDsenate<span class="sc">$</span>vote, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> rdrobust_RDsenate<span class="sc">$</span>margin, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Call: rdbwselect
 
@@ -776,43 +799,44 @@ Unique Obs.                     595          665
 =======================================================</code></pre>
 </div>
 </div>
-<p>  虽然在此文中<a href="https://journal.r-project.org/archive/2015/RJ-2015-004/RJ-2015-004.pdf">rdrobust: An R Package for Robust Nonparametric Inference in Regression-Discontinuity Designs</a>提到也可以通过bdselect = ’CV’或者bdselect = ’IK’来采用CV和IK法，但是在写这篇笔记时，已无法使用这两种方法。</p>
+<p>  虽然在此文中<a href="https://journal.r-project.org/archive/2015/RJ-2015-004/RJ-2015-004.pdf">rdrobust: An R Package for Robust Nonparametric Inference in Regression-Discontinuity Designs</a>提到也可以通过bdselect = ’CV’或者bdselect = ’IK’来采用CV和IK法，但是在写这篇笔记时，已无法使用这两种方法。</p>
 <p>输出的结果的最后一张表的第一行Conventional即为干预的处理效应。</p>
 <div class="cell">
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 如果有混杂因素需要控制,可以用covs = c('var1', 'var2')</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>loc_fit_1 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin, </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># c用来指定cut-point，p用来指定局部加权回归的多项式幂次</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>loc_fit_2 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin, </span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">2</span>,</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>loc_fit_3 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin, </span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'cerrd'</span>)</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>loc_fit_4 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin, </span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">2</span>,</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'certwo'</span>)</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(loc_fit_1, loc_fit_2,</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>                  loc_fit_3, loc_fit_4),</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">"kableExtra"</span>,</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>             <span class="at">estimate =</span> <span class="st">"std.error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 如果有混杂因素需要控制,可以用covs = c('var1', 'var2')</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>loc_fit_1 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># c用来指定cut-point，p用来指定局部加权回归的多项式幂次</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>loc_fit_2 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin, </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">2</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>loc_fit_3 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin, </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'cerrd'</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>loc_fit_4 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin, </span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">2</span>,</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'certwo'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(loc_fit_1, loc_fit_2,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                  loc_fit_3, loc_fit_4),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">"kableExtra"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">estimate =</span> <span class="st">"std.error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-rd2" class="anchored">
 
@@ -894,7 +918,7 @@ Unique Obs.                     595          665
 </section>
 <section id="step-6-敏感性分析" class="level4" data-number="5.3.6.6">
 <h4 data-number="5.3.6.6" class="anchored" data-anchor-id="step-6-敏感性分析"><span class="header-section-number">5.3.6.6</span> Step 6: 敏感性分析</h4>
-<p>  敏感性分析主要用来检验模型估计结果的稳健性，RD分析主要有四种敏感性分析方式;</p>
+<p>  敏感性分析主要用来检验模型估计结果的稳健性，RD分析主要有四种敏感性分析方式;</p>
 <ol type="1">
 <li><p>对前面所述的Internal Validity条件三的检验，即除了干预(Treatment)变量外，其他的任何非结局变量(包括混杂因素在内)都不能在cut-point处出现不连续或称为跳跃，如果存在，则无法推断结局变量的跳跃是由干预(Treatment)引起的，检验方式就是将所有的混杂因素作为结局，利用<em>rdrobust</em>函数进行检验，输出结果的coef应该很小，且p值应该统计学不显著 (Continuity-Based Analysis for Covariates)。</p></li>
 <li><p>对cut-point的敏感性分析，即是更换cut-point，检验是否左右还存在处理效应，如果更换断点后，仍然存在处理效应，则无法说明本研究的干预措施是有效的，因为在研究设定的断点处识别到的处理效应，有可能是由其他因素引起的。</p></li>
@@ -902,26 +926,27 @@ Unique Obs.                     595          665
 <li><p>对带宽bandwidth的敏感性分析，即是cut-point不改变，而是更换选择的最优带宽，进行多次局部非参数检验，如果更换带宽之后，仍然能在断点处识别的处理效应，说明研究的干预措施是有效的，因为在研究设定的断点处识别到的处理效应不是由于某一特点的带宽下才观测到的，说明处理效应稳健。</p></li>
 </ol>
 <p><strong>1) 对cut-point的敏感性分析</strong></p>
-<p>  选择一个虚拟的断点用来替换真正的断点，但是真实的干预情况不改变。关于虚拟断点如何选择以及选择多少个并没有明确的标准，通常在真实断点的附近，左右对称选取即可</p>
+<p>  选择一个虚拟的断点用来替换真正的断点，但是真实的干预情况不改变。关于虚拟断点如何选择以及选择多少个并没有明确的标准，通常在真实断点的附近，左右对称选取即可</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sen_cut_1 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>sen_cut_2 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin,</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(sen_cut_1, sen_cut_2), </span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">"kableExtra"</span>,</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">estimate =</span> <span class="st">"std.error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sen_cut_1 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>sen_cut_2 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RDsenate<span class="sc">$</span>vote, </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                      rdrobust_RDsenate<span class="sc">$</span>margin,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">c =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(sen_cut_1, sen_cut_2), </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">"kableExtra"</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">estimate =</span> <span class="st">"std.error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-rd3" class="anchored">
 
@@ -983,40 +1008,41 @@ Unique Obs.                     595          665
 </div>
 </div>
 <p><strong>2) 对cut-point附近个体的敏感性分析</strong></p>
-<p>  对称剔除真实断点左右一定较小范围内的个体。关于范围的大小同样没有明确的标准，通常选取多个范围比较即可。</p>
+<p>  对称剔除真实断点左右一定较小范围内的个体。关于范围的大小同样没有明确的标准，通常选取多个范围比较即可。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>rdrobust_RD_hole_1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(rdrobust_RDsenate, </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">abs</span>(margin) <span class="sc">&gt;</span> <span class="fl">0.3</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>rdrobust_RD_hole_2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(rdrobust_RDsenate, </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">abs</span>(margin) <span class="sc">&gt;</span> <span class="fl">0.4</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>rdrobust_RD_hole_3 <span class="ot">&lt;-</span> <span class="fu">subset</span>(rdrobust_RDsenate, </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">abs</span>(margin) <span class="sc">&gt;</span> <span class="fl">0.5</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>sen_hole_1 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RD_hole_1<span class="sc">$</span>vote, </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                       rdrobust_RD_hole_1<span class="sc">$</span>margin, </span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>sen_hole_2 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RD_hole_2<span class="sc">$</span>vote, </span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>                       rdrobust_RD_hole_2<span class="sc">$</span>margin, </span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>                       <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>                       <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>sen_hole_3 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RD_hole_3<span class="sc">$</span>vote, </span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>                       rdrobust_RD_hole_3<span class="sc">$</span>margin, </span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>                       <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>                       <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(sen_hole_1, sen_hole_2, sen_hole_3), </span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">"kableExtra"</span>,</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">estimate =</span> <span class="st">"std.error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>rdrobust_RD_hole_1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(rdrobust_RDsenate, </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">abs</span>(margin) <span class="sc">&gt;</span> <span class="fl">0.3</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>rdrobust_RD_hole_2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(rdrobust_RDsenate, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">abs</span>(margin) <span class="sc">&gt;</span> <span class="fl">0.4</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>rdrobust_RD_hole_3 <span class="ot">&lt;-</span> <span class="fu">subset</span>(rdrobust_RDsenate, </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">abs</span>(margin) <span class="sc">&gt;</span> <span class="fl">0.5</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>sen_hole_1 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RD_hole_1<span class="sc">$</span>vote, </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                       rdrobust_RD_hole_1<span class="sc">$</span>margin, </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>sen_hole_2 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RD_hole_2<span class="sc">$</span>vote, </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                       rdrobust_RD_hole_2<span class="sc">$</span>margin, </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                       <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>                       <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 除c以外的其他参数应该与前面分析保持一致</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>sen_hole_3 <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(rdrobust_RD_hole_3<span class="sc">$</span>vote, </span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>                       rdrobust_RD_hole_3<span class="sc">$</span>margin, </span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>                       <span class="at">c =</span> <span class="dv">0</span>, <span class="at">p =</span> <span class="dv">1</span>,</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kernel =</span> <span class="st">'triangular'</span>, </span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>                       <span class="at">bwselect =</span> <span class="st">'msetwo'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(sen_hole_1, sen_hole_2, sen_hole_3), </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">"kableExtra"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">estimate =</span> <span class="st">"std.error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-rd4" class="anchored">
 
@@ -1087,12 +1113,12 @@ Unique Obs.                     595          665
 </div>
 </div>
 <p><strong>3) 对带宽bandwidth的敏感性分析</strong></p>
-<p>  即是更换不同的带宽即可，带宽的变化实际是cut-point区间范围尾部的个体在发生变化，可以通过选取不同的带宽选择方式，真实存在的处理效应不会随着带宽的改变而发生变化。</p>
+<p>  即是更换不同的带宽即可，带宽的变化实际是cut-point区间范围尾部的个体在发生变化，可以通过选取不同的带宽选择方式，真实存在的处理效应不会随着带宽的改变而发生变化。</p>
 </section>
 </section>
 <section id="关于fuzzy类型的rd模型估计方法" class="level3" data-number="5.3.7">
 <h3 data-number="5.3.7" class="anchored" data-anchor-id="关于fuzzy类型的rd模型估计方法"><span class="header-section-number">5.3.7</span> 关于Fuzzy类型的RD模型估计方法</h3>
-<p>  Fuzzy类型的RD可以根据驱动变量与干预的实际情况采取不同的处理方式:</p>
+<p>  Fuzzy类型的RD可以根据驱动变量与干预的实际情况采取不同的处理方式:</p>
 <ul>
 <li><p>如果只是no-shows的情况，可以结合研究目的，决定是否采取意向性分析法(intent-to-treat)</p></li>
 <li><p>采用两阶段回归two-stage least squares (2SLS) ，两阶段模型设定如下:</p>
@@ -1115,16 +1141,23 @@ Unique Obs.                     595          665
 </section>
 <section id="结束" class="level3" data-number="5.3.8">
 <h3 data-number="5.3.8" class="anchored" data-anchor-id="结束"><span class="header-section-number">5.3.8</span> 结束</h3>
-<p>  由于真实世界的复杂性，对因果推断的分析方法的要求也越来越高，没有一种方法可以适用所有的情形，因此RD的方法也衍生发展出很多类型，包括多个断点(Multi-Cutoff RD Design)、多个驱动变量(Multi-Score RD Design)、离散驱动变量(Multi-Score RD Design)等等。</p>
-</section>
-<section id="本章参考文献" class="level3" data-number="5.3.9">
-<h3 data-number="5.3.9" class="anchored" data-anchor-id="本章参考文献"><span class="header-section-number">5.3.9</span> 本章参考文献</h3>
-<p><a href="https://www.mdrc.org/sites/default/files/regression_discontinuity_full.pdf">1. Jacob, Robin,etc.(2012). A Practical Guide to Regression Discontinuity</a></p>
-<p><a href="https://www.collingwoodresearch.com/uploads/8/3/6/0/8360930/cattaneo-idrobo-titiunik_2017_cambridge-part1.pdf">2. Matias D. Cattaneo, Nicol´as Idroboy, Roc´ıo Titiunik. (2017). A Practical Introduction to Regression Discontinuity Designs: Volume I</a></p>
-<p><a href="https://journal.r-project.org/archive/2015/RJ-2015-004/RJ-2015-004.pdf">3. Sebastian Calonico, Matias D. Cattaneo and Rocío Titiunik. (). rdrobust: An R Package for Robust Nonparametric Inference in Regression-Discontinuity Designs</a></p>
-<p><a href="https://doi.org/10.13962/j.cnki.37-1486/f.2019.02.006">4. 谢谦,薛仙玲,付明卫.断点回归设计方法应用的研究综述[J/OL].经济与管理评论,2019(02):69-79</a></p>
+<p>  由于真实世界的复杂性，对因果推断的分析方法的要求也越来越高，没有一种方法可以适用所有的情形，因此RD的方法也衍生发展出很多类型，包括多个断点(Multi-Cutoff RD Design)、多个驱动变量(Multi-Score RD Design)、离散驱动变量(Multi-Score RD Design)等等。</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Sebastian2022" class="csl-entry" role="doc-biblioentry">
+Calonico, Sebastian, Matias D. Cattaneo, Max H. Farrell, and Rocio Titiunik. 2022. <em>Rdrobust: Robust Data-Driven Statistical Inference in Regression-Discontinuity Designs</em>. <a href="https://CRAN.R-project.org/package=rdrobust">https://CRAN.R-project.org/package=rdrobust</a>.
+</div>
+<div id="ref-matias2017" class="csl-entry" role="doc-biblioentry">
+D. Cattaneo, Matias, Nicolas Idroboy, and Roc Titiunik. 2017. <em>A Practical Introduction to Regression Discontinuity Designs: Volume i</em>. collingwoodresearch.com.
+</div>
+<div id="ref-jacob2012" class="csl-entry" role="doc-biblioentry">
+Jacob, Robin, Pei Zhu, and Marie-Andrée. 2012. <em>A Practical Guide to Regression Discontinuity</em>. MDRC.org.
+</div>
+<div id="ref-xie2019" class="csl-entry" role="doc-biblioentry">
+谢谦, 薛仙玲, and 付明卫. 2019. <span>“断点回归设计方法应用的研究综述.”</span> <em>经济与管理评论</em> 35 (2): 11.
+</div>
+</div>
 </section>
 </section>
 
@@ -1234,8 +1267,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">参考文献</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter_6.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
