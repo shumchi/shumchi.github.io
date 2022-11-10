@@ -192,12 +192,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇</span></a>
+  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇（一）：随机化分组</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">参考文献</a>
+  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_references.html" class="sidebar-item-text sidebar-link">参考文献</a>
   </div>
 </li>
     </ul>
@@ -214,11 +219,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#r中表格描述的推荐工具" id="toc-r中表格描述的推荐工具" class="nav-link" data-scroll-target="#r中表格描述的推荐工具"><span class="toc-section-number">4.2.1</span>  R中表格描述的推荐工具</a></li>
   <li><a href="#sec-descrip" id="toc-sec-descrip" class="nav-link" data-scroll-target="#sec-descrip"><span class="toc-section-number">4.2.2</span>  快速生成Summary Table</a></li>
-  <li><a href="#总结" id="toc-总结" class="nav-link" data-scroll-target="#总结"><span class="toc-section-number">4.2.3</span>  总结</a></li>
-  <li><a href="#回归结果的输出" id="toc-回归结果的输出" class="nav-link" data-scroll-target="#回归结果的输出"><span class="toc-section-number">4.2.4</span>  回归结果的输出</a></li>
+  <li><a href="#回归模型的输出" id="toc-回归模型的输出" class="nav-link" data-scroll-target="#回归模型的输出"><span class="toc-section-number">4.2.3</span>  回归模型的输出</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="toc-section-number">4.2.4</span>  小结</a></li>
   </ul></li>
-  <li><a href="#数据的可视化" id="toc-数据的可视化" class="nav-link" data-scroll-target="#数据的可视化"><span class="toc-section-number">4.3</span>  数据的可视化</a></li>
-  <li><a href="#回归模型的输出" id="toc-回归模型的输出" class="nav-link" data-scroll-target="#回归模型的输出"><span class="toc-section-number">4.4</span>  回归模型的输出</a></li>
+  <li><a href="#数据的可视化" id="toc-数据的可视化" class="nav-link" data-scroll-target="#数据的可视化"><span class="toc-section-number">4.3</span>  数据的可视化</a>
+  <ul class="collapse">
+  <li><a href="#分布型图形" id="toc-分布型图形" class="nav-link" data-scroll-target="#分布型图形"><span class="toc-section-number">4.3.1</span>  分布型图形</a></li>
+  <li><a href="#关系型图形" id="toc-关系型图形" class="nav-link" data-scroll-target="#关系型图形"><span class="toc-section-number">4.3.2</span>  关系型图形</a></li>
+  <li><a href="#构成型图形" id="toc-构成型图形" class="nav-link" data-scroll-target="#构成型图形"><span class="toc-section-number">4.3.3</span>  构成型图形</a></li>
+  <li><a href="#对比型图形" id="toc-对比型图形" class="nav-link" data-scroll-target="#对比型图形"><span class="toc-section-number">4.3.4</span>  对比型图形</a></li>
+  <li><a href="#分面" id="toc-分面" class="nav-link" data-scroll-target="#分面"><span class="toc-section-number">4.3.5</span>  分面</a></li>
+  <li><a href="#空间可视化" id="toc-空间可视化" class="nav-link" data-scroll-target="#空间可视化"><span class="toc-section-number">4.3.6</span>  空间可视化</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -243,11 +255,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="引子" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">4.1</span> 引子</h2>
-<p>  记不太清楚是从什么时候开始，在很多青年学者的认识里描述性统计工作的重要性逐渐下降，越来越追求包含复杂模型的“高大上”研究，当然也包括我自己。简单分析之后，发现可能是这些年因果推断革命在社会科学领域的兴起，以及学术期刊对于“高大上”研究的偏好所引导的吧。</p>
-<p>  尽管这是现阶段很常见的一种现象，但是这并不代表数据描述在科研研究中就不重要了。通过回归模型获得因果推断证据的首要前提就是在现实世界中这个因果关系是客观存在的，而这就需要进行充分的数据描述和探索性分析去发现这种客观规律，如果数据描述过程中无法显示出较明显的因果关联，那么因果推断模型提示的显著性将值得怀疑。</p>
-<p>  数据的描述，或者是描述性统计分析，包含的内容其实比较简洁，就是数据的集中趋势（Central Tendency）、离散趋势（Variability）和分布（Frequency Distribution）。学习过统计学的人都知道均数标准差，但是想要做好一项描述性统计分析工作确是需要丰富的经验以及一定的耐心和精力，不过高质量的数据描述也会给整个研究带来非常大的收获。因此描述性统计分析也是探索性数据分析（Exploratory Data Analysis）的重要组成部分。</p>
-<p>  当然了，数据描述不单单只是为了弄清楚单个变量的集中、离散和分布情况，而是从杂乱的数据中，找到不同的变量之间的关联性，按照数据科学中的术语即是寻找个体不同属性或特征之间的关联性。尽管相关性不是因果关系，但是相关性往往是因果关系的前提，并且发现事物之间新的相关性也是十分有价值的，比如大家所熟知的“尿布与啤酒”的关系。</p>
-<p>  在本章中，依据数据的展现形式，我将数据描述分为表和图两大部分进行介绍。本来打算将数据可视化（Data Visualization）单独介绍，但是考虑到内容实在太多，精力有限无法面面俱到，又因这方面的数据和学习资料已经十分丰富了，故而放弃了单独介绍的想法。然而，一图胜千言，字不如表，表不如图，图形对于信息的展示能力是明显优于表格的，因此正确掌握可视化方法是描述统计一项重要的技能。</p>
+<p>  记不太清楚是从什么时候开始，在很多青年学者的认识里描述性统计工作的重要性逐渐下降，越来越追求包含复杂模型的“高大上”研究，当然也包括我自己。简单分析之后，发现可能是这些年因果推断革命在社会科学领域的兴起，以及学术期刊对于“高大上”研究的偏好所引导的吧。</p>
+<p>  尽管这是现阶段很常见的一种现象，但是这并不代表数据描述在科研研究中就不重要了。通过回归模型获得因果推断证据的首要前提就是在现实世界中这个因果关系是客观存在的，而这就需要进行充分的数据描述和探索性分析去发现这种客观规律，如果数据描述过程中无法显示出较明显的因果关联，那么因果推断模型提示的显著性将值得怀疑。</p>
+<p>  数据的描述，或者是描述性统计分析，包含的内容其实比较简洁，就是数据的集中趋势（Central Tendency）、离散趋势（Variability）和分布（Frequency Distribution）。学习过统计学的人都知道均数标准差，但是想要做好一项描述性统计分析工作确是需要丰富的经验以及一定的耐心和精力，不过高质量的数据描述也会给整个研究带来非常大的收获。因此描述性统计分析也是探索性数据分析（Exploratory Data Analysis）的重要组成部分。</p>
+<p>  当然了，数据描述不单单只是为了弄清楚单个变量的集中、离散和分布情况，而是从杂乱的数据中，找到不同的变量之间的关联性，按照数据科学中的术语即是寻找个体不同属性或特征之间的关联性。尽管相关性不是因果关系，但是相关性往往是因果关系的前提，并且发现事物之间新的相关性也是十分有价值的，比如大家所熟知的“尿布与啤酒”的关系。</p>
+<p>  在本章中，依据数据的展现形式，我将数据描述分为表和图两大部分进行介绍。本来打算将数据可视化（Data Visualization）单独介绍，但是考虑到内容实在太多，精力有限无法面面俱到，又因这方面的数据和学习资料已经十分丰富了，故而放弃了单独介绍的想法。然而，一图胜千言，字不如表，表不如图，图形对于信息的展示能力是明显优于表格的，因此正确掌握可视化方法是描述统计一项重要的技能。</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -271,12 +283,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="数据的表格描述" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="数据的表格描述"><span class="header-section-number">4.2</span> 数据的表格描述</h2>
-<p>  在描述性统计分析中，表格常用于展示样本的基本信息和社会人口学特征，通常是一篇医学或者社会科学方向学术论文的第一个表格，一般也称之为Table One或者Summary Table。此外，也常用于不同组别之间研究所关注的结局变量分布情况的比较，比如展示参保病人和未参保病人的年卫生花费。</p>
-<p>  这一类表格具有共同的特点，一是展示的信息基本是固定的，对于连续型变量通常展示均数±标准差、中位数（四分位间距）、最大值、最小值等，对于分类变量通常展示频数（百分比）；二是展示的结果通常是需要通过聚合运算之后才能得出；三是重复工作量大。</p>
-<p>  这三个特点就使得完成这部分的描述工作简单但是费时，我想很多人应该都是通过利用统计软件分别计算得出每个需要描述的变量结果之后，然后再在MS Word或者MS Excel中进行手动整理。这样会带来一个明显的弊端，如果数据库发生变化，那么所有的工作均需要重新来过，再就是对于数据清洗和探索性分析时极其不友好<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。在本书中就将会介绍如何快速地完成这项工作。</p>
+<p>  在描述性统计分析中，表格常用于展示样本的基本信息和社会人口学特征，通常是一篇医学或者社会科学方向学术论文的第一个表格，一般也称之为Table One或者Summary Table。此外，也常用于不同组别之间研究所关注的结局变量分布情况的比较，比如展示参保病人和未参保病人的年卫生花费。</p>
+<p>  这一类表格具有共同的特点，一是展示的信息基本是固定的，对于连续型变量通常展示均数±标准差、中位数（四分位间距）、最大值、最小值等，对于分类变量通常展示频数（百分比）；二是展示的结果通常是需要通过聚合运算之后才能得出；三是重复工作量大。</p>
+<p>  这三个特点就使得完成这部分的描述工作简单但是费时，我想很多人应该都是通过利用统计软件分别计算得出每个需要描述的变量结果之后，然后再在MS Word或者MS Excel中进行手动整理。这样会带来一个明显的弊端，如果数据库发生变化，那么所有的工作均需要重新来过，再就是对于数据清洗和探索性分析时极其不友好<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。在本书中就将会介绍如何快速地完成这项工作。</p>
 <section id="r中表格描述的推荐工具" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="r中表格描述的推荐工具"><span class="header-section-number">4.2.1</span> R中表格描述的推荐工具</h3>
-<p>  根据我自己的使用经验，整理出了几个在R中进行表格描述非常便利的工具，各个Package的特点可以在官方文档中进行查看，这里不赘述。近期我个人最推荐<strong>modelsummary</strong>、<strong>table1</strong>、<strong>gtsummary</strong>这三个包，以下内容也将利用它们分别进行演示。<a href="#tbl-pkg">表&nbsp;<span>4.1</span></a> 中统计描述是指支持自动完成变量的描述。</p>
+<p>  根据我自己的使用经验，整理出了几个在R中进行表格描述非常便利的工具，各个Package的特点可以在官方文档中进行查看，这里不赘述。近期我个人最推荐<strong>modelsummary</strong>、<strong>table1</strong>、<strong>gtsummary</strong>这三个包，以下内容也将利用它们分别进行演示。<a href="#tbl-pkg">表&nbsp;<span>4.1</span></a> 中统计描述是指支持自动完成变量的描述。</p>
 <div id="tbl-pkg" class="anchored">
 <table class="table">
 <caption>表&nbsp;4.1: R中支持输出符合统计规范表格的第三方包情况一览</caption>
@@ -329,8 +341,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="sec-descrip" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="sec-descrip"><span class="header-section-number">4.2.2</span> 快速生成Summary Table</h3>
-<p>  这部分用卫生政策研究中常使用的公开微观数据库CHARLS进行演示，使用的是美国南加州大学社会经济研究中心（CESR）对原始数据进行整理后所提供的<strong>Harmonized CHARLS</strong>数据库。</p>
-<p>  首先，可以利用 <a href="chapter_2.html#sec-codebook"><span>Section&nbsp;2.2.4</span></a> 中提到的<strong>datadictionary</strong>包生成<strong>Harmonized CHARLS</strong>数据库的数据字典，以便于对数据库的基本信息进行概览。当然了，在实际的分析过程中，数据字典应该是在分析之前就已经准备好了，而数据概览操作通常使用<code>str()</code>函数或者<code>glimpse()</code>函数来进行，在这里用<code>str()</code>函数进行演示。从结果可以看出有50658条记录，19296个受访者。</p>
+<p>  这部分用卫生政策研究中常使用的公开微观数据库CHARLS进行演示，使用的是美国南加州大学社会经济研究中心（CESR）对原始数据进行整理后所提供的<strong>Harmonized CHARLS</strong>数据库。</p>
+<p>  首先，可以利用 <a href="chapter_2.html#sec-codebook"><span>Section&nbsp;2.2.4</span></a> 中提到的<strong>datadictionary</strong>包生成<strong>Harmonized CHARLS</strong>数据库的数据字典，以便于对数据库的基本信息进行概览。当然了，在实际的分析过程中，数据字典应该是在分析之前就已经准备好了，而数据概览操作通常使用<code>str()</code>函数或者<code>glimpse()</code>函数来进行，在这里用<code>str()</code>函数进行演示。从结果可以看出有50658条记录，19296个受访者。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datadictionary)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -341,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(harm[, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [50,658 × 10] (S3: tbl_df/tbl/data.frame)
- $ X1         : num [1:50658] 1 2 3 4 5 6 7 8 9 10 ...
+ $ ...1       : num [1:50658] 1 2 3 4 5 6 7 8 9 10 ...
  $ ID         : num [1:50658] 1.01e+10 1.01e+10 1.01e+10 1.01e+10 1.01e+10 ...
  $ householdID: num [1:50658] 1.01e+08 1.01e+08 1.01e+08 1.01e+08 1.01e+08 ...
  $ communityID: num [1:50658] 101041 101041 101041 101041 101041 ...
@@ -353,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  $ ruralcounty: num [1:50658] 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 </div>
 </div>
-<p>  这里简单选择4个典型的分类变量（ragender、raeducl、wave、ruralcounty），3个数值型变量（self_health、cesd10、mmse、hosfee）作为示例。由于选择的这四个分类变量在数据库中的类型为numeric<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>，这一点可以从以上的codebook结果中看出，因此为了方便进行后续的统计描述，建议先将分类变量的类型转换为character，代码如下。</p>
+<p>  这里简单选择4个典型的分类变量（ragender、raeducl、wave、ruralcounty），3个数值型变量（self_health、cesd10、mmse、hosfee）作为示例。由于选择的这四个分类变量在数据库中的类型为numeric<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>，这一点可以从以上的codebook结果中看出，因此为了方便进行后续的统计描述，建议先将分类变量的类型转换为character，代码如下。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>harm <span class="ot">&lt;-</span> harm <span class="sc">%&gt;%</span></span>
@@ -363,8 +375,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <section id="仅分类变量" class="level4" data-number="4.2.2.1">
 <h4 data-number="4.2.2.1" class="anchored" data-anchor-id="仅分类变量"><span class="header-section-number">4.2.2.1</span> 仅分类变量</h4>
-<p>  只对分类变量进行描述的需求可能在论文撰写过程中不会经常出现，但是在对数据进行概览时，还是会经常需要。 <a href="#tbl-pkg">表&nbsp;<span>4.1</span></a> 中提到的package基本都具备此功能，但更推荐使用<strong>table1</strong>和<strong>gtsummary</strong>包。</p>
-<p>  <strong>如果只用于数据概览，不考虑输出成规范的表格，推荐使用modelsummary包中的<code>datasummary_skim()</code>函数，结果见 <a href="#tbl-desc-char1">表&nbsp;<span>4.2</span></a> 。</strong></p>
+<p>  只对分类变量进行描述的需求可能在论文撰写过程中不会经常出现，但是在对数据进行概览时，还是会经常需要。 <a href="#tbl-pkg">表&nbsp;<span>4.1</span></a> 中提到的package基本都具备此功能，但更推荐使用<strong>table1</strong>和<strong>gtsummary</strong>包。</p>
+<p>  <strong>如果只用于数据概览，不考虑输出成规范的表格，推荐使用modelsummary包中的<code>datasummary_skim()</code>函数，结果见 <a href="#tbl-desc-char1">表&nbsp;<span>4.2</span></a> 。</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -462,7 +474,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>  <strong>如果需要输出符合统计规范的表格，则推荐使用table1或者gtsummary包，结果见 <a href="#tbl-desc-char2">表&nbsp;<span>4.3</span></a> 。</strong></p>
+<p>  <strong>如果需要输出符合统计规范的表格，则推荐使用table1或者gtsummary包，结果见 <a href="#tbl-desc-char2">表&nbsp;<span>4.3</span></a> 。</strong></p>
 <div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(table1)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ragender"</span>, <span class="st">"raeducl"</span>, </span>
@@ -494,7 +506,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-desc-char2" class="cell tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
-<p>表&nbsp;4.3: 利用table1和gtsummary包生成仅分类变量描述表</p>
+<p>表&nbsp;4.3: 利用table1和gtsummary包作仅分类变量描述表</p>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div id="tbl-desc-char2-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-desc-char2" style="flex-basis: 50.0%;justify-content: center;">
@@ -577,12 +589,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="tbl-desc-char2-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-desc-char2" style="flex-basis: 50.0%;justify-content: center;">
 
-<div id="wrdkhlgjcz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cjkzholgqm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#wrdkhlgjcz) .gt_table {
+:where(#cjkzholgqm) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -607,7 +619,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_heading {
+:where(#cjkzholgqm) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -619,7 +631,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_title {
+:where(#cjkzholgqm) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -631,7 +643,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#wrdkhlgjcz) .gt_subtitle {
+:where(#cjkzholgqm) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -643,13 +655,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#wrdkhlgjcz) .gt_bottom_border {
+:where(#cjkzholgqm) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_col_headings {
+:where(#cjkzholgqm) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -664,7 +676,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_col_heading {
+:where(#cjkzholgqm) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -684,7 +696,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#wrdkhlgjcz) .gt_column_spanner_outer {
+:where(#cjkzholgqm) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -696,15 +708,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-:where(#wrdkhlgjcz) .gt_column_spanner_outer:first-child {
+:where(#cjkzholgqm) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#wrdkhlgjcz) .gt_column_spanner_outer:last-child {
+:where(#cjkzholgqm) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#wrdkhlgjcz) .gt_column_spanner {
+:where(#cjkzholgqm) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -716,7 +728,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#wrdkhlgjcz) .gt_group_heading {
+:where(#cjkzholgqm) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -741,7 +753,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#wrdkhlgjcz) .gt_empty_group_heading {
+:where(#cjkzholgqm) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -756,15 +768,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#wrdkhlgjcz) .gt_from_md > :first-child {
+:where(#cjkzholgqm) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#wrdkhlgjcz) .gt_from_md > :last-child {
+:where(#cjkzholgqm) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#wrdkhlgjcz) .gt_row {
+:where(#cjkzholgqm) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -783,7 +795,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#wrdkhlgjcz) .gt_stub {
+:where(#cjkzholgqm) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -796,7 +808,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#wrdkhlgjcz) .gt_stub_row_group {
+:where(#cjkzholgqm) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -810,11 +822,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#wrdkhlgjcz) .gt_row_group_first td {
+:where(#cjkzholgqm) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#wrdkhlgjcz) .gt_summary_row {
+:where(#cjkzholgqm) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -824,16 +836,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#wrdkhlgjcz) .gt_first_summary_row {
+:where(#cjkzholgqm) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_first_summary_row.thick {
+:where(#cjkzholgqm) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#wrdkhlgjcz) .gt_last_summary_row {
+:where(#cjkzholgqm) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -843,7 +855,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_grand_summary_row {
+:where(#cjkzholgqm) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -853,7 +865,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#wrdkhlgjcz) .gt_first_grand_summary_row {
+:where(#cjkzholgqm) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -863,11 +875,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_striped {
+:where(#cjkzholgqm) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#wrdkhlgjcz) .gt_table_body {
+:where(#cjkzholgqm) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -876,7 +888,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_footnotes {
+:where(#cjkzholgqm) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -890,7 +902,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_footnote {
+:where(#cjkzholgqm) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -899,7 +911,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#wrdkhlgjcz) .gt_sourcenotes {
+:where(#cjkzholgqm) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -913,7 +925,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#wrdkhlgjcz) .gt_sourcenote {
+:where(#cjkzholgqm) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -921,64 +933,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#wrdkhlgjcz) .gt_left {
+:where(#cjkzholgqm) .gt_left {
   text-align: left;
 }
 
-:where(#wrdkhlgjcz) .gt_center {
+:where(#cjkzholgqm) .gt_center {
   text-align: center;
 }
 
-:where(#wrdkhlgjcz) .gt_right {
+:where(#cjkzholgqm) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#wrdkhlgjcz) .gt_font_normal {
+:where(#cjkzholgqm) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#wrdkhlgjcz) .gt_font_bold {
+:where(#cjkzholgqm) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#wrdkhlgjcz) .gt_font_italic {
+:where(#cjkzholgqm) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#wrdkhlgjcz) .gt_super {
+:where(#cjkzholgqm) .gt_super {
   font-size: 65%;
 }
 
-:where(#wrdkhlgjcz) .gt_footnote_marks {
+:where(#cjkzholgqm) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#wrdkhlgjcz) .gt_asterisk {
+:where(#cjkzholgqm) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#wrdkhlgjcz) .gt_indent_1 {
+:where(#cjkzholgqm) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#wrdkhlgjcz) .gt_indent_2 {
+:where(#cjkzholgqm) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#wrdkhlgjcz) .gt_indent_3 {
+:where(#cjkzholgqm) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#wrdkhlgjcz) .gt_indent_4 {
+:where(#cjkzholgqm) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#wrdkhlgjcz) .gt_indent_5 {
+:where(#cjkzholgqm) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1039,113 +1051,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="仅数值变量" class="level4" data-number="4.2.2.2">
 <h4 data-number="4.2.2.2" class="anchored" data-anchor-id="仅数值变量"><span class="header-section-number">4.2.2.2</span> 仅数值变量</h4>
-<p>  <strong>modelsummary、table1、gtsummary均推荐。如果只用于数据概览，不考虑输出成规范的表格，推荐使用modelsummary包中的<code>datasummary_skim()</code>函数，其优点在于可以快速的了解数值型变量的分布情况，结果见 <a href="#tbl-desc-num1">表&nbsp;<span>4.4</span></a> 。</strong></p>
+<p>  <strong>modelsummary、table1、gtsummary均推荐。如果只用于数据概览，不考虑输出成规范的表格，推荐使用modelsummary包中的<code>datasummary()</code>或<code>datasummary_skim()</code>函数</strong>，其优点在于可以快速的了解数值型变量的分布情况，这两个函数之间其实是等价的，结果见 <a href="#tbl-desc-num">表&nbsp;<span>4.4</span></a> 。<strong>如果需要将输出结果用于报告或者论文写作，方法同分类变量，此处不再举例说明。</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(harm[, <span class="fu">c</span>(<span class="st">"self_health"</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"cesd10"</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"mmse"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary</span>(self_health <span class="sc">+</span> cesd10 <span class="sc">+</span> mmse <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>            hosfee <span class="sc">~</span> Mean <span class="sc">+</span> SD <span class="sc">+</span> Min <span class="sc">+</span> Max <span class="sc">+</span> Histogram,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> harm,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">output =</span> <span class="st">"default"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="tbl-desc-num1" class="anchored">
+<div id="tbl-desc-num" class="anchored">
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表&nbsp;4.4:  利用modelsummary包对数值变量进行描述（一） </caption>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表&nbsp;4.4:  利用modelsummary包作仅数值变量描述表 </caption>
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Unique (#) </th>
-   <th style="text-align:right;"> Missing (%) </th>
    <th style="text-align:right;"> Mean </th>
    <th style="text-align:right;"> SD </th>
    <th style="text-align:right;"> Min </th>
-   <th style="text-align:right;"> Median </th>
    <th style="text-align:right;"> Max </th>
-   <th style="text-align:right;">    </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> self_health </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 1.0 </td>
-   <td style="text-align:right;"> 1.0 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 5.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="10.07" width="2.22" height="1.59" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.00" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="6.22" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="8.44" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.67" y="9.34" width="2.22" height="2.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.89" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="15.11" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.33" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.56" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.78" y="3.22" width="2.22" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.22" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.44" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.67" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.89" y="8.31" width="2.22" height="3.35" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.33" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.56" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.78" y="11.66" width="2.22" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.00" y="10.81" width="2.22" height="0.86" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> cesd10 </td>
-   <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:right;"> 8.4 </td>
-   <td style="text-align:right;"> 6.4 </td>
-   <td style="text-align:right;"> 0.0 </td>
-   <td style="text-align:right;"> 7.0 </td>
-   <td style="text-align:right;"> 30.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="2.96" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.74" y="4.15" width="2.96" height="7.51" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.70" y="4.63" width="2.96" height="7.03" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.67" y="6.29" width="2.96" height="5.37" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.63" y="6.90" width="2.96" height="4.76" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.59" y="7.77" width="2.96" height="3.90" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.56" y="8.65" width="2.96" height="3.01" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.52" y="9.22" width="2.96" height="2.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.48" y="9.75" width="2.96" height="1.91" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.44" y="10.25" width="2.96" height="1.41" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.41" y="10.59" width="2.96" height="1.07" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.37" y="10.89" width="2.96" height="0.77" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.33" y="11.24" width="2.96" height="0.42" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.30" y="11.37" width="2.96" height="0.29" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.26" y="11.49" width="2.96" height="0.17" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> mmse </td>
-   <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 30 </td>
-   <td style="text-align:right;"> 15.4 </td>
-   <td style="text-align:right;"> 5.0 </td>
-   <td style="text-align:right;"> 0.0 </td>
-   <td style="text-align:right;"> 16.0 </td>
-   <td style="text-align:right;"> 30.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="11.35" width="2.96" height="0.31" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.74" y="10.85" width="2.96" height="0.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.70" y="10.15" width="2.96" height="1.51" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.67" y="9.09" width="2.96" height="2.58" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.63" y="7.81" width="2.96" height="3.85" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.59" y="6.37" width="2.96" height="5.29" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.56" y="4.85" width="2.96" height="6.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.52" y="3.66" width="2.96" height="8.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.48" y="3.22" width="2.96" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.44" y="4.66" width="2.96" height="7.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.41" y="7.09" width="2.96" height="4.57" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.37" y="9.32" width="2.96" height="2.34" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.33" y="10.77" width="2.96" height="0.89" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.30" y="11.41" width="2.96" height="0.25" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.26" y="11.60" width="2.96" height="0.065" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>  或者也可以使用<strong>modelsummary</strong>包中的<code>datasummary()</code>函数，结果见 <a href="#tbl-desc-num-2">表&nbsp;<span>4.5</span></a> 。<strong>如果需要将输出结果用于报告或者论文写作，方法同分类变量，此处不再举例说明。</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary</span>(self_health <span class="sc">+</span> cesd10 <span class="sc">+</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>            mmse <span class="sc">+</span> hosfee <span class="sc">~</span> Mean <span class="sc">+</span> SD <span class="sc">+</span> Histogram,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> harm,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">output =</span> <span class="st">'kableExtra'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="tbl-desc-num-2" class="anchored">
-
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表&nbsp;4.5:  利用modelsummary包生成仅数值变量描述表（二） </caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Mean </th>
-   <th style="text-align:right;"> SD </th>
    <th style="text-align:right;"> Histogram </th>
   </tr>
  </thead>
@@ -1154,24 +1076,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:left;"> self_health </td>
    <td style="text-align:right;"> 2.97 </td>
    <td style="text-align:right;"> 0.97 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 5.00 </td>
    <td style="text-align:right;"> ▁▂▇▃▁ </td>
   </tr>
   <tr>
    <td style="text-align:left;"> cesd10 </td>
    <td style="text-align:right;"> 8.37 </td>
    <td style="text-align:right;"> 6.38 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 30.00 </td>
    <td style="text-align:right;"> ▇▆▄▃▂▂▁▁ </td>
   </tr>
   <tr>
    <td style="text-align:left;"> mmse </td>
    <td style="text-align:right;"> 15.43 </td>
    <td style="text-align:right;"> 5.03 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 30.00 </td>
    <td style="text-align:right;"> ▁▂▄▆▇▅▂▁ </td>
   </tr>
   <tr>
    <td style="text-align:left;"> hosfee </td>
    <td style="text-align:right;"> 1724.53 </td>
    <td style="text-align:right;"> 11988.19 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 1400000.00 </td>
    <td style="text-align:right;"> ▇ </td>
   </tr>
 </tbody>
@@ -1183,18 +1113,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="分类和数值变量混合描述" class="level4" data-number="4.2.2.3">
 <h4 data-number="4.2.2.3" class="anchored" data-anchor-id="分类和数值变量混合描述"><span class="header-section-number">4.2.2.3</span> 分类和数值变量混合描述</h4>
-<p>  将分类变量和数值变量同时进行描述是在论文写作中最常见的一种需求，推荐使用<strong>table1</strong>和<strong>gtsummary</strong>包。</p>
-<p><strong>table1</strong>，结果见 <a href="#tbl-desc-mix-1">表&nbsp;<span>4.6</span></a> 。</p>
+<p>  将分类变量和数值变量同时进行描述是在论文写作中最常见的一种需求，推荐使用<strong>table1</strong>和<strong>gtsummary</strong>包。</p>
+<p>  <strong>table1</strong>，结果见 <a href="#tbl-desc-mix-1">表&nbsp;<span>4.5</span></a> 。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span> ragender <span class="sc">+</span> raeducl <span class="sc">+</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>         ruralcounty <span class="sc">+</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         self_health <span class="sc">+</span> cesd10 <span class="sc">+</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         mmse <span class="sc">+</span> hosfee, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> harm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span> ragender <span class="sc">+</span> raeducl <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>         ruralcounty <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         self_health <span class="sc">+</span> cesd10 <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         mmse <span class="sc">+</span> hosfee, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> harm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-desc-mix-1" class="anchored">
 
-<div class="Rtable1"><table class="Rtable1"><caption>表&nbsp;4.6:  利用table1包生成分类和数值变量描述表（一） </caption>
+<div class="Rtable1"><table class="Rtable1"><caption>表&nbsp;4.5:  利用table1包生成分类和数值变量描述表（一） </caption>
 <thead>
 <tr>
 <th class="rowlabel firstrow lastrow"></th>
@@ -1316,32 +1246,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p><strong>gtsummary</strong>，结果见 <a href="#tbl-desc-mix-2">表&nbsp;<span>4.7</span></a> 。</p>
+<p>  <strong>gtsummary</strong>，结果见 <a href="#tbl-desc-mix-2">表&nbsp;<span>4.6</span></a> 。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl_summary</span>(harm[, <span class="fu">c</span>(<span class="st">"ragender"</span>, <span class="st">"raeducl"</span>, </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"wave"</span>, <span class="st">"ruralcounty"</span>, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"self_health"</span>, <span class="st">"cesd10"</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"mmse"</span>, <span class="st">"hosfee"</span>)],</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">missing_text =</span> <span class="st">"(Missing)"</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">list</span>(ragender <span class="sc">~</span> <span class="st">"Gender"</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                        raeducl <span class="sc">~</span> <span class="st">"Education"</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                        wave <span class="sc">~</span> <span class="st">"Wave"</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                        ruralcounty <span class="sc">~</span> <span class="st">"Rural or Not"</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                        self_health <span class="sc">~</span> <span class="st">"Self report Health"</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                        cesd10 <span class="sc">~</span> <span class="st">"CESD 10"</span>,</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                        mmse <span class="sc">~</span> <span class="st">"MMSE"</span>,</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                        hosfee <span class="sc">~</span> <span class="st">"Hospital expense"</span>),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> </span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"{mean} ({sd})"</span>)) <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl_summary</span>(harm[, <span class="fu">c</span>(<span class="st">"ragender"</span>, <span class="st">"raeducl"</span>, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"wave"</span>, <span class="st">"ruralcounty"</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"self_health"</span>, <span class="st">"cesd10"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"mmse"</span>, <span class="st">"hosfee"</span>)],</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">missing_text =</span> <span class="st">"(Missing)"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">list</span>(ragender <span class="sc">~</span> <span class="st">"Gender"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                        raeducl <span class="sc">~</span> <span class="st">"Education"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                        wave <span class="sc">~</span> <span class="st">"Wave"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                        ruralcounty <span class="sc">~</span> <span class="st">"Rural or Not"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                        self_health <span class="sc">~</span> <span class="st">"Self report Health"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                        cesd10 <span class="sc">~</span> <span class="st">"CESD 10"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                        mmse <span class="sc">~</span> <span class="st">"MMSE"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                        hosfee <span class="sc">~</span> <span class="st">"Hospital expense"</span>),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"{mean} ({sd})"</span>)) <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-desc-mix-2" class="anchored">
 
-<div id="pmmienxbnh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wflyssrgud" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#pmmienxbnh) .gt_table {
+:where(#wflyssrgud) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1366,7 +1296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_heading {
+:where(#wflyssrgud) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1378,7 +1308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_title {
+:where(#wflyssrgud) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1390,7 +1320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#pmmienxbnh) .gt_subtitle {
+:where(#wflyssrgud) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1402,13 +1332,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#pmmienxbnh) .gt_bottom_border {
+:where(#wflyssrgud) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_col_headings {
+:where(#wflyssrgud) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1423,7 +1353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_col_heading {
+:where(#wflyssrgud) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1443,7 +1373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#pmmienxbnh) .gt_column_spanner_outer {
+:where(#wflyssrgud) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1455,15 +1385,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-:where(#pmmienxbnh) .gt_column_spanner_outer:first-child {
+:where(#wflyssrgud) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#pmmienxbnh) .gt_column_spanner_outer:last-child {
+:where(#wflyssrgud) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#pmmienxbnh) .gt_column_spanner {
+:where(#wflyssrgud) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1475,7 +1405,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#pmmienxbnh) .gt_group_heading {
+:where(#wflyssrgud) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1500,7 +1430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#pmmienxbnh) .gt_empty_group_heading {
+:where(#wflyssrgud) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1515,15 +1445,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#pmmienxbnh) .gt_from_md > :first-child {
+:where(#wflyssrgud) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#pmmienxbnh) .gt_from_md > :last-child {
+:where(#wflyssrgud) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#pmmienxbnh) .gt_row {
+:where(#wflyssrgud) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1542,7 +1472,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#pmmienxbnh) .gt_stub {
+:where(#wflyssrgud) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1555,7 +1485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#pmmienxbnh) .gt_stub_row_group {
+:where(#wflyssrgud) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1569,11 +1499,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#pmmienxbnh) .gt_row_group_first td {
+:where(#wflyssrgud) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#pmmienxbnh) .gt_summary_row {
+:where(#wflyssrgud) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1583,16 +1513,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#pmmienxbnh) .gt_first_summary_row {
+:where(#wflyssrgud) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_first_summary_row.thick {
+:where(#wflyssrgud) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#pmmienxbnh) .gt_last_summary_row {
+:where(#wflyssrgud) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1602,7 +1532,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_grand_summary_row {
+:where(#wflyssrgud) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1612,7 +1542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#pmmienxbnh) .gt_first_grand_summary_row {
+:where(#wflyssrgud) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1622,11 +1552,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_striped {
+:where(#wflyssrgud) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#pmmienxbnh) .gt_table_body {
+:where(#wflyssrgud) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1635,7 +1565,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_footnotes {
+:where(#wflyssrgud) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1649,7 +1579,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_footnote {
+:where(#wflyssrgud) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1658,7 +1588,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#pmmienxbnh) .gt_sourcenotes {
+:where(#wflyssrgud) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1672,7 +1602,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#pmmienxbnh) .gt_sourcenote {
+:where(#wflyssrgud) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1680,68 +1610,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#pmmienxbnh) .gt_left {
+:where(#wflyssrgud) .gt_left {
   text-align: left;
 }
 
-:where(#pmmienxbnh) .gt_center {
+:where(#wflyssrgud) .gt_center {
   text-align: center;
 }
 
-:where(#pmmienxbnh) .gt_right {
+:where(#wflyssrgud) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#pmmienxbnh) .gt_font_normal {
+:where(#wflyssrgud) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#pmmienxbnh) .gt_font_bold {
+:where(#wflyssrgud) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#pmmienxbnh) .gt_font_italic {
+:where(#wflyssrgud) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#pmmienxbnh) .gt_super {
+:where(#wflyssrgud) .gt_super {
   font-size: 65%;
 }
 
-:where(#pmmienxbnh) .gt_footnote_marks {
+:where(#wflyssrgud) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#pmmienxbnh) .gt_asterisk {
+:where(#wflyssrgud) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#pmmienxbnh) .gt_indent_1 {
+:where(#wflyssrgud) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#pmmienxbnh) .gt_indent_2 {
+:where(#wflyssrgud) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#pmmienxbnh) .gt_indent_3 {
+:where(#wflyssrgud) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#pmmienxbnh) .gt_indent_4 {
+:where(#wflyssrgud) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#pmmienxbnh) .gt_indent_5 {
+:where(#wflyssrgud) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>表&nbsp;4.7:  利用gtsummary包生成分类和数值变量描述表（二） </caption>
+<table class="gt_table"><caption>表&nbsp;4.6:  利用gtsummary包作分类和数值变量描述表（二） </caption>
   
   <thead class="gt_col_headings">
     <tr>
@@ -1823,38 +1753,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="按变量分组后分类和数值变量混合描述" class="level4" data-number="4.2.2.4">
 <h4 data-number="4.2.2.4" class="anchored" data-anchor-id="按变量分组后分类和数值变量混合描述"><span class="header-section-number">4.2.2.4</span> 按变量分组后分类和数值变量混合描述</h4>
-<p>  除上述几种情况之外，还有一种使用更频繁场景，那就是分组描述并进行统计检验，推荐使用<strong>gtsummary</strong>和<strong>table1</strong>包。</p>
-<p><strong>gtsummary</strong>，默认是进行数值变量进行Wilcoxon rank sum test，分类变量进行Pearson’s Chi-squared test。结果见 <a href="#tbl-desc-mix-3">表&nbsp;<span>4.8</span></a> 。</p>
+<p>  除上述几种情况之外，还有一种使用更频繁场景，那就是分组描述并进行统计检验，推荐使用<strong>gtsummary</strong>和<strong>table1</strong>包。</p>
+<p>  <strong>gtsummary</strong>，默认是进行数值变量进行Wilcoxon rank sum test，分类变量进行Pearson’s Chi-squared test。结果见 <a href="#tbl-desc-mix-3">表&nbsp;<span>4.7</span></a> 。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tbl_mix <span class="ot">&lt;-</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tbl_summary</span>(harm[, <span class="fu">c</span>(<span class="st">"ragender"</span>, <span class="st">"raeducl"</span>, </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"wave"</span>, <span class="st">"ruralcounty"</span>, </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"self_health"</span>, <span class="st">"cesd10"</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"mmse"</span>, <span class="st">"hosfee"</span>)],</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">by =</span> ruralcounty,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">missing_text =</span> <span class="st">"(Missing)"</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="fu">list</span>(ragender <span class="sc">~</span> <span class="st">"Gender"</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                            raeducl <span class="sc">~</span> <span class="st">"Education"</span>,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                            wave <span class="sc">~</span> <span class="st">"Wave"</span>,</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                            ruralcounty <span class="sc">~</span> <span class="st">"Rural or Not"</span>,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                            self_health <span class="sc">~</span> <span class="st">"Self report Health"</span>,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                            cesd10 <span class="sc">~</span> <span class="st">"CESD 10"</span>,</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                            mmse <span class="sc">~</span> <span class="st">"MMSE"</span>,</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                            hosfee <span class="sc">~</span> <span class="st">"Hospital expense"</span>),</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> </span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"{mean} ({sd})"</span>),  </span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>            ) </span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                     </span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>tbl_mix <span class="sc">%&gt;%</span> <span class="fu">add_p</span>() <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tbl_mix <span class="ot">&lt;-</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tbl_summary</span>(harm[, <span class="fu">c</span>(<span class="st">"ragender"</span>, <span class="st">"raeducl"</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"wave"</span>, <span class="st">"ruralcounty"</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"self_health"</span>, <span class="st">"cesd10"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"mmse"</span>, <span class="st">"hosfee"</span>)],</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">by =</span> ruralcounty,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">missing_text =</span> <span class="st">"(Missing)"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="fu">list</span>(ragender <span class="sc">~</span> <span class="st">"Gender"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                            raeducl <span class="sc">~</span> <span class="st">"Education"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                            wave <span class="sc">~</span> <span class="st">"Wave"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                            ruralcounty <span class="sc">~</span> <span class="st">"Rural or Not"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                            self_health <span class="sc">~</span> <span class="st">"Self report Health"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                            cesd10 <span class="sc">~</span> <span class="st">"CESD 10"</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                            mmse <span class="sc">~</span> <span class="st">"MMSE"</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                            hosfee <span class="sc">~</span> <span class="st">"Hospital expense"</span>),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"{mean} ({sd})"</span>),  </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            ) </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                     </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>tbl_mix <span class="sc">%&gt;%</span> <span class="fu">add_p</span>() <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-desc-mix-3" class="anchored">
 
-<div id="njfveifmzc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cbzswjstwo" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#njfveifmzc) .gt_table {
+:where(#cbzswjstwo) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1879,7 +1809,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_heading {
+:where(#cbzswjstwo) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1891,7 +1821,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_title {
+:where(#cbzswjstwo) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1903,7 +1833,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#njfveifmzc) .gt_subtitle {
+:where(#cbzswjstwo) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1915,13 +1845,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#njfveifmzc) .gt_bottom_border {
+:where(#cbzswjstwo) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_col_headings {
+:where(#cbzswjstwo) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1936,7 +1866,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_col_heading {
+:where(#cbzswjstwo) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1956,7 +1886,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#njfveifmzc) .gt_column_spanner_outer {
+:where(#cbzswjstwo) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1968,15 +1898,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-:where(#njfveifmzc) .gt_column_spanner_outer:first-child {
+:where(#cbzswjstwo) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#njfveifmzc) .gt_column_spanner_outer:last-child {
+:where(#cbzswjstwo) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#njfveifmzc) .gt_column_spanner {
+:where(#cbzswjstwo) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1988,7 +1918,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#njfveifmzc) .gt_group_heading {
+:where(#cbzswjstwo) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2013,7 +1943,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#njfveifmzc) .gt_empty_group_heading {
+:where(#cbzswjstwo) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2028,15 +1958,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#njfveifmzc) .gt_from_md > :first-child {
+:where(#cbzswjstwo) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#njfveifmzc) .gt_from_md > :last-child {
+:where(#cbzswjstwo) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#njfveifmzc) .gt_row {
+:where(#cbzswjstwo) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2055,7 +1985,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#njfveifmzc) .gt_stub {
+:where(#cbzswjstwo) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2068,7 +1998,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#njfveifmzc) .gt_stub_row_group {
+:where(#cbzswjstwo) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2082,11 +2012,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#njfveifmzc) .gt_row_group_first td {
+:where(#cbzswjstwo) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#njfveifmzc) .gt_summary_row {
+:where(#cbzswjstwo) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2096,16 +2026,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#njfveifmzc) .gt_first_summary_row {
+:where(#cbzswjstwo) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_first_summary_row.thick {
+:where(#cbzswjstwo) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#njfveifmzc) .gt_last_summary_row {
+:where(#cbzswjstwo) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2115,7 +2045,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_grand_summary_row {
+:where(#cbzswjstwo) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2125,7 +2055,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#njfveifmzc) .gt_first_grand_summary_row {
+:where(#cbzswjstwo) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2135,11 +2065,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_striped {
+:where(#cbzswjstwo) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#njfveifmzc) .gt_table_body {
+:where(#cbzswjstwo) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2148,7 +2078,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_footnotes {
+:where(#cbzswjstwo) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2162,7 +2092,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_footnote {
+:where(#cbzswjstwo) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2171,7 +2101,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#njfveifmzc) .gt_sourcenotes {
+:where(#cbzswjstwo) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2185,7 +2115,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#njfveifmzc) .gt_sourcenote {
+:where(#cbzswjstwo) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2193,68 +2123,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#njfveifmzc) .gt_left {
+:where(#cbzswjstwo) .gt_left {
   text-align: left;
 }
 
-:where(#njfveifmzc) .gt_center {
+:where(#cbzswjstwo) .gt_center {
   text-align: center;
 }
 
-:where(#njfveifmzc) .gt_right {
+:where(#cbzswjstwo) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#njfveifmzc) .gt_font_normal {
+:where(#cbzswjstwo) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#njfveifmzc) .gt_font_bold {
+:where(#cbzswjstwo) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#njfveifmzc) .gt_font_italic {
+:where(#cbzswjstwo) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#njfveifmzc) .gt_super {
+:where(#cbzswjstwo) .gt_super {
   font-size: 65%;
 }
 
-:where(#njfveifmzc) .gt_footnote_marks {
+:where(#cbzswjstwo) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#njfveifmzc) .gt_asterisk {
+:where(#cbzswjstwo) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#njfveifmzc) .gt_indent_1 {
+:where(#cbzswjstwo) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#njfveifmzc) .gt_indent_2 {
+:where(#cbzswjstwo) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#njfveifmzc) .gt_indent_3 {
+:where(#cbzswjstwo) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#njfveifmzc) .gt_indent_4 {
+:where(#cbzswjstwo) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#njfveifmzc) .gt_indent_5 {
+:where(#cbzswjstwo) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>表&nbsp;4.8:  利用gtsummary包生成分组后分类和数值变量描述表（一） </caption>
+<table class="gt_table"><caption>表&nbsp;4.7:  利用gtsummary包作分组分类和数值变量描述表（一） </caption>
   
   <thead class="gt_col_headings">
     <tr>
@@ -2384,36 +2314,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>  如果想将默认的Wilcoxon rank sum test改成Student’s t-test，可以如下操作，结果见 <a href="#tbl-desc-mix-4">表&nbsp;<span>4.9</span></a> 。</p>
+<p>  如果想将默认的Wilcoxon rank sum test改成Student’s t-test，可以如下操作，结果见 <a href="#tbl-desc-mix-4">表&nbsp;<span>4.8</span></a> 。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ttest_func <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, by, ...) {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.numeric</span>(data[[variable]])) {</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">t.test</span>(data[[variable]] <span class="sc">~</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">as.factor</span>(data[[by]])) <span class="sc">%&gt;%</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(statistic, p.value)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">chisq.test</span>(<span class="fu">table</span>(data[[variable]], </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">as.factor</span>(data[[by]]))) <span class="sc">%&gt;%</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(statistic, p.value)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>tbl_mix <span class="sc">%&gt;%</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_stat</span>(<span class="at">fns =</span> <span class="fu">everything</span>() <span class="sc">~</span> ttest_func) <span class="sc">%&gt;%</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ttest_func <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, by, ...) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.numeric</span>(data[[variable]])) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">t.test</span>(data[[variable]] <span class="sc">~</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">as.factor</span>(data[[by]])) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(statistic, p.value)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">chisq.test</span>(<span class="fu">table</span>(data[[variable]], </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">as.factor</span>(data[[by]]))) <span class="sc">%&gt;%</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(statistic, p.value)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>tbl_mix <span class="sc">%&gt;%</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_stat</span>(<span class="at">fns =</span> <span class="fu">everything</span>() <span class="sc">~</span> ttest_func) <span class="sc">%&gt;%</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-desc-mix-4" class="anchored">
 
-<div id="sopipszliq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wmqwlhypla" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#sopipszliq) .gt_table {
+:where(#wmqwlhypla) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2438,7 +2368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_heading {
+:where(#wmqwlhypla) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2450,7 +2380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_title {
+:where(#wmqwlhypla) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2462,7 +2392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#sopipszliq) .gt_subtitle {
+:where(#wmqwlhypla) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2474,13 +2404,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#sopipszliq) .gt_bottom_border {
+:where(#wmqwlhypla) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_col_headings {
+:where(#wmqwlhypla) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2495,7 +2425,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_col_heading {
+:where(#wmqwlhypla) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2515,7 +2445,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#sopipszliq) .gt_column_spanner_outer {
+:where(#wmqwlhypla) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2527,15 +2457,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-:where(#sopipszliq) .gt_column_spanner_outer:first-child {
+:where(#wmqwlhypla) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#sopipszliq) .gt_column_spanner_outer:last-child {
+:where(#wmqwlhypla) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#sopipszliq) .gt_column_spanner {
+:where(#wmqwlhypla) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2547,7 +2477,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#sopipszliq) .gt_group_heading {
+:where(#wmqwlhypla) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2572,7 +2502,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#sopipszliq) .gt_empty_group_heading {
+:where(#wmqwlhypla) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2587,15 +2517,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#sopipszliq) .gt_from_md > :first-child {
+:where(#wmqwlhypla) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#sopipszliq) .gt_from_md > :last-child {
+:where(#wmqwlhypla) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#sopipszliq) .gt_row {
+:where(#wmqwlhypla) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2614,7 +2544,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#sopipszliq) .gt_stub {
+:where(#wmqwlhypla) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2627,7 +2557,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#sopipszliq) .gt_stub_row_group {
+:where(#wmqwlhypla) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2641,11 +2571,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#sopipszliq) .gt_row_group_first td {
+:where(#wmqwlhypla) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#sopipszliq) .gt_summary_row {
+:where(#wmqwlhypla) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2655,16 +2585,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#sopipszliq) .gt_first_summary_row {
+:where(#wmqwlhypla) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_first_summary_row.thick {
+:where(#wmqwlhypla) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#sopipszliq) .gt_last_summary_row {
+:where(#wmqwlhypla) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2674,7 +2604,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_grand_summary_row {
+:where(#wmqwlhypla) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2684,7 +2614,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#sopipszliq) .gt_first_grand_summary_row {
+:where(#wmqwlhypla) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2694,11 +2624,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_striped {
+:where(#wmqwlhypla) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#sopipszliq) .gt_table_body {
+:where(#wmqwlhypla) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2707,7 +2637,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_footnotes {
+:where(#wmqwlhypla) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2721,7 +2651,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_footnote {
+:where(#wmqwlhypla) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2730,7 +2660,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#sopipszliq) .gt_sourcenotes {
+:where(#wmqwlhypla) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2744,7 +2674,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#sopipszliq) .gt_sourcenote {
+:where(#wmqwlhypla) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2752,68 +2682,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#sopipszliq) .gt_left {
+:where(#wmqwlhypla) .gt_left {
   text-align: left;
 }
 
-:where(#sopipszliq) .gt_center {
+:where(#wmqwlhypla) .gt_center {
   text-align: center;
 }
 
-:where(#sopipszliq) .gt_right {
+:where(#wmqwlhypla) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#sopipszliq) .gt_font_normal {
+:where(#wmqwlhypla) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#sopipszliq) .gt_font_bold {
+:where(#wmqwlhypla) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#sopipszliq) .gt_font_italic {
+:where(#wmqwlhypla) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#sopipszliq) .gt_super {
+:where(#wmqwlhypla) .gt_super {
   font-size: 65%;
 }
 
-:where(#sopipszliq) .gt_footnote_marks {
+:where(#wmqwlhypla) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#sopipszliq) .gt_asterisk {
+:where(#wmqwlhypla) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#sopipszliq) .gt_indent_1 {
+:where(#wmqwlhypla) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#sopipszliq) .gt_indent_2 {
+:where(#wmqwlhypla) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#sopipszliq) .gt_indent_3 {
+:where(#wmqwlhypla) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#sopipszliq) .gt_indent_4 {
+:where(#wmqwlhypla) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#sopipszliq) .gt_indent_5 {
+:where(#wmqwlhypla) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>表&nbsp;4.9:  利用gtsummary包生成分组后分类和数值变量描述表（二） </caption>
+<table class="gt_table"><caption>表&nbsp;4.8:  利用gtsummary包作分组分类和数值变量描述表（二） </caption>
   
   <thead class="gt_col_headings">
     <tr>
@@ -2967,34 +2897,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p><strong>table1</strong>，结果见 <a href="#tbl-desc-mix-5">表&nbsp;<span>4.10</span></a> 。</p>
+<p>  <strong>table1</strong>，结果见 <a href="#tbl-desc-mix-5">表&nbsp;<span>4.9</span></a> 。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pvalue <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">unlist</span>(x)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    g <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x), </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">times =</span> <span class="fu">sapply</span>(x, length)))</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.numeric</span>(y)) {</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        p <span class="ot">&lt;-</span> <span class="fu">t.test</span>(y <span class="sc">~</span> g)<span class="sc">$</span>p.value</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        p <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(<span class="fu">table</span>(y, g))<span class="sc">$</span>p.value</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">""</span>, <span class="fu">sub</span>(<span class="st">"&lt;"</span>, <span class="st">"&amp;lt;"</span>, </span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>              <span class="fu">format.pval</span>(p, <span class="at">digits =</span> <span class="dv">3</span>, </span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                          <span class="at">eps =</span> <span class="fl">0.001</span>)))</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span> ragender <span class="sc">+</span> raeducl <span class="sc">+</span> </span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>         self_health <span class="sc">+</span> cesd10 <span class="sc">+</span> </span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>         mmse <span class="sc">+</span> hosfee <span class="sc">|</span> ruralcounty, </span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">overall =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">extra.col =</span> <span class="fu">list</span>(<span class="st">"P-value"</span> <span class="ot">=</span> pvalue),</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> harm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pvalue <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">unlist</span>(x)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    g <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x), </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">times =</span> <span class="fu">sapply</span>(x, length)))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.numeric</span>(y)) {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        p <span class="ot">&lt;-</span> <span class="fu">t.test</span>(y <span class="sc">~</span> g)<span class="sc">$</span>p.value</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        p <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(<span class="fu">table</span>(y, g))<span class="sc">$</span>p.value</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">""</span>, <span class="fu">sub</span>(<span class="st">"&lt;"</span>, <span class="st">"&amp;lt;"</span>, </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>              <span class="fu">format.pval</span>(p, <span class="at">digits =</span> <span class="dv">3</span>, </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>                          <span class="at">eps =</span> <span class="fl">0.001</span>)))</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span> ragender <span class="sc">+</span> raeducl <span class="sc">+</span> </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>         self_health <span class="sc">+</span> cesd10 <span class="sc">+</span> </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>         mmse <span class="sc">+</span> hosfee <span class="sc">|</span> ruralcounty, </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">overall =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">extra.col =</span> <span class="fu">list</span>(<span class="st">"P-value"</span> <span class="ot">=</span> pvalue),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> harm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-desc-mix-5" class="anchored">
 
-<div class="Rtable1"><table class="Rtable1"><caption>表&nbsp;4.10:  利用table1包生成分组后分类和数值变量描述表 </caption>
+<div class="Rtable1"><table class="Rtable1"><caption>表&nbsp;4.9:  利用table1包生成分组后分类和数值变量描述表 </caption>
 <thead>
 <tr>
 <th class="rowlabel firstrow lastrow"></th>
@@ -3154,24 +3083,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>  如果进行数据探索，可以使用<strong>modelsummary</strong>中的<code>datasummary_balance()</code>的函数快速进行组间比较及描述，结果见 <a href="#tbl-desc-mix-6">表&nbsp;<span>4.11</span></a> 。</p>
+<p>  如果进行数据探索，可以使用<strong>modelsummary</strong>中的<code>datasummary_balance()</code>的函数快速进行组间比较及描述，结果见 <a href="#tbl-desc-mix-6">表&nbsp;<span>4.10</span></a> 。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(<span class="sc">~</span> ruralcounty,</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> harm[, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">"ragender"</span>, <span class="st">"raeducl"</span>, </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"wave"</span>, <span class="st">"ruralcounty"</span>, </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"self_health"</span>, <span class="st">"cesd10"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"mmse"</span>, <span class="st">"hosfee"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(<span class="sc">~</span> ruralcounty,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dinm =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dinm_statistic =</span> <span class="st">"p.value"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> harm[, </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">"ragender"</span>, <span class="st">"raeducl"</span>, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"wave"</span>, <span class="st">"ruralcounty"</span>, </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"self_health"</span>, <span class="st">"cesd10"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"mmse"</span>, <span class="st">"hosfee"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-desc-mix-6" class="anchored">
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表&nbsp;4.11:  利用modelsummary包生成分组后分类和数值变量描述表 </caption>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表&nbsp;4.10:  利用modelsummary包作分组后分类和数值变量描述表 </caption>
  <thead>
 <tr>
 <th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">0 (N=22517)</div></th>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">1 (N=28141)</div></th>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
 </tr>
   <tr>
    <th style="text-align:left;">   </th>
@@ -3180,8 +3110,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <th style="text-align:right;"> Std. Dev. </th>
    <th style="text-align:right;"> Mean </th>
    <th style="text-align:right;"> Std. Dev. </th>
-   <th style="text-align:right;"> Diff. in Means </th>
-   <th style="text-align:right;"> Std. Error </th>
   </tr>
  </thead>
 <tbody>
@@ -3192,8 +3120,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0.9 </td>
    <td style="text-align:right;"> 3.1 </td>
    <td style="text-align:right;"> 1.0 </td>
-   <td style="text-align:right;"> 0.2 </td>
-   <td style="text-align:right;"> 0.009 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> cesd10 </td>
@@ -3202,8 +3128,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 5.9 </td>
    <td style="text-align:right;"> 9.3 </td>
    <td style="text-align:right;"> 6.6 </td>
-   <td style="text-align:right;"> 2.2 </td>
-   <td style="text-align:right;"> 0.06 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> mmse </td>
@@ -3212,8 +3136,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 4.8 </td>
    <td style="text-align:right;"> 14.3 </td>
    <td style="text-align:right;"> 5.0 </td>
-   <td style="text-align:right;"> -2.2 </td>
-   <td style="text-align:right;"> 0.05 </td>
   </tr>
   <tr>
    <td style="text-align:left;box-shadow: 0px 1px"> hosfee </td>
@@ -3222,8 +3144,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;box-shadow: 0px 1px"> 15889.1 </td>
    <td style="text-align:right;box-shadow: 0px 1px"> 1316.5 </td>
    <td style="text-align:right;box-shadow: 0px 1px"> 7548.3 </td>
-   <td style="text-align:right;box-shadow: 0px 1px"> -921.8 </td>
-   <td style="text-align:right;box-shadow: 0px 1px"> 116.3 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -3232,8 +3152,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> Pct. </td>
    <td style="text-align:right;"> N </td>
    <td style="text-align:right;"> Pct. </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;"> ragender </td>
@@ -3242,8 +3160,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 31.1 </td>
    <td style="text-align:right;"> 5804 </td>
    <td style="text-align:right;"> 20.6 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -3252,8 +3168,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 68.9 </td>
    <td style="text-align:right;"> 22337 </td>
    <td style="text-align:right;"> 79.4 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;"> raeducl </td>
@@ -3262,8 +3176,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 77.3 </td>
    <td style="text-align:right;"> 26575 </td>
    <td style="text-align:right;"> 94.4 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -3272,8 +3184,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 17.3 </td>
    <td style="text-align:right;"> 1464 </td>
    <td style="text-align:right;"> 5.2 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -3282,8 +3192,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 5.3 </td>
    <td style="text-align:right;"> 100 </td>
    <td style="text-align:right;"> 0.4 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -3292,8 +3200,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0.0 </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 0.0 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;"> wave </td>
@@ -3302,8 +3208,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 21.9 </td>
    <td style="text-align:right;"> 6072 </td>
    <td style="text-align:right;"> 21.6 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -3312,8 +3216,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 23.9 </td>
    <td style="text-align:right;"> 6716 </td>
    <td style="text-align:right;"> 23.9 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -3322,8 +3224,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 26.8 </td>
    <td style="text-align:right;"> 7575 </td>
    <td style="text-align:right;"> 26.9 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -3332,8 +3232,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 27.4 </td>
    <td style="text-align:right;"> 7778 </td>
    <td style="text-align:right;"> 27.6 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
   </tr>
 </tbody>
 </table>
@@ -3343,34 +3241,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="总结" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="总结"><span class="header-section-number">4.2.3</span> 总结</h3>
-<p>如果你和我一样有选择焦虑，可选项多了反而不知所措了，那么就直接看下面的表</p>
-<p>描述性表格：首推荐gtsummary，其次table1 回归表格：首推荐modelsummary</p>
-</section>
-<section id="回归结果的输出" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="回归结果的输出"><span class="header-section-number">4.2.4</span> 回归结果的输出</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plm)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"Grunfeld"</span>, <span class="at">package=</span><span class="st">"plm"</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>grun.fe <span class="ot">&lt;-</span> <span class="fu">plm</span>(inv<span class="sc">~</span>value<span class="sc">+</span>capital, <span class="at">index=</span><span class="fu">c</span>(<span class="st">"firm"</span>,<span class="st">"year"</span>),</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> Grunfeld, <span class="at">model =</span> <span class="st">"within"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>grun.re <span class="ot">&lt;-</span> <span class="fu">plm</span>(inv<span class="sc">~</span>value<span class="sc">+</span>capital, <span class="at">index=</span><span class="fu">c</span>(<span class="st">"firm"</span>,<span class="st">"year"</span>),</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> Grunfeld, <span class="at">model =</span> <span class="st">"random"</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Fixed Effect"</span> <span class="ot">=</span> grun.fe,</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Random Effect"</span> <span class="ot">=</span> grun.re), </span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">vcov =</span> <span class="st">"robust"</span>,</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">"kableExtra"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="回归模型的输出" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="回归模型的输出"><span class="header-section-number">4.2.3</span> 回归模型的输出</h3>
+<p>  回归结果的表格输出虽然不属于描述性分析的内容，但是与本节内容关联性较大，因此在此一并介绍了。推荐<strong>modelsummary</strong>包，相比于另一个用于回归模型输出的<strong>stargazer</strong>包而言，其支持的模型函数更全面，并且输出的文件类型也更全面，比如html、latex、word等，示例结果如 <span class="quarto-unresolved-ref">?tbl-reg</span> 。<strong>modelsummary</strong>包不仅仅只是将回归结果输出，也拥有较丰富的自定义功能，比如可以指定输出的回归变量、回归参数等。同时也可以直接通过<code>vcov</code>参数将值传递给<strong>sandwich</strong>包来实现稳健标准误的计算。关于其支持的模型类型和稳健标准误计算方法，可详见<a href="https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html">modelsummary</a> 。</p>
+<div class="cell" data-lable="tbl-reg">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plm)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"Grunfeld"</span>, <span class="at">package=</span><span class="st">"plm"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>grun.fe <span class="ot">&lt;-</span> <span class="fu">plm</span>(inv <span class="sc">~</span> value <span class="sc">+</span> capital, <span class="at">index=</span><span class="fu">c</span>(<span class="st">"firm"</span>,<span class="st">"year"</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> Grunfeld, <span class="at">model =</span> <span class="st">"within"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>grun.re <span class="ot">&lt;-</span> <span class="fu">plm</span>(inv <span class="sc">~</span> value <span class="sc">+</span> capital, <span class="at">index=</span><span class="fu">c</span>(<span class="st">"firm"</span>,<span class="st">"year"</span>),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> Grunfeld, <span class="at">model =</span> <span class="st">"random"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Fixed Effect"</span> <span class="ot">=</span> grun.fe,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Random Effect"</span> <span class="ot">=</span> grun.re), </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">vcov =</span> <span class="st">"robust"</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">"kableExtra"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
+<table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table"><caption>利用modelsummary包输出回归结果</caption>
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -3452,16 +3344,660 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
+<section id="小结" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="小结"><span class="header-section-number">4.2.4</span> 小结</h3>
+<p>  如果你和我一样有选择焦虑，可选项多了反而不知所措了，那么就直接看 <a href="#tbl-summary-pkg">表&nbsp;<span>4.11</span></a> 。</p>
+<div id="tbl-summary-pkg" class="anchored">
+<table class="table">
+<caption>表&nbsp;4.11: 支持输出符合统计规范表格的packages总结</caption>
+<thead>
+<tr class="header">
+<th>需求</th>
+<th>首推荐</th>
+<th>次推荐</th>
+<th>最次推荐</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>描述表格</td>
+<td>gtsummary</td>
+<td>table1</td>
+<td>modelsummary</td>
+</tr>
+<tr class="even">
+<td>回归结果</td>
+<td>modelsummary</td>
+<td>stargazer</td>
+<td>gtsummary</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 </section>
 <section id="数据的可视化" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="数据的可视化"><span class="header-section-number">4.3</span> 数据的可视化</h2>
-<p>分布型、关系型、构成型、对比型</p>
-<p>Distribution of a single variable Relationship between two variables Composition of a single or multiple variables Comparison between different categories/individuals</p>
+<p>  统计图形的种类非常丰富，并且随着可视化工具的极大发展，目前数据可视化的展示方法越来越多样化。这样带来的好处是可以充分发挥出研究者的想象力，不好的地方是眼花缭乱的可视化方式容易造成研究人员选择困难，并且难以找到各类可视化方式的是用场景。在本节中，将进行总结并给出一定的示例，以下示例均基于R的<strong>ggplot2</strong>包实现。</p>
+<p>  统计图形可以归纳为四大类，这四类图形基本可以涵盖大部分的数据可视化需求。</p>
+<ul>
+<li>分布型：Distribution of a single variable</li>
+<li>关系型：Relationship between two variables</li>
+<li>构成型：Composition of a single or multiple variables</li>
+<li>对比型：Comparison between different categories/individuals</li>
+</ul>
+<section id="分布型图形" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="分布型图形"><span class="header-section-number">4.3.1</span> 分布型图形</h3>
+<section id="直方图" class="level4" data-number="4.3.1.1">
+<h4 data-number="4.3.1.1" class="anchored" data-anchor-id="直方图"><span class="header-section-number">4.3.1.1</span> 直方图</h4>
+<p>  直方图（Histogram）是直观了解连续型变量分布情况的首选和最有效手段之一。一般情况下用于单个变量分布的观察，如 <a href="#fig-hist-1">图&nbsp;<span>4.1 (a)</span></a> ，但是若需要进行同一个变量不同组间，或是不同变量之间的比较时，亦可在同一个图形中展示，如 <a href="#fig-hist-2">图&nbsp;<span>4.1 (b)</span></a> 。</p>
+<div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2022</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"value"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">6</span>, <span class="dv">2</span>), </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">8</span>, <span class="dv">4</span>)),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"group"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Rural"</span>, <span class="dv">1000</span>), </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">rep</span>(<span class="st">"Urban"</span>, <span class="dv">1000</span>))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Univariate</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> value, </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> ..density..),</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">bins =</span> <span class="dv">50</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> <span class="st">"blue"</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> value), </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="fl">1.2</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Indicator"</span>,</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Multivariates</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> value, </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> ..density.., </span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> group),</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>                     <span class="at">bins =</span> <span class="dv">50</span>,</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>                     <span class="at">position =</span> <span class="st">"identity"</span>,</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> value, <span class="at">color =</span> group), </span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Indicator"</span>,</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.85</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-hist" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-hist-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-hist-1.png" class="img-fluid figure-img" data-ref-parent="fig-hist" width="672"></p>
+<p></p><figcaption class="figure-caption">(a) Univariate Histogram</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-hist-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-hist-2.png" class="img-fluid figure-img" data-ref-parent="fig-hist" width="672"></p>
+<p></p><figcaption class="figure-caption">(b) Multivariates Histogram</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">图&nbsp;4.1: Histogram</figcaption><p></p>
+</figure>
+</div>
+</div>
 </section>
-<section id="回归模型的输出" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="回归模型的输出"><span class="header-section-number">4.4</span> 回归模型的输出</h2>
+<section id="箱图和小提琴图" class="level4" data-number="4.3.1.2">
+<h4 data-number="4.3.1.2" class="anchored" data-anchor-id="箱图和小提琴图"><span class="header-section-number">4.3.1.2</span> 箱图和小提琴图</h4>
+<p>  箱图（Boxplot）是另一种观察数据分布情况的统计图形，箱子的上横线表示上四分位数（Q75），下横线表示下四分位数（Q25），中间的横线为中位数（Median），上下延长线的末端表示中位数加减1.5倍的四分位间距，如 <a href="#fig-violin-1">图&nbsp;<span>4.2 (a)</span></a> ，箱图在识别异常值时可以提供很大的帮助。</p>
+<p>  箱图（Boxplot）的缺点也很明显，就是无法观测到数据的聚集和离散情况，如在哪一区间数据分布较为集中。为了弥补这一不足，可以将小提琴图（Violin plot）或是Jitter plot与箱图结合，也可以单独使用，如 <a href="#fig-violin-2">图&nbsp;<span>4.2 (b)</span></a> ，图中较胖的区域说明数据分布较为集中。</p>
+<div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> value, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fill =</span> group)) <span class="sc">+</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">16</span>, </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="fl">0.2</span>)) <span class="sc">+</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Group"</span>, </span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-violin" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 100.0%;justify-content: center;">
+<div id="fig-violin-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-violin-1.png" class="img-fluid figure-img" data-ref-parent="fig-violin" width="672"></p>
+<p></p><figcaption class="figure-caption">(a) Boxplot</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 100.0%;justify-content: center;">
+<div id="fig-violin-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-violin-2.png" class="img-fluid figure-img" data-ref-parent="fig-violin" width="672"></p>
+<p></p><figcaption class="figure-caption">(b) Violin &amp; Box &amp; Jitter plot</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">图&nbsp;4.2: 箱图和小提琴图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="关系型图形" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="关系型图形"><span class="header-section-number">4.3.2</span> 关系型图形</h3>
+<p>  探索两个因素之间的关联性或是因果关系是社会科学研究中的关键问题，而这一类问题的分析起点就是通过图形探索两个因素之间是否存在相互依存关系，此时关系型图形的作用就非常大。常见的关系型图形包括<em>散点图</em>、<em>线图</em>以及<em>热力图</em>。</p>
+<section id="散点图" class="level4" data-number="4.3.2.1">
+<h4 data-number="4.3.2.1" class="anchored" data-anchor-id="散点图"><span class="header-section-number">4.3.2.1</span> 散点图</h4>
+<p>  散点图（Scatter Plot）最长应用的场景就是描述两个连续型变量之间的关系，当然有时也可用于连续型变量与分类变量之间，示例结果如 <a href="#fig-scatter">图&nbsp;<span>4.3</span></a> 。</p>
+<div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Horsepower"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Miles/(US) gallon"</span>) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>) <span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Horsepower"</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Miles/(US) gallon"</span>) <span class="sc">+</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Horsepower"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Miles/(US) gallon"</span>) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># change shape, color, fill, size</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">23</span>, </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"blue"</span>, </span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Horsepower"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Miles/(US) gallon"</span>) <span class="sc">+</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-scatter" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-scatter-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-scatter-1.png" class="img-fluid figure-img" data-ref-parent="fig-scatter" width="672"></p>
+<p></p><figcaption class="figure-caption">(a) 基础散点图</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-scatter-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-scatter-2.png" class="img-fluid figure-img" data-ref-parent="fig-scatter" width="672"></p>
+<p></p><figcaption class="figure-caption">(b) 基础散点图加拟合线</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-scatter-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-scatter-3.png" class="img-fluid figure-img" data-ref-parent="fig-scatter" width="672"></p>
+<p></p><figcaption class="figure-caption">(c) 散点图改变Shape</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-scatter-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-scatter-4.png" class="img-fluid figure-img" data-ref-parent="fig-scatter" width="672"></p>
+<p></p><figcaption class="figure-caption">(d) 散点图改变Shape、Color等</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">图&nbsp;4.3: 散点图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="线图" class="level4" data-number="4.3.2.2">
+<h4 data-number="4.3.2.2" class="anchored" data-anchor-id="线图"><span class="header-section-number">4.3.2.2</span> 线图</h4>
+<p>  线图（Line Plot）也是最常见的用于观察两个变量之间关系的统计图形之一，例如股市的K线图，用于观察股价与时间的关系。示例结果如 <a href="#fig-line">图&nbsp;<span>4.4</span></a> 。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Orange)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Orange) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> age, </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> circumference, </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">linetype =</span> Tree)) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-line" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-line-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;4.4: 线图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="热力图" class="level4" data-number="4.3.2.3">
+<h4 data-number="4.3.2.3" class="anchored" data-anchor-id="热力图"><span class="header-section-number">4.3.2.3</span> 热力图</h4>
+<p>  热力图（Heatmap）是通过颜色的深浅来区分某个连续型变量在两个分类变量之间的集中和离散情况，在生物信息学中应用较为广泛。目前，<strong>ggplot2</strong>包支持简单的热力图可视化，若需求更高，如需要同时了解不同分类在连续型变量上的聚类情况，可以使用<strong>pheatmap</strong>包。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>lett <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>week <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Week"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">20</span>))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="st">"lett"</span> <span class="ot">=</span> lett, <span class="st">"week"</span> <span class="ot">=</span> week)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">400</span>, <span class="dv">60</span>, <span class="dv">100</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap </span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(lett, week, <span class="at">fill =</span> value)) <span class="sc">+</span> </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"RdPu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-heat" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-heat-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;4.5: 热力图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="构成型图形" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="构成型图形"><span class="header-section-number">4.3.3</span> 构成型图形</h3>
+<p>  构成型图形相对比较简单，主要是饼图（Pie plot）。在<strong>ggplot2</strong>中，饼图的实现方法有两种思路，一是原始数据已经给出了某个分类的构成比，此时可以直接作图，二是需要经过计算之后方可获得构成比，如本书中的示例。一般而言，第二种情况更为常见。示例结果如 <a href="#fig-pie">图&nbsp;<span>4.6</span></a> 。</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+好物推荐
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>推荐一个支持自动填充符合不同学术期刊配色要求的包<strong>ggsci</strong>。</li>
+<li>其优点在于可以让你省去不少寻找RGB等配色的时间，其中预设了包括Lancet、JAMA、Nature等期刊常用的配色板。</li>
+<li>尽管未能覆盖全部的应用场景，但是适用面已经相对较广了。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mtcars<span class="sc">$</span>cyl) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prop.table</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(.) <span class="sc">%&gt;%</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> Freq <span class="sc">*</span>  <span class="dv">100</span>, <span class="at">fill =</span> Var1)) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(Freq <span class="sc">*</span> <span class="dv">100</span>, <span class="st">"%"</span>)),</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  ggsci<span class="sc">::</span><span class="fu">scale_fill_jama</span>(<span class="at">name =</span> <span class="st">"Cyl"</span>) <span class="sc">+</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-pie" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-pie-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;4.6: 饼图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="对比型图形" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="对比型图形"><span class="header-section-number">4.3.4</span> 对比型图形</h3>
+<p>  对比型图形主要是条形图（Bar Plot），但是实际研究过程中线图和散点图等均可以实现对比的分析需求，这里所讲的对比型图形主要是指在进行数据对比时更为常用和直观的图形。条形图也称作柱状图，其变化形式较多样，根据柱子的不同摆放方式，可以分为堆积条图（Stack），并排条图（Dodge），百分条图（Fill）。</p>
+<p>  三种不同类型的偏好场景略有不同，堆积条图和百分条图常用于展示计数资料，而并排条图既常用于计数变量也常用于计量变量。在<strong>ggplot2</strong>中，可以通过<code>geom_bar()</code>或<code>geom_col()</code>函数实现。条形图的变化非常多，本书中仅对常见的情况进行演示，其他的希望读者自行探索。</p>
+<div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> ..count..)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"count"</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cyl"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cyl, gear) <span class="sc">%&gt;%</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mpg_mean =</span> <span class="fu">mean</span>(mpg)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> mpg_mean, </span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="fu">factor</span>(gear))) <span class="sc">+</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> mpg_mean), </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.8</span>,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>)) <span class="sc">+</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cyl"</span>, <span class="at">y =</span> <span class="st">"Mpg"</span>) <span class="sc">+</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  ggsci<span class="sc">::</span><span class="fu">scale_fill_aaas</span>(<span class="at">name =</span> <span class="st">"Gear"</span>) <span class="sc">+</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()  <span class="sc">+</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">factor</span>(gear)), <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cyl"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  ggsci<span class="sc">::</span><span class="fu">scale_fill_npg</span>(<span class="at">name =</span> <span class="st">"Gear"</span>) <span class="sc">+</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">factor</span>(gear)), <span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cyl"</span>, <span class="at">y =</span> <span class="st">"Percentage"</span>) <span class="sc">+</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>  ggsci<span class="sc">::</span><span class="fu">scale_fill_lancet</span>(<span class="at">name =</span> <span class="st">"Gear"</span>) <span class="sc">+</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-bar" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-bar-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-bar-1.png" class="img-fluid figure-img" data-ref-parent="fig-bar" width="672"></p>
+<p></p><figcaption class="figure-caption">(a) 基础条图</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-bar-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-bar-2.png" class="img-fluid figure-img" data-ref-parent="fig-bar" width="672"></p>
+<p></p><figcaption class="figure-caption">(b) 并排条图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-bar-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-bar-3.png" class="img-fluid figure-img" data-ref-parent="fig-bar" width="672"></p>
+<p></p><figcaption class="figure-caption">(c) 堆积条图</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-bar-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-bar-4.png" class="img-fluid figure-img" data-ref-parent="fig-bar" width="672"></p>
+<p></p><figcaption class="figure-caption">(d) 百分条图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">图&nbsp;4.7: 条形图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="分面" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="分面"><span class="header-section-number">4.3.5</span> 分面</h3>
+<p>  一般而言，二维平面图形中最多能展示三个属性，假设有4个属性（Age、BMI、Sex、Region）想要一同展示在同一个图形中，常规方法是无法完成的，如横轴为Age，纵轴为BMI，那么只能利用颜色或者形状来区别Sex或者Region。当需要在一个图形中展现四种属性时，就需要利用到分面（Facet）功能，在<strong>ggplot2</strong>包中，可以利用 <code>facet_wrap()</code>和<code>facet_grid()</code>函数实现，后者多用于多个分面变量，使结果呈现为行列交叉的形式，结果如 <a href="#fig-facet">图&nbsp;<span>4.8</span></a> 。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">shape =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> cyl) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Horsepower"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Miles/(US) gallon"</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_discrete</span>(<span class="at">name =</span> <span class="st">"Engine"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"V-shaped"</span>, </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Straight"</span>)) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-facet" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-facet-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;4.8: 分面图</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="空间可视化" class="level3" data-number="4.3.6">
+<h3 data-number="4.3.6" class="anchored" data-anchor-id="空间可视化"><span class="header-section-number">4.3.6</span> 空间可视化</h3>
+<p>  关于空间可视化的内容十分复杂，其本来也是空间数据分析或者空间统计学的主要内容，想要介绍清楚需要很多的篇幅和精力。在本书中，将仅仅介绍在数据描述过程中最常用的空间填色图。</p>
+<section id="地图素材类型" class="level4" data-number="4.3.6.1">
+<h4 data-number="4.3.6.1" class="anchored" data-anchor-id="地图素材类型"><span class="header-section-number">4.3.6.1</span> 地图素材类型</h4>
+<p>  空间可视化的基础素材就是想要研究的地区的地图图层，一般有三种常有类型：shp素材，geojson素材，地图包内置地图素材。</p>
+<p>  <strong>shp</strong>和<strong>geojson</strong>格式素材均可转换为以下两种地图数据格式：</p>
+<ul>
+<li>sp:SpatialPolygonDataFrame</li>
+<li>sf:Simple feature list column</li>
+</ul>
+<p>  这两种格式的数据集所描述的信息差不多是一致的。第一种格式（<strong>sp</strong>）是R语言绘图比较传统的数据格式，它将地理信息数据分割为两大块：描述层和映射层。在数据存放时，描述层记录各个地理区域的名称、ID、编号、简写、iOS编码，以及其他标识信息和度量变量，描述层是一个dataframe，我们可以用<strong>data@data</strong>来提取描述层的数据框。而对应的几何映射层，是每一个行政区域的多边形边界点，这些边界点按照order排序，按照group分组。多边形边界点信息是一个多层嵌套的list结构，但是我们仍然可以通过<code>fortity()</code>函数将其转化为数据框。即sp空间数据对象是一个dataframe（描述层）和polygons（几何映射层）两个对象的组合对象。</p>
+<p>  而sf对象将这种控件数据格式件进行了更加整齐的布局，使用<code>st_read()</code>导入的空间数据对象完全是一个整齐的数据框，拥有整齐的行列，这些行列中包含着数据描述和几何多边形的边界点信息。其中最大的特点是，它将每一个行政区划所对应的几何边界点封装成了一个list对象的记录，这条记录就像其他普通的文本记录、数值记录一样，被排列在对应行政区划描述的单元格中。</p>
+</section>
+<section id="地图来源" class="level4" data-number="4.3.6.2">
+<h4 data-number="4.3.6.2" class="anchored" data-anchor-id="地图来源"><span class="header-section-number">4.3.6.2</span> 地图来源</h4>
+<p>  世界地图基本在很多支持空间分析的软件包中内置，虽然方便，但是这些地图基本会存在更新不及时导致的过于老旧问题。获得正确的地图素材是进行空间研究的基本前提。</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+关于中国地图需要注意的
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>在这里重点要指出的是在适用中国地图时，不论是商业出版还是发表学术成果，必须适用具有官方审图号的地图素材，否在会带来潜在的不必要麻烦。</li>
+<li>目前建议使用民政部网站提供的地图（http://xzqh.mca.gov.cn/map），其审图号为GS（2022）1873号。</li>
+<li>该地图中，县级地图数据不包括香港和澳门特别行政区，市级地图数据不包括台湾省。</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="地图数据的读入方式" class="level4" data-number="4.3.6.3">
+<h4 data-number="4.3.6.3" class="anchored" data-anchor-id="地图数据的读入方式"><span class="header-section-number">4.3.6.3</span> 地图数据的读入方式</h4>
+<p>  在R中目前有三种读取地图的方法，但是第一种方法目前不太推荐。</p>
+<ul>
+<li>sp::readShapePoly()</li>
+<li>rgdal::readOGR()</li>
+<li>sf::st_read()</li>
+</ul>
+</section>
+<section id="r中空间可视化常见三种方式" class="level4" data-number="4.3.6.4">
+<h4 data-number="4.3.6.4" class="anchored" data-anchor-id="r中空间可视化常见三种方式"><span class="header-section-number">4.3.6.4</span> R中空间可视化常见三种方式</h4>
+<p>  第一种，<code>geom_polygon()</code>函数。此方法必须通过<code>@data</code>及<code>fortity()</code>函数将描述层与几何层分别读取后，添加需要映射的变量，然后合并后进行画图。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> map_data) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">group=</span>group, f</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">ill =</span> fill_var))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>  第二种，<code>geom_map()</code>函数。fill_file为包含需要作图变量的数据框，map_file 为地图素材，即通过直接读取的地图文件，使用geom_map()函数不需要进行合并，因为合并的过程由<strong>map_id</strong>所指定的参数自动进行合并，merge_id为fill_file中的识别变量。示例如 <a href="#fig-map">图&nbsp;<span>4.9</span></a> 。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ids <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"1.1"</span>, <span class="st">"2.1"</span>, <span class="st">"1.2"</span>, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"2.2"</span>, <span class="st">"1.3"</span>, <span class="st">"2.3"</span>))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">ids =</span> ids,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>              <span class="fl">3.2</span>, <span class="fl">3.15</span>, <span class="fl">3.5</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>positions <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">id =</span> <span class="fu">rep</span>(ids, <span class="at">each =</span> <span class="dv">4</span>),</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.3</span>, <span class="fl">1.1</span>, </span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>          <span class="fl">2.2</span>, <span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="fl">2.5</span>, <span class="fl">1.1</span>, <span class="fl">0.3</span>,</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.5</span>, <span class="fl">1.2</span>, <span class="fl">2.5</span>, <span class="fl">1.2</span>, <span class="fl">1.3</span>, <span class="fl">2.7</span>, </span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>          <span class="fl">1.2</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">1.3</span>),</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="dv">1</span>, </span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>          <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">2.1</span>, <span class="fl">1.7</span>, <span class="dv">1</span>, <span class="fl">1.5</span>,</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>            <span class="fl">2.2</span>, <span class="fl">2.1</span>, <span class="fl">1.7</span>, <span class="fl">2.1</span>, <span class="fl">3.2</span>, <span class="fl">2.8</span>, </span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>          <span class="fl">2.1</span>, <span class="fl">2.2</span>, <span class="fl">3.3</span>, <span class="fl">3.2</span>)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(values, <span class="fu">aes</span>(<span class="at">fill =</span> value)) <span class="sc">+</span> </span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_map</span>(<span class="fu">aes</span>(<span class="at">map_id =</span> ids, <span class="at">fill =</span> value),</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">map =</span> positions, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expand_limits</span>(positions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-map-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;4.9: 利用geom_map进行空间可视化</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+注意
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>map_file中必须包含三个变量x或long、y或lat、region或id。</li>
+<li>map_id指定的merge_id必须是能与region或id变量进行合并。</li>
+</ul>
+</div>
+</div>
+</div>
+<p>  第三种，<code>geom_sf()</code>函数，此方法仍然需要一次合并过程。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>china_map <span class="ot">&lt;-</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"dataset/MCA_China_province.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `MCA_China_province' from data source 
+  `/Users/Chi/Documents/Research/Writing Book/Handbook_of_Health_Management/dataset/MCA_China_province.geojson' 
+  using driver `GeoJSON'
+Simple feature collection with 156 features and 4 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 73.67795 ymin: 3.984257 xmax: 135.2075 ymax: 53.64847
+Geodetic CRS:  WGS 84</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>china_line <span class="ot">&lt;-</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"dataset/MCA_China_line.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `MCA_China_line' from data source 
+  `/Users/Chi/Documents/Research/Writing Book/Handbook_of_Health_Management/dataset/MCA_China_line.geojson' 
+  using driver `GeoJSON'
+Simple feature collection with 104 features and 3 fields
+Geometry type: LINESTRING
+Dimension:     XY
+Bounding box:  xmin: 73.67795 ymin: 3.553559 xmax: 135.2094 ymax: 53.64847
+Geodetic CRS:  WGS 84</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>china_map<span class="sc">$</span>pop <span class="ot">&lt;-</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">runif</span>(<span class="fu">length</span>(china_map<span class="sc">$</span>NAME), <span class="dv">100</span>, <span class="dv">1000</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> pop), <span class="at">data =</span> china_map) <span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> china_line) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-map-sf" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_4_files/figure-html/fig-map-sf-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;4.10: 利用geom_sf进行空间可视化</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>  关于投影坐标系。前两种方法使用<code>coord_map()</code>函数指定坐标投影系，第三种可以使用<code>coord_sf()</code>函数，其中有参数crs用于指定投影方式，需要使用proj4string格式的字符串。如墨卡托投影用crs = “+proj=merc”。某些地图投影其字符串中包含经纬度等参数，如crs = “+proj=laea +lat_0=35 +lon_0=-100”。其它地图投影见<a href="https://proj4.org/operations/projections/index.html">Projection methods</a>。crs本身包含坐标数据的，就不能再增加xlim, ylim等参数。</p>
+</section>
+<section id="r中的tmap包" class="level4" data-number="4.3.6.5">
+<h4 data-number="4.3.6.5" class="anchored" data-anchor-id="r中的tmap包"><span class="header-section-number">4.3.6.5</span> R中的tmap包</h4>
+<p>  R中支持空间可视化的第三方包选项还是十分丰富的，比如上文演示的<strong>ggplot2</strong>包，还有<strong>latticeExtra</strong>包、<strong>tmap</strong>包、<strong>leaflet</strong>包等，这些包各有优劣，一般综合起来使用。这里再推荐<strong>tmap</strong>包，其具有几点优点：</p>
+<ul>
+<li>与<strong>ggplot</strong>包相比，在地理可视化方面其更加专业，可以提供比例尺、指北针等选项。</li>
+<li>与<strong>leaflet</strong>包相比，其不仅同样支持reveal.js动态交互地图，还能输出符合学术要求的图片格式。</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(china_map) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"pop"</span>, </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"skyblue"</span>)) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">position =</span> <span class="fu">c</span>(<span class="st">"left"</span>, <span class="st">"bottom"</span>), </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"bottom"</span>),</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.width =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-tmap" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/fig-8-tmap.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;4.11: “Tmap输出空间填色图”</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+小结
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>  以上示例展示的只是较为常见的统计图形可视化方法，所举示例也是相对比较简单，只是针对数据分析过程中较为常见的场景，并未能覆盖大部分乃至全部需求。数据可视化是一个充满了创新和创意的领域，读者可以根据自身需求和兴趣大胆尝试和探索。</p>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>

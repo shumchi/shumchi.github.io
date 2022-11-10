@@ -210,12 +210,17 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇</span></a>
+  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇（一）：随机化分组</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">参考文献</a>
+  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_references.html" class="sidebar-item-text sidebar-link">参考文献</a>
   </div>
 </li>
     </ul>
@@ -278,19 +283,19 @@ div.csl-indent {
 
 <section id="引子" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">2.1</span> 引子</h2>
-<p>  在数据的发展历程中有过两次革命。第一次数据革命是近代科学诞生之时，实现了数据与科学研究的融合，数据在科学研究中的基础地位得到确立。对研究过程和结果赋予精确化的诉求，是近代科学的基本特征之一。在以数据为依据的研究范式中，数据的可靠性和准确性代表了研究的精确性，人们甚至将以数据为依据的实证研究作为判断 “科学”与“伪科学”的标准。第二次数据革命发生于因信息技术的发展而导致数据产生的速度和规模急剧发展之时，它不仅改变着科学研究范式，实现社会科学研究的定量化，也将促使经济、社会、军事等所有社会领域产生巨大的变革。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>因此，掌握数据的分析能力是现代社会科学研究必须要掌握的技能。</p>
-<p>  现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型。它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%到80%的时间都需要花费在数据的清洗和预处理阶段 <span class="citation" data-cites="dasu2003">(<a href="references.html#ref-dasu2003" role="doc-biblioref">Dasu and Johnson 2003</a>)</span>，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
-<p>  一个基于数据开展实证研究（不论定性或是定量）的基本流程至少都应该包含以下步骤：</p>
+<p>  在数据的发展历程中有过两次革命。第一次数据革命是近代科学诞生之时，实现了数据与科学研究的融合，数据在科学研究中的基础地位得到确立。对研究过程和结果赋予精确化的诉求，是近代科学的基本特征之一。在以数据为依据的研究范式中，数据的可靠性和准确性代表了研究的精确性，人们甚至将以数据为依据的实证研究作为判断 “科学”与“伪科学”的标准。第二次数据革命发生于因信息技术的发展而导致数据产生的速度和规模急剧发展之时，它不仅改变着科学研究范式，实现社会科学研究的定量化，也将促使经济、社会、军事等所有社会领域产生巨大的变革。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>因此，掌握数据的分析能力是现代社会科学研究必须要掌握的技能。</p>
+<p>  现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型。它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%到80%的时间都需要花费在数据的清洗和预处理阶段 <span class="citation" data-cites="dasu2003">(<a href="chapter_references.html#ref-dasu2003" role="doc-biblioref">Dasu and Johnson 2003</a>)</span>，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
+<p>  一个基于数据开展实证研究（不论定性或是定量）的基本流程至少都应该包含以下步骤：</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-flow" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p>
 </p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
-  A[采集Collection] --&gt; B(数字化Digitalization)
-  B --&gt; C{清洗Clean}
-  C --&gt; D[分析Analysis]
-  D --&gt; E[展示Presentation]
+  A[Collection] --&gt; B(Digitalization)
+  B --&gt; C{Clean}
+  C --&gt; D[Analysis]
+  D --&gt; E[Presentation]
 </pre>
 <div id="mermaid-tooltip-1" class="mermaidTooltip">
 
@@ -301,7 +306,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>  不过，随着互联网技术的发展，现阶段基本可以采用一些调查工具将<strong>采集</strong>和<strong>数字化</strong>两个阶段同时进行，比如最常用的问卷星、腾讯问卷。国外的话有<a href="https://www.surveymonkey.com/">SurveyMonkey</a>和<a href="https://www.limesurvey.org/">LimeSurvey</a>，也可以基于RedCap搭建自有的调查系统。</p>
+<p>  不过，随着互联网技术的发展，现阶段基本可以采用一些调查工具将<strong>采集</strong>和<strong>数字化</strong>两个阶段同时进行，比如最常用的问卷星、腾讯问卷。国外的话有<a href="https://www.surveymonkey.com/">SurveyMonkey</a>和<a href="https://www.limesurvey.org/">LimeSurvey</a>，也可以基于RedCap搭建自有的调查系统。</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -328,13 +333,13 @@ div.csl-indent {
 <h2 data-number="2.2" class="anchored" data-anchor-id="数据的采集原则"><span class="header-section-number">2.2</span> 数据的采集原则</h2>
 <section id="数据的分类" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="数据的分类"><span class="header-section-number">2.2.1</span> 数据的分类</h3>
-<p>  在介绍数据采集原则之前，先说一下数据的分类，当然这里不讨论统计学上对数据的分类（如定性、定量、计数、计量等等），而是按照数据产生的途径将数据进行分类。我个人理解可以归纳为三类；</p>
+<p>  在介绍数据采集原则之前，先说一下数据的分类，当然这里不讨论统计学上对数据的分类（如定性、定量、计数、计量等等），而是按照数据产生的途径将数据进行分类。我个人理解可以归纳为三类；</p>
 <ul>
 <li><p>调查数据（Survey data）：也就是通过针对个人或者机构的调查获得的数据，调查研究是开展社会科学研究的最主要方式，如田野调查、问卷调查、访谈等等。</p></li>
 <li><p>行为数据（Behavioral data）：即记录人或者机器行为的数据，如日常的网购数据、出行数据、够药数据、医保账户使用数据等等，最早应用于商业领域的用户行为分析。</p></li>
-<li><p>统计数据（Statistical data）：即政府或者机构对于涉及经济、社会和日常职能业务相关的指标进行按时间加总之后的数据，如金融情况、财政情况、教育资源、卫生资源等等，严格来说统计数据是基于调查数据和行为数据进行聚合、统计、校正之后形成的。</p></li>
+<li><p>统计数据（Administration data）：即政府或者机构对于涉及经济、社会和日常职能业务相关的指标进行按时间加总之后的数据，如金融情况、财政情况、教育资源、卫生资源等等，严格来说统计数据是基于调查数据和行为数据进行聚合、统计、校正之后形成的。</p></li>
 </ul>
-<p>  我将三种数据的优缺点总结如 <a href="#tbl-datasource">表&nbsp;<span>2.1</span></a></p>
+<p>  我将三种数据的优缺点总结如 <a href="#tbl-datasource">表&nbsp;<span>2.1</span></a></p>
 <div id="tbl-datasource" class="anchored">
 <table class="table">
 <caption>表&nbsp;2.1: 三种类型数据优缺点比较</caption>
@@ -372,7 +377,7 @@ div.csl-indent {
 </section>
 <section id="数据库设计" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="数据库设计"><span class="header-section-number">2.2.2</span> 数据库设计</h3>
-<p>  数据库（Database）设计主要针对的是将调查问卷电子化，虽然这个工作看似简单，但是其对于后续的数据清洗和数据分析十分关键。如果数据库设计得不够合理，会给后续工作带来很多麻烦。很多研究人员往往都忽视了数据库设计的重要性。</p>
+<p>  数据库（Database）设计主要针对的是将调查问卷电子化，虽然这个工作看似简单，但是其对于后续的数据清洗和数据分析十分关键。如果数据库设计得不够合理，会给后续工作带来很多麻烦。很多研究人员往往都忽视了数据库设计的重要性。</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -385,12 +390,12 @@ div.csl-indent {
 <div class="callout-body-container callout-body">
 <ul>
 <li>数据库的设计应该要考虑到数据分析的需求，如变量的设计、变量类型的约束、逻辑核查规则、纵向或横向结构等。</li>
-<li>数据库的设计应该与调查问卷的设计同步进行，也就是当调查问卷定稿后，调查开始之前，就应该将电子化的数据库搭建完成，并在预调查阶段对数据库进行修订。</li>
+<li>数据库的设计应该与调查问卷设计同步进行，也就是当调查问卷定稿后，调查开始之前，就应将电子化的数据库搭建完成，并在预调查阶段对数据库进行修订。</li>
 <li>数据库的设计应该要重视版本管理，且必须由专人负责管理，这一点对于长期历时多年的追踪调查十分重要，必须要做到问卷版本与数据库版本对应。</li>
 </ul>
 </div>
 </div>
-<p>  下面针对以上三点分别举几例：</p>
+<p>  下面针对以上三点分别举几例：</p>
 <ul>
 <li><p>关于数据库中变量设计最常见的就是多选题的变量设置，如对于以下一个多选题：</p>
 <ul>
@@ -422,7 +427,7 @@ div.csl-indent {
 </section>
 <section id="变量名命名规范" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="变量名命名规范"><span class="header-section-number">2.2.3</span> 变量名命名规范</h3>
-<p>  变量名的命名是指为变量赋予一个简短的字符，用于在统计软件中作为变量的识别符号，一般需要遵循以下几项原则：</p>
+<p>  变量名的命名是指为变量赋予一个简短的字符，用于在统计软件中作为变量的识别符号，一般需要遵循以下几项原则：</p>
 <ul>
 <li><p>尽量通过简短的单词或者符号来反映出变量的含义，推荐用英文单词。比如简单的：编号(id)、姓名(name)、性别(sex)，复杂一点的：家庭年收入(family_income)。这里不提倡用拼音的原因是为了保证研究的国际化，在研究过程中进行国际交流是十分常见的，如果采用拼音会在与国外的研究者进行交流时产生阻碍。同时也不提倡采用var1、var2这种没有规律的命名方式，因为难以对应出变量本身代表的含义。</p></li>
 <li><p>变量名不可用数字或者下划线开头，也不可包含. * ？- ！～等特殊字符。</p></li>
@@ -432,9 +437,9 @@ div.csl-indent {
 </section>
 <section id="sec-codebook" class="level3" data-number="2.2.4">
 <h3 data-number="2.2.4" class="anchored" data-anchor-id="sec-codebook"><span class="header-section-number">2.2.4</span> 数据字典</h3>
-<p>  数据字典（Data dictionary）也称作Codebook或者Specification，是指详细记录数据库中的变量名、变量内容、变量取值、变量标签、变量属性等信息，其作用主要是为了方便统计分析过程中检查和查看变量。</p>
-<p>  数据字典可以手动整理，也可以通过统计软件中的函数生成，如Stata中的<code>codebook</code>命令，R中也有<a href="https://cran.nyuad.nyu.edu/web/packages/codebookr/index.html">codebookr</a>和<a href="https://cran.r-project.org/web/packages/datadictionary/index.html">datadictionary</a>两个package。</p>
-<p>  下面给出一个我之前整理的codebook示例，如 <a href="#fig-codebook1">图&nbsp;<span>2.2</span></a> 和 <a href="#fig-codebook2">图&nbsp;<span>2.3</span></a></p>
+<p>  数据字典（Data dictionary）也称作Codebook或者Specification，是指详细记录数据库中的变量名、变量内容、变量取值、变量标签、变量属性等信息，其作用主要是为了方便统计分析过程中检查和查看变量。</p>
+<p>  数据字典可以手动整理，也可以通过统计软件中的函数生成，如Stata中的<code>codebook</code>命令，R中也有<a href="https://cran.nyuad.nyu.edu/web/packages/codebookr/index.html">codebookr</a>和<a href="https://cran.r-project.org/web/packages/datadictionary/index.html">datadictionary</a>两个package。</p>
+<p>  下面给出一个我之前整理的codebook示例，如 <a href="#fig-codebook1">图&nbsp;<span>2.2</span></a> 和 <a href="#fig-codebook2">图&nbsp;<span>2.3</span></a></p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
@@ -476,11 +481,11 @@ div.csl-indent {
 </section>
 <section id="数据的读取" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="数据的读取"><span class="header-section-number">2.3</span> 数据的读取</h2>
-<p>  数据读取是数据清洗和数据分析的第一步。为什么要单独把这一部分拿出来详细说明，是因为数据库管理工具通常与统计分析软件是分割开的。当然这里有一个例外，那就是MS EXCEL，很多人会把EXCEL既当成数据管理工具（虽然不推荐）又当作统计分析软件。数据读取虽然是很简单的一个操作，但是通常情况下会由于中文字符编码（Encoding）等问题导致在不同的统计软件之间转换时浪费一些时间和精力，所以有必要拿出来讲一讲。</p>
-<p>  尽管现在的数据管理软件，不管是古老的EpiData或是时下流行的RedCap，都可以支持直接导出适用于不同统计分析软件的特定格式，比如dta（支持Stata）、sas7bat（支持SAS）、sav（支持SPSS），<em>但是我个人还是强烈推荐以CSV格式作为中介，因为几乎所有的统计软件都支持CSV数据格式</em>。</p>
+<p>  数据读取是数据清洗和数据分析的第一步。为什么要单独把这一部分拿出来详细说明，是因为数据库管理工具通常与统计分析软件是分割开的。当然这里有一个例外，那就是MS EXCEL，很多人会把EXCEL既当成数据管理工具（虽然不推荐）又当作统计分析软件。数据读取虽然是很简单的一个操作，但是通常情况下会由于中文字符编码（Encoding）等问题导致在不同的统计软件之间转换时浪费一些时间和精力，所以有必要拿出来讲一讲。</p>
+<p>  尽管现在的数据管理软件，不管是古老的EpiData或是时下流行的RedCap，都可以支持直接导出适用于不同统计分析软件的特定格式，比如dta（支持Stata）、sas7bat（支持SAS）、sav（支持SPSS），<em>但是我个人还是强烈推荐以CSV格式作为中介，因为几乎所有的统计软件都支持CSV数据格式</em>。</p>
 <section id="统计分析软件" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="统计分析软件"><span class="header-section-number">2.3.1</span> 统计分析软件</h3>
-<p>  顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <a href="#tbl-statsoftware">表&nbsp;<span>2.2</span></a> 。我个人推荐R和Python，因此后文关于coding部分均是基于R的。</p>
+<p>  顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <a href="#tbl-statsoftware">表&nbsp;<span>2.2</span></a> 。我个人推荐R和Python，因此后文关于coding部分均是基于R的。</p>
 <div id="tbl-statsoftware" class="anchored">
 <table class="table">
 <caption>表&nbsp;2.2: 社会科学研究中常用统计软件比较</caption>
@@ -529,7 +534,7 @@ div.csl-indent {
 </section>
 <section id="单个文件读取" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="单个文件读取"><span class="header-section-number">2.3.2</span> 单个文件读取</h3>
-<p>  在R中读取不同的数据格式还是相对比较方便的，主要有两种方式：</p>
+<p>  在R中读取不同的数据格式还是相对比较方便的，主要有两种方式：</p>
 <ul>
 <li>基于<strong>base</strong>包的，可以相对较容易的读取CSV，如<code>read.csv()</code>。</li>
 <li>基于第三方包的，主要涉及<strong>readr</strong>、<strong>readxl</strong>、<strong>haven</strong>，均包含在tidyverse系列中：
@@ -550,17 +555,17 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul>
-<p>  由于以上package和函数都比较简单，参看官方文档之后就能熟练使用，因此不详细赘述。通过以上tidyverse系列的三个package，在R中基本可以应对绝大多数的数据读取问题。</p>
-<p>  另外，对于数据量较大的情况，如百万或者千万级别的数据记录条数时，以上package中的函数会耗时较多，遇到这种情况，推荐使用<strong>data.table</strong>中的<code>fread()</code>函数处理。尽管<strong>data.table</strong>是不同于tidyverse的另一套对于数据库的操作体系，但是<strong>data.table</strong>同时具备data.frame的属性，兼容tidyverse语法。</p>
-<p>  但是，<code>fread()</code>函数有一个不足之处，就是字符编码只支持<strong>UTF-8</strong>和<strong>Latin</strong>，无法支持中文字符常见的<strong>gb18030</strong>编码，略显遗憾。</p>
+<p>  由于以上package和函数都比较简单，参看官方文档之后就能熟练使用，因此不详细赘述。通过以上tidyverse系列的三个package，在R中基本可以应对绝大多数的数据读取问题。</p>
+<p>  另外，对于数据量较大的情况，如百万或者千万级别的数据记录条数时，以上package中的函数会耗时较多，遇到这种情况，推荐使用<strong>data.table</strong>中的<code>fread()</code>函数处理。尽管<strong>data.table</strong>是不同于tidyverse的另一套对于数据库的操作体系，但是<strong>data.table</strong>同时具备data.frame的属性，兼容tidyverse语法。</p>
+<p>  但是，<code>fread()</code>函数有一个不足之处，就是字符编码只支持<strong>UTF-8</strong>和<strong>Latin</strong>，无法支持中文字符常见的<strong>gb18030</strong>编码，略显遗憾。</p>
 </section>
 <section id="批量读取" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="批量读取"><span class="header-section-number">2.3.3</span> 批量读取</h3>
-<p>  批量读取数据是在统计分析过程中很常见的一个需求，具体分为两种情况。</p>
+<p>  批量读取数据是在统计分析过程中很常见的一个需求，具体分为两种情况。</p>
 <section id="读取同一个文件夹中的多个文件" class="level4" data-number="2.3.3.1">
 <h4 data-number="2.3.3.1" class="anchored" data-anchor-id="读取同一个文件夹中的多个文件"><span class="header-section-number">2.3.3.1</span> 读取同一个文件夹中的多个文件</h4>
-<p>  如，在一个名为<em>data</em>的的文件夹中有365个CSV文件，分别命名为<code>china_cities_20210101</code>…<code>china_cities_20211231</code>，分别记录了全国所有地级市每一天的空气质量数据，现在需要对空气质量进行分析，那么第一步就需要将这365个文件读取并整合进一个数据库中，面对这个问题，你首先会想到如何处理呢？</p>
-<p>  这里提供两种思路：</p>
+<p>  如，在一个名为<em>data</em>的的文件夹中有365个CSV文件，分别命名为<code>china_cities_20210101</code>…<code>china_cities_20211231</code>，分别记录了全国所有地级市每一天的空气质量数据，现在需要对空气质量进行分析，那么第一步就需要将这365个文件读取并整合进一个数据库中，面对这个问题，你首先会想到如何处理呢？</p>
+<p>  这里提供两种思路：</p>
 <ol type="1">
 <li><p>根据文件命名，可以发现其中有一定的规律，也就是每个文件名自由最后的数字在变动，并且是按日期累加，那么就可以直接利用循环进行读取，因为思路较简单，代码略。</p></li>
 <li><p>以上这种情况并不常见，有时很难从文件名中发现规律，那么就只能先想办法获取所有文件名称，然后进行循环读取。</p></li>
@@ -576,21 +581,19 @@ div.csl-indent {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>csv_list <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dir, <span class="fu">list.files</span>(<span class="at">path =</span> dir, </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">pattern =</span> <span class="st">"*.csv"</span>))</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(csv_list, readr<span class="sc">::</span>read_csv, </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"UTF-8"</span>))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, df_list)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#---------Mehotd 2---------------#</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>csv_list <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dir, <span class="fu">list.files</span>(<span class="at">path =</span> dir, </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">pattern =</span> <span class="st">"*.csv"</span>))</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(csv_list, readr<span class="sc">::</span>read_csv, </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"UTF-8"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"UTF-8"</span>))  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, df_list)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#---------Mehotd 2---------------#</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>csv_list <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dir, <span class="fu">list.files</span>(<span class="at">path =</span> dir, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">pattern =</span> <span class="st">"*.csv"</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(csv_list, readr<span class="sc">::</span>read_csv, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"UTF-8"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="读取同一个excel文件中的多个sheet" class="level4" data-number="2.3.3.2">
 <h4 data-number="2.3.3.2" class="anchored" data-anchor-id="读取同一个excel文件中的多个sheet"><span class="header-section-number">2.3.3.2</span> 读取同一个EXCEL文件中的多个Sheet</h4>
-<p>  这种情况在现实中更为常见，处理思路基本同上，第一步依然是获取所有Sheet的名称。这里需要使用<strong>readxl</strong>包中的<code>excel_sheets()</code>函数，具体代码如下：</p>
+<p>  这种情况在现实中更为常见，处理思路基本同上，第一步依然是获取所有Sheet的名称。这里需要使用<strong>readxl</strong>包中的<code>excel_sheets()</code>函数，具体代码如下：</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sheet_name <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">excel_sheets</span>(<span class="st">"datasets.xlsx"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -622,22 +625,22 @@ div.csl-indent {
 </section>
 <section id="数据库转换" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="数据库转换"><span class="header-section-number">2.4</span> 数据库转换</h2>
-<p>  这一节的内容其实和 <a href="chapter_3.html#sec-tidy"><span>Section&nbsp;3.2.2</span></a> 关联比较紧密，通常会用在Tidy Data的整理过程中。数据库转换其实就是对数据库的行（Row）和列（Column）进行的一系列操作，可以对数据库的结构进行改变。</p>
+<p>  这一节的内容其实和 <a href="chapter_3.html#sec-tidy"><span>Section&nbsp;3.2.2</span></a> 关联比较紧密，通常会用在Tidy Data的整理过程中。数据库转换其实就是对数据库的行（Row）和列（Column）进行的一系列操作，可以对数据库的结构进行改变。</p>
 <section id="长宽类型转换" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="长宽类型转换"><span class="header-section-number">2.4.1</span> 长宽类型转换</h3>
-<p>  也称作数据库的重构（Reshape），本质是对长数据（Long）和宽数据（Wide）形式之间进行转换。先简单说明一下长数据（Long）和宽数据（Wide）：</p>
+<p>  也称作数据库的重构（Reshape），本质是对长数据（Long）和宽数据（Wide）形式之间进行转换。先简单说明一下长数据（Long）和宽数据（Wide）：</p>
 <ul>
 <li><p>长数据（Long）：不是指行比列多，虽然通常情况下这种数据结构确实是行比列多，但本质是指同一个个体<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>有多条观测值，比如面板数据（Panel data）就是长数据。英文表述可能更清楚：A “long” dataset contains more than one row per subject, and uses a unique ID to identify each subject.</p></li>
 <li><p>宽数据（Wide）：与长数据相对的形式，比较好理解了，就是每个个体只有一条观测值。</p></li>
 </ul>
-<p>  从网上借了一张图，很清晰的说明了长款数据之间的差异，如 <a href="#fig-6">图&nbsp;<span>2.5</span></a>：</p>
+<p>  从网上借了一张图，很清晰的说明了长款数据之间的差异，如 <a href="#fig-6">图&nbsp;<span>2.5</span></a>：</p>
 <div id="fig-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figures/fig-6-longwide.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">图&nbsp;2.5: 长款数据示意图，数据来源：https://www.statology.org/long-vs-wide-data/</figcaption><p></p>
 </figure>
 </div>
-<p>  在数据分析过程中，进行长宽数据之间的转换是经常会有的需求，这时你可能就会问了，比如呢！比如 <a href="#tbl-panel">表&nbsp;<span>2.3</span></a>，一个微观调查的数据库，当在回归中需要控制时间固定效应时，你肯定希望数据是 <a href="#tbl-panel-long">表&nbsp;<span>2.3 (a)</span></a> 形式，而当需要计算两次wave调查的income的差值时，你肯定希望数据是 <a href="#tbl-panel-wide">表&nbsp;<span>2.3 (b)</span></a> 形式。</p>
+<p>  在数据分析过程中，进行长宽数据之间的转换是经常会有的需求，这时你可能就会问了，比如呢！比如 <a href="#tbl-panel">表&nbsp;<span>2.3</span></a>，一个微观调查的数据库，当在回归中需要控制时间固定效应时，你肯定希望数据是 <a href="#tbl-panel-long">表&nbsp;<span>2.3 (a)</span></a> 形式，而当需要计算两次wave调查的income的差值时，你肯定希望数据是 <a href="#tbl-panel-wide">表&nbsp;<span>2.3 (b)</span></a> 形式。</p>
 <div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
 <p>表&nbsp;2.3: 长宽数据转换需求示例</p>
@@ -703,13 +706,13 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>  常见的统计软件也都提供了数据库长宽转换的方法，只是易用性方面有所不同。比如，Stata中有<code>reshape</code>命令，而在R中，目前用得最为广泛的是<strong>tidyr</strong>包中的<code>pivot_longer()</code>和<code>pivot_wider()</code>函数，而之前这两个函数的功能是由另外两个函数：<code>gather()</code> 和 <code>spread()</code>提供的，由于后两个函数不容易被记住（这是Hadley Wickham的原话），所以Wickham就重写了这两个函数。</p>
-<p>  <code>pivot_longer()</code>和<code>pivot_wider()</code>函数的功能在官方文档中解释得非常清楚了，直接搬运如下：</p>
+<p>  常见的统计软件也都提供了数据库长宽转换的方法，只是易用性方面有所不同。比如，Stata中有<code>reshape</code>命令，而在R中，目前用得最为广泛的是<strong>tidyr</strong>包中的<code>pivot_longer()</code>和<code>pivot_wider()</code>函数，而之前这两个函数的功能是由另外两个函数：<code>gather()</code> 和 <code>spread()</code>提供的，由于后两个函数不容易被记住（这是Hadley Wickham的原话），所以Wickham就重写了这两个函数。</p>
+<p>  <code>pivot_longer()</code>和<code>pivot_wider()</code>函数的功能在官方文档中解释得非常清楚了，直接搬运如下：</p>
 <ul>
 <li><p>pivot_longer() makes datasets longer by increasing the number of rows and decreasing the number of columns.</p></li>
 <li><p>pivot_longer() is commonly needed to tidy wild-caught datasets as they often optimise for ease of data entry or ease of comparison rather than ease of analysis.</p></li>
 </ul>
-<p>  以上两个函数的使用方式都特别简单和直观，参考<a href="https://cran.r-project.org/web/packages/tidyr/vignettes/pivot.html">官方文档</a>即可，在此不再赘述，仅提供一个例子作为演示，这里还是使用 <a href="#tbl-panel">表&nbsp;<span>2.3</span></a> 的例子</p>
+<p>  以上两个函数的使用方式都特别简单和直观，参考<a href="https://cran.r-project.org/web/packages/tidyr/vignettes/pivot.html">官方文档</a>即可，在此不再赘述，仅提供一个例子作为演示，这里还是使用 <a href="#tbl-panel">表&nbsp;<span>2.3</span></a> 的例子</p>
 <ul>
 <li>构造数据库</li>
 </ul>
@@ -876,14 +879,14 @@ div.csl-indent {
 </section>
 <section id="数据库的连接" class="level3" data-number="2.4.2">
 <h3 data-number="2.4.2" class="anchored" data-anchor-id="数据库的连接"><span class="header-section-number">2.4.2</span> 数据库的连接</h3>
-<p>  数据库的连接分为两大类：</p>
+<p>  数据库的连接分为两大类：</p>
 <ul>
 <li>横向连接，一般称为merge或者join，指的是对列（Column）的扩展。</li>
 <li>纵向连接，一般称为append或者concat或者union，指的是对行（Row）的扩展。</li>
 </ul>
 <section id="横向联接" class="level4" data-number="2.4.2.1">
 <h4 data-number="2.4.2.1" class="anchored" data-anchor-id="横向联接"><span class="header-section-number">2.4.2.1</span> 横向联接</h4>
-<p>  在统计软件中一般使用<code>merge()</code>函数的较多，比如Stata和R中都具备此命令或者函数。不过现在使用join系列函数的比较多，可能更多的是为了和SQL语言统一，比如R中<strong>dplyr</strong>包提供了<code>join_**()</code>系列函数。横向连接一共分为六种情况，这里就用从网上借的一张 <a href="#fig-join">图&nbsp;<span>2.6</span></a> 来说明:</p>
+<p>  在统计软件中一般使用<code>merge()</code>函数的较多，比如Stata和R中都具备此命令或者函数。不过现在使用join系列函数的比较多，可能更多的是为了和SQL语言统一，比如R中<strong>dplyr</strong>包提供了<code>join_**()</code>系列函数。横向连接一共分为六种情况，这里就用从网上借的一张 <a href="#fig-join">图&nbsp;<span>2.6</span></a> 来说明:</p>
 <ul>
 <li>内联（inner join）</li>
 <li>左联（left join）</li>
@@ -892,7 +895,7 @@ div.csl-indent {
 <li>外联（anti join）</li>
 <li>半连（semi join）</li>
 </ul>
-<p>  从图中可以很清晰地看出不同联接方式的差异。<strong>dplyr</strong>包中的<code>join_**()</code>系列函数也十分友好，查看<a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">官方文档</a>之后就可以很快熟练使用，在此不再举例说明。</p>
+<p>  从图中可以很清晰地看出不同联接方式的差异。<strong>dplyr</strong>包中的<code>join_**()</code>系列函数也十分友好，查看<a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">官方文档</a>之后就可以很快熟练使用，在此不再举例说明。</p>
 <div id="fig-join" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="figures/fig-7-joinfuncs.png" class="img-fluid figure-img"></p>
@@ -946,14 +949,14 @@ One more thing: 提供两种一次联接多个数据库的方法
 </section>
 <section id="纵向联接" class="level4" data-number="2.4.2.2">
 <h4 data-number="2.4.2.2" class="anchored" data-anchor-id="纵向联接"><span class="header-section-number">2.4.2.2</span> 纵向联接</h4>
-<p>  纵向联接也有多种方法如R自带<strong>base</strong>包提供的<code>rbind()</code>函数，功能相对比较基本，以及<strong>dplyr</strong>包中的系列函数，如下：</p>
+<p>  纵向联接也有多种方法如R自带<strong>base</strong>包提供的<code>rbind()</code>函数，功能相对比较基本，以及<strong>dplyr</strong>包中的系列函数，如下：</p>
 <ul>
 <li><code>union()</code>：获得两个数据库行（Row）的并集，但会<em>剔除</em>重复的行。</li>
 <li><code>union_all()</code>：获得两个数据库行（Row）的并集，但会<em>保留</em>重复的行。</li>
 <li><code>intersec()</code>：获得两个数据库行（Row）的交集，也就是只保留重复的行。</li>
 <li><code>setdiff()</code>：获得两个数据库行（Row）的差集，也就是只保留第一个数据库中与第二个数据不一样的行。</li>
 </ul>
-<p>  具体示例如下：</p>
+<p>  具体示例如下：</p>
 <ul>
 <li>构造数据库</li>
 </ul>
@@ -965,7 +968,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"product"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Television"</span>, <span class="dv">2</span>), </span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">rep</span>(<span class="st">"Air conditioner"</span>, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>  示例数据集的基本情况如 <a href="#tbl-union-demo">表&nbsp;<span>2.7</span></a> 。</p>
+<p>  示例数据集的基本情况如 <a href="#tbl-union-demo">表&nbsp;<span>2.7</span></a> 。</p>
 <div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df1)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1221,7 +1224,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 </section>
 <section id="筛选观测值" class="level3" data-number="2.4.3">
 <h3 data-number="2.4.3" class="anchored" data-anchor-id="筛选观测值"><span class="header-section-number">2.4.3</span> 筛选观测值</h3>
-<p>  筛选观测值，或者称作筛选行（Row），是非常常见的数据库操作，但是也比较简单，主要是和条件语句（Condition）结合使用。在Stata里就是通过<code>keep</code>、<code>drop</code>、<code>in</code>等命令进行行筛选操作。在R里主要有两种方法：</p>
+<p>  筛选观测值，或者称作筛选行（Row），是非常常见的数据库操作，但是也比较简单，主要是和条件语句（Condition）结合使用。在Stata里就是通过<code>keep</code>、<code>drop</code>、<code>in</code>等命令进行行筛选操作。在R里主要有两种方法：</p>
 <ul>
 <li><strong>base</strong>包自带的函数：如<code>subset()</code>函数，或者切片等方法。</li>
 <li><strong>dplyr</strong>包里的<code>filter()</code>函数。</li>
@@ -1229,7 +1232,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 </section>
 <section id="筛选变量" class="level3" data-number="2.4.4">
 <h3 data-number="2.4.4" class="anchored" data-anchor-id="筛选变量"><span class="header-section-number">2.4.4</span> 筛选变量</h3>
-<p>  筛选变量，也称作筛选列（Column）或者筛选变量（Variable），同样是非常常见的数据库操作，一样也很简单。在Stata里也可以通过<code>keep</code>、<code>drop</code>等命令进行列筛选操作，是的你没看错，这两个命令可以同时进行行和列筛选。在R里主要有两种方法：</p>
+<p>  筛选变量，也称作筛选列（Column）或者筛选变量（Variable），同样是非常常见的数据库操作，一样也很简单。在Stata里也可以通过<code>keep</code>、<code>drop</code>等命令进行列筛选操作，是的你没看错，这两个命令可以同时进行行和列筛选。在R里主要有两种方法：</p>
 <ul>
 <li><strong>base</strong>包自带的函数：如<code>subset()</code>函数，或者切片等方法，是的你还是没看错，此方法可以同时进行行和列筛选。</li>
 <li><strong>dplyr</strong>包里的<code>select()</code>函数，特别可以注意一下与<code>starts_with()</code>、<code>ends_with()</code>、<code>contains()</code>等函数联用<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>，可以极大提高变量选择的效率。另外，<code>select()</code>函数现在有三个拓展函数<code>select_all()</code>、<code>select_at()</code>、<code>select_if()</code>，针对不同的使用场景，如下：
@@ -1242,15 +1245,15 @@ One more thing: 提供两种一次联接多个数据库的方法
 </section>
 <section id="数据聚合" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="数据聚合"><span class="header-section-number">2.5</span> 数据聚合</h2>
-<p>  上一节中主要讲述的是在不改变数据观测层级的情况下，对于数据库的一系列操作。然而在实际数据分析过程中，经常会遇见需要改变数据观察层级的情况。比如对一个以个人为最小观测单元的数据库，需要计算家庭或者县域为单位的平均收入，这种操作通常被称为数据聚合（Data Aggregating）。</p>
+<p>  上一节中主要讲述的是在不改变数据观测层级的情况下，对于数据库的一系列操作。然而在实际数据分析过程中，经常会遇见需要改变数据观察层级的情况。比如对一个以个人为最小观测单元的数据库，需要计算家庭或者县域为单位的平均收入，这种操作通常被称为数据聚合（Data Aggregating）。</p>
 <section id="聚合运算" class="level3" data-number="2.5.1">
 <h3 data-number="2.5.1" class="anchored" data-anchor-id="聚合运算"><span class="header-section-number">2.5.1</span> 聚合运算</h3>
-<p>  最常见的聚合运算就是：求均数、标准差、中位数、最大值、最小值、四分位数等。因为相对简单，在此就不再举例。这类运算的特点就是得到的新数据库观测值明显少于原始数据库。</p>
-<p>  需要注意的是，由于在15.0版本以前的<strong>Stata</strong>中每次只可读取一个数据库，当进行聚合运算时，运算结果通常以结果的形式输出在命令对话框中，尽管15.0版本以后增加了<code>frame</code>命令，可以实现将聚合运算结果同时存储在另一个数据库，但是操作十分不便利。然而，在很多场景下，需要再次调用聚合运算结果，这个时候在<strong>Stata</strong>中操作就相对复杂。</p>
+<p>  最常见的聚合运算就是：求均数、标准差、中位数、最大值、最小值、四分位数等。因为相对简单，在此就不再举例。这类运算的特点就是得到的新数据库观测值明显少于原始数据库。</p>
+<p>  需要注意的是，由于在15.0版本以前的<strong>Stata</strong>中每次只可读取一个数据库，当进行聚合运算时，运算结果通常以结果的形式输出在命令对话框中，尽管15.0版本以后增加了<code>frame</code>命令，可以实现将聚合运算结果同时存储在另一个数据库，但是操作十分不便利。然而，在很多场景下，需要再次调用聚合运算结果，这个时候在<strong>Stata</strong>中操作就相对复杂。</p>
 </section>
 <section id="分组计算" class="level3" data-number="2.5.2">
 <h3 data-number="2.5.2" class="anchored" data-anchor-id="分组计算"><span class="header-section-number">2.5.2</span> 分组计算</h3>
-<p>  聚合运算很多时候都会与分组计算相结合，正如前文所举例一样，很多统计软件也提供了类似<code>by</code>的操作方法，这里只对R中的实现方法进行介绍。与之前一样，分组计算在R中有<strong>base</strong>语法和<strong>tidyverse</strong>语法两种实现方式：</p>
+<p>  聚合运算很多时候都会与分组计算相结合，正如前文所举例一样，很多统计软件也提供了类似<code>by</code>的操作方法，这里只对R中的实现方法进行介绍。与之前一样，分组计算在R中有<strong>base</strong>语法和<strong>tidyverse</strong>语法两种实现方式：</p>
 <ul>
 <li>在<strong>base</strong>包中提供了<code>aggregate()</code>函数进行分组运算，示例如下：</li>
 </ul>
@@ -1383,7 +1386,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 </div>
 </div>
 </div>
-<p>  假设现在需要计算不同的<em>cyl</em>气缸数（Number of cylinders）对应的<em>hp</em>马力（Gross horsepower）的均值，则可以：</p>
+<p>  假设现在需要计算不同的<em>cyl</em>气缸数（Number of cylinders）对应的<em>hp</em>马力（Gross horsepower）的均值，则可以：</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mtcars_hp_mean <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(hp <span class="sc">~</span> cyl, </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> mtcars, </span>
@@ -1452,7 +1455,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 </table>
 </div>
 </div>
-<p>  以上示例只是最基础的分组运算，在实际数据处理过程中，可以实现很丰富的需求。</p>
+<p>  以上示例只是最基础的分组运算，在实际数据处理过程中，可以实现很丰富的需求。</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
