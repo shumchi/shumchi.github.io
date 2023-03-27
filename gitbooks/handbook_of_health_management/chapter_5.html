@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>卫生政策实证研究手册 - 5&nbsp; 因果推断方法</title>
+<title>卫生政策与管理实证研究手册 - 5&nbsp; 因果推断方法</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -169,7 +169,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">卫生政策实证研究手册</a> 
+      <a href="./">卫生政策与管理实证研究手册</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -216,7 +216,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></a>
+  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,18 +238,38 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#双重差分" id="toc-双重差分" class="nav-link active" data-scroll-target="#双重差分"><span class="toc-section-number">5.1</span>  双重差分</a></li>
-  <li><a href="#工具变量" id="toc-工具变量" class="nav-link" data-scroll-target="#工具变量"><span class="toc-section-number">5.2</span>  工具变量</a></li>
-  <li><a href="#断点回归" id="toc-断点回归" class="nav-link" data-scroll-target="#断点回归"><span class="toc-section-number">5.3</span>  断点回归</a>
+  <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="toc-section-number">5.1</span>  引子</a></li>
+  <li><a href="#双重差分" id="toc-双重差分" class="nav-link" data-scroll-target="#双重差分"><span class="toc-section-number">5.2</span>  双重差分</a>
   <ul class="collapse">
-  <li><a href="#简介" id="toc-简介" class="nav-link" data-scroll-target="#简介"><span class="toc-section-number">5.3.1</span>  简介</a></li>
-  <li><a href="#发展历史" id="toc-发展历史" class="nav-link" data-scroll-target="#发展历史"><span class="toc-section-number">5.3.2</span>  发展历史</a></li>
-  <li><a href="#特点与分类" id="toc-特点与分类" class="nav-link" data-scroll-target="#特点与分类"><span class="toc-section-number">5.3.3</span>  特点与分类</a></li>
-  <li><a href="#适用rd分析的先决条件conditions-for-internal-validity" id="toc-适用rd分析的先决条件conditions-for-internal-validity" class="nav-link" data-scroll-target="#适用rd分析的先决条件conditions-for-internal-validity"><span class="toc-section-number">5.3.4</span>  适用RD分析的先决条件(Conditions for Internal Validity)</a></li>
-  <li><a href="#断点回归的图形分析graphical-presentations-in-the-rd" id="toc-断点回归的图形分析graphical-presentations-in-the-rd" class="nav-link" data-scroll-target="#断点回归的图形分析graphical-presentations-in-the-rd"><span class="toc-section-number">5.3.5</span>  断点回归的图形分析(Graphical Presentations in the RD)</a></li>
-  <li><a href="#进行rd分析的步骤及示例" id="toc-进行rd分析的步骤及示例" class="nav-link" data-scroll-target="#进行rd分析的步骤及示例"><span class="toc-section-number">5.3.6</span>  进行RD分析的步骤及示例</a></li>
-  <li><a href="#关于fuzzy类型的rd模型估计方法" id="toc-关于fuzzy类型的rd模型估计方法" class="nav-link" data-scroll-target="#关于fuzzy类型的rd模型估计方法"><span class="toc-section-number">5.3.7</span>  关于Fuzzy类型的RD模型估计方法</a></li>
-  <li><a href="#结束" id="toc-结束" class="nav-link" data-scroll-target="#结束"><span class="toc-section-number">5.3.8</span>  结束</a></li>
+  <li><a href="#简介" id="toc-简介" class="nav-link" data-scroll-target="#简介"><span class="toc-section-number">5.2.1</span>  简介</a></li>
+  <li><a href="#基本型" id="toc-基本型" class="nav-link" data-scroll-target="#基本型"><span class="toc-section-number">5.2.2</span>  基本型</a></li>
+  <li><a href="#变化" id="toc-变化" class="nav-link" data-scroll-target="#变化"><span class="toc-section-number">5.2.3</span>  变化</a></li>
+  </ul></li>
+  <li><a href="#diff-in-diff的适用场景" id="toc-diff-in-diff的适用场景" class="nav-link" data-scroll-target="#diff-in-diff的适用场景"><span class="toc-section-number">5.3</span>  1. Diff-in-Diff的适用场景</a>
+  <ul class="collapse">
+  <li><a href="#为什么要用双重差分" id="toc-为什么要用双重差分" class="nav-link" data-scroll-target="#为什么要用双重差分"><span class="toc-section-number">5.3.1</span>  1.1 为什么要用双重差分</a></li>
+  <li><a href="#什么时候可以用双重差分" id="toc-什么时候可以用双重差分" class="nav-link" data-scroll-target="#什么时候可以用双重差分"><span class="toc-section-number">5.3.2</span>  1.2 什么时候可以用双重差分</a></li>
+  <li><a href="#双重差分的基本原理" id="toc-双重差分的基本原理" class="nav-link" data-scroll-target="#双重差分的基本原理"><span class="toc-section-number">5.3.3</span>  1.3 双重差分的基本原理</a></li>
+  </ul></li>
+  <li><a href="#diff-in-dff的模型设定" id="toc-diff-in-dff的模型设定" class="nav-link" data-scroll-target="#diff-in-dff的模型设定"><span class="toc-section-number">5.4</span>  2. Diff-in-Dff的模型设定</a></li>
+  <li><a href="#diff-in-dff的变化" id="toc-diff-in-dff的变化" class="nav-link" data-scroll-target="#diff-in-dff的变化"><span class="toc-section-number">5.5</span>  3. Diff-in-Dff的变化</a>
+  <ul class="collapse">
+  <li><a href="#变化型一matching-did" id="toc-变化型一matching-did" class="nav-link" data-scroll-target="#变化型一matching-did"><span class="toc-section-number">5.5.1</span>  变化型一：Matching-DID</a></li>
+  <li><a href="#变化型二非同一时点干预" id="toc-变化型二非同一时点干预" class="nav-link" data-scroll-target="#变化型二非同一时点干预"><span class="toc-section-number">5.5.2</span>  变化型二：非同一时点干预</a></li>
+  <li><a href="#变化型三事件分析法" id="toc-变化型三事件分析法" class="nav-link" data-scroll-target="#变化型三事件分析法"><span class="toc-section-number">5.5.3</span>  变化型三：事件分析法</a></li>
+  <li><a href="#变化型四scm-did" id="toc-变化型四scm-did" class="nav-link" data-scroll-target="#变化型四scm-did"><span class="toc-section-number">5.5.4</span>  变化型四：SCM-DID</a></li>
+  </ul></li>
+  <li><a href="#工具变量" id="toc-工具变量" class="nav-link" data-scroll-target="#工具变量"><span class="toc-section-number">5.6</span>  工具变量</a></li>
+  <li><a href="#断点回归" id="toc-断点回归" class="nav-link" data-scroll-target="#断点回归"><span class="toc-section-number">5.7</span>  断点回归</a>
+  <ul class="collapse">
+  <li><a href="#简介-1" id="toc-简介-1" class="nav-link" data-scroll-target="#简介-1"><span class="toc-section-number">5.7.1</span>  简介</a></li>
+  <li><a href="#发展历史" id="toc-发展历史" class="nav-link" data-scroll-target="#发展历史"><span class="toc-section-number">5.7.2</span>  发展历史</a></li>
+  <li><a href="#特点与分类" id="toc-特点与分类" class="nav-link" data-scroll-target="#特点与分类"><span class="toc-section-number">5.7.3</span>  特点与分类</a></li>
+  <li><a href="#适用rd分析的先决条件conditions-for-internal-validity" id="toc-适用rd分析的先决条件conditions-for-internal-validity" class="nav-link" data-scroll-target="#适用rd分析的先决条件conditions-for-internal-validity"><span class="toc-section-number">5.7.4</span>  适用RD分析的先决条件(Conditions for Internal Validity)</a></li>
+  <li><a href="#断点回归的图形分析graphical-presentations-in-the-rd" id="toc-断点回归的图形分析graphical-presentations-in-the-rd" class="nav-link" data-scroll-target="#断点回归的图形分析graphical-presentations-in-the-rd"><span class="toc-section-number">5.7.5</span>  断点回归的图形分析(Graphical Presentations in the RD)</a></li>
+  <li><a href="#进行rd分析的步骤及示例" id="toc-进行rd分析的步骤及示例" class="nav-link" data-scroll-target="#进行rd分析的步骤及示例"><span class="toc-section-number">5.7.6</span>  进行RD分析的步骤及示例</a></li>
+  <li><a href="#关于fuzzy类型的rd模型估计方法" id="toc-关于fuzzy类型的rd模型估计方法" class="nav-link" data-scroll-target="#关于fuzzy类型的rd模型估计方法"><span class="toc-section-number">5.7.7</span>  关于Fuzzy类型的RD模型估计方法</a></li>
+  <li><a href="#结束" id="toc-结束" class="nav-link" data-scroll-target="#结束"><span class="toc-section-number">5.7.8</span>  结束</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -262,22 +287,17 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
 </header>
 
-<section id="双重差分" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="双重差分"><span class="header-section-number">5.1</span> 双重差分</h2>
-<p>  先说为什么会想着写这本书：</p>
-<ul>
-<li><p>一是因为这么多年学习和研究的领域是卫生管理（Health Management）与卫生政策（Health Policy），在研究方法方面一直是受卫生统计学或者应用统计学的影响比较大，但是近些年随着<strong>因果推断革命（Causal Inference Revolution）</strong>对各个学科在研究方法上的强烈冲击，特别是社会科学，卫生政策领域的研究在方法学上也受到计量经济学非常大的影响，其中被国内外学者使用最广泛的应该就当属双重差分（Difference-in-Difference）了；</p></li>
-<li><p>二是因为我本人的学科背景并非为经济学，所以很多计量经济学的方法都是在当研究需要时一点一点自学的，尽管计量经济学与统计学存在很多的渊源，但毕竟理论体系不太一样，这就导致在碎片化自学过程中难免会犯一些错误和走一些弯路，再加上这些年记忆力不比从前，对”烂笔头”的依赖越来越高，因此就索性把这些年攒下来的一些笔记，加上最近更新的一些关于DID的知识点整理出来了；</p></li>
-<li><p>三是最近几年随着微信公众号和知乎等迅速成为各类信息传播的主要平台，国内科研工作者慢慢的很少”逛”论坛、发帖子、写博客了，有的转战公众号开设自己的账号，有的开始团队运营，这些平台给科学研究提供了不少便利性，扩大了知识获取面，降低了知识检索的时间成本，但是其弊端也毕竟明显，一方面是导致很多人对前沿科学咨讯的获取基本来源于公众号，很少阅读原始文献，另一方面是公众号或者知乎平台分享的信息和知识点没有经过同行评议，其实不乏有错误之处，若不加思索的参考或者照搬很容易导致研究方法误用，特别是对于尚处于学术生涯初期的研究生。</p></li>
-</ul>
-<p>时刻更新自己的知识体系是科研工作者日常生活中的一部分，保持对新知识的学习热情应该是一个合格的打工人的基本素养吧。DID早在20世纪80年代就被提出，其基本原理很简单，但是如果据此就认为采用DID识别框架的方法都很简单就错了，随着Joshua D. Angrist、Guido W. Imbens、Gary King、Susan Athey等经济学和统计学家对因果识别方法体系的贡献，时至今日，DID已经衍生出了多种多样的类型来使用不同的研究设计和数据结构，可以说已经是一大方法家族了吧。</p>
-<p>写这本书就是打算能给卫生管理和卫生政策方向的年轻硕士和博士生在研究中以参考，因此这本书注重实践性。在这本书里面打算既介绍DiD的原理也给出完整的分析方法和过程，由于目前我还写不清楚所以不会涉及详细的数理推导。</p>
+<section id="引子" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">5.1</span> 引子</h2>
+<p>  最近几年随着微信公众号和知乎等迅速成为各类信息传播的主要平台，国内科研工作者慢慢的很少”逛”论坛、发帖子、写博客了，有的转战公众号开设自己的账号，有的开始团队运营，这些平台给科学研究提供了不少便利性，扩大了知识获取面，降低了知识检索的时间成本。但是其弊端也毕竟明显，一方面是导致很多人对前沿科学咨讯的获取基本来源于公众号，很少阅读原始文献，另一方面是公众号或者知乎平台分享的信息和知识点没有经过同行评议，其实不乏有错误之处，若不加思索的参考或者照搬很容易导致研究方法误用，特别是对于尚处于学术生涯初期的研究生。</p>
+<p>  关于介绍因果推断方法的书籍非常多了，包括Angrist &amp; JoshuaDavid著的《Mostly Harmless Econometrics: An Empiricist Companion》，Wooldridge的《计量经济学导论》等等。本书并不打算再次搬运以上这些著作的内容，而是主要记录一个学习者在学习和使用这些方法过程中的心路历程，分享学习和使用这些方法的一些经验和体会。</p>
 <p><strong>本书的主要参考资料如下：</strong></p>
 <blockquote class="blockquote">
 <ol type="1">
@@ -288,21 +308,120 @@ div.csl-indent {
 </ol>
 </blockquote>
 </section>
-<section id="工具变量" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="工具变量"><span class="header-section-number">5.2</span> 工具变量</h2>
+<section id="双重差分" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="双重差分"><span class="header-section-number">5.2</span> 双重差分</h2>
+<section id="简介" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">5.2.1</span> 简介</h3>
+<p>  双重差分法（Difference-in-Difference，DID）通常又可称作倍差法或差异中的差异法，是目前社会科学领域用于开展政策效果评估和识别两个因素因果关联的的最常用方法之一。DID最早由Orley Ashenfelter和David Card提出 ，两位学者于1985年在学术期刊《Review of Economics and Statistics》上发表了运用DID的方法估计美国综合就业和培训法案对收入的影响 <span class="citation" data-cites="ashenfelter1985">Ashenfelter and Card (<a href="chapter_references.html#ref-ashenfelter1985" role="doc-biblioref">1985</a>)</span> 。DID本质是一种准实验设计（quasi-experimental design），利用干预组和对照组的纵向数据来获得适当的反事实（counterfactual）来估计因果效应，方法是比较参加项目的人群（干预组）和未参加的人群（对照组）之间的结果随时间的变化，其通常用于估计特定的干预或治疗（如某项法律的通过、某种政策的实施或大规模项目实行）的效果。</p>
+<p>  DID的基本原理很简单，但是如果据此就认为采用DID识别框架的方法都很简单就错了，随着Joshua D. Angrist、Guido W. Imbens、Gary King、Susan Athey等经济学和统计学家对因果识别方法体系的贡献，时至今日，DID已经衍生出了多种多样的类型来使用不同的研究设计和数据结构，可以说已经是一大方法家族了吧。</p>
+<p>  DID的统计学基础是哈佛大学著名统计学家 <span class="citation" data-cites="rubin1980">(<a href="chapter_references.html#ref-rubin1980" role="doc-biblioref">Rubin 1980</a>)</span> 提出的潜在结果模型（potential outcomes model）或称为反事实框架 (counterfactual framework)，其核心思想在于利用“反事实”假设构造一个可比的对照组来消除样本选择偏误（selection bias）。根据潜在结果模型可知，要想获得某种干预的因果效应就必须比较同一个研究对象在接受干预和不接受干预时结果差异，此时这种差异才是接受干预相对于不接受干预的效果。然而，对于同一研究对象而言，通常无法既观察其接受干预的结果，又观察其不接受干预的结果。对于接受干预的研究对象而言，不接受干预时的状态是一种 “反事实” 状态，对于不接受干预的研究对象而言，接受干预时的状态也是一种 “反事实” 状态，正是由于在同一研究对象中同一时点接受干预与非干预的状态存在互斥性，因此无法通过直接观察“反事实”状态下的效应值。</p>
+<p>  在医学研究中，为了解决这个问题通常采用随机对照试验（RCT）的方法，通过随机化的方法将一组具有高度同质性的研究对象随机分配去接受干预（trentment group）或不接受干预（control group），由于研究对象具有高度同质性且通过随机化消除了样本选择偏误，那么就可以在限定条件下认为，未接受干预的那部分研究对象（control group）就是接受了干预的研究对象（trentment group）在未接受干预时（untreated）的状态。但是，在政策研究中，通常无法人为对政策的执行施加影响，无法做到随机化，干预组和对照组的研究对象很难保证具有高度同质性，尽管如此，计量经济学家们探索出了利用干预组与对照组之间可能存在不随时间变化的系统性差异的特点，构造出了消除样本选择偏误而得到相对纯净政策效应的计量方法，其中就以DID为代表。</p>
 </section>
-<section id="断点回归" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="断点回归"><span class="header-section-number">5.3</span> 断点回归</h2>
-<section id="简介" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">5.3.1</span> 简介</h3>
+<section id="基本型" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="基本型"><span class="header-section-number">5.2.2</span> 基本型</h3>
+</section>
+<section id="变化" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="变化"><span class="header-section-number">5.2.3</span> 变化</h3>
+</section>
+</section>
+<section id="diff-in-diff的适用场景" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="diff-in-diff的适用场景"><span class="header-section-number">5.3</span> 1. Diff-in-Diff的适用场景</h2>
+<section id="为什么要用双重差分" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="为什么要用双重差分"><span class="header-section-number">5.3.1</span> 1.1 为什么要用双重差分</h3>
+<p>最简单的一句话就是因果识别是各个学科关注的核心问题之一，但是社会科学领域很难开展实验研究，所以需要从分析手段上想办法找到估计干预效应更准的方法。这就是为什么流行病与卫生统计学科的人不怎么热衷双重差分的原因，因为他们更关注RCT，在研究设计上就解决了随机分组的问题，直接student t或者anova就能估计出净的干预效应，通常称为average treatment effect on treated (ATT)。</p>
+</section>
+<section id="什么时候可以用双重差分" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="什么时候可以用双重差分"><span class="header-section-number">5.3.2</span> 1.2 什么时候可以用双重差分</h3>
+<p>简单来说就是需要进行因果识别研究的时候，具体而言通常就是政策评估时常用，因为政策评估通常为社会自然实验，无法进行随机分组和随机抽样，因此无法采用随机对照试验的方法，政策评估有四种常用方法：</p>
+<ul>
+<li><strong>工具变量法</strong>：寻找外生的工具变量，通过两阶段ols估计，分离出扰动项中与内生变量相关的变异，从而获得更干净的内生解释变量的效应值。具体而言就是，第一阶段用内生解释变量作为被解释变量（因变量），将工具变量作为解释变量（自变量），进行ols估计，获得内生解释变量的预测值；第二阶段则是将内生解释变量的预测值作为解释变量（自变量），将研究原本的指标作为被解释变量再进行ols估计，则内生解释变量的估计参数即为净效应值。<em>缺点</em>：工具变量难找</li>
+<li><strong>断点回归</strong>：本质就是趋近局部的随机对照试验，具体介绍可见这篇<a href="https://shumchi.github.io/Step-by-Step-to-do-a-Regression-Discontinuity-analysis/">帖子</a>。</li>
+<li><strong>双重差分</strong>：通过进行两次差分获得ATT</li>
+<li><strong>倾向得分匹配</strong>：适用于横断面研究</li>
+</ul>
+<p><strong>双重差分分析对数据的要求，也就是什么情况下可以考虑双重差分：</strong></p>
+<ul>
+<li><p>两个时间点的个体横断面数据（微观数据）：</p>
+<p>两个横断面个体不是同一批人，也就是常说的两个混合截面，很多较为早期开展的survey数据是这种形式。只要能找到一个变量，能够在第一个横断面中识别出与第二个横断面中受到干预的个体相对应的个体即可，也就需要找到第一个横断面中哪些个体属于干预组。通常可以通过<code>地区</code>变量来分辨，对于试点政策多采取这种方法，因为追踪调查比较费时费力。<strong>缺点：无法避免两次横断面调查带来的抽样误差，因为两个横断面的个体并不是同一批人，虽然抽样误差会在组间diff的时候被减去，但这种情况需要抽样误差在对照和干预个体中是均匀分布的</strong>。</p></li>
+<li><p>两期及更多期的追踪数据，本质就是面板数据：</p>
+<p>和上面情况一样，都是survey数据，但是为追踪调查，也就是每个时间点调查的个体都是同一批人。这种数据最优，可以进行的差分方法变化也最多，但是较难获得，好在最近些年开展的大规模人群调查都在采取追踪调查的方式。</p></li>
+<li><p>两期及更多期的机构或地区数据，就是常见的机构或地区面板数据（宏观数据）：</p>
+<p>比第二种情况更容易获得数据，但是缺点在于很难收集到样本量足够大、分析单元足够小的数据，比如较为容易获得的省级面板数据实际缺点较大。</p></li>
+<li><p>单一的横断面数据：严格来讲是无法进行双重差分设计的，但是也有采用横断面进行差分研究的实例，比如研究中国大饥荒的通过不同出生队列构建的差分模型。</p></li>
+</ul>
+</section>
+<section id="双重差分的基本原理" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="双重差分的基本原理"><span class="header-section-number">5.3.3</span> 1.3 双重差分的基本原理</h3>
+<p>为什么通过两次差分就能估计出净效应的原理不详述，这里只讨论一个问题：为什么RCT的研究在估计干预效应时只diff一次，而这里要diff两次？</p>
+<p>这就涉及到了双重差分方法的一个最重要的前提假设：<strong>共同趋势（Common Trends）假设，即干预组和对照组在政策实施之前必须具有相同的发展趋势</strong>。</p>
+<p><strong>那么为什么要有这个假设呢，可以看下面的示意图：</strong></p>
+<p>左边的图就是最常见的双重差分原理的示意图，共同趋势假设的目的就是为了保证基线期（before）的diff，如果没有treatment，干预组和对照组之间的差异仍然是这个diff，所以在第二次差分时扣掉这个diff就能得到净干预效应。</p>
+<p>所以这个共同趋势假设是为了保证干预和对照组在干预前后基础的变化都是一致的，它包含两层意思：一是必须趋势不变，也就是都是上升或下降或不变；二是必须平行。因此这个共同趋势假设只是一个基础，是在这个假设成立的基础上，才能推断在干预后，干预组和对照组也会（<em>是也会，不是一定，所以这就是双重差分并不完美的地方</em>）按照这个趋势变化，才能利用第二次差分。而有的公众号中写的是只要共同趋势满足，就可以大胆使用双重差分，其实并不是。</p>
+<p>上面只说了共同趋势假设是为了保证反事实情况下的变化一致，但是并没有说出有这个假设的原因。应该也有人会问，为什么所有的双重差分的示意图在干预前的两条线都是平行的，<strong>但是有间隙</strong>。<strong>原因就是前面所讲的，这种自然试验无法保证干预组和对照组是随机分配的，换句话说就是这两组人在没有施加干预时，就是两个人群，所以会有差异，也就是示意的间隙</strong>。</p>
+<p>因为这个“间隙”（就是组间差异）比较大，所以就需要在干预后把它扣除掉，如果不扣除直接对干预后的两组进行差值比较，那么这个差值中时包含了这个“间隙”的，如果这个“间隙”比真实干预效应还大，那么得到的两组差值就失去意义了，所以才会有第二次diff（第一次diff两组分别是前后减，第二次diff是在第一次的结果上干预和对照减）。</p>
+<p>那么，如果这个“间隙”足够小呢，小到随机误差那么大，是不是就可以不用减的。那这就是为什么RCT只diff一次的原因，因为在试验设计阶段，通过严格的随机化已经保证的干预组和对照组个体的一致性，也就是已经将这个“间隙”降到足够小了，就像右边的图示意的一样。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2020-01-17-M4%20Quarter/Diagram.png?raw=true" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">letter</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="diff-in-dff的模型设定" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="diff-in-dff的模型设定"><span class="header-section-number">5.4</span> 2. Diff-in-Dff的模型设定</h2>
+<p>双重差分的基准模型如下：</p>
+<p><span class="math display">\[ y_{it} = \beta_1 \cdot Treat*Time + \beta_2 Treat + \beta_3 Time + \beta_0+ \epsilon_{it} \]</span></p>
+<p>各参数代表意义就不解释了，其采用ols估计就行了，该模型适用于前面所提到的第一种和第二种中的两期的数据类型。</p>
+<p>但是，如果仔细看的话，该模型就是采用的双向固定效应模型，其中treat是个体效应，time是时间效应。因此，对于多期的面板数据，你又会看见下面的模型：</p>
+<p><span class="math display">\[
+y_{it} = \beta \cdot Treat*Time + \lambda t + \mu_i + \epsilon_{it}
+\]</span></p>
+<p>其中没有了treat和time，取而代之是lambda和mu代表的个体效应和时间效应，因为在多期面板中，如果仍然用treat和time会过于粗糙，time只有0和1，无法识别出完整的时间效应，而treat同样存在这个问题。</p>
+<p>当然模型还有其他变化，比如当treat为连续变量时，政策冲击不是在同一时间单一完成的，但是归根结底都是双向固定效应模型的变换形式。</p>
+</section>
+<section id="diff-in-dff的变化" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="diff-in-dff的变化"><span class="header-section-number">5.5</span> 3. Diff-in-Dff的变化</h2>
+<p>正如前面所将，双重差分法并不要求干预组和对照组是完全一致的，可以存在一定的差异，但是要求这种差异不随着时间产生变化，这也是在共同趋势假设成立的基础上，能够进一步推断干预后这个差异仍然是基线的差异的基础，因为前面几年是平行变化的，并不代表在政策施加之后也是平行变化的。但是这个不随时间变化的要求是无法检验的，所以这就成了双重差分法的一个无法避免的weakness。</p>
+<p><strong>那么，有人会问如果共同趋势不满足怎么办，当然会有其他的方法：匹配+双重差分，最常见的是psm+did，当然也可以是cem+did</strong></p>
+<p>对于两期的混合截面或者面板数据而言，是无法进行共同趋势检验的，所以有的论文中在这种情况下就不提共同趋势的事，对于多期面板虽然可以检验共同趋势，但是也会存在这个假设不满足的情况。</p>
+<p>所以，为了研究的严谨性和可继续下去，有的学者就提出提出对样本进行匹配，因为共同趋势不满足的根本原因就是干预组和对照组之间差异太大，所以就通过匹配的办法让两组个体更加可比一些，将“间隙”缩小一些。</p>
+<p>那么有的人又会问，既然前面说的横断面数据可以用匹配的方法进行效应估计，那既然都匹配了，也就是说趋近随机分组了，那么为什么还要diff两次。解释就是想要真正做到随机分组，匹配的变量需要很多，匹配的效果与RCT还是有差别，两组间的“间隙”仍然存在，所以还是需要用双重差分估计更干净的效应。</p>
+<p>这里需要注意的一点是，应用匹配+双重差分的方法，不同的数据情况采用不同的匹配策略。</p>
+<ul>
+<li>因为对于面板数据，得到了干预前匹配后的个体，自然就确定了干预后的个体。</li>
+<li>而对于两个时点的混合截面数据，由于干预前后的个体本来就不是精确对应的，所以如果要用匹配+did的话，就需要进行三次匹配：干预前：干预 vs 对照，获得干预前匹配好的样本，然后在这个基础上，在第二期截面数据里，分别在干预组和对照组中进行 干预前 vs 干预后的匹配，这样才能严格满足要求，但是缺点是会损失较大的样本量。</li>
+<li>当然，对于两个时点的混合截面数据，也可以只进行两次匹配，第一个时点：干预 vs 对照，第二个时间点：干预 vs 对照，这样做的一个前提是，要有足够的证据支持两个时点的样本都是总体的随机样本，也就是抽样误差要足够小。</li>
+<li>对于psm或cem阶段，如果采取的是1:1匹配，那么在后续did回归时不需要考虑匹配权重的问题，如果采取的不是1:1匹配，则需要在回归时进行加权回归（对干预前个体匹配获得的权重，应该也要赋给干预后的）。</li>
+</ul>
+<section id="变化型一matching-did" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="变化型一matching-did"><span class="header-section-number">5.5.1</span> 变化型一：Matching-DID</h3>
+</section>
+<section id="变化型二非同一时点干预" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="变化型二非同一时点干预"><span class="header-section-number">5.5.2</span> 变化型二：非同一时点干预</h3>
+</section>
+<section id="变化型三事件分析法" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="变化型三事件分析法"><span class="header-section-number">5.5.3</span> 变化型三：事件分析法</h3>
+</section>
+<section id="变化型四scm-did" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="变化型四scm-did"><span class="header-section-number">5.5.4</span> 变化型四：SCM-DID</h3>
+</section>
+</section>
+<section id="工具变量" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="工具变量"><span class="header-section-number">5.6</span> 工具变量</h2>
+</section>
+<section id="断点回归" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="断点回归"><span class="header-section-number">5.7</span> 断点回归</h2>
+<section id="简介-1" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="简介-1"><span class="header-section-number">5.7.1</span> 简介</h3>
 <p>  断点回归（Regression Discontinuity）适用于以下情形：人群是否接受干预（Treatment）是依据某一数值变量（rating variable）是否高于或低于某一确定的阈值（threshold）或者分割点（cut-point），例如在研究是否上大学会影响收入时，数值变量（rating variable，也叫 assignment variable，score，running variable，forcing variable， or index）就是高考分数，阈值或者分割点就是本科录取分数线。以下内容主要参考：<span class="citation" data-cites="Sebastian2022 matias2017 jacob2012 xie2019">(<a href="chapter_references.html#ref-Sebastian2022" role="doc-biblioref">Calonico et al. 2022</a>; <a href="chapter_references.html#ref-matias2017" role="doc-biblioref">D. Cattaneo, Idroboy, and Titiunik 2017</a>; <a href="chapter_references.html#ref-jacob2012" role="doc-biblioref">Jacob, Zhu, and Marie-Andrée 2012</a>; <a href="chapter_references.html#ref-xie2019" role="doc-biblioref">谢谦, 薛仙玲, and 付明卫 2019</a>)</span>。</p>
 </section>
-<section id="发展历史" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="发展历史"><span class="header-section-number">5.3.2</span> 发展历史</h3>
+<section id="发展历史" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="发展历史"><span class="header-section-number">5.7.2</span> 发展历史</h3>
 <p>  Regression Discontinuity最早由社会学家Thistlethwaite and Campbell 在1960年提出的，用于评估社会项目，但是他们的研究虽然引起一些影响但是没有得到广泛的注意，后来，在1972-2009年期间，被一系列经济学家(Goldberger，van der Klaauw，Imbens and Kalyanaraman等)在方法学方面进行了完善，最终在2008年达到顶峰，标志是在2008年Journal of Econometrics出了一期RD分析的<a href="https://www.sciencedirect.com/journal/journal-of-econometrics/vol/142/issue/2">Special Issue</a>，光看期刊名字就知道是经济学顶刊了(<strong>Journal of Econometrics是公认的计量经济学顶尖期刊，是教育部认可的12本经济学国际顶级期刊之一</strong> )。</p>
 </section>
-<section id="特点与分类" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="特点与分类"><span class="header-section-number">5.3.3</span> 特点与分类</h3>
+<section id="特点与分类" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="特点与分类"><span class="header-section-number">5.7.3</span> 特点与分类</h3>
 <p><strong>RD有两个特点：</strong></p>
 <ul>
 <li>在Rating variable的一个明确点上，outcome出现了跳跃或者不连续(discontinuity at a cut-point)</li>
@@ -314,8 +433,8 @@ div.csl-indent {
 <li><p>模糊断点(fuzzy design): 即在cut-point前后，存在 no-shows (treatment group members who do not receive the treatment)或者crossovers (control group members who do receive the treatment) ，换句话说就无法找到一个明确的cut-point完全区分干预和对照组。更严格的分法是，fuzzy也可以分成两类：type I是no-shows，只存在处理组有未接受处理的个体，type II是同时存在no-shows和crossovers。实际就是RCT中常说的沾染问题。</p></li>
 </ul>
 </section>
-<section id="适用rd分析的先决条件conditions-for-internal-validity" class="level3" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="适用rd分析的先决条件conditions-for-internal-validity"><span class="header-section-number">5.3.4</span> 适用RD分析的先决条件(Conditions for Internal Validity)</h3>
+<section id="适用rd分析的先决条件conditions-for-internal-validity" class="level3" data-number="5.7.4">
+<h3 data-number="5.7.4" class="anchored" data-anchor-id="适用rd分析的先决条件conditions-for-internal-validity"><span class="header-section-number">5.7.4</span> 适用RD分析的先决条件(Conditions for Internal Validity)</h3>
 <p>  由于RD仍然属于非实验方法，尽管也被成为类实验(quasi-experimental)，但本质还是非实验方法(nonexperimental)， 所以它必须满足一系列前期条件，才能提供无偏估计和更可能的接近RCT的严格情形。</p>
 <ul>
 <li><p><strong>一、</strong> Rating variable (中文的翻译很多，但比较通用的翻译为驱动变量或者配置变量)不能被干预(treatment)所影响，Rating variable 的值必须是在干预(treatment)<strong>之前</strong>就已经确定了，或者是不可再更改的变量。也就是只能是驱动变量的值决定是否接受干预，不能是干预决定驱动变量的值。比如：高考成绩(Rating variable)是在判断是否能够上大学(treatment)之前就已经确定了，并且分数不会再发生变化，如果存在严重的根据分数线修改高考成绩的情况，则高考分数就不能作为Rating variable。 <strong>检验方法是：画Rating variable的频率分布直方图或者密度图，再进行McCrary 检验</strong></p></li>
@@ -324,8 +443,8 @@ div.csl-indent {
 <li><p><strong>四、</strong> 驱动变量(rating variable)与结局变量(outcome)之间的函数关系应该是连续的，严格的说，应该是在进行RD分析的这段区间内(interval)是连续的。换句话说就是，如果不存在干预的情况，驱动变量与结局变量之间不会出现不连续或者跳跃，才能在结局变量出现不连续的情况下，反推出是干预引起的，因为只有干预是不连续的。<strong>注意：此条件只需要在选择参数估计方法是要满足(applies only to parametric estimators)</strong></p></li>
 </ul>
 </section>
-<section id="断点回归的图形分析graphical-presentations-in-the-rd" class="level3" data-number="5.3.5">
-<h3 data-number="5.3.5" class="anchored" data-anchor-id="断点回归的图形分析graphical-presentations-in-the-rd"><span class="header-section-number">5.3.5</span> 断点回归的图形分析(Graphical Presentations in the RD)</h3>
+<section id="断点回归的图形分析graphical-presentations-in-the-rd" class="level3" data-number="5.7.5">
+<h3 data-number="5.7.5" class="anchored" data-anchor-id="断点回归的图形分析graphical-presentations-in-the-rd"><span class="header-section-number">5.7.5</span> 断点回归的图形分析(Graphical Presentations in the RD)</h3>
 <p><strong>图形分析是进行RD的第一步，也是非常重要的组成部分</strong></p>
 <p><strong>通常，进行RD至少需要画4种图：</strong></p>
 <ul>
@@ -335,8 +454,8 @@ div.csl-indent {
 <li>结局变量与驱动变量的关系图，可以帮助预估干预效应的大小，以及判断结局变量与驱动变量之间的函数关系。而且必须是结局变量在纵轴，驱动变量在横轴。<strong>注意：通常这一幅图是用来初步判断整个研究是否能够获得预期的干预效应的，如果在这幅图中无法观测到明显的jump，基本后续的分析也是徒劳。</strong></li>
 </ul>
 </section>
-<section id="进行rd分析的步骤及示例" class="level3" data-number="5.3.6">
-<h3 data-number="5.3.6" class="anchored" data-anchor-id="进行rd分析的步骤及示例"><span class="header-section-number">5.3.6</span> 进行RD分析的步骤及示例</h3>
+<section id="进行rd分析的步骤及示例" class="level3" data-number="5.7.6">
+<h3 data-number="5.7.6" class="anchored" data-anchor-id="进行rd分析的步骤及示例"><span class="header-section-number">5.7.6</span> 进行RD分析的步骤及示例</h3>
 <p><strong>示列软件</strong>: R version 4.0.5 (2021-03-31)<br>
 <strong>示列分析包</strong>：在R语言中一共有三个package可以进行RD分析：</p>
 <ul>
@@ -352,13 +471,13 @@ div.csl-indent {
 <li>数据集简介：该数据集包含了1914–2010年间美国参议院选举的数据，可以利用RD的方法分析民主党赢得参议院席位对于在下次选举中获得的相同席位的影响。该数据共包含两个变量：<br>
 &gt; + vote：记录了州级层面下的参议院议席中民主党所占的比例，值从0到100，是RD分析中结局变量 &gt; + margin：记录了民主党在上次选举中获得相同参议院席位的胜利边际，值从-100到100，当大于0时，说明民主党胜利，小于0则输了，是RD分析中的驱动变量</li>
 </ul>
-<section id="step-1-确定驱动变量rating-variable和断点cut-point" class="level4" data-number="5.3.6.1">
-<h4 data-number="5.3.6.1" class="anchored" data-anchor-id="step-1-确定驱动变量rating-variable和断点cut-point"><span class="header-section-number">5.3.6.1</span> Step 1: 确定驱动变量(Rating variable)和断点(Cut-point)</h4>
+<section id="step-1-确定驱动变量rating-variable和断点cut-point" class="level4" data-number="5.7.6.1">
+<h4 data-number="5.7.6.1" class="anchored" data-anchor-id="step-1-确定驱动变量rating-variable和断点cut-point"><span class="header-section-number">5.7.6.1</span> Step 1: 确定驱动变量(Rating variable)和断点(Cut-point)</h4>
 <p>根据研究设计，判断是否存在采用RD进行因果识别或者效应估计的可能，即是否可以找到合适的驱动变量和明确的断点来识别施加干预的状态。</p>
 <p>通常情况下时间（具体到天）、年龄（如研究退休，代表性的文章: <a href="http://cpfd.cnki.com.cn/Article/CPFDTOTAL-BDGF201007002017.htm">“退休影响会健康吗”</a>）、地理距离（研究雾霾，代表性文章: <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-NKJJ201704002.htm">“冬季供暖导致雾霾？来自华北 城市面板的证据”</a>）比较容易作为驱动变量。</p>
 </section>
-<section id="step-2-内部有效性internal-validity条件的检验" class="level4" data-number="5.3.6.2">
-<h4 data-number="5.3.6.2" class="anchored" data-anchor-id="step-2-内部有效性internal-validity条件的检验"><span class="header-section-number">5.3.6.2</span> Step 2: 内部有效性(Internal Validity)条件的检验</h4>
+<section id="step-2-内部有效性internal-validity条件的检验" class="level4" data-number="5.7.6.2">
+<h4 data-number="5.7.6.2" class="anchored" data-anchor-id="step-2-内部有效性internal-validity条件的检验"><span class="header-section-number">5.7.6.2</span> Step 2: 内部有效性(Internal Validity)条件的检验</h4>
 <p><strong>1) 条件一：通过画驱动变量的频率分布直方图或者密度分布图，以及McCrary检验</strong></p>
 <p>可以利用graphics包或者ggplot2包画histogram图，也可以利用<strong>rddenstiy</strong>包中的<em>rddenstiy</em>函数画密度图，也可利用<strong>rdd</strong>包进行McCrary检验。</p>
 <p><em>rddenstiy</em>函数的其他参数可以用默认值，输出结果中，最下面一行robust的p值大于0.05，就说明驱动变量未受到操纵。</p>
@@ -439,8 +558,8 @@ attr(,"class")
 </div>
 <p><strong>2) 条件二三四根据研究设计及背景资料进行判断。</strong></p>
 </section>
-<section id="step-3-画驱动变量与干预的关系图判断sharp或者fuzzy类型" class="level4" data-number="5.3.6.3">
-<h4 data-number="5.3.6.3" class="anchored" data-anchor-id="step-3-画驱动变量与干预的关系图判断sharp或者fuzzy类型"><span class="header-section-number">5.3.6.3</span> Step 3: 画驱动变量与干预的关系图，判断sharp或者fuzzy类型</h4>
+<section id="step-3-画驱动变量与干预的关系图判断sharp或者fuzzy类型" class="level4" data-number="5.7.6.3">
+<h4 data-number="5.7.6.3" class="anchored" data-anchor-id="step-3-画驱动变量与干预的关系图判断sharp或者fuzzy类型"><span class="header-section-number">5.7.6.3</span> Step 3: 画驱动变量与干预的关系图，判断sharp或者fuzzy类型</h4>
 <p>  画驱动变量与干预的散点图，判断是否为sharp或者fuzzy类型。可以看出本例中，干预在cut-point前后，有明确的界限，为sharp类型。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rdrobust_RDsenate<span class="sc">$</span>treatment <span class="ot">&lt;-</span> </span>
@@ -471,8 +590,8 @@ attr(,"class")
 </div>
 </div>
 </section>
-<section id="step-4-画驱动变量与结果变量的关系图选择合适的bin数量" class="level4" data-number="5.3.6.4">
-<h4 data-number="5.3.6.4" class="anchored" data-anchor-id="step-4-画驱动变量与结果变量的关系图选择合适的bin数量"><span class="header-section-number">5.3.6.4</span> Step 4: 画驱动变量与结果变量的关系图，选择合适的bin数量</h4>
+<section id="step-4-画驱动变量与结果变量的关系图选择合适的bin数量" class="level4" data-number="5.7.6.4">
+<h4 data-number="5.7.6.4" class="anchored" data-anchor-id="step-4-画驱动变量与结果变量的关系图选择合适的bin数量"><span class="header-section-number">5.7.6.4</span> Step 4: 画驱动变量与结果变量的关系图，选择合适的bin数量</h4>
 <p><strong>一、画散点图</strong></p>
 <p>  横轴为驱动变量，纵轴为结果变量，画散点图，初步判断两者之间关系，但是散点图噪音(noise)太大，不利于发现跳跃点，需要对驱动变量分不同的段(intervals or bin)将使得关系取线更平顺。</p>
 <div class="cell">
@@ -559,8 +678,8 @@ WIMSE bias weight             0.940           0.916</code></pre>
 </div>
 </div>
 </section>
-<section id="step-5-模型估计效应大小" class="level4" data-number="5.3.6.5">
-<h4 data-number="5.3.6.5" class="anchored" data-anchor-id="step-5-模型估计效应大小"><span class="header-section-number">5.3.6.5</span> Step 5: 模型估计效应大小</h4>
+<section id="step-5-模型估计效应大小" class="level4" data-number="5.7.6.5">
+<h4 data-number="5.7.6.5" class="anchored" data-anchor-id="step-5-模型估计效应大小"><span class="header-section-number">5.7.6.5</span> Step 5: 模型估计效应大小</h4>
 <p><strong>1) 效应大小的估计方法一共有两种：</strong></p>
 <ul>
 <li>全局参数估计(Parametric/global strategy): 即是利用全部个体的数据，对驱动变量和结局变量拟合线性、二次项、三次项、四次项回归模型，此方法利用的是RD设计的”断点处不连续(discontinuity at a cut-point)“的特性。模型设定如下：</li>
@@ -921,8 +1040,8 @@ Unique Obs.                     595          665
 </div>
 </div>
 </section>
-<section id="step-6-敏感性分析" class="level4" data-number="5.3.6.6">
-<h4 data-number="5.3.6.6" class="anchored" data-anchor-id="step-6-敏感性分析"><span class="header-section-number">5.3.6.6</span> Step 6: 敏感性分析</h4>
+<section id="step-6-敏感性分析" class="level4" data-number="5.7.6.6">
+<h4 data-number="5.7.6.6" class="anchored" data-anchor-id="step-6-敏感性分析"><span class="header-section-number">5.7.6.6</span> Step 6: 敏感性分析</h4>
 <p>  敏感性分析主要用来检验模型估计结果的稳健性，RD分析主要有四种敏感性分析方式;</p>
 <ol type="1">
 <li><p>对前面所述的Internal Validity条件三的检验，即除了干预(Treatment)变量外，其他的任何非结局变量(包括混杂因素在内)都不能在cut-point处出现不连续或称为跳跃，如果存在，则无法推断结局变量的跳跃是由干预(Treatment)引起的，检验方式就是将所有的混杂因素作为结局，利用<em>rdrobust</em>函数进行检验，输出结果的coef应该很小，且p值应该统计学不显著 (Continuity-Based Analysis for Covariates)。</p></li>
@@ -1121,8 +1240,8 @@ Unique Obs.                     595          665
 <p>  即是更换不同的带宽即可，带宽的变化实际是cut-point区间范围尾部的个体在发生变化，可以通过选取不同的带宽选择方式，真实存在的处理效应不会随着带宽的改变而发生变化。</p>
 </section>
 </section>
-<section id="关于fuzzy类型的rd模型估计方法" class="level3" data-number="5.3.7">
-<h3 data-number="5.3.7" class="anchored" data-anchor-id="关于fuzzy类型的rd模型估计方法"><span class="header-section-number">5.3.7</span> 关于Fuzzy类型的RD模型估计方法</h3>
+<section id="关于fuzzy类型的rd模型估计方法" class="level3" data-number="5.7.7">
+<h3 data-number="5.7.7" class="anchored" data-anchor-id="关于fuzzy类型的rd模型估计方法"><span class="header-section-number">5.7.7</span> 关于Fuzzy类型的RD模型估计方法</h3>
 <p>  Fuzzy类型的RD可以根据驱动变量与干预的实际情况采取不同的处理方式:</p>
 <ul>
 <li><p>如果只是no-shows的情况，可以结合研究目的，决定是否采取意向性分析法(intent-to-treat)</p></li>
@@ -1144,12 +1263,15 @@ Unique Obs.                     595          665
 </ul>
 <p>通过两阶段回归，第二阶段中的Standard errors是经过了调整的。<strong>在<em>rdrobust</em>包的rdrobust函数中，有一个<code>fuzzy</code>的逻辑参数，用来指定RD类型是否为fuzzy，可以很方便的进行fuzzy类型的模型估计。</strong></p>
 </section>
-<section id="结束" class="level3" data-number="5.3.8">
-<h3 data-number="5.3.8" class="anchored" data-anchor-id="结束"><span class="header-section-number">5.3.8</span> 结束</h3>
+<section id="结束" class="level3" data-number="5.7.8">
+<h3 data-number="5.7.8" class="anchored" data-anchor-id="结束"><span class="header-section-number">5.7.8</span> 结束</h3>
 <p>  由于真实世界的复杂性，对因果推断的分析方法的要求也越来越高，没有一种方法可以适用所有的情形，因此RD的方法也衍生发展出很多类型，包括多个断点(Multi-Cutoff RD Design)、多个驱动变量(Multi-Score RD Design)、离散驱动变量(Multi-Score RD Design)等等。</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-ashenfelter1985" class="csl-entry" role="doc-biblioentry">
+Ashenfelter, Orley, and David Card. 1985. <span>“Using the <span>Longitudinal Structure</span> of <span>Earnings</span> to <span>Estimate</span> the <span>Effect</span> of <span>Training Programs</span>.”</span> <em>The Review of Economics and Statistics</em> 67 (4): 648. <a href="https://doi.org/10.2307/1924810">https://doi.org/10.2307/1924810</a>.
+</div>
 <div id="ref-Sebastian2022" class="csl-entry" role="doc-biblioentry">
 Calonico, Sebastian, Matias D. Cattaneo, Max H. Farrell, and Rocio Titiunik. 2022. <em>Rdrobust: Robust Data-Driven Statistical Inference in Regression-Discontinuity Designs</em>. <a href="https://CRAN.R-project.org/package=rdrobust">https://CRAN.R-project.org/package=rdrobust</a>.
 </div>
@@ -1158,6 +1280,9 @@ D. Cattaneo, Matias, Nicolas Idroboy, and Roc Titiunik. 2017. <em>A Practical In
 </div>
 <div id="ref-jacob2012" class="csl-entry" role="doc-biblioentry">
 Jacob, Robin, Pei Zhu, and Marie-Andrée. 2012. <em>A Practical Guide to Regression Discontinuity</em>. MDRC.org.
+</div>
+<div id="ref-rubin1980" class="csl-entry" role="doc-biblioentry">
+Rubin, Donald B. 1980. <span>“Andomization Analysis of Experimental Data in the Fisher Randomization Test.”</span> <em>Journal American Statistical Association</em> 75 (371). <a href="https://www.jstor.org/stable/">https://www.jstor.org/stable/</a>.
 </div>
 <div id="ref-xie2019" class="csl-entry" role="doc-biblioentry">
 谢谦, 薛仙玲, and 付明卫. 2019. <span>“断点回归设计方法应用的研究综述.”</span> <em>经济与管理评论</em> 35 (2): 11.
@@ -1208,7 +1333,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1244,24 +1386,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
@@ -1283,7 +1443,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <div class="nav-footer-center">
         <ul class="footer-items list-unstyled">
     <li class="nav-item">
- © 2022 Chi Shen, Xi'an Jiaotong University
+ © 2023 Chi Shen, Xi'an Jiaotong University
   </li>  
 </ul>
       </div>

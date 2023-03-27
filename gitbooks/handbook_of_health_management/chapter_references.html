@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>卫生政策实证研究手册 - 参考文献</title>
+<title>卫生政策与管理实证研究手册 - 参考文献</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter_7.html" rel="prev">
+<link href="./chapter_8.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -101,7 +101,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">卫生政策实证研究手册</a> 
+      <a href="./">卫生政策与管理实证研究手册</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -148,7 +148,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></a>
+  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -176,6 +181,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -183,6 +189,13 @@ div.csl-indent {
 </header>
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-ashenfelter1985" class="csl-entry" role="doc-biblioentry">
+Ashenfelter, Orley, and David Card. 1985. <span>“Using the
+<span>Longitudinal Structure</span> of <span>Earnings</span> to
+<span>Estimate</span> the <span>Effect</span> of <span>Training
+Programs</span>.”</span> <em>The Review of Economics and Statistics</em>
+67 (4): 648. <a href="https://doi.org/10.2307/1924810">https://doi.org/10.2307/1924810</a>.
+</div>
 <div id="ref-aylmerfisher1926" class="csl-entry" role="doc-biblioentry">
 Aylmer Fisher, Ronald. 1926. <span>“The Arrangement of Field
 Experiments.”</span> <em>Journal of the Ministry of Agriculture of Great
@@ -247,6 +260,11 @@ Trials: <span>Randomisation</span> Methods in Controlled Trials.”</span>
 <div id="ref-cody2008" class="csl-entry" role="doc-biblioentry">
 Ron, Cody. 2008. <em>Cody’s Data Cleaning Techniques Using SAS</em>.
 Cary, NC: SAS Institute Inc.
+</div>
+<div id="ref-rubin1980" class="csl-entry" role="doc-biblioentry">
+Rubin, Donald B. 1980. <span>“Andomization Analysis of Experimental Data
+in the Fisher Randomization Test.”</span> <em>Journal American
+Statistical Association</em> 75 (371). <a href="https://www.jstor.org/stable/">https://www.jstor.org/stable/</a>.
 </div>
 <div id="ref-buuren2011" class="csl-entry" role="doc-biblioentry">
 van Buuren, Stef, and Karin Groothuis-Oudshoorn. 2011. <span>“<span class="nocase">mice</span>: Multivariate Imputation by Chained Equations
@@ -336,7 +354,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -372,31 +407,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter_7.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></span>
+      <a href="./chapter_8.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -408,7 +461,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <div class="nav-footer-center">
         <ul class="footer-items list-unstyled">
     <li class="nav-item">
- © 2022 Chi Shen, Xi'an Jiaotong University
+ © 2023 Chi Shen, Xi'an Jiaotong University
   </li>  
 </ul>
       </div>

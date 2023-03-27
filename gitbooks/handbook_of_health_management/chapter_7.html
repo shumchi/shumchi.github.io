@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>卫生政策实证研究手册 - 7&nbsp; 番外篇（二）：主成分分析</title>
+<title>卫生政策与管理实证研究手册 - 7&nbsp; 番外篇（二）：匹配</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter_references.html" rel="next">
+<link href="./chapter_8.html" rel="next">
 <link href="./chapter_6.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">卫生政策实证研究手册</a> 
+      <a href="./">卫生政策与管理实证研究手册</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -193,7 +193,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></a>
+  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -211,21 +216,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="toc-section-number">7.1</span>  引子</a></li>
-  <li><a href="#进行主成分分析的步骤" id="toc-进行主成分分析的步骤" class="nav-link" data-scroll-target="#进行主成分分析的步骤"><span class="toc-section-number">7.2</span>  进行主成分分析的步骤</a>
+  <li><a href="#背景介绍" id="toc-背景介绍" class="nav-link" data-scroll-target="#背景介绍"><span class="toc-section-number">7.2</span>  背景介绍</a></li>
+  <li><a href="#psm与cem" id="toc-psm与cem" class="nav-link" data-scroll-target="#psm与cem"><span class="toc-section-number">7.3</span>  PSM与CEM</a></li>
+  <li><a href="#算法" id="toc-算法" class="nav-link" data-scroll-target="#算法"><span class="toc-section-number">7.4</span>  ## 算法</a></li>
+  <li><a href="#不平衡度测量" id="toc-不平衡度测量" class="nav-link" data-scroll-target="#不平衡度测量"><span class="toc-section-number">7.5</span>  ## 4. 不平衡度测量</a></li>
+  <li><a href="#匹配" id="toc-匹配" class="nav-link" data-scroll-target="#匹配"><span class="toc-section-number">7.6</span>  ## 5. 匹配</a>
   <ul class="collapse">
-  <li><a href="#数据预处理" id="toc-数据预处理" class="nav-link" data-scroll-target="#数据预处理"><span class="toc-section-number">7.2.1</span>  数据预处理</a></li>
-  <li><a href="#确定主成分个数" id="toc-确定主成分个数" class="nav-link" data-scroll-target="#确定主成分个数"><span class="toc-section-number">7.2.2</span>  确定主成分个数</a></li>
-  <li><a href="#计算主成分" id="toc-计算主成分" class="nav-link" data-scroll-target="#计算主成分"><span class="toc-section-number">7.2.3</span>  计算主成分</a></li>
-  <li><a href="#旋转主成分" id="toc-旋转主成分" class="nav-link" data-scroll-target="#旋转主成分"><span class="toc-section-number">7.2.4</span>  旋转主成分</a></li>
-  <li><a href="#解释结果并计算主成分得分" id="toc-解释结果并计算主成分得分" class="nav-link" data-scroll-target="#解释结果并计算主成分得分"><span class="toc-section-number">7.2.5</span>  解释结果并计算主成分得分</a></li>
+  <li><a href="#示例的dataset介绍" id="toc-示例的dataset介绍" class="nav-link" data-scroll-target="#示例的dataset介绍"><span class="toc-section-number">7.6.1</span>  5.1 示例的dataset介绍</a></li>
+  <li><a href="#匹配前准备不平衡度测量" id="toc-匹配前准备不平衡度测量" class="nav-link" data-scroll-target="#匹配前准备不平衡度测量"><span class="toc-section-number">7.6.2</span>  5.1 匹配前准备：不平衡度测量</a></li>
+  <li><a href="#开始匹配" id="toc-开始匹配" class="nav-link" data-scroll-target="#开始匹配"><span class="toc-section-number">7.6.3</span>  5.2 开始匹配</a></li>
+  <li><a href="#匹配后处理" id="toc-匹配后处理" class="nav-link" data-scroll-target="#匹配后处理"><span class="toc-section-number">7.6.4</span>  5.3 匹配后处理</a></li>
+  <li><a href="#自行设定粗化的cutpoint" id="toc-自行设定粗化的cutpoint" class="nav-link" data-scroll-target="#自行设定粗化的cutpoint"><span class="toc-section-number">7.6.5</span>  5.4 自行设定粗化的cutpoint</a></li>
+  <li><a href="#权重weights的应用" id="toc-权重weights的应用" class="nav-link" data-scroll-target="#权重weights的应用"><span class="toc-section-number">7.6.6</span>  5.5 权重weights的应用</a></li>
+  <li><a href="#k2k进行11匹配" id="toc-k2k进行11匹配" class="nav-link" data-scroll-target="#k2k进行11匹配"><span class="toc-section-number">7.6.7</span>  5.6 k2k进行1:1匹配</a></li>
   </ul></li>
-  <li><a href="#主成分分析的示列" id="toc-主成分分析的示列" class="nav-link" data-scroll-target="#主成分分析的示列"><span class="toc-section-number">7.3</span>  主成分分析的示列</a>
-  <ul class="collapse">
-  <li><a href="#载入包和数据" id="toc-载入包和数据" class="nav-link" data-scroll-target="#载入包和数据"><span class="toc-section-number">7.3.1</span>  载入包和数据</a></li>
-  <li><a href="#判断主成分个数" id="toc-判断主成分个数" class="nav-link" data-scroll-target="#判断主成分个数"><span class="toc-section-number">7.3.2</span>  判断主成分个数</a></li>
-  <li><a href="#主成分分析" id="toc-主成分分析" class="nav-link" data-scroll-target="#主成分分析"><span class="toc-section-number">7.3.3</span>  主成分分析</a></li>
-  <li><a href="#计算主成分得分" id="toc-计算主成分得分" class="nav-link" data-scroll-target="#计算主成分得分"><span class="toc-section-number">7.3.4</span>  计算主成分得分</a></li>
-  </ul></li>
+  <li><a href="#参考文献" id="toc-参考文献" class="nav-link" data-scroll-target="#参考文献"><span class="toc-section-number">7.7</span>  ## 6. 参考文献</a></li>
   </ul>
 </nav>
     </div>
@@ -234,7 +239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></h1>
 </div>
 
 
@@ -242,6 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -250,207 +256,209 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="引子" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">7.1</span> 引子</h2>
-<p>  主成分分析（Principal component analysis，PCA）是由Pearson在1901年提出的，后来被Hotelling在1933进行了发展。PCA目的是把多个<em>相关</em>的原始变量降维成少数几个<em>不相关</em>的主成分，其基本原理是原始变量的线性组合。</p>
+<blockquote class="blockquote">
+<p>“The goal of matching is to reduce imbalance in the empirical distribution of the pre-treatment confounders between the treated and control groups.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p align="right">
+—– Stuart, Elizabeth A. (2010)
+</p>
+</blockquote>
 </section>
-<section id="进行主成分分析的步骤" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="进行主成分分析的步骤"><span class="header-section-number">7.2</span> 进行主成分分析的步骤</h2>
-<section id="数据预处理" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="数据预处理"><span class="header-section-number">7.2.1</span> 数据预处理</h3>
-<p>  原始数据矩阵或者相关系数矩阵都可以进行分析，需要注意的几点：</p>
+<section id="背景介绍" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="背景介绍"><span class="header-section-number">7.2</span> 背景介绍</h2>
+<p>Coarsened Exact Matching (CEM) 方法由University of Milan的Stefano M. Iacus，Harvard University的Gary King， 以及University of Trieste的Giuseppe Porro提出，其算法最早于2008年在线发表在Gary King的Harvard University主页上 <a href="http://gking.harvard.edu/files/abs/cem-abs.shtml">“Matching for Causal Inference Without Balance Checking.”</a>。</p>
+<p>其后分别在 <strong>Journal of Statistical Software (2009)</strong> 和 <strong>The Stata Journal (2009)</strong> 上发表了R和Stata版本的相关package， 其正式成果于2011年发表于 <strong>Journal of the American Statistical Association</strong> 上，以及2012的<a href="http://j.mp/2nRpUHQ">Political Analysis</a>上。</p>
+<p>CEM亦可称之为“Cochran Exact Matching” ，衍生于Cochran于1986年提出的<strong>subclassification-based method （Cochran, W. G., 1968)</strong>，在2011年发表的论文中Gary King等人亦将CEM与PSM (Propensity Score Matching)进行了比较，提出了CEM的优势。</p>
+<p><br></p>
+</section>
+<section id="psm与cem" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="psm与cem"><span class="header-section-number">7.3</span> PSM与CEM</h2>
+<p>在CEM方法提出之前，已有较多的匹配方法，其中最具有代表性的就是 <strong>Paul R. Rosenbaum and Rubin (1983)</strong> 提出的Propensity score matching (PSM)， 截至目前，使用PSM发表的论文已超过10000篇，是目前最常用的匹配方法。从下图中也能看出两种方法在发表论文中使用的差距。Gary King在一篇Working paper (“Why Propensity Scores Should Not Be Used for Matching”)中指出了PSM的不足，原文如下：</p>
+<blockquote class="blockquote">
+<p>We show here that PSM, as it is most commonly used in practice (or with many of the refinements that have been proposed by statisticians and methodologists), increases imbalance, inefficiency, model dependence, research discretion, and statistical bias at some point in both real data and in data generated to meet the requirements of PSM theory. <font color="#00dd00">In fact, the more balanced the data, or the more balanced it becomes by pruning some observations through matching, the more likely PSM will degrade inferences — a problem we refer to as the PSM paradox</font>. If one’s data are so imbalanced that making valid causal inferences from it without heavy modeling assumptions is impossible, then the paradox we identify is avoidable and PSM will reduce imbalance but then the data are not very useful for causal inference by any method.</p>
+</blockquote>
+<p>也许只有名字里带King的人论文题目敢这么写，当然，不出你所料，自然也会有这样一篇文章“Why propensity scores should be used for matching” <strong>(Ben Jann, 2017).</strong> ,至于CEM与PSM孰优孰劣，只能依据个人研究自行判断了。</p>
+<p><img src="figures/Number-of-article-1.png" class="img-fluid"></p>
+<p><img src="figures/Number-of-article-2.png" class="img-fluid"></p>
+</section>
+<section id="算法" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="算法"><span class="header-section-number">7.4</span> ## 算法</h2>
+<p>CEM没有PSM那么复杂的反事实假设，其算法一共可分为三步：</p>
 <ul>
-<li>原始数据矩阵实际是计算协方差矩阵进行的主成分分析。</li>
-<li>原始数据矩阵只适用于度量单位相同，或者差别不大时进行分析，如果差别大可以进行Z得分转换。</li>
-<li>不论是原始数据矩阵还是相关系数矩阵，都不能有缺失值。</li>
+<li>将所有纳入匹配的协变量，粗化（coarsen）成离散分组，对于已是分类变量的协变量，可以自行设定（比如，性别、教育程度等），而对于连续型变量 CEM算法会根据自动频率分布直方图进行自动粗化，当然也可以自行手动设定cutpoint,s, 并且可以设定自动粗化的方法(Sturges’ rule, the default), “fd” (Freedman-Diaconis’ rule), “scott” (Scott’s rule) and “ss” (ShimazakiShinomoto’s rule)。</li>
+<li>对所有粗化之后的分类进行分层并排序</li>
+<li>删除未同时包含至少一个Treat组和Control组的层</li>
+</ul>
+<p><br></p>
+</section>
+<section id="不平衡度测量" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="不平衡度测量"><span class="header-section-number">7.5</span> ## 4. 不平衡度测量</h2>
+<p>CEM中引入了一个参数L1来衡量Treat组和Control组之间在协变量上的不平衡度，其计算公式如下：</p>
+<blockquote class="blockquote">
+<p><em>L</em><sub>1</sub>(<em>f</em>, <em>g</em>) = ∑|<em>f</em><sub><em>e</em></sub>(1…<em>k</em>)−<em>g</em><sub><em>e</em></sub>(1…<em>k</em>)|</p>
+</blockquote>
+<p>L1取值在0~1之间，0代表完全平衡，1代表完全不平衡。若L1为0.6，即说明有40%的粗化后各层的频率分布 直方图在Treat组和Control组之间是重叠的，L1即是根据各层的相对频率差值求和而得，示例如下：</p>
+<p>假设有三个协变量（X1…X），粗化后个协变量的分类为（2, 3, 5），那么粗化后共有2<em>3</em>5=30个层， 我们随机为Treat组和Control组在360个层生成一个正整数，最后计算频率并画出直方图。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2019</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>strate <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">paste</span>(<span class="st">"str"</span>, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>), <span class="at">sep =</span> <span class="st">"_"</span>), <span class="at">size =</span> <span class="dv">2000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Treat"</span>, <span class="st">"Control"</span>), <span class="dv">1000</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>imb <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">strate =</span> strate, <span class="at">group =</span> group)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>imb_sum <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(imb<span class="sc">$</span>group, imb<span class="sc">$</span>strate), <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(imb_sum) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Var2, <span class="at">y =</span> Freq, <span class="at">fill =</span> Var1), <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">""</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Prop"</span>, <span class="at">x =</span> <span class="st">"Strates"</span>) <span class="sc">+</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="https://github.com/shumchi/shumchi.github.io/blob/master/_posts/2019-04-14-How-to-do-a-Coarsened-Exact-Matching/figure-markdown_strict/imbalance-1.png?raw=true" class="img-fluid"></p>
+<p><br></p>
+</section>
+<section id="匹配" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="匹配"><span class="header-section-number">7.6</span> ## 5. 匹配</h2>
+<p><strong>采用R语言中的cem包，示例的dataset为cem包中自带的LeLonde</strong></p>
+<section id="示例的dataset介绍" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="示例的dataset介绍"><span class="header-section-number">7.6.1</span> 5.1 示例的dataset介绍</h3>
+<p><strong>Outcome variable:</strong> re78<br>
+<strong>Treat variable:</strong> treated, 1 = treat group, 0 = control group<br>
+<strong>Control variable:</strong> c(“age”, “education”, “black”, “married”, “nodegree”, “re74”, “re75”, “hispanic”, “u74”, “u75”,“q1”)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cem)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LeLonde)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> LeLonde[<span class="fu">c</span>(<span class="st">"treated"</span>, <span class="st">"re78"</span>, <span class="st">"age"</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"education"</span>, <span class="st">"black"</span>, <span class="st">"married"</span>, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"nodegree"</span>, <span class="st">"re74"</span>, <span class="st">"re75"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"hispanic"</span>, <span class="st">"u74"</span>, <span class="st">"u75"</span>, <span class="st">"q1"</span>)] <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">na.omit</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="匹配前准备不平衡度测量" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="匹配前准备不平衡度测量"><span class="header-section-number">7.6.2</span> 5.1 匹配前准备：不平衡度测量</h3>
+<p>利用 <em>imbalance()</em> 函数对匹配的数据的不平衡进行测量，如下结果所示，整体不平衡度为0.902， 意味数据存在较高的不平衡性。</p>
+<p>对于连续型变量，默认计算mean in difference，对于分类变量默认计算chi square。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imbalance</span>(<span class="at">group =</span> df<span class="sc">$</span>treated, <span class="at">data =</span> df[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="开始匹配" class="level3" data-number="7.6.3">
+<h3 data-number="7.6.3" class="anchored" data-anchor-id="开始匹配"><span class="header-section-number">7.6.3</span> 5.2 开始匹配</h3>
+<p>利用 <em>cem()</em> 函数进行CEM匹配，参数treatment用来指定分组变量，drop用来排除结局变量。</p>
+<p>从结果可以看出，Control组从全部392个样本中匹配上95例，Treat组从全部258个样本中匹配上84例，匹配后样本的整体 L1为0.605，相比匹配前，有所下降。另外，从statistic列的结果也可看出，在各匹配变量中两组之间无统计学差异。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">cem</span>(<span class="at">treatment =</span> <span class="st">"treated"</span>, <span class="at">data =</span> df, <span class="at">drop =</span> <span class="st">"re78"</span>, <span class="at">eval.imbalance =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>然而</strong>，此处我产生一个小疑惑，纳入匹配变量的数据类型是否会影响粗化分组过程，从而影响匹配结局？</p>
+<p><strong>因此</strong>，我将black、married等分类变量设置成factor类型，比较前后不平衡度测量及匹配结果。</p>
+<p><strong>区别</strong>，比较结果看出，与前述结果并无差异，仅在测量不平衡度时对于分类变量采用了chi square.<br>
+<font color="#FF0000">另一个明显的区别在于，对于设置成分类变量后，在进行匹配时，不会再对分类变量进行粗化。</font></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> df</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_1<span class="sc">$</span>black <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df_1<span class="sc">$</span>black)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df_1<span class="sc">$</span>married <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df_1<span class="sc">$</span>married)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df_1<span class="sc">$</span>nodegree <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df_1<span class="sc">$</span>nodegree)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">imbalance</span>(<span class="at">group =</span> df<span class="sc">$</span>treated, <span class="at">data =</span> df_1[, <span class="sc">-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)])</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cem</span>(<span class="at">treatment =</span> <span class="st">"treated"</span>, <span class="at">data =</span> df_1, <span class="at">drop =</span> <span class="st">"re78"</span>, <span class="at">eval.imbalance =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="匹配后处理" class="level3" data-number="7.6.4">
+<h3 data-number="7.6.4" class="anchored" data-anchor-id="匹配后处理"><span class="header-section-number">7.6.4</span> 5.3 匹配后处理</h3>
+<p>匹配后生成的匹配对象（mat），其类为 cem.match，其属性实为 list。</p>
+<section id="mat的数据结构如下" class="level4" data-number="7.6.4.1">
+<h4 data-number="7.6.4.1" class="anchored" data-anchor-id="mat的数据结构如下"><span class="header-section-number">7.6.4.1</span> mat的数据结构如下:</h4>
+<p>其中详细记录了匹配结果与参数，需要关注的有breaks，matched，w三个对象中的信息。</p>
+<ul>
+<li>breaks为一个list，其中记录匹配变量自动粗化过程中设置的cutpoint（仅包含numeric类型）<br>
+</li>
+<li>matched实为一个逻辑向量，记录了该个体是否进入了匹配后的样本<br>
+</li>
+<li>w为匹配权重（详细见5.5），用于后续的统计分析中</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="提取匹配后的样本" class="level4" data-number="7.6.4.2">
+<h4 data-number="7.6.4.2" class="anchored" data-anchor-id="提取匹配后的样本"><span class="header-section-number">7.6.4.2</span> 提取匹配后的样本:</h4>
+<p><strong>CEM</strong>包中给出了不用单独提取出匹配后样本进行回归的函数 <em>att()</em>, 不过我个人比较倾向将匹配后的样本单独存储为一个对象， 但是 <strong>CEM</strong>包中并未给出像 <strong>MatchIt</strong>中的 <em>match.out()</em>函数，至少我还没有找到，所以只能自己动手，丰衣足食</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 提取匹配结果</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mat<span class="sc">$</span>matched</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 提取匹配后的样本</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df_matched <span class="ot">&lt;-</span> <span class="fu">cbind</span>(df, mat<span class="sc">$</span>w, mat<span class="sc">$</span>matched)[<span class="fu">which</span>(mat<span class="sc">$</span>matched),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="自行设定粗化的cutpoint" class="level3" data-number="7.6.5">
+<h3 data-number="7.6.5" class="anchored" data-anchor-id="自行设定粗化的cutpoint"><span class="header-section-number">7.6.5</span> 5.4 自行设定粗化的cutpoint</h3>
+<p>对于连续型变量或者类别较多的分类变量，可以通过 <em>cem()函数</em> 中cutpoints和grouping两个参数来设定粗化的分割点，以下以cutpoints为例;</p>
+<p>从上述匹配后的结果中可以看出age变量的自动cutpoint为 17, 20.8, 24.6, 28.4, 32.2, 36, 39.8, 43.6, 47.4, 51.2, 55</p>
+<p><font color="#836FFF"> 如果是采用算法自动设定cutpoint， 可以通过 <em>cem()函数</em> 中L1.breaks = “fd”等（见3. 算法）来选择不同的方法。</font></p>
+<ul>
+<li><p>如果自行设定，需要通过cutpoints = list(education = c(0, 6.5, 8.5, 12.5, 17))来设定，即通过list形式为需要的匹配变量 赋值一个数值向量。</p></li>
+<li><p>grouping参数赋值同理，list(c(“strongly agree”, “agree”), c(“neutral”,“no opinion”), c(“strongly))，不过我个人比较习惯提前使用factor() 设定好分类。</p></li>
 </ul>
 </section>
-<section id="确定主成分个数" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="确定主成分个数"><span class="header-section-number">7.2.2</span> 确定主成分个数</h3>
-<p>  在计算主成分得分之前，需要先判断主成分个数，通常有四种准则：</p>
+<section id="权重weights的应用" class="level3" data-number="7.6.6">
+<h3 data-number="7.6.6" class="anchored" data-anchor-id="权重weights的应用"><span class="header-section-number">7.6.6</span> 5.5 权重weights的应用</h3>
+<p>由于CEM为不对称匹配，当一个Treat样本匹配多个Control样本时，需要通过权重来更准确的估计平均处理效应(ATT)，Gary King的原话如下：</p>
+<blockquote class="blockquote">
+<p>They enable us to use a calculation trick that makes it easy to estimate the ATT in a weighted least squares regression program without the involved procedure.</p>
+</blockquote>
+<p><strong>关于权重需要注意的三点：</strong></p>
 <ul>
-<li>根据先验经验或者理论知识。</li>
-<li>Kaiser-Harris准则，只保留特征值大于1的主成分。</li>
-<li>Cattell碎石检验，通过绘制特征值与主成分数的图形，只保留在图形变化最大处之上的主成分。</li>
-<li>平行分析，依据与初始矩阵相同大小的随机数据矩阵来判断要提取的特征值，若基于真实数据的某个特征值大于一组随机数据矩阵相 应的平均特征值，那么该主成分可以保留。</li>
+<li>当匹配为不对称时，对匹配后的样本进行的所有的统计分析，都应对权重进行加权，在PSM中进行一对多匹配时同理</li>
+<li>CEM中权重的理解十分简单，未匹配上的个案权重全为0， 匹配上的Treat组个案权重都为1， 匹配上的Control组个案的权重是对粗化后各层内 Treat和Control组的样本比与全部样本中Treat和Control组的样本比相乘而来((m_C/m_T)*Ws)</li>
+<li>匹配后样本的权重之和就等于匹配后样本量的大小，如本例中sum of weigths = sample of matched = 179</li>
 </ul>
-<p>  <strong>通常需要结合四种准则，综合判断主成分个数。</strong></p>
+<p>关于权重的具体计算方法，详见<a href="https://docs.google.com/document/d/1xQwyLt_6EXdNpA685LjmhjO20y5pZDZYwe2qeNoI5dE/edit">An Explanation for CEM Weights</a> （需要科学上网）</p>
 </section>
-<section id="计算主成分" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="计算主成分"><span class="header-section-number">7.2.3</span> 计算主成分</h3>
-<p>  在R语言中既可以使用base包中的<code>princomp()</code>函数，也可以使用<strong>psych包</strong>中的<code>principal()</code>函数。</p>
+<section id="k2k进行11匹配" class="level3" data-number="7.6.7">
+<h3 data-number="7.6.7" class="anchored" data-anchor-id="k2k进行11匹配"><span class="header-section-number">7.6.7</span> 5.6 k2k进行1:1匹配</h3>
+<p>虽然CEM的优势在于可以进行非对称匹配，从而保留更多的样本，但是当样本量比较充足时，为了保证更准确的估计ATT，可以 进行1:1匹配，<strong>cem() 包</strong> 也给出了对应的函数 <em>k2k()</em> ，示列如下：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 用单独的k2k函数时，之前生成cem对象mat时，必须加上keep.all = TRUE参数</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mat2 &lt;- k2k(obj = mat, data = df, method = "euclidean", mpower = 1)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 或</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>mat2 <span class="ot">&lt;-</span> <span class="fu">cem</span>(<span class="at">treatment =</span> <span class="st">"treated"</span>, <span class="at">data =</span> df_1, <span class="at">drop =</span> <span class="st">"re78"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">eval.imbalance =</span> <span class="cn">TRUE</span>, <span class="at">k2k =</span> <span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">mpower =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>进行1:1匹配时，实际采用最近距离法在各层内选取，判断距离的方法可选（‘euclidean’, ‘maximum’, ‘manhattan’, ‘canberra’, ‘binary’ and ‘minkowski’)，默认为NULL，即随机选取。</p>
+<p><font color="#FF0000"> 需要注意的一点是，使用k2k进行1:1匹配后，后续统计分析时就无需进行权重加权了。</font></p>
 </section>
-<section id="旋转主成分" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="旋转主成分"><span class="header-section-number">7.2.4</span> 旋转主成分</h3>
-<p>  旋转是一系列将成分载荷阵变得更容易解释的数学方法，它们尽可能地对成分去噪。旋转方法有两种：</p>
+</section>
+<section id="参考文献" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="参考文献"><span class="header-section-number">7.7</span> ## 6. 参考文献</h2>
 <ul>
-<li>正交旋转：使选择的成分保持不相关</li>
-<li>斜交旋转：和让它们变得相关</li>
+<li>Stuart, Elizabeth A. (2010): “Matching Methods for Causal Inference: A Review and a Look Forward”. In: Statistical Science, no. 1, vol. 25, pp.&nbsp;1–21.</li>
+<li>Iacus SM, King G, Porro G (2008). “Matching for Causal Inference Without Balance Checking.” Submitted, URL <a href="http://gking.harvard.edu/files/abs/cem-abs.shtml" class="uri">http://gking.harvard.edu/files/abs/cem-abs.shtml</a>.</li>
+<li>Stefano M Iacus, Gary King, and Giuseppe Porro. 2009. “CEM: Software for Coarsened Exact Matching.” Journal of Statistical Software, 30.</li>
+<li>Matthew Blackwell, Stefano Iacus, Gary King, and Giuseppe Porro. 2009. “CEM: Coarsened Exact Matching in Stata.” The Stata Journal, 9, Pp. 524–546.</li>
+<li>Stefano M Iacus, Gary King, and Giuseppe Porro. 2011. “Multivariate Matching Methods That are Monotonic Imbalance Bounding.” Journal of the American Statistical Association, 106, 493, Pp. 345-361.</li>
+<li>Stefano M. Iacus, Gary King, and Giuseppe Porro. 2012. “Causal Inference Without Balance Checking: Coarsened Exact Matching.” Political Analysis, 20, 1, Pp. 1–24. Website Copy at <a href="http://j.mp/2nRpUHQ" class="uri">http://j.mp/2nRpUHQ</a></li>
+<li>Rosenbaum, Paul R. and Donald B. Rubin (1983): “The Central Role of the Propensity Score in Observational Studies for Causal Effects”. In: Biometrika, vol.&nbsp;70, pp.&nbsp;41–55.</li>
+<li>Cochran, W. G. (1968), “The Effectiveness of Adjustment by Subclassification in Removing Bias in Observational Studies,” Biometrics, 24, 295–313 [350].</li>
+<li>Why propensity scores should be used for matching,” German Stata Users’ Group Meetings 2017 01, Stata Users Group.</li>
 </ul>
-<p>  旋转方法也会依据去噪定义的不同而不同。最流行的正交旋转是<strong>方差极大旋转</strong>，它试图对载荷阵的列进行去噪，使得每个成分只是由一组有限的变量来解释（即载荷阵每列只有少数几个很大的载荷，其他都是很小的载荷）。</p>
-</section>
-<section id="解释结果并计算主成分得分" class="level3" data-number="7.2.5">
-<h3 data-number="7.2.5" class="anchored" data-anchor-id="解释结果并计算主成分得分"><span class="header-section-number">7.2.5</span> 解释结果并计算主成分得分</h3>
-<p>  对结果进行解释，并计算各个主成分的得分，需要注意的是：使用相关系数矩阵进行主成分分析时，无法直接获得主成分得分，只能得到原始变量的主成分系数。</p>
-</section>
-</section>
-<section id="主成分分析的示列" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="主成分分析的示列"><span class="header-section-number">7.3</span> 主成分分析的示列</h2>
-<p>  建议在R语言中，使用<strong>psych</strong>包进行主成分分析。</p>
-<section id="载入包和数据" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="载入包和数据"><span class="header-section-number">7.3.1</span> 载入包和数据</h3>
-<p>  示列数据集使用的是<strong>psych</strong>包中自带的Harman23.cor数据集。Harman23.cor是一个list，需要提取出分析使用的cov数据集.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Harman23.cor)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Harman23.cor) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>List of 3
- $ cov   : num [1:8, 1:8] 1 0.846 0.805 0.859 0.473 0.398 0.301 0.382 0.846 1 ...
-  ..- attr(*, "dimnames")=List of 2
-  .. ..$ : chr [1:8] "height" "arm.span" "forearm" "lower.leg" ...
-  .. ..$ : chr [1:8] "height" "arm.span" "forearm" "lower.leg" ...
- $ center: num [1:8] 0 0 0 0 0 0 0 0
- $ n.obs : num 305</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> Harman23.cor<span class="sc">$</span>cov</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> num [1:8, 1:8] 1 0.846 0.805 0.859 0.473 0.398 0.301 0.382 0.846 1 ...
- - attr(*, "dimnames")=List of 2
-  ..$ : chr [1:8] "height" "arm.span" "forearm" "lower.leg" ...
-  ..$ : chr [1:8] "height" "arm.span" "forearm" "lower.leg" ...</code></pre>
-</div>
-</div>
-</section>
-<section id="判断主成分个数" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="判断主成分个数"><span class="header-section-number">7.3.2</span> 判断主成分个数</h3>
-<p>  <strong>psych</strong>包中给出了一个特别有用的函数fa.parallel(),可以很方便的同时给出Kaiser-Harris准则、Cattell碎石检验、平行分析的结果。由上步骤可以看出，df实际为相关系数矩阵，n.obs是指定原始观测数，n.iter是指定平行分析的随机迭代次数，fa是用来指定进行主成分分析，取值有三类（‘fa’，‘pc’，‘both’）。由 <a href="#fig-pca">图&nbsp;<span>7.1</span></a> 看出，特征值大于1，拐点之上，大于随机的特征值，满足以上三个条件，只有前两个主成分，因此主成分个数为2.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(df, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">n.obs =</span> <span class="dv">302</span>, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">n.iter =</span> <span class="dv">100</span>, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">fa =</span> <span class="st">'pc'</span>, </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">show.legend =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Parallel analysis suggests that the number of factors =  NA  and the number of components =  2 </code></pre>
-</div>
-<div class="cell-output-display">
-<div id="fig-pca" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="chapter_7_files/figure-html/fig-pca-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">图&nbsp;7.1: Parallel Analysis Scree Plots</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="主成分分析" class="level3" data-number="7.3.3">
-<h3 data-number="7.3.3" class="anchored" data-anchor-id="主成分分析"><span class="header-section-number">7.3.3</span> 主成分分析</h3>
-<p>  结果中：</p>
-<ul>
-<li>PC1和PC2既为2个主成分在各个原始变量上的载荷（loading，也就是相关系数），可以看出系数都较高。</li>
-<li>h2为成分公因子方差，用来说明主成分对每个变量的方差解释度，此值越高说明解释力度越大。</li>
-<li>u2栏指成分唯一性——方差，用来说明无法被主成分解释的比例，h2与u2之和为1。</li>
-<li>Proportion Var为每个主成分对整个数据集的解释程度。</li>
-<li>Cumulative Var是Proportion Var的累计和，其值至少应该需大于0.80以上。</li>
-</ul>
-<p>  <strong>可以看出，PC1和PC2在部分变量上都有较高的解释度，不满足各个主成分之间应该正交的条件，需进行旋转。</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">principal</span>(df, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">nfactors =</span> <span class="dv">2</span>, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">rotate =</span> <span class="st">'none'</span>, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">n.obs =</span> <span class="dv">302</span>, </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">scores =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Principal Components Analysis
-Call: principal(r = df, nfactors = 2, rotate = "none", n.obs = 302, 
-    scores = TRUE)
-Standardized loadings (pattern matrix) based upon correlation matrix
-                PC1   PC2   h2    u2 com
-height         0.86 -0.37 0.88 0.123 1.4
-arm.span       0.84 -0.44 0.90 0.097 1.5
-forearm        0.81 -0.46 0.87 0.128 1.6
-lower.leg      0.84 -0.40 0.86 0.139 1.4
-weight         0.76  0.52 0.85 0.150 1.8
-bitro.diameter 0.67  0.53 0.74 0.261 1.9
-chest.girth    0.62  0.58 0.72 0.283 2.0
-chest.width    0.67  0.42 0.62 0.375 1.7
-
-                       PC1  PC2
-SS loadings           4.67 1.77
-Proportion Var        0.58 0.22
-Cumulative Var        0.58 0.81
-Proportion Explained  0.73 0.27
-Cumulative Proportion 0.73 1.00
-
-Mean item complexity =  1.7
-Test of the hypothesis that 2 components are sufficient.
-
-The root mean square of the residuals (RMSR) is  0.05 
- with the empirical chi square  46.77  with prob &lt;  1.1e-05 
-
-Fit based upon off diagonal values = 0.99</code></pre>
-</div>
-</div>
-<p>  从结果可以看出，PC1和PC2变成了RC1和RC2，即表示经过旋转了，可以很清楚的看出：旋转后，RC1在前4个变量（height – lower.leg）上具有更高的解释度。RC2在后4个变量（weight – chest.width）上具有更高的解释度，说明两个主成分正交（不相关），<strong>同时可以发现，旋转后并不改变Cumulative Var</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dfp <span class="ot">&lt;-</span> <span class="fu">principal</span>(df, <span class="at">nfactors =</span> <span class="dv">2</span>, </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">rotate =</span> <span class="st">'varimax'</span>, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">n.obs =</span> <span class="dv">302</span>, </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">scores =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dfp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Principal Components Analysis
-Call: principal(r = df, nfactors = 2, rotate = "varimax", n.obs = 302, 
-    scores = TRUE)
-Standardized loadings (pattern matrix) based upon correlation matrix
-                RC1  RC2   h2    u2 com
-height         0.90 0.25 0.88 0.123 1.2
-arm.span       0.93 0.19 0.90 0.097 1.1
-forearm        0.92 0.16 0.87 0.128 1.1
-lower.leg      0.90 0.22 0.86 0.139 1.1
-weight         0.26 0.88 0.85 0.150 1.2
-bitro.diameter 0.19 0.84 0.74 0.261 1.1
-chest.girth    0.11 0.84 0.72 0.283 1.0
-chest.width    0.26 0.75 0.62 0.375 1.2
-
-                       RC1  RC2
-SS loadings           3.52 2.92
-Proportion Var        0.44 0.37
-Cumulative Var        0.44 0.81
-Proportion Explained  0.55 0.45
-Cumulative Proportion 0.55 1.00
-
-Mean item complexity =  1.1
-Test of the hypothesis that 2 components are sufficient.
-
-The root mean square of the residuals (RMSR) is  0.05 
- with the empirical chi square  46.77  with prob &lt;  1.1e-05 
-
-Fit based upon off diagonal values = 0.99</code></pre>
-</div>
-</div>
-</section>
-<section id="计算主成分得分" class="level3" data-number="7.3.4">
-<h3 data-number="7.3.4" class="anchored" data-anchor-id="计算主成分得分"><span class="header-section-number">7.3.4</span> 计算主成分得分</h3>
-<p>  在principal函数中的scores即是制定是否计算主成分得分的，如果为TRUE，则在dfp中已保存有得分，利用dfp$scores即可以取出得分。但是本示列中使用的是相关系数矩阵，无法计算得分，只能计算得分权重，为：</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dfp<span class="sc">$</span>weights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                       RC1         RC2
-height          0.27524417 -0.04748169
-arm.span        0.29673051 -0.08005490
-forearm         0.29823990 -0.09158460
-lower.leg       0.28014088 -0.06027214
-weight         -0.06053059  0.33228637
-bitro.diameter -0.07752349  0.32477593
-chest.girth    -0.10366026  0.33763942
-chest.width    -0.03730720  0.27392667</code></pre>
-</div>
-</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -495,7 +503,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -531,24 +556,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
@@ -559,8 +602,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter_references.html" class="pagination-link">
-        <span class="nav-page-text">参考文献</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter_8.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -570,7 +613,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <div class="nav-footer-center">
         <ul class="footer-items list-unstyled">
     <li class="nav-item">
- © 2022 Chi Shen, Xi'an Jiaotong University
+ © 2023 Chi Shen, Xi'an Jiaotong University
   </li>  
 </ul>
       </div>

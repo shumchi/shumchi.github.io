@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>卫生政策与管理实证研究手册 - 8&nbsp; 番外篇（三）：主成分分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter_references.html" rel="next">
+<link href="./chapter_7.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">卫生政策与管理实证研究手册</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">前言</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">文献知识的获取与管理</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据的清洗</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据的描述</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">因果推断方法</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇（一）：随机化分组</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_references.html" class="sidebar-item-text sidebar-link">参考文献</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="toc-section-number">8.1</span>  引子</a></li>
+  <li><a href="#进行主成分分析的步骤" id="toc-进行主成分分析的步骤" class="nav-link" data-scroll-target="#进行主成分分析的步骤"><span class="toc-section-number">8.2</span>  进行主成分分析的步骤</a>
+  <ul class="collapse">
+  <li><a href="#数据预处理" id="toc-数据预处理" class="nav-link" data-scroll-target="#数据预处理"><span class="toc-section-number">8.2.1</span>  数据预处理</a></li>
+  <li><a href="#确定主成分个数" id="toc-确定主成分个数" class="nav-link" data-scroll-target="#确定主成分个数"><span class="toc-section-number">8.2.2</span>  确定主成分个数</a></li>
+  <li><a href="#计算主成分" id="toc-计算主成分" class="nav-link" data-scroll-target="#计算主成分"><span class="toc-section-number">8.2.3</span>  计算主成分</a></li>
+  <li><a href="#旋转主成分" id="toc-旋转主成分" class="nav-link" data-scroll-target="#旋转主成分"><span class="toc-section-number">8.2.4</span>  旋转主成分</a></li>
+  <li><a href="#解释结果并计算主成分得分" id="toc-解释结果并计算主成分得分" class="nav-link" data-scroll-target="#解释结果并计算主成分得分"><span class="toc-section-number">8.2.5</span>  解释结果并计算主成分得分</a></li>
+  </ul></li>
+  <li><a href="#主成分分析的示列" id="toc-主成分分析的示列" class="nav-link" data-scroll-target="#主成分分析的示列"><span class="toc-section-number">8.3</span>  主成分分析的示列</a>
+  <ul class="collapse">
+  <li><a href="#载入包和数据" id="toc-载入包和数据" class="nav-link" data-scroll-target="#载入包和数据"><span class="toc-section-number">8.3.1</span>  载入包和数据</a></li>
+  <li><a href="#判断主成分个数" id="toc-判断主成分个数" class="nav-link" data-scroll-target="#判断主成分个数"><span class="toc-section-number">8.3.2</span>  判断主成分个数</a></li>
+  <li><a href="#主成分分析" id="toc-主成分分析" class="nav-link" data-scroll-target="#主成分分析"><span class="toc-section-number">8.3.3</span>  主成分分析</a></li>
+  <li><a href="#计算主成分得分" id="toc-计算主成分得分" class="nav-link" data-scroll-target="#计算主成分得分"><span class="toc-section-number">8.3.4</span>  计算主成分得分</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="引子" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">8.1</span> 引子</h2>
+<p>  主成分分析（Principal component analysis，PCA）是由Pearson在1901年提出的，后来被Hotelling在1933进行了发展。PCA目的是把多个<em>相关</em>的原始变量降维成少数几个<em>不相关</em>的主成分，其基本原理是原始变量的线性组合。</p>
+</section>
+<section id="进行主成分分析的步骤" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="进行主成分分析的步骤"><span class="header-section-number">8.2</span> 进行主成分分析的步骤</h2>
+<section id="数据预处理" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="数据预处理"><span class="header-section-number">8.2.1</span> 数据预处理</h3>
+<p>  原始数据矩阵或者相关系数矩阵都可以进行分析，需要注意的几点：</p>
+<ul>
+<li>原始数据矩阵实际是计算协方差矩阵进行的主成分分析。</li>
+<li>原始数据矩阵只适用于度量单位相同，或者差别不大时进行分析，如果差别大可以进行Z得分转换。</li>
+<li>不论是原始数据矩阵还是相关系数矩阵，都不能有缺失值。</li>
+</ul>
+</section>
+<section id="确定主成分个数" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="确定主成分个数"><span class="header-section-number">8.2.2</span> 确定主成分个数</h3>
+<p>  在计算主成分得分之前，需要先判断主成分个数，通常有四种准则：</p>
+<ul>
+<li>根据先验经验或者理论知识。</li>
+<li>Kaiser-Harris准则，只保留特征值大于1的主成分。</li>
+<li>Cattell碎石检验，通过绘制特征值与主成分数的图形，只保留在图形变化最大处之上的主成分。</li>
+<li>平行分析，依据与初始矩阵相同大小的随机数据矩阵来判断要提取的特征值，若基于真实数据的某个特征值大于一组随机数据矩阵相 应的平均特征值，那么该主成分可以保留。</li>
+</ul>
+<p>  <strong>通常需要结合四种准则，综合判断主成分个数。</strong></p>
+</section>
+<section id="计算主成分" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="计算主成分"><span class="header-section-number">8.2.3</span> 计算主成分</h3>
+<p>  在R语言中既可以使用base包中的<code>princomp()</code>函数，也可以使用<strong>psych包</strong>中的<code>principal()</code>函数。</p>
+</section>
+<section id="旋转主成分" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="旋转主成分"><span class="header-section-number">8.2.4</span> 旋转主成分</h3>
+<p>  旋转是一系列将成分载荷阵变得更容易解释的数学方法，它们尽可能地对成分去噪。旋转方法有两种：</p>
+<ul>
+<li>正交旋转：使选择的成分保持不相关</li>
+<li>斜交旋转：和让它们变得相关</li>
+</ul>
+<p>  旋转方法也会依据去噪定义的不同而不同。最流行的正交旋转是<strong>方差极大旋转</strong>，它试图对载荷阵的列进行去噪，使得每个成分只是由一组有限的变量来解释（即载荷阵每列只有少数几个很大的载荷，其他都是很小的载荷）。</p>
+</section>
+<section id="解释结果并计算主成分得分" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="解释结果并计算主成分得分"><span class="header-section-number">8.2.5</span> 解释结果并计算主成分得分</h3>
+<p>  对结果进行解释，并计算各个主成分的得分，需要注意的是：使用相关系数矩阵进行主成分分析时，无法直接获得主成分得分，只能得到原始变量的主成分系数。</p>
+</section>
+</section>
+<section id="主成分分析的示列" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="主成分分析的示列"><span class="header-section-number">8.3</span> 主成分分析的示列</h2>
+<p>  建议在R语言中，使用<strong>psych</strong>包进行主成分分析。</p>
+<section id="载入包和数据" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="载入包和数据"><span class="header-section-number">8.3.1</span> 载入包和数据</h3>
+<p>  示列数据集使用的是<strong>psych</strong>包中自带的Harman23.cor数据集。Harman23.cor是一个list，需要提取出分析使用的cov数据集.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Harman23.cor)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Harman23.cor) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 3
+ $ cov   : num [1:8, 1:8] 1 0.846 0.805 0.859 0.473 0.398 0.301 0.382 0.846 1 ...
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : chr [1:8] "height" "arm.span" "forearm" "lower.leg" ...
+  .. ..$ : chr [1:8] "height" "arm.span" "forearm" "lower.leg" ...
+ $ center: num [1:8] 0 0 0 0 0 0 0 0
+ $ n.obs : num 305</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> Harman23.cor<span class="sc">$</span>cov</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> num [1:8, 1:8] 1 0.846 0.805 0.859 0.473 0.398 0.301 0.382 0.846 1 ...
+ - attr(*, "dimnames")=List of 2
+  ..$ : chr [1:8] "height" "arm.span" "forearm" "lower.leg" ...
+  ..$ : chr [1:8] "height" "arm.span" "forearm" "lower.leg" ...</code></pre>
+</div>
+</div>
+</section>
+<section id="判断主成分个数" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="判断主成分个数"><span class="header-section-number">8.3.2</span> 判断主成分个数</h3>
+<p>  <strong>psych</strong>包中给出了一个特别有用的函数fa.parallel(),可以很方便的同时给出Kaiser-Harris准则、Cattell碎石检验、平行分析的结果。由上步骤可以看出，df实际为相关系数矩阵，n.obs是指定原始观测数，n.iter是指定平行分析的随机迭代次数，fa是用来指定进行主成分分析，取值有三类（‘fa’，‘pc’，‘both’）。由 <a href="#fig-pca">图&nbsp;<span>8.1</span></a> 看出，特征值大于1，拐点之上，大于随机的特征值，满足以上三个条件，只有前两个主成分，因此主成分个数为2.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(df, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">n.obs =</span> <span class="dv">302</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">n.iter =</span> <span class="dv">100</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">fa =</span> <span class="st">'pc'</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">show.legend =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parallel analysis suggests that the number of factors =  NA  and the number of components =  2 </code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-pca" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_8_files/figure-html/fig-pca-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">图&nbsp;8.1: Parallel Analysis Scree Plots</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="主成分分析" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="主成分分析"><span class="header-section-number">8.3.3</span> 主成分分析</h3>
+<p>  结果中：</p>
+<ul>
+<li>PC1和PC2既为2个主成分在各个原始变量上的载荷（loading，也就是相关系数），可以看出系数都较高。</li>
+<li>h2为成分公因子方差，用来说明主成分对每个变量的方差解释度，此值越高说明解释力度越大。</li>
+<li>u2栏指成分唯一性——方差，用来说明无法被主成分解释的比例，h2与u2之和为1。</li>
+<li>Proportion Var为每个主成分对整个数据集的解释程度。</li>
+<li>Cumulative Var是Proportion Var的累计和，其值至少应该需大于0.80以上。</li>
+</ul>
+<p>  <strong>可以看出，PC1和PC2在部分变量上都有较高的解释度，不满足各个主成分之间应该正交的条件，需进行旋转。</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">principal</span>(df, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">nfactors =</span> <span class="dv">2</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">rotate =</span> <span class="st">'none'</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">n.obs =</span> <span class="dv">302</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">scores =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Principal Components Analysis
+Call: principal(r = df, nfactors = 2, rotate = "none", n.obs = 302, 
+    scores = TRUE)
+Standardized loadings (pattern matrix) based upon correlation matrix
+                PC1   PC2   h2    u2 com
+height         0.86 -0.37 0.88 0.123 1.4
+arm.span       0.84 -0.44 0.90 0.097 1.5
+forearm        0.81 -0.46 0.87 0.128 1.6
+lower.leg      0.84 -0.40 0.86 0.139 1.4
+weight         0.76  0.52 0.85 0.150 1.8
+bitro.diameter 0.67  0.53 0.74 0.261 1.9
+chest.girth    0.62  0.58 0.72 0.283 2.0
+chest.width    0.67  0.42 0.62 0.375 1.7
+
+                       PC1  PC2
+SS loadings           4.67 1.77
+Proportion Var        0.58 0.22
+Cumulative Var        0.58 0.81
+Proportion Explained  0.73 0.27
+Cumulative Proportion 0.73 1.00
+
+Mean item complexity =  1.7
+Test of the hypothesis that 2 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.05 
+ with the empirical chi square  46.77  with prob &lt;  1.1e-05 
+
+Fit based upon off diagonal values = 0.99</code></pre>
+</div>
+</div>
+<p>  从结果可以看出，PC1和PC2变成了RC1和RC2，即表示经过旋转了，可以很清楚的看出：旋转后，RC1在前4个变量（height – lower.leg）上具有更高的解释度。RC2在后4个变量（weight – chest.width）上具有更高的解释度，说明两个主成分正交（不相关），<strong>同时可以发现，旋转后并不改变Cumulative Var</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dfp <span class="ot">&lt;-</span> <span class="fu">principal</span>(df, <span class="at">nfactors =</span> <span class="dv">2</span>, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">rotate =</span> <span class="st">'varimax'</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">n.obs =</span> <span class="dv">302</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">scores =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dfp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Principal Components Analysis
+Call: principal(r = df, nfactors = 2, rotate = "varimax", n.obs = 302, 
+    scores = TRUE)
+Standardized loadings (pattern matrix) based upon correlation matrix
+                RC1  RC2   h2    u2 com
+height         0.90 0.25 0.88 0.123 1.2
+arm.span       0.93 0.19 0.90 0.097 1.1
+forearm        0.92 0.16 0.87 0.128 1.1
+lower.leg      0.90 0.22 0.86 0.139 1.1
+weight         0.26 0.88 0.85 0.150 1.2
+bitro.diameter 0.19 0.84 0.74 0.261 1.1
+chest.girth    0.11 0.84 0.72 0.283 1.0
+chest.width    0.26 0.75 0.62 0.375 1.2
+
+                       RC1  RC2
+SS loadings           3.52 2.92
+Proportion Var        0.44 0.37
+Cumulative Var        0.44 0.81
+Proportion Explained  0.55 0.45
+Cumulative Proportion 0.55 1.00
+
+Mean item complexity =  1.1
+Test of the hypothesis that 2 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.05 
+ with the empirical chi square  46.77  with prob &lt;  1.1e-05 
+
+Fit based upon off diagonal values = 0.99</code></pre>
+</div>
+</div>
+</section>
+<section id="计算主成分得分" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="计算主成分得分"><span class="header-section-number">8.3.4</span> 计算主成分得分</h3>
+<p>  在principal函数中的scores即是制定是否计算主成分得分的，如果为TRUE，则在dfp中已保存有得分，利用dfp$scores即可以取出得分。但是本示列中使用的是相关系数矩阵，无法计算得分，只能计算得分权重，为：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dfp<span class="sc">$</span>weights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       RC1         RC2
+height          0.27524417 -0.04748169
+arm.span        0.29673051 -0.08005490
+forearm         0.29823990 -0.09158460
+lower.leg       0.28014088 -0.06027214
+weight         -0.06053059  0.33228637
+bitro.diameter -0.07752349  0.32477593
+chest.girth    -0.10366026  0.33763942
+chest.width    -0.03730720  0.27392667</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter_7.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter_references.html" class="pagination-link">
+        <span class="nav-page-text">参考文献</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2023 Chi Shen, Xi'an Jiaotong University
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>

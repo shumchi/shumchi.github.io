@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>卫生政策实证研究手册 - 3&nbsp; 数据的清洗</title>
+<title>卫生政策与管理实证研究手册 - 3&nbsp; 数据的清洗</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,12 +142,12 @@ div.csl-indent {
     "search-submit-button-title": "Submit"
   }
 }</script>
-
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 </head>
@@ -171,7 +171,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">卫生政策实证研究手册</a> 
+      <a href="./">卫生政策与管理实证研究手册</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -218,7 +218,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></a>
+  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -269,6 +274,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -283,7 +289,7 @@ div.csl-indent {
 <h2 data-number="3.2" class="anchored" data-anchor-id="数据清洗相关概念"><span class="header-section-number">3.2</span> 数据清洗相关概念</h2>
 <section id="数据清洗data-cleaning" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="数据清洗data-cleaning"><span class="header-section-number">3.2.1</span> 数据清洗（Data Cleaning）</h3>
-<p>  何谓数据清洗？目前其实没有统一的定义，但是在不同的学科领域中，数据清洗的目标和内容基本是明确一致的，那就是识别、修改或删除不正确和不完整的数据，识别和删除重复信息和无关数据，以及按一定的标准统一数据格式、缺失值和拼写错误，规范数据结构，从而更好地为下一步分析工作服务。结合<a href="https://support.microsoft.com/en-us/office/top-ten-ways-to-clean-your-data-2844b620-677c-47a7-ac3e-c2e157d1db19">Microsoft</a>、<a href="https://aws.amazon.com/cn/what-is/data-cleansing/">Amazon</a>以及 <span class="citation" data-cites="cody2008">(<a href="chapter_references.html#ref-cody2008" role="doc-biblioref">Ron 2008</a>)</span> 的观点，本书将常见的数据清洗步骤归纳如下：</p>
+<p>  何谓数据清洗？目前其实没有统一的定义，但是在不同的学科领域中，数据清洗的目标和内容基本是明确一致的，那就是识别、修改或删除不正确和不完整的数据，识别和删除重复信息和无关数据，以及按一定的标准统一数据格式、缺失值和拼写错误，规范数据结构，从而更好地为下一步分析工作服务。结合<a href="https://support.microsoft.com/en-us/office/top-ten-ways-to-clean-your-data-2844b620-677c-47a7-ac3e-c2e157d1db19">Microsoft</a>、<a href="https://aws.amazon.com/cn/what-is/data-cleansing/">Amazon</a>以及 <span class="citation" data-cites="cody2008">(<a href="#ref-cody2008" role="doc-biblioref">Ron 2008</a>)</span> 的观点，本书将常见的数据清洗步骤归纳如下：</p>
 <ol type="1">
 <li>识别并处理异常值：异常值会对数据分布产生明显影响，干扰正常结果，并显著影响模型性能，通常进行删除。</li>
 <li>识别并处理缺失数据：缺失值是无法避免的问题，但需要掌握数据中的缺失特征并予以处理。</li>
@@ -295,14 +301,14 @@ div.csl-indent {
 </section>
 <section id="sec-tidy" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="sec-tidy"><span class="header-section-number">3.2.2</span> 整洁数据（Tidy Data）</h3>
-<p>  整洁数据（Tidy Data）是由<a href="https://posit.co/">Posit</a>公司（之前名称为Rstudio）的首席科学家Hadley Wickham提出的，初衷是为了简化数据清洗的流程，提高数据清洗效率。<span class="citation" data-cites="wickham2014">Wickham (<a href="chapter_references.html#ref-wickham2014" role="doc-biblioref">2014</a>)</span> 认为Tidy Data更易于操作、建模和可视化，并且应该具备三种特征：</p>
+<p>  整洁数据（Tidy Data）是由<a href="https://posit.co/">Posit</a>公司（之前名称为Rstudio）的首席科学家Hadley Wickham提出的，初衷是为了简化数据清洗的流程，提高数据清洗效率。<span class="citation" data-cites="wickham2014">Wickham (<a href="#ref-wickham2014" role="doc-biblioref">2014</a>)</span> 认为Tidy Data更易于操作、建模和可视化，并且应该具备三种特征：</p>
 <ul>
 <li>Each variable is a column, and that column contains one “type” of data.</li>
 <li>Each observation is a row.</li>
 <li>Each type of observational unit is a table.</li>
 </ul>
 <p>  打眼一看，你可能觉得上面三句话说的是废话，心里想着大家不是都是这么建数据库的吗？其实不然，比如可以看下面的例子。</p>
-<p>  如 <a href="#tbl-sample-tidy-1">表&nbsp;<span>3.1</span></a> 是日常工作和研究中非常常见的建数据库方式，但是这样的方式对于统计分析来说并不友好。比如当你想要知道每一科考试得分的最大值最小值时，你通常需要对数学、语文、英语重复三次同样的操作。</p>
+<p>  如 <a href="#tbl-sample-tidy-1">表&nbsp;<span class="quarto-unresolved-ref">tbl-sample-tidy-1</span></a> 是日常工作和研究中非常常见的建数据库方式，但是这样的方式对于统计分析来说并不友好。比如当你想要知道每一科考试得分的最大值最小值时，你通常需要对数学、语文、英语重复三次同样的操作。</p>
 <div id="tbl-sample-tidy-1" class="anchored">
 <table class="table">
 <caption>表&nbsp;3.1: 常见数据结构示例一</caption>
@@ -330,7 +336,7 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
-<p>  再比如，当有多次考试的成绩需要记录时，很多人会选择 <a href="#tbl-sample-tidy-2">表&nbsp;<span>3.2</span></a> 这样的方式，但是这样的结构在数据分析时会更不友好。</p>
+<p>  再比如，当有多次考试的成绩需要记录时，很多人会选择 <a href="#tbl-sample-tidy-2">表&nbsp;<span class="quarto-unresolved-ref">tbl-sample-tidy-2</span></a> 这样的方式，但是这样的结构在数据分析时会更不友好。</p>
 <div id="tbl-sample-tidy-2" class="anchored">
 <table class="table">
 <caption>表&nbsp;3.2: 常见数据结构示例二</caption>
@@ -376,7 +382,7 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
-<p>  符合Tidy Data要求的建立数据库方式应该如 <a href="#tbl-sample-tidy-3">表&nbsp;<span>3.3</span></a> 所示，在这种结构下，结合Group by等操作，会给数据分析带来很大的便利。</p>
+<p>  符合Tidy Data要求的建立数据库方式应该如 <a href="#tbl-sample-tidy-3">表&nbsp;<span class="quarto-unresolved-ref">tbl-sample-tidy-3</span></a> 所示，在这种结构下，结合Group by等操作，会给数据分析带来很大的便利。</p>
 <div id="tbl-sample-tidy-3" class="anchored">
 <table class="table">
 <caption>表&nbsp;3.3: 常见数据结构示例三</caption>
@@ -464,18 +470,18 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
-<p>  关于Tidy Data的内容还有很多，具体可以详细参考 <span class="citation" data-cites="wickham2014">Wickham (<a href="chapter_references.html#ref-wickham2014" role="doc-biblioref">2014</a>)</span> 的文章，这里就不进行搬运工作了。在设计数据库的时候，只需要记住不要把数据<em>展示形式</em>当成数据库的<em>结构形式</em>就可以。</p>
+<p>  关于Tidy Data的内容还有很多，具体可以详细参考 <span class="citation" data-cites="wickham2014">Wickham (<a href="#ref-wickham2014" role="doc-biblioref">2014</a>)</span> 的文章，这里就不进行搬运工作了。在设计数据库的时候，只需要记住不要把数据<em>展示形式</em>当成数据库的<em>结构形式</em>就可以。</p>
 </section>
 </section>
 <section id="数据清洗内容" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="数据清洗内容"><span class="header-section-number">3.3</span> 数据清洗内容</h2>
-<p>  由于异常值处理、重复值处理、规范变量类型及取值、识别并处理结构错误的内容相对比较简单，在本节中将不会详细举例说明。以下就异常值及缺失值的处理流程予以详细说明。一般情况下，数据清洗可以按照 <a href="#fig-flow-clean">图&nbsp;<span>3.1</span></a> 所示流程进行。</p>
+<p>  由于异常值处理、重复值处理、规范变量类型及取值、识别并处理结构错误的内容相对比较简单，在本节中将不会详细举例说明。以下就异常值及缺失值的处理流程予以详细说明。一般情况下，数据清洗可以按照 <a href="#fig-flow-clean">图&nbsp;<span class="quarto-unresolved-ref">fig-flow-clean</span></a> 所示流程进行。</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-flow-clean" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
   A[概览] --&gt; B(异常值识别处理)
   B --&gt; C{缺失值识别与处理}
   C --&gt; D[重复值识别与处理]
@@ -492,8 +498,8 @@ div.csl-indent {
 </div>
 <section id="数据清洗的第一步" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="数据清洗的第一步"><span class="header-section-number">3.3.1</span> 数据清洗的第一步</h3>
-<p>  数据清洗的第一步就是需要对数据库有一个整体的把握，如有多少个变量、多少条记录、变量类型如何、取值是什么等。在规范的研究项目（如注册的药物/器械临床试验）中，这些信息会记录在Codebook中随同数据一并交给统计师，通过翻阅Codebook就可以清楚地了解以上这些信息。这就是为何本书在 <a href="chapter_2.html#sec-codebook"><span>Section&nbsp;2.2.4</span></a> 中强调整理和制作Codebook的重要性。然而，很多时候，对于大部分的问卷调查数据而言，很少见到有研究者严格按照类似临床试验的要求建立和管理数据库的，以及对于从医院、互联网平台等处获取的数据而言，都不会事先提供这些信息，因此拿到数据库的第一步就是去了解这些信息。</p>
-<p>  一般我将这一步称为数据库的概览（Overview），在R中通常使用<code>str()</code>函数或者<code>glimpse()</code>函数可以大致对数据结构有一个初步了解，更为推荐的工具和方法可参见 <a href="chapter_4.html#sec-descrip"><span>Section&nbsp;4.2.2</span></a> ，本节仅给出简单的示例，具体如下：</p>
+<p>  数据清洗的第一步就是需要对数据库有一个整体的把握，如有多少个变量、多少条记录、变量类型如何、取值是什么等。在规范的研究项目（如注册的药物/器械临床试验）中，这些信息会记录在Codebook中随同数据一并交给统计师，通过翻阅Codebook就可以清楚地了解以上这些信息。这就是为何本书在 <a href="#sec-codebook"><span class="quarto-unresolved-ref">sec-codebook</span></a> 中强调整理和制作Codebook的重要性。然而，很多时候，对于大部分的问卷调查数据而言，很少见到有研究者严格按照类似临床试验的要求建立和管理数据库的，以及对于从医院、互联网平台等处获取的数据而言，都不会事先提供这些信息，因此拿到数据库的第一步就是去了解这些信息。</p>
+<p>  一般我将这一步称为数据库的概览（Overview），在R中通常使用<code>str()</code>函数或者<code>glimpse()</code>函数可以大致对数据结构有一个初步了解，更为推荐的工具和方法可参见 <a href="#sec-descrip"><span class="quarto-unresolved-ref">sec-descrip</span></a> ，本节仅给出简单的示例，具体如下：</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -528,7 +534,7 @@ $ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440</code></pre>
 </section>
 <section id="缺失值missing-value处理" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="缺失值missing-value处理"><span class="header-section-number">3.4</span> 缺失值（Missing Value）处理</h2>
-<p>  由于这部分内容较多，因此单独用一节来介绍，本部分主要参考 <span class="citation" data-cites="gao2013 kabacoff2013 buuren2011">(<a href="chapter_references.html#ref-gao2013" role="doc-biblioref">高涛, 肖楠, and 陈钢 2013</a>; <a href="chapter_references.html#ref-kabacoff2013" role="doc-biblioref">Kabacoff 2013</a>; <a href="chapter_references.html#ref-buuren2011" role="doc-biblioref">van Buuren and Groothuis-Oudshoorn 2011</a>)</span>。Missing Value的处理也是非常重要的一个环节，因此规范的缺失数据的处理直接影响着研究结果的稳健性和真实性，也是研究能够Reproductive的重要保障。通常，处理缺失值的步骤如下：</p>
+<p>  由于这部分内容较多，因此单独用一节来介绍，本部分主要参考 <span class="citation" data-cites="gao2013 kabacoff2013 buuren2011">(<a href="#ref-gao2013" role="doc-biblioref">高涛, 肖楠, and 陈钢 2013</a>; <a href="#ref-kabacoff2013" role="doc-biblioref">Kabacoff 2013</a>; <a href="#ref-buuren2011" role="doc-biblioref">van Buuren and Groothuis-Oudshoorn 2011</a>)</span>。Missing Value的处理也是非常重要的一个环节，因此规范的缺失数据的处理直接影响着研究结果的稳健性和真实性，也是研究能够Reproductive的重要保障。通常，处理缺失值的步骤如下：</p>
 <ul>
 <li>识别缺失数据。</li>
 <li>检查导致数据缺失的原因。</li>
@@ -692,7 +698,7 @@ $ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440</code></pre>
 </div>
 </div>
 </div>
-<p>  如 <a href="#fig-miss-1">图&nbsp;<span>3.2</span></a>，左侧的红色条图分别显示了所有variable的缺失值数量，可以清楚的看出Gest变量有4个缺失值等。右侧的图中，红色代表缺失，可以看出无任何缺失的observation共有42条，同时了缺失NonD和Dream的observation共有9条。</p>
+<p>  如 <a href="#fig-miss-1">图&nbsp;<span class="quarto-unresolved-ref">fig-miss-1</span></a>， 左侧的红色条图分别显示了所有variable的缺失值数量，可以清楚的看出Gest变量有4个缺失值等。右侧的图中，红色代表缺失，可以看出无任何缺失的observation共有42条，同时了缺失NonD和Dream的observation共有9条。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrixplot</span>(sleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -709,7 +715,7 @@ To regain use of the VIM GUI and the R console, click outside the plot region.</
 </div>
 </div>
 </div>
-<p>  <code>matrixplot()</code>函数可生成展示每个实例数据的图形。此处，数值型数据被重新转换到[0, 1]区间，并用灰度来表示大小：浅色表示值小，深色表示值大。默认缺失值为红色。 <a href="#fig-miss-2">图&nbsp;<span>3.3</span></a>，横轴展示了全部的variable，纵轴显示了全部observation，从图中可以清楚的了解缺失值的分布情况，默认是按照第一个变量BodyWgt从小到大排序过。</p>
+<p>  <code>matrixplot()</code>函数可生成展示每个实例数据的图形。此处，数值型数据被重新转换到[0, 1]区间，并用灰度来表示大小：浅色表示值小，深色表示值大。默认缺失值为红色。 <a href="#fig-miss-2">图&nbsp;<span class="quarto-unresolved-ref">fig-miss-2</span></a>， 横轴展示了全部的variable，纵轴显示了全部observation，从图中可以清楚的了解缺失值的分布情况，默认是按照第一个变量BodyWgt从小到大排序过。</p>
 </section>
 </section>
 <section id="探索缺失原因或模式" class="level3" data-number="3.4.2">
@@ -730,14 +736,14 @@ To regain use of the VIM GUI and the R console, click outside the plot region.</
 </div>
 </div>
 </div>
-<p>   <a href="#fig-miss-3">图&nbsp;<span>3.4</span></a>，共显示了两部分信息，（a）散点图（b）边界显示缺失信息，具体为：</p>
+<p>   <a href="#fig-miss-3">图&nbsp;<span class="quarto-unresolved-ref">fig-miss-3</span></a> 共显示了两部分信息，（a）散点图（b）边界显示缺失信息，具体为：</p>
 <ul>
 <li>横轴为Gest变量，边界的红色boxplot显示的是Dream变量中缺失值对应的Gest值的箱式图，灰色为Dream变量中非缺失值对应的Gest值的箱式图。</li>
 <li>纵轴为Dream变量，边界的红色boxplot显示的是Gest变量中缺失值对应的Dream值的箱式图，灰色为Gest变量中非缺失值对应的Dream值的箱式图。</li>
 <li>灰色散点为Dream与Gest的散点图。</li>
 <li>左下角的蓝色数字表示Dream与Gest共同缺失的observation数量。</li>
 </ul>
-<p>  从 <a href="#fig-miss-3">图&nbsp;<span>3.4</span></a> 可以看出，Dream与Gest成负相关关系，并且，Gest的缺失值对应更大的Dream值，即缺失妊娠期数据时动物的做梦时长一般更长。</p>
+<p>  从 <a href="#fig-miss-3">图&nbsp;<span class="quarto-unresolved-ref">fig-miss-3</span></a> 可以看出，Dream与Gest成负相关关系，并且，Gest的缺失值对应更大的Dream值，即缺失妊娠期数据时动物的做梦时长一般更长。</p>
 </section>
 <section id="通过相关性探索缺失值" class="level4" data-number="3.4.2.2">
 <h4 data-number="3.4.2.2" class="anchored" data-anchor-id="通过相关性探索缺失值"><span class="header-section-number">3.4.2.2</span> 通过相关性探索缺失值</h4>
@@ -875,7 +881,7 @@ Sleep 0.4862645 0.2037014 1.0000000</code></pre>
 </div>
 </div>
 <p><strong>检查插补效果：</strong></p>
-<p>  通过散点图和分布图，检查填补数据的效果，<a href="#fig-miss-4">图&nbsp;<span>3.5</span></a> ，红色点表示填补值，蓝色表示非填补值。</p>
+<p>  通过散点图和分布图，检查填补数据的效果，<a href="#fig-miss-4">图&nbsp;<span class="quarto-unresolved-ref">fig-miss-4</span></a> ，红色点表示填补值，蓝色表示非填补值。</p>
 <div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp, Dream <span class="sc">~</span> Gest <span class="sc">+</span> Span, </span>
@@ -967,7 +973,7 @@ Sleep 0.4862645 0.2037014 1.0000000</code></pre>
 <p>  处理一般线性回归的<code>lm()</code>函数，其他方法包括广义线性模型<code>glm()</code>函数、广义可加模型<code>gam()</code>，负二项模型<code>nbrm()</code>函数均可实现。</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-kabacoff2013" class="csl-entry" role="doc-biblioentry">
 Kabacoff, Robert. 2013. <em>R in Action, Data Analysis and Graphics with r</em>. Manning.
 </div>
@@ -1036,7 +1042,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1072,24 +1095,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
@@ -1111,7 +1152,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <div class="nav-footer-center">
         <ul class="footer-items list-unstyled">
     <li class="nav-item">
- © 2022 Chi Shen, Xi'an Jiaotong University
+ © 2023 Chi Shen, Xi'an Jiaotong University
   </li>  
 </ul>
       </div>
