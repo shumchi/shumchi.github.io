@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "交叉融合：卫生政策与管理"
-date:   2024-02-04 10:30
+date:   2024-02-02 10:30
 excerpt: "广阔视野，加强合作"
 author: Chi Shen
 tags: [Health Policy and Management]
