@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "交叉融合：卫生政策与管理"
+title:  "卫生政策与管理学科简介"
 date:   2024-02-02 10:30
 excerpt: "广阔视野，加强合作"
 author: Chi Shen
