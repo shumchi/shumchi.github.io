@@ -24,6 +24,7 @@ comments: true
 - [Study Note of DataCamp](https://shumchi.github.io/notebooks/Study-Note-of-DataCamp.html)
 - [Study Note of Python in Data Science](https://shumchi.github.io/notebooks/Python-Learning-Note.html)
 - [Publications in Three Top Journals](https://shumchi.github.io/notebooks/Publications_in_Three_Top_Journals.html)
+- [National Social Science Funds](https://shumchi.github.io/notebooks/National_social_science_program.html)
 
 ## Study
 
