@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>卫生政策与管理实证研究手册 - 2&nbsp; 数据库操作</title>
+<title>2&nbsp; 数据库操作 – 卫生政策与管理实证研究手册</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,11 +17,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -32,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -46,48 +47,20 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -101,8 +74,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -129,17 +101,25 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
   }
 }</script>
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
@@ -153,11 +133,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter_2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -165,104 +150,115 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">卫生政策与管理实证研究手册</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="搜索"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">前言</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">文献知识的获取与管理</span></a>
+  <a href="./chapter_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">文献知识的获取与管理</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></a>
+  <a href="./chapter_2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据的清洗</span></a>
+  <a href="./chapter_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据的清洗</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据的描述</span></a>
+  <a href="./chapter_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据的描述</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">因果推断方法</span></a>
+  <a href="./chapter_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">因果推断方法</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇（一）：随机化分组</span></a>
+  <a href="./chapter_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">番外篇（一）：随机化分组</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></a>
+  <a href="./chapter_7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></a>
+  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter_references.html" class="sidebar-item-text sidebar-link">参考文献</a>
+  <a href="./chapter_references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">目录</h2>
    
   <ul>
-  <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="toc-section-number">2.1</span>  引子</a></li>
-  <li><a href="#数据的采集原则" id="toc-数据的采集原则" class="nav-link" data-scroll-target="#数据的采集原则"><span class="toc-section-number">2.2</span>  数据的采集原则</a>
+  <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="header-section-number">2.1</span> 引子</a></li>
+  <li><a href="#数据的采集原则" id="toc-数据的采集原则" class="nav-link" data-scroll-target="#数据的采集原则"><span class="header-section-number">2.2</span> 数据的采集原则</a>
   <ul class="collapse">
-  <li><a href="#数据的分类" id="toc-数据的分类" class="nav-link" data-scroll-target="#数据的分类"><span class="toc-section-number">2.2.1</span>  数据的分类</a></li>
-  <li><a href="#数据库设计" id="toc-数据库设计" class="nav-link" data-scroll-target="#数据库设计"><span class="toc-section-number">2.2.2</span>  数据库设计</a></li>
-  <li><a href="#变量名命名规范" id="toc-变量名命名规范" class="nav-link" data-scroll-target="#变量名命名规范"><span class="toc-section-number">2.2.3</span>  变量名命名规范</a></li>
-  <li><a href="#sec-codebook" id="toc-sec-codebook" class="nav-link" data-scroll-target="#sec-codebook"><span class="toc-section-number">2.2.4</span>  数据字典</a></li>
-  <li><a href="#数据库建立工具" id="toc-数据库建立工具" class="nav-link" data-scroll-target="#数据库建立工具"><span class="toc-section-number">2.2.5</span>  数据库建立工具</a></li>
+  <li><a href="#数据的分类" id="toc-数据的分类" class="nav-link" data-scroll-target="#数据的分类"><span class="header-section-number">2.2.1</span> 数据的分类</a></li>
+  <li><a href="#数据库设计" id="toc-数据库设计" class="nav-link" data-scroll-target="#数据库设计"><span class="header-section-number">2.2.2</span> 数据库设计</a></li>
+  <li><a href="#变量名命名规范" id="toc-变量名命名规范" class="nav-link" data-scroll-target="#变量名命名规范"><span class="header-section-number">2.2.3</span> 变量名命名规范</a></li>
+  <li><a href="#sec-codebook" id="toc-sec-codebook" class="nav-link" data-scroll-target="#sec-codebook"><span class="header-section-number">2.2.4</span> 数据字典</a></li>
+  <li><a href="#数据库建立工具" id="toc-数据库建立工具" class="nav-link" data-scroll-target="#数据库建立工具"><span class="header-section-number">2.2.5</span> 数据库建立工具</a></li>
   </ul></li>
-  <li><a href="#数据的读取" id="toc-数据的读取" class="nav-link" data-scroll-target="#数据的读取"><span class="toc-section-number">2.3</span>  数据的读取</a>
+  <li><a href="#数据的读取" id="toc-数据的读取" class="nav-link" data-scroll-target="#数据的读取"><span class="header-section-number">2.3</span> 数据的读取</a>
   <ul class="collapse">
-  <li><a href="#统计分析软件" id="toc-统计分析软件" class="nav-link" data-scroll-target="#统计分析软件"><span class="toc-section-number">2.3.1</span>  统计分析软件</a></li>
-  <li><a href="#单个文件读取" id="toc-单个文件读取" class="nav-link" data-scroll-target="#单个文件读取"><span class="toc-section-number">2.3.2</span>  单个文件读取</a></li>
-  <li><a href="#批量读取" id="toc-批量读取" class="nav-link" data-scroll-target="#批量读取"><span class="toc-section-number">2.3.3</span>  批量读取</a></li>
+  <li><a href="#统计分析软件" id="toc-统计分析软件" class="nav-link" data-scroll-target="#统计分析软件"><span class="header-section-number">2.3.1</span> 统计分析软件</a></li>
+  <li><a href="#单个文件读取" id="toc-单个文件读取" class="nav-link" data-scroll-target="#单个文件读取"><span class="header-section-number">2.3.2</span> 单个文件读取</a></li>
+  <li><a href="#批量读取" id="toc-批量读取" class="nav-link" data-scroll-target="#批量读取"><span class="header-section-number">2.3.3</span> 批量读取</a></li>
   </ul></li>
-  <li><a href="#数据库转换" id="toc-数据库转换" class="nav-link" data-scroll-target="#数据库转换"><span class="toc-section-number">2.4</span>  数据库转换</a>
+  <li><a href="#数据库转换" id="toc-数据库转换" class="nav-link" data-scroll-target="#数据库转换"><span class="header-section-number">2.4</span> 数据库转换</a>
   <ul class="collapse">
-  <li><a href="#长宽类型转换" id="toc-长宽类型转换" class="nav-link" data-scroll-target="#长宽类型转换"><span class="toc-section-number">2.4.1</span>  长宽类型转换</a></li>
-  <li><a href="#数据库的连接" id="toc-数据库的连接" class="nav-link" data-scroll-target="#数据库的连接"><span class="toc-section-number">2.4.2</span>  数据库的连接</a></li>
-  <li><a href="#筛选观测值" id="toc-筛选观测值" class="nav-link" data-scroll-target="#筛选观测值"><span class="toc-section-number">2.4.3</span>  筛选观测值</a></li>
-  <li><a href="#筛选变量" id="toc-筛选变量" class="nav-link" data-scroll-target="#筛选变量"><span class="toc-section-number">2.4.4</span>  筛选变量</a></li>
+  <li><a href="#长宽类型转换" id="toc-长宽类型转换" class="nav-link" data-scroll-target="#长宽类型转换"><span class="header-section-number">2.4.1</span> 长宽类型转换</a></li>
+  <li><a href="#数据库的连接" id="toc-数据库的连接" class="nav-link" data-scroll-target="#数据库的连接"><span class="header-section-number">2.4.2</span> 数据库的连接</a></li>
+  <li><a href="#筛选观测值" id="toc-筛选观测值" class="nav-link" data-scroll-target="#筛选观测值"><span class="header-section-number">2.4.3</span> 筛选观测值</a></li>
+  <li><a href="#筛选变量" id="toc-筛选变量" class="nav-link" data-scroll-target="#筛选变量"><span class="header-section-number">2.4.4</span> 筛选变量</a></li>
   </ul></li>
-  <li><a href="#数据聚合" id="toc-数据聚合" class="nav-link" data-scroll-target="#数据聚合"><span class="toc-section-number">2.5</span>  数据聚合</a>
+  <li><a href="#数据聚合" id="toc-数据聚合" class="nav-link" data-scroll-target="#数据聚合"><span class="header-section-number">2.5</span> 数据聚合</a>
   <ul class="collapse">
-  <li><a href="#聚合运算" id="toc-聚合运算" class="nav-link" data-scroll-target="#聚合运算"><span class="toc-section-number">2.5.1</span>  聚合运算</a></li>
-  <li><a href="#分组计算" id="toc-分组计算" class="nav-link" data-scroll-target="#分组计算"><span class="toc-section-number">2.5.2</span>  分组计算</a></li>
+  <li><a href="#聚合运算" id="toc-聚合运算" class="nav-link" data-scroll-target="#聚合运算"><span class="header-section-number">2.5.1</span> 聚合运算</a></li>
+  <li><a href="#分组计算" id="toc-分组计算" class="nav-link" data-scroll-target="#分组计算"><span class="header-section-number">2.5.2</span> 分组计算</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -272,7 +268,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据库操作</span></h1>
 </div>
 
 
@@ -285,40 +281,43 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="引子" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">2.1</span> 引子</h2>
 <p>  在数据的发展历程中有过两次革命。第一次数据革命是近代科学诞生之时，实现了数据与科学研究的融合，数据在科学研究中的基础地位得到确立。对研究过程和结果赋予精确化的诉求，是近代科学的基本特征之一。在以数据为依据的研究范式中，数据的可靠性和准确性代表了研究的精确性，人们甚至将以数据为依据的实证研究作为判断 “科学”与“伪科学”的标准。第二次数据革命发生于因信息技术的发展而导致数据产生的速度和规模急剧发展之时，它不仅改变着科学研究范式，实现社会科学研究的定量化，也将促使经济、社会、军事等所有社会领域产生巨大的变革。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>因此，掌握数据的分析能力是现代社会科学研究必须要掌握的技能。</p>
-<p>  现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型。它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%到80%的时间都需要花费在数据的清洗和预处理阶段 <span class="citation" data-cites="dasu2003">(<a href="#ref-dasu2003" role="doc-biblioref">Dasu and Johnson 2003</a>)</span>，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
+<p>  现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型。它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%到80%的时间都需要花费在数据的清洗和预处理阶段 <span class="citation" data-cites="dasu2003">(<a href="chapter_references.html#ref-dasu2003" role="doc-biblioref">Dasu 和 Johnson 2003</a>)</span>，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
 <p>  一个基于数据开展实证研究（不论定性或是定量）的基本流程至少都应该包含以下步骤：</p>
-<div class="cell">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-flow" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p>
-</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+<div id="fig-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-flow">flowchart LR
   A[Collection] --&gt; B(Digitalization)
   B --&gt; C{Clean}
   C --&gt; D[Analysis]
   D --&gt; E[Presentation]
 </pre>
-<div id="mermaid-tooltip-1" class="mermaidTooltip">
-
 </div>
-<p></p>
-<p></p><figcaption class="figure-caption">图&nbsp;2.1: 数据分析流程图</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;2.1: 数据分析流程图
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>  不过，随着互联网技术的发展，现阶段基本可以采用一些调查工具将<strong>采集</strong>和<strong>数字化</strong>两个阶段同时进行，比如最常用的问卷星、腾讯问卷。国外的话有<a href="https://www.surveymonkey.com/">SurveyMonkey</a>和<a href="https://www.limesurvey.org/">LimeSurvey</a>，也可以基于RedCap搭建自有的调查系统。</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 本章就主要介绍数据操作（Data Manipulate）的主要内容和方法，包括：
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -345,10 +344,14 @@ div.csl-indent {
 <li><p>行为数据（Behavioral data）：即记录人或者机器行为的数据，如日常的网购数据、出行数据、够药数据、医保账户使用数据等等，最早应用于商业领域的用户行为分析。</p></li>
 <li><p>统计数据（Administration data）：即政府或者机构对于涉及经济、社会和日常职能业务相关的指标进行按时间加总之后的数据，如金融情况、财政情况、教育资源、卫生资源等等，严格来说统计数据是基于调查数据和行为数据进行聚合、统计、校正之后形成的。</p></li>
 </ul>
-<p>  我将三种数据的优缺点总结如 <a href="#tbl-datasource">表&nbsp;<span class="quarto-unresolved-ref">tbl-datasource</span></a></p>
-<div id="tbl-datasource" class="anchored">
-<table class="table">
-<caption>表&nbsp;2.1: 三种类型数据优缺点比较</caption>
+<p>  我将三种数据的优缺点总结如 <a href="#tbl-datasource" class="quarto-xref">表&nbsp;<span>2.1</span></a></p>
+<div id="tbl-datasource" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-datasource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.1: 三种类型数据优缺点比较
+</figcaption>
+<div aria-describedby="tbl-datasource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
 <col style="width: 42%">
@@ -380,16 +383,18 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 </section>
 <section id="数据库设计" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="数据库设计"><span class="header-section-number">2.2.2</span> 数据库设计</h3>
 <p>  数据库（Database）设计主要针对的是将调查问卷电子化，虽然这个工作看似简单，但是其对于后续的数据清洗和数据分析十分关键。如果数据库设计得不够合理，会给后续工作带来很多麻烦。很多研究人员往往都忽视了数据库设计的重要性。</p>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 数据库的设计应该至少要做到以下三点：
 </div>
 </div>
@@ -445,24 +450,35 @@ div.csl-indent {
 <h3 data-number="2.2.4" class="anchored" data-anchor-id="sec-codebook"><span class="header-section-number">2.2.4</span> 数据字典</h3>
 <p>  数据字典（Data dictionary）也称作Codebook或者Specification，是指详细记录数据库中的变量名、变量内容、变量取值、变量标签、变量属性等信息，其作用主要是为了方便统计分析过程中检查和查看变量。</p>
 <p>  数据字典可以手动整理，也可以通过统计软件中的函数生成，如Stata中的<code>codebook</code>命令，R中也有<a href="https://cran.nyuad.nyu.edu/web/packages/codebookr/index.html">codebookr</a>和<a href="https://cran.r-project.org/web/packages/datadictionary/index.html">datadictionary</a>两个package。</p>
-<p>  下面给出一个我之前整理的codebook示例，如 <a href="#fig-codebook1">图&nbsp;<span class="quarto-unresolved-ref">fig-codebook1</span></a> 和 <a href="#fig-codebook2">图&nbsp;<span class="quarto-unresolved-ref">fig-codebook2</span></a></p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-codebook1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/fig-3-Codebook1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">图&nbsp;2.2: Codebook封面信息</figcaption><p></p>
+<p>  下面给出一个我之前整理的codebook示例，如 <a href="#fig-codebook1" class="quarto-xref">图&nbsp;<span>2.2</span></a> 和 <a href="#fig-codebook2" class="quarto-xref">图&nbsp;<span>2.3</span></a></p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1], [1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-codebook1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-codebook1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fig-3-Codebook1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-codebook1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;2.2: Codebook封面信息
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-codebook2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/fig-4-Codebook2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">图&nbsp;2.3: Codebook内容</figcaption><p></p>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-codebook2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-codebook2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fig-4-Codebook2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-codebook2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;2.3: Codebook内容
+</figcaption>
 </figure>
 </div>
 </div>
@@ -477,10 +493,14 @@ div.csl-indent {
 <li><p><strong>专业线上工具</strong>：推荐<a href="https://www.limesurvey.org/">LimeSurvey</a>，有Cloud版和社区版，社区版可以通过自行搭建在云服务器或者本地服务器上。</p></li>
 <li><p><strong>综合数据与分析平台</strong>：推荐RedCap(Research Electronic Data Capture)，RedCap是由范德堡大学Paul Harris教授团队自2004年开发的一个成熟开源、安全可靠、网络化的在线临床研究和试验数据库管理程序，基本国内外知名高校均搭建有自己服务器，西安交通大学也有，如下：</p></li>
 </ul>
-<div id="fig-redcap" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/fig-5-Redcap.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">图&nbsp;2.4: 西安交通大学开放研究数据平台</figcaption><p></p>
+<div id="fig-redcap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-redcap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fig-5-Redcap.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-redcap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;2.4: 西安交通大学开放研究数据平台
+</figcaption>
 </figure>
 </div>
 </section>
@@ -491,10 +511,14 @@ div.csl-indent {
 <p>  尽管现在的数据管理软件，不管是古老的EpiData或是时下流行的RedCap，都可以支持直接导出适用于不同统计分析软件的特定格式，比如dta（支持Stata）、sas7bat（支持SAS）、sav（支持SPSS），<em>但是我个人还是强烈推荐以CSV格式作为中介，因为几乎所有的统计软件都支持CSV数据格式</em>。</p>
 <section id="统计分析软件" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="统计分析软件"><span class="header-section-number">2.3.1</span> 统计分析软件</h3>
-<p>  顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <a href="#tbl-statsoftware">表&nbsp;<span class="quarto-unresolved-ref">tbl-statsoftware</span></a> 。我个人推荐R和Python，因此后文关于coding部分均是基于R的。</p>
-<div id="tbl-statsoftware" class="anchored">
-<table class="table">
-<caption>表&nbsp;2.2: 社会科学研究中常用统计软件比较</caption>
+<p>  顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <a href="#tbl-statsoftware" class="quarto-xref">表&nbsp;<span>2.2</span></a> 。我个人推荐R和Python，因此后文关于coding部分均是基于R的。</p>
+<div id="tbl-statsoftware" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-statsoftware-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.2: 社会科学研究中常用统计软件比较
+</figcaption>
+<div aria-describedby="tbl-statsoftware-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>软件名</th>
@@ -536,6 +560,8 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
 </div>
 </section>
 <section id="单个文件读取" class="level3" data-number="2.3.2">
@@ -594,7 +620,7 @@ div.csl-indent {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>csv_list <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dir, <span class="fu">list.files</span>(<span class="at">path =</span> dir, </span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">pattern =</span> <span class="st">"*.csv"</span>))</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(csv_list, readr<span class="sc">::</span>read_csv, </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"UTF-8"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"UTF-8"</span>))</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="读取同一个excel文件中的多个sheet" class="level4" data-number="2.3.3.2">
@@ -605,14 +631,14 @@ div.csl-indent {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(sheet_name, </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                     readxl<span class="sc">::</span>read_excel, </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">path =</span> <span class="st">"datasets.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">path =</span> <span class="st">"datasets.xlsx"</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 有两点需要强调一下：
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -631,7 +657,7 @@ div.csl-indent {
 </section>
 <section id="数据库转换" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="数据库转换"><span class="header-section-number">2.4</span> 数据库转换</h2>
-<p>  这一节的内容其实和 <a href="#sec-tidy"><span class="quarto-unresolved-ref">sec-tidy</span></a> 关联比较紧密，通常会用在Tidy Data的整理过程中。数据库转换其实就是对数据库的行（Row）和列（Column）进行的一系列操作，可以对数据库的结构进行改变。</p>
+<p>  这一节的内容其实和 <a href="chapter_3.html#sec-tidy" class="quarto-xref"><span>小节 3.2.2</span></a> 关联比较紧密，通常会用在Tidy Data的整理过程中。数据库转换其实就是对数据库的行（Row）和列（Column）进行的一系列操作，可以对数据库的结构进行改变。</p>
 <section id="长宽类型转换" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="长宽类型转换"><span class="header-section-number">2.4.1</span> 长宽类型转换</h3>
 <p>  也称作数据库的重构（Reshape），本质是对长数据（Long）和宽数据（Wide）形式之间进行转换。先简单说明一下长数据（Long）和宽数据（Wide）：</p>
@@ -639,22 +665,33 @@ div.csl-indent {
 <li><p>长数据（Long）：不是指行比列多，虽然通常情况下这种数据结构确实是行比列多，但本质是指同一个个体<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>有多条观测值，比如面板数据（Panel data）就是长数据。英文表述可能更清楚：A “long” dataset contains more than one row per subject, and uses a unique ID to identify each subject.</p></li>
 <li><p>宽数据（Wide）：与长数据相对的形式，比较好理解了，就是每个个体只有一条观测值。</p></li>
 </ul>
-<p>  从网上借了一张图，很清晰的说明了长款数据之间的差异，如 <a href="#fig-6">图&nbsp;<span class="quarto-unresolved-ref">fig-6</span></a>：</p>
-<div id="fig-6" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/fig-6-longwide.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">图&nbsp;2.5: 长款数据示意图，数据来源：https://www.statology.org/long-vs-wide-data/</figcaption><p></p>
+<p>  从网上借了一张图，很清晰的说明了长款数据之间的差异，如 <a href="#fig-6" class="quarto-xref">图&nbsp;<span>2.5</span></a>：</p>
+<div id="fig-6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fig-6-longwide.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;2.5: 长款数据示意图，数据来源：https://www.statology.org/long-vs-wide-data/
+</figcaption>
 </figure>
 </div>
-<p>  在数据分析过程中，进行长宽数据之间的转换是经常会有的需求，这时你可能就会问了，比如呢！比如 <a href="#tbl-panel">表&nbsp;<span class="quarto-unresolved-ref">tbl-panel</span></a>，一个微观调查的数据库，当在回归中需要控制时间固定效应时，你肯定希望数据是 <a href="#tbl-panel-long">表&nbsp;<span class="quarto-unresolved-ref">tbl-panel-long</span></a> 形式，而当需要计算两次wave调查的income的差值时，你肯定希望数据是 <a href="#tbl-panel-wide">表&nbsp;<span class="quarto-unresolved-ref">tbl-panel-wide</span></a> 形式。</p>
-<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>表&nbsp;2.3: 长宽数据转换需求示例</p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-panel-long" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<table class="table">
-<caption>(a) 长数据示例</caption>
+<p>  在数据分析过程中，进行长宽数据之间的转换是经常会有的需求，这时你可能就会问了，比如呢！比如 <a href="#tbl-panel" class="quarto-xref">表&nbsp;<span>2.3</span></a>，一个微观调查的数据库，当在回归中需要控制时间固定效应时，你肯定希望数据是 <a href="#tbl-panel-long" class="quarto-xref">表&nbsp;<span>2.3 (a)</span></a> 形式，而当需要计算两次wave调查的income的差值时，你肯定希望数据是 <a href="#tbl-panel-wide" class="quarto-xref">表&nbsp;<span>2.3 (b)</span></a> 形式。</p>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.3: 长宽数据转换需求示例
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-panel-long" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-panel-long-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) 长数据示例
+</figcaption>
+<div aria-describedby="tbl-panel-long-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">ID</th>
@@ -686,9 +723,17 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
-<div id="tbl-panel-wide" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<table class="table">
-<caption>(b) 宽数据示例</caption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-panel-wide" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-panel-wide-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) 宽数据示例
+</figcaption>
+<div aria-describedby="tbl-panel-wide-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">ID</th>
@@ -710,7 +755,12 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</figure>
 </div>
 <p>  常见的统计软件也都提供了数据库长宽转换的方法，只是易用性方面有所不同。比如，Stata中有<code>reshape</code>命令，而在R中，目前用得最为广泛的是<strong>tidyr</strong>包中的<code>pivot_longer()</code>和<code>pivot_wider()</code>函数，而之前这两个函数的功能是由另外两个函数：<code>gather()</code> 和 <code>spread()</code>提供的，由于后两个函数不容易被记住（这是Hadley Wickham的原话），所以Wickham就重写了这两个函数。</p>
 <p>  <code>pivot_longer()</code>和<code>pivot_wider()</code>函数的功能在官方文档中解释得非常清楚了，直接搬运如下：</p>
@@ -718,7 +768,7 @@ div.csl-indent {
 <li><p>pivot_longer() makes datasets longer by increasing the number of rows and decreasing the number of columns.</p></li>
 <li><p>pivot_longer() is commonly needed to tidy wild-caught datasets as they often optimise for ease of data entry or ease of comparison rather than ease of analysis.</p></li>
 </ul>
-<p>  以上两个函数的使用方式都特别简单和直观，参考<a href="https://cran.r-project.org/web/packages/tidyr/vignettes/pivot.html">官方文档</a>即可，在此不再赘述，仅提供一个例子作为演示，这里还是使用 <a href="#tbl-panel">表&nbsp;<span class="quarto-unresolved-ref">tbl-panel</span></a> 的例子</p>
+<p>  以上两个函数的使用方式都特别简单和直观，参考<a href="https://cran.r-project.org/web/packages/tidyr/vignettes/pivot.html">官方文档</a>即可，在此不再赘述，仅提供一个例子作为演示，这里还是使用 <a href="#tbl-panel" class="quarto-xref">表&nbsp;<span>2.3</span></a> 的例子</p>
 <ul>
 <li>构造数据库</li>
 </ul>
@@ -733,11 +783,15 @@ div.csl-indent {
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">3000</span>, <span class="dv">2400</span>)                    </span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                     )</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-demo" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.4: Dataframe of demo
+</figcaption>
+<div aria-describedby="tbl-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-demo" class="anchored">
-<table class="table table-sm table-striped">
-<caption>表&nbsp;2.4: Dataframe of demo</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">ID</th>
@@ -780,6 +834,8 @@ div.csl-indent {
 </table>
 </div>
 </div>
+</figure>
+</div>
 </div>
 <ul>
 <li>长数据转换为宽数据</li>
@@ -791,11 +847,15 @@ div.csl-indent {
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_from =</span> <span class="st">"wave"</span>, </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">values_from =</span> <span class="st">"income"</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey_wide)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-demo-wide" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-demo-wide-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.5: Dataframe of demo (Long to Wide)
+</figcaption>
+<div aria-describedby="tbl-demo-wide-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-demo-wide" class="anchored">
-<table class="table table-sm table-striped">
-<caption>表&nbsp;2.5: Dataframe of demo (Long to Wide)</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">ID</th>
@@ -823,6 +883,8 @@ div.csl-indent {
 </table>
 </div>
 </div>
+</figure>
+</div>
 </div>
 <ul>
 <li>宽数据转换为长数据</li>
@@ -834,11 +896,15 @@ div.csl-indent {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">values_to =</span> <span class="st">"income"</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(survey_long)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-demo-long" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-demo-long-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.6: Dataframe of demo (Wide to Long)
+</figcaption>
+<div aria-describedby="tbl-demo-long-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-demo-long" class="anchored">
-<table class="table table-sm table-striped">
-<caption>表&nbsp;2.6: Dataframe of demo (Wide to Long)</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">ID</th>
@@ -881,6 +947,8 @@ div.csl-indent {
 </table>
 </div>
 </div>
+</figure>
+</div>
 </div>
 </section>
 <section id="数据库的连接" class="level3" data-number="2.4.2">
@@ -892,28 +960,32 @@ div.csl-indent {
 </ul>
 <section id="横向联接" class="level4" data-number="2.4.2.1">
 <h4 data-number="2.4.2.1" class="anchored" data-anchor-id="横向联接"><span class="header-section-number">2.4.2.1</span> 横向联接</h4>
-<p>  在统计软件中一般使用<code>merge()</code>函数的较多，比如Stata和R中都具备此命令或者函数。不过现在使用join系列函数的比较多，可能更多的是为了和SQL语言统一，比如R中<strong>dplyr</strong>包提供了<code>join_**()</code>系列函数。横向连接一共分为六种情况，这里就用从网上借的一张 <a href="#fig-join">图&nbsp;<span class="quarto-unresolved-ref">fig-join</span></a> 来说明:</p>
+<p>  在统计软件中一般使用<code>merge()</code>函数的较多，比如Stata和R中都具备此命令或者函数。不过现在使用join系列函数的比较多，可能更多的是为了和SQL语言统一，比如R中<strong>dplyr</strong>包提供了<code>join_**()</code>系列函数。横向连接一共分为六种情况，这里就用从网上借的一张 <a href="#fig-join" class="quarto-xref">图&nbsp;<span>2.6</span></a> 来说明:</p>
 <ul>
 <li>内联（inner join）</li>
 <li>左联（left join）</li>
 <li>右联（right join）</li>
 <li>全联（full join）</li>
 <li>外联（anti join）</li>
-<li>半连（semi join）</li>
+<li>半联（semi join）</li>
 </ul>
 <p>  从图中可以很清晰地看出不同联接方式的差异。<strong>dplyr</strong>包中的<code>join_**()</code>系列函数也十分友好，查看<a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">官方文档</a>之后就可以很快熟练使用，在此不再举例说明。</p>
-<div id="fig-join" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/fig-7-joinfuncs.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">图&nbsp;2.6: dplyr包中的join系列函数，数据来源：https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti</figcaption><p></p>
+<div id="fig-join" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fig-7-joinfuncs.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;2.6: dplyr包中的join系列函数，数据来源：https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti
+</figcaption>
 </figure>
 </div>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 使用merge或者join时应该注意的问题
 </div>
 </div>
@@ -924,12 +996,12 @@ div.csl-indent {
 </ol>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 One more thing: 提供两种一次联接多个数据库的方法
 </div>
 </div>
@@ -940,7 +1012,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df1 <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">left_join</span>(df2, <span class="at">by =</span> <span class="st">"a"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">left_join</span>(df3, <span class="at">by =</span> <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">left_join</span>(df3, <span class="at">by =</span> <span class="st">"a"</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>方法二：利用<strong>purrr</strong>包中的<code>reduce()</code>函数</li>
@@ -948,7 +1020,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">reduce</span>(<span class="fu">list</span>(df1, df2, df3), </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                    left_join, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">by =</span> <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">by =</span> <span class="st">"a"</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -972,20 +1044,26 @@ One more thing: 提供两种一次联接多个数据库的方法
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">rep</span>(<span class="st">"Television"</span>, <span class="dv">3</span>)))</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">7</span>),</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"product"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Television"</span>, <span class="dv">2</span>), </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">rep</span>(<span class="st">"Air conditioner"</span>, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">rep</span>(<span class="st">"Air conditioner"</span>, <span class="dv">2</span>)))</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>  示例数据集的基本情况如 <a href="#tbl-union-demo">表&nbsp;<span class="quarto-unresolved-ref">tbl-union-demo</span></a> 。</p>
-<div>
+<p>  示例数据集的基本情况如 <a href="#tbl-union-demo" class="quarto-xref">表&nbsp;<span>2.7</span></a> 。</p>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df1)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-union-demo" class="cell tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>表&nbsp;2.7: 示例数据集</p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-union-demo-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-demo" style="flex-basis: 50.0%;justify-content: center;">
-<table class="table table-sm table-striped">
-<caption>(a) 1</caption>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df2)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-union-demo" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-union-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.7: 示例数据集
+</figcaption>
+<div aria-describedby="tbl-union-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-union-demo" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-union-demo-1" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-union-demo-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) 1
+</figcaption>
+<div aria-describedby="tbl-union-demo-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-union-demo-1" class="do-not-create-environment caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: right;">id</th>
@@ -1020,9 +1098,17 @@ One more thing: 提供两种一次联接多个数据库的方法
 </tbody>
 </table>
 </div>
-<div id="tbl-union-demo-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-demo" style="flex-basis: 50.0%;justify-content: center;">
-<table class="table table-sm table-striped">
-<caption>(b) 2</caption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-union-demo" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-union-demo-2" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-union-demo-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) 2
+</figcaption>
+<div aria-describedby="tbl-union-demo-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-union-demo-2" class="do-not-create-environment caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: right;">id</th>
@@ -1049,13 +1135,16 @@ One more thing: 提供两种一次联接多个数据库的方法
 </tbody>
 </table>
 </div>
+</figure>
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 <ul>
 <li>纵向联接</li>
 </ul>
-<div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_union <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">union</span>(df1, df2)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_union)</span>
@@ -1067,15 +1156,22 @@ One more thing: 提供两种一次联接多个数据库的方法
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_ints)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>df_setdiff <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">setdiff</span>(df1, df2)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_setdiff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-union-res" class="cell tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>表&nbsp;2.8: 纵向联接操作</p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-union-res-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
-<table class="table table-sm table-striped">
-<caption>(a) union</caption>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_setdiff)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-union-res" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-union-res-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.8: 纵向联接操作
+</figcaption>
+<div aria-describedby="tbl-union-res-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-union-res-1" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-union-res-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) union
+</figcaption>
+<div aria-describedby="tbl-union-res-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-union-res-1" class="do-not-create-environment caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: right;">id</th>
@@ -1118,9 +1214,17 @@ One more thing: 提供两种一次联接多个数据库的方法
 </tbody>
 </table>
 </div>
-<div id="tbl-union-res-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
-<table class="table table-sm table-striped">
-<caption>(b) union_all</caption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-union-res-2" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-union-res-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) union_all
+</figcaption>
+<div aria-describedby="tbl-union-res-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-union-res-2" class="do-not-create-environment caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: right;">id</th>
@@ -1171,11 +1275,19 @@ One more thing: 提供两种一次联接多个数据库的方法
 </tbody>
 </table>
 </div>
+</figure>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-union-res-3" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
-<table class="table table-sm table-striped">
-<caption>(c) intersect</caption>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-union-res-3" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-union-res-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) intersect
+</figcaption>
+<div aria-describedby="tbl-union-res-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-union-res-3" class="do-not-create-environment caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: right;">id</th>
@@ -1194,9 +1306,17 @@ One more thing: 提供两种一次联接多个数据库的方法
 </tbody>
 </table>
 </div>
-<div id="tbl-union-res-4" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
-<table class="table table-sm table-striped">
-<caption>(d) setdiff</caption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-union-res" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-union-res-4" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-union-res-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) setdiff
+</figcaption>
+<div aria-describedby="tbl-union-res-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-union-res-4" class="do-not-create-environment caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: right;">id</th>
@@ -1223,8 +1343,12 @@ One more thing: 提供两种一次联接多个数据库的方法
 </tbody>
 </table>
 </div>
+</figure>
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 </section>
 </section>
@@ -1263,15 +1387,19 @@ One more thing: 提供两种一次联接多个数据库的方法
 <ul>
 <li>在<strong>base</strong>包中提供了<code>aggregate()</code>函数进行分组运算，示例如下：</li>
 </ul>
-<p>如 <a href="#tbl-mtcars">表&nbsp;<span class="quarto-unresolved-ref">tbl-mtcars</span></a> 展示了<code>datasets</code>包中自带的一个数据集，可以看出一共有31个变量。</p>
+<p>如 <a href="#tbl-mtcars" class="quarto-xref">表&nbsp;<span>2.9</span></a> 展示了<code>datasets</code>包中自带的一个数据集，可以看出一共有31个变量。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(mtcars))</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-mtcars" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mtcars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2.9: mtcars
+</figcaption>
+<div aria-describedby="tbl-mtcars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-mtcars" class="anchored">
-<table class="table table-sm table-striped">
-<caption>表&nbsp;2.9: mtcars</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 26%">
 <col style="width: 7%">
@@ -1391,6 +1519,8 @@ One more thing: 提供两种一次联接多个数据库的方法
 </table>
 </div>
 </div>
+</figure>
+</div>
 </div>
 <p>  假设现在需要计算不同的<em>cyl</em>气缸数（Number of cylinders）对应的<em>hp</em>马力（Gross horsepower）的均值，则可以：</p>
 <div class="cell">
@@ -1398,9 +1528,9 @@ One more thing: 提供两种一次联接多个数据库的方法
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> mtcars, </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">FUN =</span> mean)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                            </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(mtcars_hp_mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(mtcars_hp_mean))</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">cyl</th>
@@ -1435,9 +1565,9 @@ One more thing: 提供两种一次联接多个数据库的方法
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">hp_mean =</span> <span class="fu">mean</span>(hp))</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(mtcars_hp_mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(mtcars_hp_mean))</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">cyl</th>
@@ -1464,9 +1594,9 @@ One more thing: 提供两种一次联接多个数据库的方法
 <p>  以上示例只是最基础的分组运算，在实际数据处理过程中，可以实现很丰富的需求。</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-dasu2003" class="csl-entry" role="doc-biblioentry">
-Dasu, T., and T. Johnson. 2003. <em>Exploratory Data Mining and Data Cleaning</em>. John Wiley &amp; Sons, Inc.
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-dasu2003" class="csl-entry" role="listitem">
+Dasu, T., 和 T. Johnson. 2003. <em>Exploratory Data Mining and Data Cleaning</em>. John Wiley &amp; Sons, Inc.
 </div>
 </div>
 </section>
@@ -1508,12 +1638,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
     }
-  });
-  clipboard.on('success', function(e) {
+    return false;
+  }
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1521,12 +1654,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "已复制");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "已复制");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -1545,11 +1678,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1559,8 +1731,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1572,9 +1753,245 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1616,12 +2033,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter_1.html" class="pagination-link">
+      <a href="./chapter_1.html" class="pagination-link" aria-label="文献知识的获取与管理">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">文献知识的获取与管理</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter_3.html" class="pagination-link">
+      <a href="./chapter_3.html" class="pagination-link" aria-label="数据的清洗">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据的清洗</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1629,15 +2046,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">
-        <ul class="footer-items list-unstyled">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
     <li class="nav-item">
- © 2023 Chi Shen, Xi'an Jiaotong University
+ © 2025 Chi Shen, Huazhong University of Science and Technology
   </li>  
 </ul>
-      </div>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
+
 
 
 

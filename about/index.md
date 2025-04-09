@@ -2,17 +2,17 @@
 layout: page
 title: About me
 tags: [about, Ph.D., theme]
-date: 2021-08-11
+date: 2025-01-22
 comments: false
 ---
 
 <center><a href="http://shumchi.github.io"><b>Here</b></a> is my reserved land.</center>
 ## Information
 
-* Ph.D, Assistant Professor 
-* Xi'an Jiaotong University, School of Publich Policy and Administration
-* Email: shenchi@outlook.com; chi.shen@xjtu.edu.cn
-* Research interests: health economics, data science, health utilization behavior.
+* Ph.D, Associate Professor 
+* School of Medicine and Health Management, Tongji Medical College, Huazhong University of Science and Technology
+* Email: shenchi@outlook.com; shenchi@hust.edu.cn
+* Research interests: Health Economics, Health System Reform, Medical Behavior.
 
 > > The theme used in my blog is from TaylanTatli
 
