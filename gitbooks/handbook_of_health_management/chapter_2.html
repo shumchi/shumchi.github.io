@@ -208,13 +208,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter_7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -236,7 +230,7 @@ div.csl-indent {
   <li><a href="#引子" id="toc-引子" class="nav-link active" data-scroll-target="#引子"><span class="header-section-number">2.1</span> 引子</a></li>
   <li><a href="#数据的采集原则" id="toc-数据的采集原则" class="nav-link" data-scroll-target="#数据的采集原则"><span class="header-section-number">2.2</span> 数据的采集原则</a>
   <ul class="collapse">
-  <li><a href="#数据的分类" id="toc-数据的分类" class="nav-link" data-scroll-target="#数据的分类"><span class="header-section-number">2.2.1</span> 数据的分类</a></li>
+  <li><a href="#sec-datacato" id="toc-sec-datacato" class="nav-link" data-scroll-target="#sec-datacato"><span class="header-section-number">2.2.1</span> 数据的分类</a></li>
   <li><a href="#数据库设计" id="toc-数据库设计" class="nav-link" data-scroll-target="#数据库设计"><span class="header-section-number">2.2.2</span> 数据库设计</a></li>
   <li><a href="#变量名命名规范" id="toc-变量名命名规范" class="nav-link" data-scroll-target="#变量名命名规范"><span class="header-section-number">2.2.3</span> 变量名命名规范</a></li>
   <li><a href="#sec-codebook" id="toc-sec-codebook" class="nav-link" data-scroll-target="#sec-codebook"><span class="header-section-number">2.2.4</span> 数据字典</a></li>
@@ -336,19 +330,20 @@ div.csl-indent {
 </section>
 <section id="数据的采集原则" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="数据的采集原则"><span class="header-section-number">2.2</span> 数据的采集原则</h2>
-<section id="数据的分类" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="数据的分类"><span class="header-section-number">2.2.1</span> 数据的分类</h3>
-<p>  在介绍数据采集原则之前，先说一下数据的分类，当然这里不讨论统计学上对数据的分类（如定性、定量、计数、计量等等），而是按照数据产生的途径将数据进行分类。我个人理解可以归纳为三类；</p>
+<section id="sec-datacato" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-datacato"><span class="header-section-number">2.2.1</span> 数据的分类</h3>
+<p>  在介绍数据采集原则之前，先说一下数据的分类，当然这里不讨论统计学上对数据的分类（如定性、定量、计数、计量等等），而是按照数据产生的途径将数据进行分类。根据作者本人的经验，将卫生政策与管理领域常用的研究数据归纳为四类；</p>
 <ul>
-<li><p>调查数据（Survey data）：也就是通过针对个人或者机构的调查获得的数据，调查研究是开展社会科学研究的最主要方式，如田野调查、问卷调查、访谈等等。</p></li>
-<li><p>行为数据（Behavioral data）：即记录人或者机器行为的数据，如日常的网购数据、出行数据、够药数据、医保账户使用数据等等，最早应用于商业领域的用户行为分析。</p></li>
-<li><p>统计数据（Administration data）：即政府或者机构对于涉及经济、社会和日常职能业务相关的指标进行按时间加总之后的数据，如金融情况、财政情况、教育资源、卫生资源等等，严格来说统计数据是基于调查数据和行为数据进行聚合、统计、校正之后形成的。</p></li>
+<li><p>调查数据（Survey Data）：也就是通过针对个人或者机构的调查获得的数据，调查研究是开展社会科学研究的最主要方式，如田野调查、问卷调查、访谈等等。</p></li>
+<li><p>行为数据（Behavioral Data）：即记录人或者机器行为的数据，如日常的网购数据、出行数据、网络日志数据等等，最早应用于商业领域的用户行为分析。</p></li>
+<li><p>赔付数据（Claim Data）：卫生政策与管理领域常见的一类数据，赔付数据的定义是指在服务提供的计费和报销过程中收集的信息。最常见的是由医疗服务提供者（如医院、诊所或医生）生成，并提交给支付方（如保险公司或政府项目）以获得付款。理赔数据包括有关所提供服务的详细信息、诊断、操作、费用以及患者的人口统计信息，如则购药记录、医保账户使用记录、门诊和住院数据等。</p></li>
+<li><p>行政数据（Administration Data）：即政府或者机构对于涉及经济、社会和日常职能业务相关的指标进行按时间加总之后的数据，如金融情况、财政情况、教育资源、卫生资源等等。严格来说行政数据是常常是基于调查数据和行为数据进行聚合、统计、校正之后形成的。</p></li>
 </ul>
-<p>  我将三种数据的优缺点总结如 <a href="#tbl-datasource" class="quarto-xref">表&nbsp;<span>2.1</span></a></p>
+<p>  我将四种数据的优缺点总结如 <a href="#tbl-datasource" class="quarto-xref">表&nbsp;<span>2.1</span></a></p>
 <div id="tbl-datasource" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-datasource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-表&nbsp;2.1: 三种类型数据优缺点比较
+表&nbsp;2.1: 四种类型数据优缺点比较
 </figcaption>
 <div aria-describedby="tbl-datasource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -371,12 +366,12 @@ div.csl-indent {
 <td>1.调查成本高，特别是大样本人群调查；<br> 2.回忆偏倚、调查者偏倚、访员偏倚等不可避免。</td>
 </tr>
 <tr class="even">
-<td>行为数据</td>
+<td>行为和赔付数据</td>
 <td>1.样本大，通常为海量数据；<br> 2.时间和空间尺度细腻。</td>
 <td>1.获取较难，通常被机构和平台掌握；<br> 2.对分析技能要求高；<br> 3.通常混有非真实数据，如网购中的刷单，医保中的骗保等。</td>
 </tr>
 <tr class="odd">
-<td>统计数据</td>
+<td>行政数据</td>
 <td>1.较易获取。</td>
 <td>1.真实性难以验证；<br> 2.时间和空间尺度粗糙；<br> 3.指标不够丰富。</td>
 </tr>

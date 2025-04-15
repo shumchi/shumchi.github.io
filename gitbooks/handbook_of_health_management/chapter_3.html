@@ -208,13 +208,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter_7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：匹配</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter_8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">番外篇（三）：主成分分析</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">番外篇（二）：主成分分析</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -845,22 +839,8 @@ Sleep 0.4862645 0.2037014 1.0000000</code></pre>
 </ol>
 <p><strong>实例：</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice) </span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'mice'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:stats':
-
-    filter</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    cbind, rbind</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">seed =</span> <span class="dv">1234</span>, <span class="at">method =</span> <span class="st">"pmm"</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice) </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">seed =</span> <span class="dv">1234</span>, <span class="at">method =</span> <span class="st">"pmm"</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  iter imp variable
@@ -890,13 +870,10 @@ Attaching package: 'mice'</code></pre>
   5   4  NonD  Dream  Sleep  Span  Gest
   5   5  NonD  Dream  Sleep  Span  Gest</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Number of logged events: 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sleep_im <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, <span class="at">action =</span> <span class="dv">1</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#查看填补情况</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>imp<span class="sc">$</span>imp<span class="sc">$</span>Dream</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sleep_im <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, <span class="at">action =</span> <span class="dv">1</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#查看填补情况</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>imp<span class="sc">$</span>imp<span class="sc">$</span>Dream</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     1   2   3   4   5
 1  0.0 0.5 0.5 0.5 0.3
@@ -915,12 +892,12 @@ Attaching package: 'mice'</code></pre>
 </div>
 <p><strong>检查插补效果：</strong></p>
 <p>  通过散点图和分布图，检查填补数据的效果，<a href="#fig-miss-4" class="quarto-xref">图&nbsp;<span>3.5</span></a> ，红色点表示填补值，蓝色表示非填补值。</p>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp, Dream <span class="sc">~</span> Gest <span class="sc">+</span> Span, </span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">18</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">densityplot</span>(imp)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">stripplot</span>(imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.2</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp, Dream <span class="sc">~</span> Gest <span class="sc">+</span> Span, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">18</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">densityplot</span>(imp)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">stripplot</span>(imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.2</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="fig-miss-4" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-miss-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -971,29 +948,29 @@ Attaching package: 'mice'</code></pre>
 <p><strong>填补后数据集应用：</strong></p>
 <p>  通常情况下，填补完成后，通常会进行回归分析，如前所示，MI填补生成了5个填补数据集，此时就会有一个疑问，到底选择哪一个作为最后的完整数据集。<strong>mice</strong>包提供了一个函数可以很容易的将5个填补数据集分别进行回归，然后将结果合并后返回一个结果。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sleep_im_fit <span class="ot">&lt;-</span> <span class="fu">with</span>(imp, </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">lm</span>(Sleep <span class="sc">~</span> Gest <span class="sc">+</span> Span))</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(sleep_im_fit,</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">output =</span> <span class="st">"gt"</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sleep_im_fit <span class="ot">&lt;-</span> <span class="fu">with</span>(imp, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">lm</span>(Sleep <span class="sc">~</span> Gest <span class="sc">+</span> Span))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(sleep_im_fit,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">output =</span> <span class="st">"gt"</span>)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="nrfbkrlxqy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nrfbkrlxqy table {
+<div id="noyjhbvpck" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#noyjhbvpck table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nrfbkrlxqy thead, #nrfbkrlxqy tbody, #nrfbkrlxqy tfoot, #nrfbkrlxqy tr, #nrfbkrlxqy td, #nrfbkrlxqy th {
+#noyjhbvpck thead, #noyjhbvpck tbody, #noyjhbvpck tfoot, #noyjhbvpck tr, #noyjhbvpck td, #noyjhbvpck th {
   border-style: none;
 }
 
-#nrfbkrlxqy p {
+#noyjhbvpck p {
   margin: 0;
   padding: 0;
 }
 
-#nrfbkrlxqy .gt_table {
+#noyjhbvpck .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1019,12 +996,12 @@ Attaching package: 'mice'</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_caption {
+#noyjhbvpck .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nrfbkrlxqy .gt_title {
+#noyjhbvpck .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1036,7 +1013,7 @@ Attaching package: 'mice'</code></pre>
   border-bottom-width: 0;
 }
 
-#nrfbkrlxqy .gt_subtitle {
+#noyjhbvpck .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1048,7 +1025,7 @@ Attaching package: 'mice'</code></pre>
   border-top-width: 0;
 }
 
-#nrfbkrlxqy .gt_heading {
+#noyjhbvpck .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1060,13 +1037,13 @@ Attaching package: 'mice'</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_bottom_border {
+#noyjhbvpck .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_col_headings {
+#noyjhbvpck .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1081,7 +1058,7 @@ Attaching package: 'mice'</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_col_heading {
+#noyjhbvpck .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1101,7 +1078,7 @@ Attaching package: 'mice'</code></pre>
   overflow-x: hidden;
 }
 
-#nrfbkrlxqy .gt_column_spanner_outer {
+#noyjhbvpck .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1113,15 +1090,15 @@ Attaching package: 'mice'</code></pre>
   padding-right: 4px;
 }
 
-#nrfbkrlxqy .gt_column_spanner_outer:first-child {
+#noyjhbvpck .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nrfbkrlxqy .gt_column_spanner_outer:last-child {
+#noyjhbvpck .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nrfbkrlxqy .gt_column_spanner {
+#noyjhbvpck .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1133,11 +1110,11 @@ Attaching package: 'mice'</code></pre>
   width: 100%;
 }
 
-#nrfbkrlxqy .gt_spanner_row {
+#noyjhbvpck .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nrfbkrlxqy .gt_group_heading {
+#noyjhbvpck .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1163,7 +1140,7 @@ Attaching package: 'mice'</code></pre>
   text-align: left;
 }
 
-#nrfbkrlxqy .gt_empty_group_heading {
+#noyjhbvpck .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1178,15 +1155,15 @@ Attaching package: 'mice'</code></pre>
   vertical-align: middle;
 }
 
-#nrfbkrlxqy .gt_from_md > :first-child {
+#noyjhbvpck .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nrfbkrlxqy .gt_from_md > :last-child {
+#noyjhbvpck .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nrfbkrlxqy .gt_row {
+#noyjhbvpck .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1205,7 +1182,7 @@ Attaching package: 'mice'</code></pre>
   overflow-x: hidden;
 }
 
-#nrfbkrlxqy .gt_stub {
+#noyjhbvpck .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1218,7 +1195,7 @@ Attaching package: 'mice'</code></pre>
   padding-right: 5px;
 }
 
-#nrfbkrlxqy .gt_stub_row_group {
+#noyjhbvpck .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1232,15 +1209,15 @@ Attaching package: 'mice'</code></pre>
   vertical-align: top;
 }
 
-#nrfbkrlxqy .gt_row_group_first td {
+#noyjhbvpck .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nrfbkrlxqy .gt_row_group_first th {
+#noyjhbvpck .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nrfbkrlxqy .gt_summary_row {
+#noyjhbvpck .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1250,16 +1227,16 @@ Attaching package: 'mice'</code></pre>
   padding-right: 5px;
 }
 
-#nrfbkrlxqy .gt_first_summary_row {
+#noyjhbvpck .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_first_summary_row.thick {
+#noyjhbvpck .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nrfbkrlxqy .gt_last_summary_row {
+#noyjhbvpck .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1269,7 +1246,7 @@ Attaching package: 'mice'</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_grand_summary_row {
+#noyjhbvpck .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1279,7 +1256,7 @@ Attaching package: 'mice'</code></pre>
   padding-right: 5px;
 }
 
-#nrfbkrlxqy .gt_first_grand_summary_row {
+#noyjhbvpck .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1289,7 +1266,7 @@ Attaching package: 'mice'</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_last_grand_summary_row_top {
+#noyjhbvpck .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1299,11 +1276,11 @@ Attaching package: 'mice'</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_striped {
+#noyjhbvpck .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nrfbkrlxqy .gt_table_body {
+#noyjhbvpck .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1312,7 +1289,7 @@ Attaching package: 'mice'</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_footnotes {
+#noyjhbvpck .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1326,7 +1303,7 @@ Attaching package: 'mice'</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_footnote {
+#noyjhbvpck .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1335,7 +1312,7 @@ Attaching package: 'mice'</code></pre>
   padding-right: 5px;
 }
 
-#nrfbkrlxqy .gt_sourcenotes {
+#noyjhbvpck .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1349,7 +1326,7 @@ Attaching package: 'mice'</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nrfbkrlxqy .gt_sourcenote {
+#noyjhbvpck .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1357,63 +1334,63 @@ Attaching package: 'mice'</code></pre>
   padding-right: 5px;
 }
 
-#nrfbkrlxqy .gt_left {
+#noyjhbvpck .gt_left {
   text-align: left;
 }
 
-#nrfbkrlxqy .gt_center {
+#noyjhbvpck .gt_center {
   text-align: center;
 }
 
-#nrfbkrlxqy .gt_right {
+#noyjhbvpck .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nrfbkrlxqy .gt_font_normal {
+#noyjhbvpck .gt_font_normal {
   font-weight: normal;
 }
 
-#nrfbkrlxqy .gt_font_bold {
+#noyjhbvpck .gt_font_bold {
   font-weight: bold;
 }
 
-#nrfbkrlxqy .gt_font_italic {
+#noyjhbvpck .gt_font_italic {
   font-style: italic;
 }
 
-#nrfbkrlxqy .gt_super {
+#noyjhbvpck .gt_super {
   font-size: 65%;
 }
 
-#nrfbkrlxqy .gt_footnote_marks {
+#noyjhbvpck .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nrfbkrlxqy .gt_asterisk {
+#noyjhbvpck .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nrfbkrlxqy .gt_indent_1 {
+#noyjhbvpck .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nrfbkrlxqy .gt_indent_2 {
+#noyjhbvpck .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nrfbkrlxqy .gt_indent_3 {
+#noyjhbvpck .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nrfbkrlxqy .gt_indent_4 {
+#noyjhbvpck .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nrfbkrlxqy .gt_indent_5 {
+#noyjhbvpck .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
