@@ -233,8 +233,7 @@ div.csl-indent {
   <li><a href="#sec-datacato" id="toc-sec-datacato" class="nav-link" data-scroll-target="#sec-datacato"><span class="header-section-number">2.2.1</span> 数据的分类</a></li>
   <li><a href="#数据库设计" id="toc-数据库设计" class="nav-link" data-scroll-target="#数据库设计"><span class="header-section-number">2.2.2</span> 数据库设计</a></li>
   <li><a href="#变量名命名规范" id="toc-变量名命名规范" class="nav-link" data-scroll-target="#变量名命名规范"><span class="header-section-number">2.2.3</span> 变量名命名规范</a></li>
-  <li><a href="#sec-codebook" id="toc-sec-codebook" class="nav-link" data-scroll-target="#sec-codebook"><span class="header-section-number">2.2.4</span> 数据字典</a></li>
-  <li><a href="#数据库建立工具" id="toc-数据库建立工具" class="nav-link" data-scroll-target="#数据库建立工具"><span class="header-section-number">2.2.5</span> 数据库建立工具</a></li>
+  <li><a href="#数据库建立工具" id="toc-数据库建立工具" class="nav-link" data-scroll-target="#数据库建立工具"><span class="header-section-number">2.2.4</span> 数据库建立工具</a></li>
   </ul></li>
   <li><a href="#数据的读取" id="toc-数据的读取" class="nav-link" data-scroll-target="#数据的读取"><span class="header-section-number">2.3</span> 数据的读取</a>
   <ul class="collapse">
@@ -245,7 +244,7 @@ div.csl-indent {
   <li><a href="#数据库转换" id="toc-数据库转换" class="nav-link" data-scroll-target="#数据库转换"><span class="header-section-number">2.4</span> 数据库转换</a>
   <ul class="collapse">
   <li><a href="#长宽类型转换" id="toc-长宽类型转换" class="nav-link" data-scroll-target="#长宽类型转换"><span class="header-section-number">2.4.1</span> 长宽类型转换</a></li>
-  <li><a href="#数据库的连接" id="toc-数据库的连接" class="nav-link" data-scroll-target="#数据库的连接"><span class="header-section-number">2.4.2</span> 数据库的连接</a></li>
+  <li><a href="#数据库的联接" id="toc-数据库的联接" class="nav-link" data-scroll-target="#数据库的联接"><span class="header-section-number">2.4.2</span> 数据库的联接</a></li>
   <li><a href="#筛选观测值" id="toc-筛选观测值" class="nav-link" data-scroll-target="#筛选观测值"><span class="header-section-number">2.4.3</span> 筛选观测值</a></li>
   <li><a href="#筛选变量" id="toc-筛选变量" class="nav-link" data-scroll-target="#筛选变量"><span class="header-section-number">2.4.4</span> 筛选变量</a></li>
   </ul></li>
@@ -282,7 +281,7 @@ div.csl-indent {
 <section id="引子" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="引子"><span class="header-section-number">2.1</span> 引子</h2>
 <p>  在数据的发展历程中有过两次革命。第一次数据革命是近代科学诞生之时，实现了数据与科学研究的融合，数据在科学研究中的基础地位得到确立。对研究过程和结果赋予精确化的诉求，是近代科学的基本特征之一。在以数据为依据的研究范式中，数据的可靠性和准确性代表了研究的精确性，人们甚至将以数据为依据的实证研究作为判断 “科学”与“伪科学”的标准。第二次数据革命发生于因信息技术的发展而导致数据产生的速度和规模急剧发展之时，它不仅改变着科学研究范式，实现社会科学研究的定量化，也将促使经济、社会、军事等所有社会领域产生巨大的变革。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>因此，掌握数据的分析能力是现代社会科学研究必须要掌握的技能。</p>
-<p>  现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型。它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%到80%的时间都需要花费在数据的清洗和预处理阶段 <span class="citation" data-cites="dasu2003">(<a href="chapter_references.html#ref-dasu2003" role="doc-biblioref">Dasu 和 Johnson 2003</a>)</span>，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
+<p>  现实社会中产生的数据是纷繁复杂的，有时甚至是杂乱无章的，并非我们所设想的那样拿到数据就可以跑模型。它需要经过一系列的处理过程，这个处理过程一般称作数据操作（Data Manipulate或者Data Wrangle）。在定量实证研究中，接近70%到80%的时间都需要花费在数据的清洗和预处理阶段 <span class="citation" data-cites="dasu2003">(<a href="#ref-dasu2003" role="doc-biblioref">Dasu&nbsp;等, 2003</a>)</span>，然而很多青年学者都容易忽视这部分工作的重要性，而现实情况是，数据分析是没有捷径可以走的，机器学习也无法完成这部分工作，数据的质量决定了研究的质量，否则就是”Garbage in, Grabage out“。</p>
 <p>  一个基于数据开展实证研究（不论定性或是定量）的基本流程至少都应该包含以下步骤：</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -322,7 +321,7 @@ div.csl-indent {
 <li>数据的采集原则</li>
 <li>数据的批量读取</li>
 <li>数据库转换</li>
-<li>数据整合</li>
+<li>数据库整合</li>
 </ul>
 </div>
 </div>
@@ -339,7 +338,7 @@ div.csl-indent {
 <li><p>赔付数据（Claim Data）：卫生政策与管理领域常见的一类数据，赔付数据的定义是指在服务提供的计费和报销过程中收集的信息。最常见的是由医疗服务提供者（如医院、诊所或医生）生成，并提交给支付方（如保险公司或政府项目）以获得付款。理赔数据包括有关所提供服务的详细信息、诊断、操作、费用以及患者的人口统计信息，如则购药记录、医保账户使用记录、门诊和住院数据等。</p></li>
 <li><p>行政数据（Administration Data）：即政府或者机构对于涉及经济、社会和日常职能业务相关的指标进行按时间加总之后的数据，如金融情况、财政情况、教育资源、卫生资源等等。严格来说行政数据是常常是基于调查数据和行为数据进行聚合、统计、校正之后形成的。</p></li>
 </ul>
-<p>  我将四种数据的优缺点总结如 <a href="#tbl-datasource" class="quarto-xref">表&nbsp;<span>2.1</span></a></p>
+<p>  我将四种数据的优缺点总结如 <a href="#tbl-datasource" class="quarto-xref">表&nbsp;<span class="quarto-unresolved-ref">tbl-datasource</span></a></p>
 <div id="tbl-datasource" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-datasource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -441,47 +440,8 @@ div.csl-indent {
 <li><p>变量名可以采用驼峰命名法(familyIncome)、双峰命名法(FamilyIncome)、下划线法(family_income)等规则，不同的项目中会选择不同的命名规则，重要的是保持一致，尽量不要在同一个数据库或者项目中混合采用不同的命名方式。</p></li>
 </ul>
 </section>
-<section id="sec-codebook" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="sec-codebook"><span class="header-section-number">2.2.4</span> 数据字典</h3>
-<p>  数据字典（Data dictionary）也称作Codebook或者Specification，是指详细记录数据库中的变量名、变量内容、变量取值、变量标签、变量属性等信息，其作用主要是为了方便统计分析过程中检查和查看变量。</p>
-<p>  数据字典可以手动整理，也可以通过统计软件中的函数生成，如Stata中的<code>codebook</code>命令，R中也有<a href="https://cran.nyuad.nyu.edu/web/packages/codebookr/index.html">codebookr</a>和<a href="https://cran.r-project.org/web/packages/datadictionary/index.html">datadictionary</a>两个package。</p>
-<p>  下面给出一个我之前整理的codebook示例，如 <a href="#fig-codebook1" class="quarto-xref">图&nbsp;<span>2.2</span></a> 和 <a href="#fig-codebook2" class="quarto-xref">图&nbsp;<span>2.3</span></a></p>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout="[[1], [1]]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-codebook1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-codebook1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figures/fig-3-Codebook1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-codebook1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-图&nbsp;2.2: Codebook封面信息
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-codebook2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-codebook2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figures/fig-4-Codebook2.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-codebook2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-图&nbsp;2.3: Codebook内容
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="数据库建立工具" class="level3" data-number="2.2.5">
-<h3 data-number="2.2.5" class="anchored" data-anchor-id="数据库建立工具"><span class="header-section-number">2.2.5</span> 数据库建立工具</h3>
+<section id="数据库建立工具" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="数据库建立工具"><span class="header-section-number">2.2.4</span> 数据库建立工具</h3>
 <ul>
 <li><p><strong>入门工具</strong>：EpiData，这个基本是各个学校开设数据库管理课程都会讲到的一个工具，但是EpiData比较古老了，如果没记错应该是从2008年之后就再未更新过。</p></li>
 <li><p><strong>普通线上工具</strong>：问卷星、腾讯问卷，能满足基本的数据库建立需求，但是对于较大型的研究一般不推荐。</p></li>
@@ -494,7 +454,7 @@ div.csl-indent {
 <img src="figures/fig-5-Redcap.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-redcap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-图&nbsp;2.4: 西安交通大学开放研究数据平台
+图&nbsp;2.2: 西安交通大学开放研究数据平台
 </figcaption>
 </figure>
 </div>
@@ -506,7 +466,7 @@ div.csl-indent {
 <p>  尽管现在的数据管理软件，不管是古老的EpiData或是时下流行的RedCap，都可以支持直接导出适用于不同统计分析软件的特定格式，比如dta（支持Stata）、sas7bat（支持SAS）、sav（支持SPSS），<em>但是我个人还是强烈推荐以CSV格式作为中介，因为几乎所有的统计软件都支持CSV数据格式</em>。</p>
 <section id="统计分析软件" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="统计分析软件"><span class="header-section-number">2.3.1</span> 统计分析软件</h3>
-<p>  顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <a href="#tbl-statsoftware" class="quarto-xref">表&nbsp;<span>2.2</span></a> 。我个人推荐R和Python，因此后文关于coding部分均是基于R的。</p>
+<p>  顺带简单说一下目前在社会科学研究领域主要用的统计软件，如 <a href="#tbl-statsoftware" class="quarto-xref">表&nbsp;<span class="quarto-unresolved-ref">tbl-statsoftware</span></a> 。我个人推荐R和Python，因此后文关于coding部分均是基于R的。</p>
 <div id="tbl-statsoftware" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-statsoftware-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -588,18 +548,18 @@ div.csl-indent {
 </section>
 <section id="批量读取" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="批量读取"><span class="header-section-number">2.3.3</span> 批量读取</h3>
-<p>  批量读取数据是在统计分析过程中很常见的一个需求，具体分为两种情况。</p>
+<p>  在卫生政策与管理领域的研究中，存在非常多这样的需求场景：如在开展卫生服务供方研究时，需要将医疗机构按月度统计的表格进行整理；又如在开展健康或卫生服务危险因素研究时，需要将空气质量每日监测数据进行汇总。当面对这样的场景时，逐个文件读取将不是一个很明智的选择，批量读取数据就成了非常重要的技能。批量读取又具体分为两种情况：</p>
 <section id="读取同一个文件夹中的多个文件" class="level4" data-number="2.3.3.1">
 <h4 data-number="2.3.3.1" class="anchored" data-anchor-id="读取同一个文件夹中的多个文件"><span class="header-section-number">2.3.3.1</span> 读取同一个文件夹中的多个文件</h4>
 <p>  如，在一个名为<em>data</em>的的文件夹中有365个CSV文件，分别命名为<code>china_cities_20210101</code>…<code>china_cities_20211231</code>，分别记录了全国所有地级市每一天的空气质量数据，现在需要对空气质量进行分析，那么第一步就需要将这365个文件读取并整合进一个数据库中，面对这个问题，你首先会想到如何处理呢？</p>
 <p>  这里提供两种思路：</p>
 <ol type="1">
-<li><p>根据文件命名，可以发现其中有一定的规律，也就是每个文件名自由最后的数字在变动，并且是按日期累加，那么就可以直接利用循环进行读取，因为思路较简单，代码略。</p></li>
+<li><p>根据文件命名，可以发现其中有一定的规律，也就是每个文件名只有最后的数字在变动，并且是按日期累加，那么就可以直接利用循环进行读取，因为思路较简单，代码略。</p></li>
 <li><p>以上这种情况并不常见，有时很难从文件名中发现规律，那么就只能先想办法获取所有文件名称，然后进行循环读取。</p></li>
 </ol>
 <ul>
 <li>由于文件全部为同一类型，因此可以使用<code>list.files()</code>函数进行获得（代码如下），其中path参数指定的是文件夹路径，pattern参数指定的是文件类型，其中*是通配符。</li>
-<li>剩下的工作就是循环读取了，可以使用if循环，但是不推荐，这里推荐使用<strong>purrr</strong>包中的<code>map()</code>函数，其实<strong>purrr</strong>是R自带的<code>apply()</code>函数族的高阶版本，由于是CSV文件，因此<code>map()</code>函数中FUNC参数使用<strong>readr</strong>包中<code>read_csv()</code>函数。</li>
+<li>剩下的工作就是循环读取了，可以使用for循环，但是不推荐，这里推荐使用<strong>purrr</strong>包中的<code>map()</code>函数，其实<strong>purrr</strong>是R自带的<code>apply()</code>函数族的高阶版本，由于是CSV文件，因此<code>map()</code>函数中FUNC参数使用<strong>readr</strong>包中<code>read_csv()</code>函数。</li>
 <li>最后一步就是将合并为一个data.frame，由于<code>map()</code>函数返回的是一个列表list，因此可以通过<code>do.call()</code>函数对list中的对象进行递归。</li>
 <li>也可以使用 <code>map_dfr()</code>直接省略第三步。</li>
 </ul>
@@ -652,7 +612,7 @@ div.csl-indent {
 </section>
 <section id="数据库转换" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="数据库转换"><span class="header-section-number">2.4</span> 数据库转换</h2>
-<p>  这一节的内容其实和 <a href="chapter_3.html#sec-tidy" class="quarto-xref"><span>小节 3.2.2</span></a> 关联比较紧密，通常会用在Tidy Data的整理过程中。数据库转换其实就是对数据库的行（Row）和列（Column）进行的一系列操作，可以对数据库的结构进行改变。</p>
+<p>  这一节的内容其实和 <a href="#sec-tidy" class="quarto-xref"><span class="quarto-unresolved-ref">sec-tidy</span></a> 关联比较紧密，通常会用在Tidy Data的整理过程中。数据库转换其实就是对数据库的行（Row）和列（Column）进行的一系列操作，可以对数据库的结构进行改变。</p>
 <section id="长宽类型转换" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="长宽类型转换"><span class="header-section-number">2.4.1</span> 长宽类型转换</h3>
 <p>  也称作数据库的重构（Reshape），本质是对长数据（Long）和宽数据（Wide）形式之间进行转换。先简单说明一下长数据（Long）和宽数据（Wide）：</p>
@@ -660,18 +620,18 @@ div.csl-indent {
 <li><p>长数据（Long）：不是指行比列多，虽然通常情况下这种数据结构确实是行比列多，但本质是指同一个个体<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>有多条观测值，比如面板数据（Panel data）就是长数据。英文表述可能更清楚：A “long” dataset contains more than one row per subject, and uses a unique ID to identify each subject.</p></li>
 <li><p>宽数据（Wide）：与长数据相对的形式，比较好理解了，就是每个个体只有一条观测值。</p></li>
 </ul>
-<p>  从网上借了一张图，很清晰的说明了长款数据之间的差异，如 <a href="#fig-6" class="quarto-xref">图&nbsp;<span>2.5</span></a>：</p>
+<p>  从网上借了一张图，很清晰的说明了长宽数据之间的差异，如 <a href="#fig-6" class="quarto-xref">图&nbsp;<span class="quarto-unresolved-ref">fig-6</span></a>：</p>
 <div id="fig-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/fig-6-longwide.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-图&nbsp;2.5: 长款数据示意图，数据来源：https://www.statology.org/long-vs-wide-data/
+图&nbsp;2.3: 长款数据示意图，数据来源：https://www.statology.org/long-vs-wide-data/
 </figcaption>
 </figure>
 </div>
-<p>  在数据分析过程中，进行长宽数据之间的转换是经常会有的需求，这时你可能就会问了，比如呢！比如 <a href="#tbl-panel" class="quarto-xref">表&nbsp;<span>2.3</span></a>，一个微观调查的数据库，当在回归中需要控制时间固定效应时，你肯定希望数据是 <a href="#tbl-panel-long" class="quarto-xref">表&nbsp;<span>2.3 (a)</span></a> 形式，而当需要计算两次wave调查的income的差值时，你肯定希望数据是 <a href="#tbl-panel-wide" class="quarto-xref">表&nbsp;<span>2.3 (b)</span></a> 形式。</p>
+<p>  在数据分析过程中，进行长宽数据之间的转换是经常会有的需求，这时你可能就会问了，比如呢！比如 <a href="#tbl-panel" class="quarto-xref">表&nbsp;<span class="quarto-unresolved-ref">tbl-panel</span></a>，一个微观调查的数据库，当在回归中需要控制时间固定效应时，你肯定希望数据是 <a href="#tbl-panel-long" class="quarto-xref">表&nbsp;<span class="quarto-unresolved-ref">tbl-panel-long</span></a> 形式，而当需要计算两次wave调查的income的差值时，你肯定希望数据是 <a href="#tbl-panel-wide" class="quarto-xref">表&nbsp;<span class="quarto-unresolved-ref">tbl-panel-wide</span></a> 形式。</p>
 <div id="tbl-panel" class="quarto-layout-panel anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -763,7 +723,7 @@ div.csl-indent {
 <li><p>pivot_longer() makes datasets longer by increasing the number of rows and decreasing the number of columns.</p></li>
 <li><p>pivot_longer() is commonly needed to tidy wild-caught datasets as they often optimise for ease of data entry or ease of comparison rather than ease of analysis.</p></li>
 </ul>
-<p>  以上两个函数的使用方式都特别简单和直观，参考<a href="https://cran.r-project.org/web/packages/tidyr/vignettes/pivot.html">官方文档</a>即可，在此不再赘述，仅提供一个例子作为演示，这里还是使用 <a href="#tbl-panel" class="quarto-xref">表&nbsp;<span>2.3</span></a> 的例子</p>
+<p>  以上两个函数的使用方式都特别简单和直观，参考<a href="https://cran.r-project.org/web/packages/tidyr/vignettes/pivot.html">官方文档</a>即可，在此不再赘述，仅提供一个例子作为演示，这里还是使用 <a href="#tbl-panel" class="quarto-xref">表&nbsp;<span class="quarto-unresolved-ref">tbl-panel</span></a> 的例子</p>
 <ul>
 <li>构造数据库</li>
 </ul>
@@ -946,16 +906,16 @@ div.csl-indent {
 </div>
 </div>
 </section>
-<section id="数据库的连接" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="数据库的连接"><span class="header-section-number">2.4.2</span> 数据库的连接</h3>
-<p>  数据库的连接分为两大类：</p>
+<section id="数据库的联接" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="数据库的联接"><span class="header-section-number">2.4.2</span> 数据库的联接</h3>
+<p>  在近些年前沿的卫生政策与管理领域的研究中，非常鼓励使用多源数据开展实证研究，单一的供方或者需方纬度的数据难以探讨医药卫生体制改革中的复杂科学问题。在这一类研究中，多源数据之间的联接是必不可少的环节。数据库的联接分为两大类：</p>
 <ul>
-<li>横向连接，一般称为merge或者join，指的是对列（Column）的扩展。</li>
-<li>纵向连接，一般称为append或者concat或者union，指的是对行（Row）的扩展。</li>
+<li>横向联接，一般称为merge或者join，指的是对列（Column）的扩展。</li>
+<li>纵向联接，一般称为append或者concat或者union，指的是对行（Row）的扩展。</li>
 </ul>
 <section id="横向联接" class="level4" data-number="2.4.2.1">
 <h4 data-number="2.4.2.1" class="anchored" data-anchor-id="横向联接"><span class="header-section-number">2.4.2.1</span> 横向联接</h4>
-<p>  在统计软件中一般使用<code>merge()</code>函数的较多，比如Stata和R中都具备此命令或者函数。不过现在使用join系列函数的比较多，可能更多的是为了和SQL语言统一，比如R中<strong>dplyr</strong>包提供了<code>join_**()</code>系列函数。横向连接一共分为六种情况，这里就用从网上借的一张 <a href="#fig-join" class="quarto-xref">图&nbsp;<span>2.6</span></a> 来说明:</p>
+<p>  在统计软件中一般使用<code>merge()</code>函数的较多，比如Stata和R中都具备此命令或者函数。不过现在使用join系列函数的比较多，可能更多的是为了和SQL语言统一，比如R中<strong>dplyr</strong>包提供了<code>**_join()</code>系列函数。横向联接一共分为六种情况，这里就用从网上借的一张 <a href="#fig-join" class="quarto-xref">图&nbsp;<span class="quarto-unresolved-ref">fig-join</span></a> 来说明:</p>
 <ul>
 <li>内联（inner join）</li>
 <li>左联（left join）</li>
@@ -964,14 +924,14 @@ div.csl-indent {
 <li>外联（anti join）</li>
 <li>半联（semi join）</li>
 </ul>
-<p>  从图中可以很清晰地看出不同联接方式的差异。<strong>dplyr</strong>包中的<code>join_**()</code>系列函数也十分友好，查看<a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">官方文档</a>之后就可以很快熟练使用，在此不再举例说明。</p>
+<p>  从图中可以很清晰地看出不同联接方式的差异。<strong>dplyr</strong>包中的<code>**_join()</code>系列函数也十分友好，查看<a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">官方文档</a>之后就可以很快熟练使用，在此不再举例说明。</p>
 <div id="fig-join" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/fig-7-joinfuncs.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-图&nbsp;2.6: dplyr包中的join系列函数，数据来源：https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti
+图&nbsp;2.4: dplyr包中的join系列函数，数据来源：https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti
 </figcaption>
 </figure>
 </div>
@@ -1041,7 +1001,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"product"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Television"</span>, <span class="dv">2</span>), </span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">rep</span>(<span class="st">"Air conditioner"</span>, <span class="dv">2</span>)))</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>  示例数据集的基本情况如 <a href="#tbl-union-demo" class="quarto-xref">表&nbsp;<span>2.7</span></a> 。</p>
+<p>  示例数据集的基本情况如 <a href="#tbl-union-demo" class="quarto-xref">表&nbsp;<span class="quarto-unresolved-ref">tbl-union-demo</span></a> 。</p>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df1)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df2)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-union-demo" class="quarto-layout-panel anchored">
@@ -1357,7 +1317,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 </section>
 <section id="筛选变量" class="level3" data-number="2.4.4">
 <h3 data-number="2.4.4" class="anchored" data-anchor-id="筛选变量"><span class="header-section-number">2.4.4</span> 筛选变量</h3>
-<p>  筛选变量（Variable），也称作筛选列（Column）），同样是非常常见的数据库操作，一样也很简单。在Stata里也可以通过<code>keep</code>、<code>drop</code>等命令进行列筛选操作，是的你没看错，这两个命令可以同时进行行和列筛选。在R里主要有两种方法：</p>
+<p>  筛选变量（Variable），也称作筛选列（Column），同样是非常常见的数据库操作，一样也很简单。在Stata里也可以通过<code>keep</code>、<code>drop</code>等命令进行列筛选操作，是的你没看错，这两个命令可以同时进行行和列筛选。在R里主要有两种方法：</p>
 <ul>
 <li><strong>base</strong>包自带的函数：如<code>subset()</code>函数，或者切片等方法，是的你还是没看错，此方法可以同时进行行和列筛选。</li>
 <li><strong>dplyr</strong>包里的<code>select()</code>函数，特别可以注意一下与<code>starts_with()</code>、<code>ends_with()</code>、<code>contains()</code>等函数联用<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>，可以极大提高变量选择的效率。另外，<code>select()</code>函数现在有三个拓展函数<code>select_all()</code>、<code>select_at()</code>、<code>select_if()</code>，针对不同的使用场景，如下：
@@ -1382,7 +1342,7 @@ One more thing: 提供两种一次联接多个数据库的方法
 <ul>
 <li>在<strong>base</strong>包中提供了<code>aggregate()</code>函数进行分组运算，示例如下：</li>
 </ul>
-<p>如 <a href="#tbl-mtcars" class="quarto-xref">表&nbsp;<span>2.9</span></a> 展示了<code>datasets</code>包中自带的一个数据集，可以看出一共有31个变量。</p>
+<p>如 <a href="#tbl-mtcars" class="quarto-xref">表&nbsp;<span class="quarto-unresolved-ref">tbl-mtcars</span></a> 展示了<code>datasets</code>包中自带的一个数据集，可以看出一共有11个变量32条观测值。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
@@ -1589,9 +1549,9 @@ One more thing: 提供两种一次联接多个数据库的方法
 <p>  以上示例只是最基础的分组运算，在实际数据处理过程中，可以实现很丰富的需求。</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-dasu2003" class="csl-entry" role="listitem">
-Dasu, T., 和 T. Johnson. 2003. <em>Exploratory Data Mining and Data Cleaning</em>. John Wiley &amp; Sons, Inc.
+Dasu T. Johnson T. 2003. Exploratory Data Mining and Data Cleaning[M]. John Wiley &amp; Sons, Inc.
 </div>
 </div>
 </section>
