@@ -29,3 +29,5 @@ comments: true
 ## Study
 
 - [Profit Compensation Activity of Hospitals after COVID-19](https://shumchi.github.io/study/profit_compensation_activity_covid19.html)
+
+![](https://komarev.com/ghpvc/?username=shumchi&style=flat-square)
